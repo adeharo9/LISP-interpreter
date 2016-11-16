@@ -1,29 +1,36 @@
-#ifndef ENVIRONMENT_HH
-#define ENVIRONMENT_HH
+#ifndef DEFVARS_HH
+#define DEFVARS_HH
 
 #include <iostream>
 #include <map>
 
 using namespace std;
 
-class Variables{
+class DefVars{
 private:
 
     map<string,int> varMem;
 
 public:
 
-Environment();
+//_______ CONSTRUCTORS
 
-Environment(const Environment& inEnv);
+	DefVars();
 
-~Environment();
+	DefVars(const DefVars& inEnv);
 
-void add(string inKey,int value);
+//_______ DESTRUCTORS
 
-void update(string inKey,int );
+	~DefVars();
 
-void write() const;
+//_______ MODIFICADORS
+
+	void add(string inKey,int value);
+
+	void update(string inKey,int );
+//_______ I/O
+
+	void write() const;
 
 };
 

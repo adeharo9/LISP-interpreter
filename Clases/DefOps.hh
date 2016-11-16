@@ -18,15 +18,23 @@ private:
 
 public:
 
+//_______ CONSTRUCTORS
+
 DefOp();
 
 DefOp(const DefOp& inDefOp);
 
+//_______ DESTRUCTORS
+
 ~DefOp();
+
+//_______ MODIFICADORS
 
 void add(string name,const opDefinition& inOpDefinition);
 
 void update(string name,const opDefinition& inOpDefinition);
+
+//_______ I/O
 
 void write() const;
 
