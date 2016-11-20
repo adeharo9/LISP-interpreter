@@ -15,7 +15,7 @@ private:
 
 	typedef Expression (*primitiveOperation)(const Expression&) ;
 
-	map<string,primitiveOperation> primitiveOperationMap;
+	map<string,primitiveOperation> primOpMap;
 
 	//_______ MÉTODOS PRIVADOS
 
@@ -69,8 +69,8 @@ public:
 
 	PrimitiveOperationSpace();
 	/* Pre: cierto */
-	/* Post: el resultado es un mapa de operaciones primitivas inicializado
-			 con las operaciones primitivas */
+	/* Post: el resultado es un objeto con mapa de operaciones primitivas
+			 'primOpMap' inicializado con las operaciones primitivas */
 
 	//_______ DESTRUCTORES
 

@@ -1,20 +1,13 @@
 #ifndef EXPRESSION_HH
 #define EXPRESSION_HH
 
-#ifndef NO_DIAGRAM
-#include <iostream>
 #include <list>
-#endif
+#include "tree.hh"
 
 using namespace std;
 
-/** @class Expression
-    @brief Representa una expresión evaluable con atributos: valor, operando y lista de expresiones
+class Expression {
 
-    Todas las operaciones son de <b>coste (?)</b>
-*/
-
-class Expression{
 private:
 
 		bool undefined;
@@ -26,14 +19,7 @@ private:
 
 public:
 
-	//_______ CONSTRUCTORS
-
-	/** @brief Creadora por defecto. 
-
-	    Se ejecuta automáticamente al declarar una expresión.
-	    \pre <em>cierto</em>
-	    \post El resultado es una prenda sin valor, sin operando
-	*/   
+	//_______ CONSTRUCTORES
 
 	Expression();
 	/* Pre: cierto*/
@@ -66,14 +52,14 @@ public:
 	/* Pre: inExp es una expresión evaluable */
 	/* Post: crea un objeto copia de inExp */
 
-	//_______ DESTRUCTORS
+	//_______ DESTRUCTORES
 
 	~Expression();
 	/* Pre: cierto */
 	/* Post: se liberan los recursos asignados fuera de un ámbito de
 	   visibilidad */
 
-	//_______ CONSULTORS
+	//_______ CONSULTORES
 
 	bool isValue() const;
 	/* Pre: cierto */
@@ -94,7 +80,7 @@ public:
 	/* Pre: cierto*/
 	/* Post: retorna cierto si la expresión está vacía, falso en otro caso*/
 
-	//_______ MODIFICADORS
+	//_______ MODIFICADORES
 
 	void evaluate();
 	/* Pre: cierto */
@@ -110,10 +96,10 @@ public:
 	//_______ I/O
 
 	void read();
-	/* Pre: hay preparada en el canal estandar de entrada una expresión
-	   evaluable */
+	/* Pre: hay preparada en el canal estándar de entrada una expresión
+			evaluable */
 	/* Post: el parámetro implícito pasa a tener los atributos leídos del
-	   canal estandar de entrada */
+			 canal estandar de entrada */
 
 	void write() const;
 	/* Pre: el parámetro implícito no está vacío */

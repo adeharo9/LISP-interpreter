@@ -1,11 +1,13 @@
 #ifndef ENVIRONMENT_HH
 #define ENVIRONMENT_HH
 
+#include "Expression.hh"
 #include "PrimitiveOperationSpace.hh"
 #include "VariableSpace.hh"
 #include "OperationSpace.hh"
 
 class Environment {
+
 private:
 
 	/* INVARIANTE
@@ -21,10 +23,12 @@ public:
 
 	Environment();
 	/* Pre: cierto */
-	/* Post: el resultado es un mapa de operaciones primitivas del espacio
-			 de operaciones primitivas 'primOpSpace' inicializado con las
-			 operaciones primitivas, un espacio de variables 'varSpace'
-			 vacío y un espacio de operaciones 'opSpace' vacío */
+	/* Post: el resultado es un mapa de operaciones primitivas 'primOpMap'
+			 del espacio de operaciones primitivas 'primOpSpace'
+			 inicializado con las operaciones primitivas, un espacio de
+			 variables 'varSpace' con mapa de variables 'varMap' vacío y
+			 un espacio de operaciones 'opSpace' con un mapa de operaciones
+			 'opMap' vacío */
 
 	//_______ DESTRUCTORES
 
@@ -37,62 +41,67 @@ public:
 
 	void add_var(string key, const Expression& exp);
 	/* Pre: 'key' es un string no vacío;
-			el mapa de variables del espacio de variables 'varSpace' del
-			parámetro implícito no contiene una	variable con clave 'key' */
-	/* Post: se añade al mapa de variables del espacio de variables
-			 'varSpace' del parámetro implícito la variable con clave
-			 'key' y expresión 'exp' */
+			el mapa de variables 'varMap' del espacio de variables
+			'varSpace' del parámetro implícito no contiene ninguna variable
+			con clave 'key' */
+	/* Post: se añade al mapa de variables 'varMap' del espacio de
+			 variables 'varSpace' del parámetro implícito la variable con
+			 clave 'key' y expresión 'exp' */
 
 	void add_op(string key, string parameters, string exp);
 	/* Pre: 'key' es un string no vacío;
-			'key' no corresponde al nombre de alguna de las operaciones
+			'key' no corresponde al nombre de ninguna de las operaciones
 			primitivas;
-			el mapa de operaciones del espacio de operaciones 'opSpace' del
-			parámetro implícito no contiene una operacion con clave	'key' */
-	/* Post: se añade al mapa de operaciones del espacio de operaciones
-			 'opSpace' del parámetro implícito la operacion con clave
-			 'key', parámetros 'parameters' y expresión 'exp' */
+			el mapa de operaciones 'opMap' del espacio de operaciones
+			'opSpace' del parámetro implícito no contiene ninguna operación
+			con clave 'key' */
+	/* Post: se añade al mapa de operaciones 'opMap' del espacio de
+			 operaciones 'opSpace' del parámetro implícito la operación
+			 con clave 'key', parámetros 'parameters' y expresión 'exp' */
 
 	void update_var(string key, const Expression& exp);
 	/* Pre: 'key' es un string no vacío;
-			el mapa de variables del espacio de variables 'varSpace' del
-			parámetro implícito contiene una variable con clave 'key' */
+			el mapa de variables 'varMap' del espacio de variables
+			'varSpace' del parámetro implícito contiene una variable con
+			clave 'key' */
 	/* Post: la expresión de la variable con clave 'key' en el mapa de
-			 variables del espacio de variables 'varSpace' del parámetro
-			 implícito pasa a ser 'exp' */
+			 variables 'varMap' del espacio de variables 'varSpace' del
+			 parámetro implícito pasa a ser 'exp' */
 
 	void update_op(string key string parameters, string exp);
 	/* Pre: 'key' es un string no vacío;
-			'key' no corresponde al nombre de alguna de las operaciones
+			'key' no corresponde al nombre de ninguna de las operaciones
 			primitivas;
-			el mapa de operaciones del espacio de operaciones 'opSpace' del
-			parámetro implícito contiene una operación con clave 'key' */
+			el mapa de operaciones 'opMap' del espacio de operaciones
+			'opSpace' del parámetro implícito contiene una operación con
+			clave 'key' */
 	/* Post: los parámetros y la expresión de la operación con clave 'key'
-			 en el mapa de operaciones del espacio de operaciones 'opSpace'
-			 del parámetro implícito pasan a ser 'parameters' y 'exp',
-			 respectivamente */
+			 en el mapa de operaciones 'opMap' del espacio de operaciones
+			 'opSpace' del parámetro implícito pasan a ser 'parameters' y
+			 'exp', respectivamente */
 
 	//_______ CONSULTORES
 
 	bool is_primitive(string key) const;
 	/* Pre: 'key' es un string no vacío */
 	/* Post: devuelve cierto si la operación de clave 'key' es una
-			 operación primitiva contenida en el mapa de operaciones del
-			 espacio de operaciones primitivas 'primOpSpace';
+			 operación primitiva contenida en el mapa de operaciones
+			 'primOpMap' del espacio de operaciones primitivas
+			 'primOpSpace';
 			 en otro caso, devuelve falso */
 
 	bool exists_var(string key) const;
     /* Pre: 'key' es un string no vacío */
     /* Post: devuelve cierto si la variable con clave 'key' existe en el
-    		 mapa de variables del espacio de variables 'varSpace' del
-    		 parámetro implícito;
+    		 mapa de variables 'varMap' del espacio de variables 'varSpace'
+    		 del parámetro implícito;
     		 en otro caso, devuelve falso */
 
 	bool exists_op(string key) const;
     /* Pre: 'key' es un string no vacío */
     /* Post: devuelve cierto si la operación con clave 'key' existe en el
-    		 mapa de operaciones del espacio de operaciones 'opSpace' del
-    		 parámetro implícito;
+    		 mapa de operaciones 'opMap' del espacio de operaciones
+    		 'opSpace' del parámetro implícito;
     		 en otro caso, devuelve falso */
 
 	//_______ I/O
@@ -103,16 +112,17 @@ public:
 			 y del espacio de operaciones 'opSpace' por el canal estándar
 			 de salida, si lo tenían;
 			 en el caso del contenido del espacio de variables 'varSpace',
-			 si el resultado de evaluar la expresión de la variable es
-			 indefinido, se escribe "indefinido";
+			 si el resultado de evaluar la expresión de alguna de las
+			 variables es indefinido, se escribe "indefinido";
 			 si alguno o ambos espacios están vacíos, no se escribe nada
 			 en relacion al/los espacio/s vacío/s por el canal estándar de
 			 salida */
 
 	void write_var(string key);
 	/* Pre: 'key' es un string no vacío;
-			el mapa de variables del espacio de variables 'varSpace' del
-			parámetro implícito contiene una variable con clave 'key' */
+			el mapa de variables 'varMap' del espacio de variables
+			'varSpace' del parámetro implícito contiene una variable con
+			clave 'key' */
 	/* Post: se ha escrito el contenido de la variable con clave 'key' por
 			 el canal estándar de salida;
 			 en caso que el resultado de evaluar la expresión sea
@@ -120,8 +130,9 @@ public:
 
 	void write_op(string key);
 	/* Pre: 'key' es un string no vacío;
-			el mapa de operaciones del espacio de operaciones 'opSpace' del
-			parámetro implícito contiene una operación con clave 'key' */
+			el mapa de operaciones 'opMap' del espacio de operaciones
+			'opSpace' del parámetro implícito contiene una operación con
+			clave 'key' */
 	/* Post: se ha escrito el contenido de la operación con clave 'key' por
 			 el canal estándar de salida */
 
