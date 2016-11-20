@@ -6,6 +6,7 @@
 using namespace std;
 
 class OperationSpace {
+
 private:
 
 	/* INVARIANTE
@@ -90,6 +91,6 @@ public:
 	/* Post: se ha escrito el contenido de la operación con clave 'key' por
 			 el canal estándar de salida */
 
-	};
+};
 
 #endif

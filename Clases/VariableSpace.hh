@@ -7,6 +7,7 @@
 using namespace std;
 
 class VariableSpace {
+
 private:
 
     /* INVARIANTE
@@ -33,7 +34,7 @@ public:
 
 	VariableSpace(const VariableSpace& inVariableSpace);
 	/* Pre: cierto */
-	/* Post: el resultado es un objeto copia de inVariableSpace */
+	/* Post: el resultado es un objeto copia de 'inVariableSpace' */
 	
 	//_______ DESTRUCTORES
 
@@ -45,9 +46,9 @@ public:
 	//_______ MODIFICADORES
 
 	void add(string key, const Expression& exp);
-	/* Pre: 'key es un string no vacío;
+	/* Pre: 'key' es un string no vacío;
 			el mapa de variables del parámetro implícito no contiene una
-			variable con clave 'key */
+			variable con clave 'key' */
 	/* Post: se añade al mapa de variables del parámetro implícito la 
 			 variable con clave 'key' y expresión 'exp' */
 
@@ -61,7 +62,7 @@ public:
 	//_______ CONSULTORES
 
     bool exists(string key) const;
-    /* Pre: 'key' es un string no vacío*/
+    /* Pre: 'key' es un string no vacío */
     /* Post: devuelve cierto si la variable con clave 'key' existe en el
     		 mapa de variables del parámetro implícito;
     		 en otro caso, devuelve falso */
@@ -71,18 +72,19 @@ public:
 	void write_map() const;
 	/* Pre: el mapa de variables del parámetro implícito no está vacío */
 	/* Post: se ha escrito el contenido del mapa de variables del parámetro
-			 implícito por el canal estándar de salida; en caso que el
-			 resultado de evaluar la expresión sea indefinido, se escribe
-			 "indefinido" */
+			 implícito por el canal estándar de salida;
+			 en caso que el resultado de evaluar la expresión sea
+			 indefinido, se escribe "indefinido" */
 
 	void write_var(string key) const;
 	/* Pre: 'key' es un string no vacío;
 			el mapa de variables del parámetro implícito contiene una
 			variable con clave 'key' */
 	/* Post: se ha escrito el contenido de la variable con clave 'key' por
-			 el canal estándar de salida; en caso que el resultado de
-			 evaluar la expresión sea indefinido, se escribe "indefinido" */
+			 el canal estándar de salida;
+			 en caso que el resultado de evaluar la expresión sea
+			 indefinido, se escribe "indefinido" */
 
-	};
+};
 
 #endif
