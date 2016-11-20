@@ -25,21 +25,20 @@ public:
 
 	OperationSpace();
 	/* Pre: cierto */
-	/* Post: el resultado es un objeto con mapa de operaciones 'opMap'
-			 vacío */
+	/* Post: crea un objeto con mapa de operaciones 'opMap' vacío */
 
 	OperationSpace(string key, string parameters, string exp);
 	/* Pre: 'key' es un string no vacío;
 			'exp' es un string no vacío;
 			'key' no corresponde al nombre de ninguna de las operaciones
 			primitivas */
-	/* Post: el resultado es un objeto con mapa de operaciones 'opMap'
-			 inicializado con la operación de clave 'key', parámetros
-			 'parameters' y expresión 'exp' */
+	/* Post: crea un objeto con mapa de operaciones 'opMap' inicializado
+			 con la operación de clave 'key', parámetros 'parameters' y
+			 expresión 'exp' */
 
 	OperationSpace(const OperationSpace& opSpace);
 	/* Pre: cierto */
-	/* Post: el resultado es un objeto copia de 'opSpace' */
+	/* Post: crea un objeto copia de 'opSpace' */
 
 	//_______ DESTRUCTORES
 

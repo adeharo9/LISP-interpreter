@@ -69,8 +69,8 @@ public:
 
 	PrimitiveOperationSpace();
 	/* Pre: cierto */
-	/* Post: el resultado es un objeto con mapa de operaciones primitivas
-			 'primOpMap' inicializado con las operaciones primitivas */
+	/* Post: crea un objeto con mapa de operaciones primitivas 'primOpMap'
+			 inicializado con las operaciones primitivas */
 
 	//_______ DESTRUCTORES
 

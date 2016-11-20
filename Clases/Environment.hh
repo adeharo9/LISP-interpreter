@@ -23,11 +23,11 @@ public:
 
 	Environment();
 	/* Pre: cierto */
-	/* Post: el resultado es un mapa de operaciones primitivas 'primOpMap'
+	/* Post: crea un objeto con mapa de operaciones primitivas 'primOpMap'
 			 del espacio de operaciones primitivas 'primOpSpace'
 			 inicializado con las operaciones primitivas, un espacio de
-			 variables 'varSpace' con mapa de variables 'varMap' vacío y
-			 un espacio de operaciones 'opSpace' con un mapa de operaciones
+			 variables 'varSpace' con mapa de variables 'varMap' vacío y un
+			 espacio de operaciones 'opSpace' con un mapa de operaciones
 			 'opMap' vacío */
 
 	//_______ DESTRUCTORES

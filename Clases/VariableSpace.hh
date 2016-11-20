@@ -25,18 +25,17 @@ public:
 
 	VariableSpace();
 	/* Pre: cierto */
-	/* Post: el resultado es un objeto con mapa de variables 'varMap'
+	/* Post: crea un objeto con mapa de variables 'varMap'
 			 vacío */
 
 	VariableSpace(string key, const Expression& exp);
 	/* Pre: 'key' es un string no vacío */
-	/* Post: el resultado es un objeto con mapa de variables 'varMap'
-			 inicializado con la variable de clave 'key' y expresión
-			 'exp' */
+	/* Post: crea un objeto con mapa de variables 'varMap' inicializado
+			 con la variable de clave 'key' y expresión 'exp' */
 
 	VariableSpace(const VariableSpace& varSpace);
 	/* Pre: cierto */
-	/* Post: el resultado es un objeto copia de 'varSpace' */
+	/* Post: crea un objeto copia de 'varSpace' */
 	
 	//_______ DESTRUCTORES
 

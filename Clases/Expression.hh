@@ -10,23 +10,23 @@ class Expression {
 
 private:
 
+	struct definition {
 		bool undefined;
 		bool isValue;
 		bool isOp;
 	    int value;
 	    string op;
-	    list<Expression*> lExp;
+	};
+
+	tree<definition> exp;
 
 public:
 
 	//_______ CONSTRUCTORES
 
 	Expression();
-	/* Pre: cierto*/
-	/* Post: crea un objeto vacio:
-				isValue=false
-				isOp=false
-				lExp está vacía*/
+	/* Pre: cierto */
+	/* Post: crea un objeto vacío */
 
 	Expression(int inValue);
 	/* Pre: cierto*/
@@ -56,29 +56,8 @@ public:
 
 	~Expression();
 	/* Pre: cierto */
-	/* Post: se liberan los recursos asignados fuera de un ámbito de
-	   visibilidad */
-
-	//_______ CONSULTORES
-
-	bool isValue() const;
-	/* Pre: cierto */
-	/* Post: retorna cierto si la expresión es un valor atómico, falso en
-	   otro caso */
-
-	bool isOp() const;
-	/* Pre: cierto */
-	/* Post: retorna cierto si la expresión es una operación a ser
-	   evaluada, falso en otro caso */
-
-	bool isList() const;
-	/* Pre: cierto */
-	/* Post: retorna cierto si la expresión es una lista de expresiones
-	   (atómicas o no), falso en otro caso */
-
-	bool empty() const;
-	/* Pre: cierto*/
-	/* Post: retorna cierto si la expresión está vacía, falso en otro caso*/
+	/* Post: libera los recursos locales del parámetro implícito al salir
+			 de un ámbito de visibilidad */
 
 	//_______ MODIFICADORES
 
@@ -93,18 +72,42 @@ public:
 				  contiene los valores que representan los valores de los
 				  átomos o expresiones operables anteriores */
 
+	//_______ CONSULTORES
+
+	bool isValue() const;
+	/* Pre: cierto */
+	/* Post: devuelve cierto si la expresión es un valor atómico;
+			 en otro caso, devuelve falso */
+
+	bool isOp() const;
+	/* Pre: cierto */
+	/* Post: devuelve cierto si la expresión es una operación a ser
+			 evaluada;
+			 en otro caso, devuelve falso */
+
+	bool isList() const;
+	/* Pre: cierto */
+	/* Post: devuelve cierto si la expresión es una lista de expresiones
+			 (atómicas o no);
+			 en otro caso, devuelve falso */
+
+	bool empty() const;
+	/* Pre: cierto */
+	/* Post: devuelve cierto si la expresión está vacía;
+			 en otro caso, devuelve falso */
+
 	//_______ I/O
 
 	void read();
 	/* Pre: hay preparada en el canal estándar de entrada una expresión
 			evaluable */
 	/* Post: el parámetro implícito pasa a tener los atributos leídos del
-			 canal estandar de entrada */
+			 canal estándar de entrada */
 
 	void write() const;
 	/* Pre: el parámetro implícito no está vacío */
 	/* Post: escribe el valor (resultado) de la expresión representada por
-	   el parámetro implícito por el canal estandar de salida  */
+			 el parámetro implícito por el canal estandar de salida  */
 
 };
 
