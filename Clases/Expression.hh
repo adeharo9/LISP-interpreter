@@ -12,9 +12,9 @@ private:
 
 	struct definition {
 		bool undefined;
-		bool isValue;
+		bool isVal;
 		bool isOp;
-	    int value;
+	    int val;
 	    string op;
 	};
 
@@ -28,28 +28,49 @@ public:
 	/* Pre: cierto */
 	/* Post: crea un objeto vacío */
 
-	Expression(int inValue);
+	Expression(int value);
 	/* Pre: cierto*/
-	/* Post: crea un objeto con valor igual a inValue y isValue=cierto */
+	/* Post: crea un objeto con raíz con las siguientes propiedades:
+				'undefined' igual a falso,
+				'isVal' igual a cierto,
+				'isOp' igual a falso,
+				'val' igual a 'value',
+				'op' sin inicializar */
 
-	Expression(const string& inOp,const list<Expression*>& inLExp);
-	/* Pre: inOp es un operador existente en el espacio de operadores
-	   definidos (primitivos o no) */
-	/* Post: crea un objeto con
-				op igual a inOp
-				lExp igual a inLExp
-				isOp igual a cierto 
-				isValue iguala a falso */
+	Expression(string operator,const list<tree<definition> >& lExp);
+	/* Pre: 'operator' es un string no vacío;
+			'operator' es un operador existente en el espacio de
+			operaciones primitivas o en el espacio de operaciones definidas
+			por el usuario */
+	/* Post: crea un objeto con raíz con la siguientes propiedades:
+				'undefined' igual a falso,
+				'isVal' igual a falso,
+				'isOp' igual a cierto,
+				'val' sin inicializar,
+				'op' sin inicializar
+			 con el primer elemento de sus ramas con las siguientes
+			 propiedades:
+				'undefined' igual a falso,
+				'isVal' igual a falso,
+				'isOp' igual a falso,
+				'val' sin inicializar,
+				'op' igual a 'operator'
+			y con el resto de elementos de sus ramas igual a los elementos
+			de 'lExp' */
 
-	Expression(const list<Expression*>& inLExp);
-	/* Pre: inLExp es una lista de expresiones evaluables */
-	/* Post: crea un objeto con
-				lExp igual a inLExp
-				isValue igual a falso
-				isOp igual a falso */
+	Expression(const list<tree<definition> >& lExp);
+	/* Pre: lExp es una lista de expresiones */
+	/* Post: crea un objeto con raíz con la siguientes propiedades:
+				'undefined' igual a falso,
+				'isVal' igual a falso,
+				'isOp' igual a falso,
+				'val' sin inicializar,
+				'op' sin inicializar
+			 y con los elementos de sus ramas igual a los elementos de
+			 'lExp' */
 
 	Expression(const Expression& inExp);
-	/* Pre: inExp es una expresión evaluable */
+	/* Pre: cierto */
 	/* Post: crea un objeto copia de inExp */
 
 	//_______ DESTRUCTORES
@@ -62,52 +83,52 @@ public:
 	//_______ MODIFICADORES
 
 	void evaluate();
-	/* Pre: cierto */
+	/* Pre: el parámetro implícito no está vácío */
 	/* Post: el parámetro implícito pasa a ser:
-				· átomo si era un valor o una expresión operable. value es
-				  el valor del átomo o de la expresión operable, isOp es
-				  falso y lExp pasa a estar vacío
-				· lista si era una lista de átomos o de expresiones
-				  operables. isValue y isPp pasan a ser falso, y lExp
-				  contiene los valores que representan los valores de los
-				  átomos o expresiones operables anteriores */
+				valor, representado por 'val', si era una expresión
+				evaluable;
+				lista, representada por las ramas de 'exp', si era una
+				lista de expresiones evaluables;
+				indefinido, representado por 'undefined' igual a cierto,
+				si alguno de los nodos de las ramas de exp era
+				indefinido */
 
 	//_______ CONSULTORES
 
-	bool isValue() const;
-	/* Pre: cierto */
-	/* Post: devuelve cierto si la expresión es un valor atómico;
-			 en otro caso, devuelve falso */
-
-	bool isOp() const;
-	/* Pre: cierto */
-	/* Post: devuelve cierto si la expresión es una operación a ser
-			 evaluada;
-			 en otro caso, devuelve falso */
-
-	bool isList() const;
-	/* Pre: cierto */
-	/* Post: devuelve cierto si la expresión es una lista de expresiones
-			 (atómicas o no);
-			 en otro caso, devuelve falso */
-
 	bool empty() const;
 	/* Pre: cierto */
-	/* Post: devuelve cierto si la expresión está vacía;
+	/* Post: devuelve cierto si el parámetro implícito está vacío;
+			 en otro caso, devuelve falso */
+
+	bool is_value() const;
+	/* Pre: el parámetro implícito no está vacío */
+	/* Post: devuelve cierto si el parámetro implícito es un valor atómico;
+			 en otro caso, devuelve falso */
+
+	bool is_op() const;
+	/* Pre: el parámetro implícito no está vacío */
+	/* Post: devuelve cierto si el parámetro implícito es una operación a
+			 ser evaluada;
+			 en otro caso, devuelve falso */
+
+	bool is_list() const;
+	/* Pre: el parámetro implícito no está vacío */
+	/* Post: devuelve cierto si el parámetro implícito es una lista de
+			 expresiones;
 			 en otro caso, devuelve falso */
 
 	//_______ I/O
 
 	void read();
-	/* Pre: hay preparada en el canal estándar de entrada una expresión
-			evaluable */
+	/* Pre: hay preparada en el canal estándar de entrada una expresión */
 	/* Post: el parámetro implícito pasa a tener los atributos leídos del
 			 canal estándar de entrada */
 
-	void write() const;
+	void write();
 	/* Pre: el parámetro implícito no está vacío */
-	/* Post: escribe el valor (resultado) de la expresión representada por
-			 el parámetro implícito por el canal estandar de salida  */
+	/* Post: escribe el valor de la expresión o la lista de valores de la
+			 lista de expresiones representada/s por el parámetro implícito
+			 por el canal estandar de salida  */
 
 };
 

@@ -3,6 +3,7 @@
 
 #include <cstddef>
 #include <list>
+#include "ExceptionHandler.hh"
 
 using namespace std;
 
@@ -131,7 +132,7 @@ public:
 		n = aux;
 	}
 
-	void seed(const T& rt, list<tree>& tl)
+	void plant(const T& rt, list<tree>& tl)
 	/* Coste: lineal respecto al tamaño de 'tl' */
 	/* Pre: el parámetro implícito está vacío y es diferente de cualquier
 			elemento de 'tl';
@@ -146,7 +147,7 @@ public:
 			list_tree_iterator it = tl.begin();
 			while(it != tl.end()) {
 				if(this == &(*it)) {
-					ErrHandl("ERROR: the implicit parameter must be different from any element on the list");
+					ExceptionHandler("ERROR: the implicit parameter must be different from any element on the list");
 				}
 				aux->nodes.insert(aux->nodes.end(),it->n);
 				it->n = NULL;
@@ -155,7 +156,7 @@ public:
 			n = aux;
 		}
 		else {
-			ErrHandl("ERROR: the implicit parameter must be empty");
+			ExceptionHandler("ERROR: the implicit parameter must be empty");
 		}
 	}
 
@@ -177,10 +178,10 @@ public:
 			}
 		}
 		else if(n == NULL) {
-			ErrHandl("ERROR: empty trees have no branches");
+			ExceptionHandler("ERROR: empty trees have no branches");
 		}
 		else {
-			ErrHandl("ERROR: the branches list must be empty");
+			ExceptionHandler("ERROR: the branches list must be empty");
 		}
 	}
 
@@ -193,7 +194,7 @@ public:
 			return n->root;
 		}
 		else {
-			ErrHandl("ERROR: empty trees have no root");
+			ExceptionHandler("ERROR: empty trees have no root");
 		}
 	}
 
