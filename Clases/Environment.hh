@@ -162,7 +162,7 @@ public:
     	\post Devuelve la operación primitiva representada por la clave
     		 'key'
     */
-	primitiveOperation retrieve_prim_op(string key) const;
+	primitiveOperation retrieve_prim(string key) const;
 
 	/** @brief Consultora de recuperación de variable
 

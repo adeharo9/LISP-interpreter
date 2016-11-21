@@ -147,6 +147,14 @@ public:
 	*/
 	void clear();
 
+	/** @brief Modificadora de valor
+
+		\pre <em>Cierto</em>
+		\post El parámetro implícito pasa a tener valor 'value';
+			 la lista de parámetro implícito pasa a estar vacía
+	*/
+	void set_value(int value);
+
 	//_______ CONSULTORES
 
 	/** @brief Consultora de estado
