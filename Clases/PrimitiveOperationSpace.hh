@@ -6,19 +6,16 @@
 #define PRIMITIVEOPERATIONSPACE_HH
 
 #ifndef NO_DIAGRAM
-
 #include <map>
-#include "Expression.hh"
-
 #endif
+
+#include "Expression.hh"
 
 using namespace std;
 
 /** @class PrimitiveOperationSpace
     @brief Representa un espacio de operaciones primitivas predefinidas
     en forma de mapa de operaciones
-
-    Todas las operaciones son de <b>coste ?</b>
 */
 
 class PrimitiveOperationSpace {
@@ -26,6 +23,8 @@ class PrimitiveOperationSpace {
 private:
 
 	/* INVARIANTE
+		El espacio de operaciones primitivas no puede
+		modificarse una vez ha sido creado
 	*/
 
 	typedef Expression (*primitiveOperation)(const Expression&);
@@ -35,48 +34,60 @@ private:
 	//_______ MÉTODOS PRIVADOS
 
 	static Expression sum(const Expression& exp);
-	/* Pre: */
-	/* Post: */
+	/* Pre: 'exp' es una lista con dos expresiones enteras */
+	/* Post: devuelve la suma de las dos expresiones enteras */
 
 	static Expression neg(const Expression& exp);
-	/* Pre: */
-	/* Post: */
+	/* Pre: 'exp' es una lista con una expresión entera*/
+	/* Post: devuelve el valor de la expresión entera cambiado
+	 		 de signo */
 
 	static Expression cons(const Expression& exp);
-	/* Pre: */
-	/* Post: */
+	/* Pre: 'exp' contine una expresión entera y una lista de
+			enteros */
+	/* Post: devuelve una lista con la expresión entera como
+			 cabeza de la lista de enteros */
 
 	static Expression head(const Expression& exp);
-	/* Pre: */
-	/* Post: */
+	/* Pre: 'exp' es una lista no vacía de enteros */
+	/* Post: devuelve el primer valor de la lista */
 
 	static Expression tail(const Expression& exp);
-	/* Pre: */
-	/* Post: */
+	/* Pre: 'exp' es una lista no vacía de enteros */
+	/* Post: devuelve la lista sin el primer elemento */
 
 	static Expression equal(const Expression& exp);
-	/* Pre: */
-	/* Post: */
+	/* Pre: 'exp' es una lista con dos expresiones evaluables del
+			mismo tipo */
+	/* Post: devuelve 1 si ambas expresiones son iguales;
+			 en otro caso, devuelve 0 */
 
 	static Expression less(const Expression& exp);
-	/* Pre: */
-	/* Post: */
+	/* Pre: 'exp' es una lista con dos expresiones evaluables del
+			mismo tipo */
+	/* Post: devuelve 1 si ambas expresiones son iguales;
+			 en otro caso, devuelve 0 */
 
 	static Expression bool_not(const Expression& exp);
-	/* Pre: */
-	/* Post: */
+	/* Pre: 'exp' es un booleano */
+	/* Post: devuelve el valor de 'exp' negado */
 
 	static Expression bool_and(const Expression& exp);
-	/* Pre: */
-	/* Post: */
+	/* Pre: 'exp' es una lista con dos booleanos */
+	/* Post: devuelve 1 si ambos valores son 1;
+			 en otro caso, devuelve 0 */
 
 	static Expression bool_or(const Expression& exp);
-	/* Pre: */
-	/* Post: */
+	/* Pre: 'exp' es una lista con dos booleanos */
+	/* Post: devuelve 0 si ambos valores son 0;
+			 en otro caso, devuelve 1 */
 
 	static Expression cond_if(const Expression& exp);
-	/* Pre: */
-	/* Post: */
+	/* Pre: 'exp' es una lista con tres expresiones evaluables */
+	/* Post: devuelve el resultado de evaluar la segunda expresión
+			 si la primera era 1;
+			 en otro caso, devuelve el resultado de evaluar la
+			 tercera expresión */
 
 public:
 

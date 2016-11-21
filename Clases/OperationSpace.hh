@@ -6,9 +6,7 @@
 #define OPERATIONSPACE_HH
 
 #ifndef NO_DIAGRAM
-
 #include <map>
-
 #endif
 
 using namespace std;
@@ -16,8 +14,6 @@ using namespace std;
 /** @class OperationSpace
     @brief Representa un espacio de operaciones definidas por el
     usuario en forma de mapa de variables
-
-    Todas las operaciones son de <b>coste ?</b>
 */
 
 class OperationSpace {
@@ -25,6 +21,8 @@ class OperationSpace {
 private:
 
 	/* INVARIANTE
+		Las operaciones no son revisadas al introducirse en
+		el mapa de operaciones
 	*/
 
     struct definition {
@@ -128,14 +126,14 @@ public:
 
 	//_______ I/O
 
-	/** @brief Operación de escritura de todo el mapa de operaciones
+	/** @brief Operación de escritura de todo el espacio de operaciones
 
 		\pre El mapa de operaciones 'opMap' del parámetro implícito no está
 			vacío
 		\post Se ha escrito el contenido del mapa de operaciones 'opMap' del
 			 parámetro implícito por el canal estándar de salida
 	*/
-	void write_map() const;
+	void write() const;
 
 	/** @brief Operación de escritura de una operación concreta
 

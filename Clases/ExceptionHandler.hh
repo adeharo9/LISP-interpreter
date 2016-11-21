@@ -6,9 +6,7 @@
 #define EXCEPTIONHANDLER_HH
 
 #ifndef NO_DIAGRAM
-
 #include <exception>
-
 #endif
 
 using namespace std;

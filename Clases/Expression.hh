@@ -6,10 +6,7 @@
 #define EXPRESSION_HH
 
 #ifndef NO_DIAGRAM
-
 #include <list>
-#include "tree.hh"
-
 #endif
 
 using namespace std;
@@ -17,32 +14,25 @@ using namespace std;
 /** @class Expression
     @brief Representa una expresión, evaluable o no, mediante el
     resultado de evaluarla
-
-    Todas las operaciones son de <b>coste ?</b>
 */
 
 class Expression {
 
 private:
 
-	/*struct definition {
-		bool undefined;
-		bool isVal;
-		bool isOp;
-	    int val;
-	    string op;
-	};
+	/* INVARIANTE
 
-	tree<definition> exp;*/
+	*/
 
 	struct definition {
-		bool undefined;
+		bool undef;
 		int val;
 	};
 
+	bool empt;
 	definition def;
 	string op;
-	list<definition> exp;
+	list<definition> lExp;
 
 public:
 
@@ -52,19 +42,25 @@ public:
 
 		Se ejecuta automáticamente al declarar una nueva expresión
 		\pre <em>Cierto</em>
-		\post Crea un objeto vacío
+		\post Crea un objeto vacío:
+			 'empt' igual a cierto;
+			 'undef' igual a falso;
+			 'val' sin inicializar;
+			 'op' es un string vacío;
+			 'lExp' es una lista vacía
+
 	*/
 	Expression();
 
 	/** @brief Constructora con valor de inicialización
 
 		\pre <em>Cierto</em>
-		\post Crea un objeto con raíz con las siguientes propiedades:
-				'undefined' igual a falso,
-				'isVal' igual a cierto,
-				'isOp' igual a falso,
-				'val' igual a 'value',
-				'op' sin inicializar
+		\post Crea un objeto con las siguientes propiedades:
+			 'empt' igual a falso;
+			 'undef' igual a falso;
+			 'val' igual a 'value';
+			 'op' es un string vacío;
+			 'lExp' es una lista vacía
 	*/
 	Expression(int value);
 
@@ -74,37 +70,27 @@ public:
 			'inOperator' es un operador existente en el espacio de
 			operaciones primitivas o en el espacio de operaciones definidas
 			por el usuario
-		\post Crea un objeto con raíz con la siguientes propiedades:
-				'undefined' igual a falso,
-				'isVal' igual a falso,
-				'isOp' igual a cierto,
-				'val' sin inicializar,
-				'op' sin inicializar
-			 con el primer elemento de sus ramas con las siguientes
-			 propiedades:
-				'undefined' igual a falso,
-				'isVal' igual a falso,
-				'isOp' igual a falso,
-				'val' sin inicializar,
-				'op' igual a 'inOperator'
-			y con el resto de elementos de sus ramas igual a los elementos
-			de 'lExp'
+		\post Crea un objeto con la siguientes propiedades:
+			 'empt' igual a falso;
+			 'undef' igual a falso;
+			 'val' sin inicializar;
+			 'op' igual a 'inOperator';
+			 'lExp' igual a 'lExpression'
 	*/
-	Expression(string inOperator, const list<definition>& lExp);
+	Expression(string inOperator, const list<pair<bool,int> >& lExpression);
 
 	/** @brief Constructora con lista de inicialización
 
-		\pre 'lExp' es una lista de expresiones
-		\post Crea un objeto con raíz con la siguientes propiedades:
-				'undefined' igual a falso,
-				'isVal' igual a falso,
-				'isOp' igual a falso,
-				'val' sin inicializar,
-				'op' sin inicializar
-			 y con los elementos de sus ramas igual a los elementos de
-			 'lExp'
+		\pre 'lExpression' es una lista con pares de booleanos representando
+			valores indefinidos y enteros representando valores definidos
+		\post Crea un objeto con la siguientes propiedades:
+			 'empt' igual a falso;
+			 'undef' igual a falso;
+			 'val' sin inicializar;
+			 'op' es un string vacío;
+			 'lExp' igual a 'lExpression'
 	*/
-	Expression(const list<definition>& lExp);
+	Expression(const list<pair<bool,int> >& lExpression);
 
 	/** @brief Constructora por copia
 
@@ -132,18 +118,23 @@ public:
 		\post El parámetro implícito pasa a ser:
 				valor, representado por 'val', si era una expresión
 				evaluable;
-				lista, representada por las ramas de 'exp', si era una
-				lista de expresiones evaluables;
-				indefinido, representado por 'undefined' igual a cierto,
-				si alguno de los nodos de las ramas de exp era
-				indefinido
+				lista, representada por 'lExp', si era una lista de
+				expresiones evaluables;
+				indefinido, representado por 'undef' igual a cierto,
+				si la evaluación de la expresión representada por el 
+				parámetro implícito era indefinida
 	*/
 	void evaluate();
 
 	/** @brief Operación de vaciado de expresión
 
 		\pre <em>Cierto</em>
-		\post El parámetro implícito pasa a estar vacío
+		\post El parámetro implícito pasa a estar vacío:
+			 'empt' igual a cierto;
+			 'undef' igual a falso;
+			 'val' sin inicializar;
+			 'op' es un string vacío;
+			 'lExp' es una lista vacía
 	*/
 	void clear();
 
@@ -151,11 +142,20 @@ public:
 
 		\pre <em>Cierto</em>
 		\post El parámetro implícito pasa a tener valor 'value';
-			 la lista de parámetro implícito pasa a estar vacía
+			 la lista 'lExp' del parámetro implícito pasa a estar vacía;
+			 'op' pasa a ser un string vacío
 	*/
 	void set_value(int value);
 
 	//_______ CONSULTORES
+
+	/** @brief Consultora de estado
+
+		\pre <em>Cierto</em>
+		\post Devuelve cierto si el parámetro implícito es indefinido;
+			 en otro caso, devuelve falso
+	*/
+	bool undefined() const;
 
 	/** @brief Consultora de estado
 
@@ -193,17 +193,6 @@ public:
 
 	//_______ I/O
 
-	/** @brief Operación de lectura de expresión
-
-		\pre Hay preparada en el canal estándar de entrada una expresión
-		\post El parámetro implícito pasa a tener los atributos leídos del
-			 canal estándar de entrada;
-			 devuelve cierto si en el canal estándar de entrada no había
-			 string "****";
-			 en otro caso, devuelve falso
-	*/
-	bool read();
-
 	/** @brief Operación de escritura de expresión
 
 		\pre El parámetro implícito no está vacío
@@ -211,7 +200,7 @@ public:
 			 lista de expresiones representada/s por el parámetro implícito
 			 por el canal estandar de salida
 	*/
-	void write();
+	void write() const;
 
 };
 

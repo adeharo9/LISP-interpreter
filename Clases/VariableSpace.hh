@@ -6,19 +6,16 @@
 #define VARIABLESPACE_HH
 
 #ifndef NO_DIAGRAM
-
 #include <map>
-#include "Expression.hh"
-
 #endif
+
+#include "Expression.hh"
 
 using namespace std;
 
 /** @class VariableSpace
     @brief Representa un espacio de variables definidas por el usuario en
     forma de mapa de variables
-
-    Todas las operaciones son de <b>coste ?</b>
 */
 
 class VariableSpace {
@@ -26,9 +23,9 @@ class VariableSpace {
 private:
 
     /* INVARIANTE
-    	- Todas las expresiones que intervienen en operaciones de adición o
-    	  de modificación de una variable se evalúan previamente a la
-    	  ejecución de dichas operaciones
+    	Todas las expresiones que intervienen en operaciones de adición o
+    	de modificación de una variable se evalúan previamente a la
+    	ejecución de dichas operaciones
 
     */
 
@@ -118,7 +115,7 @@ public:
 
 	//_______ I/O
 
-	/** @brief Operación de escritura de todo el mapa de variables
+	/** @brief Operación de escritura de todo el espacio de variables
 
 		\pre El mapa de variables 'varMap' del parámetro implícito no está
 			vacío
@@ -127,7 +124,7 @@ public:
 			 en caso que el resultado de evaluar la expresión sea
 			 indefinido, se escribe "indefinido"
 	*/
-	void write_map() const;
+	void write() const;
 
 	/** @brief Operación de escritura de una variable concreta
 

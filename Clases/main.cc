@@ -3,24 +3,22 @@
  
 	Este programa constituye una calculadora de expresiones aritméticas usando un lenguaje de tipo LISP
 
-	Se introducen las clases <em>Environment</em>, <em>Expression.hh</em>,
+	Se introducen las clases <em>Expression</em>, <em>Environment</em>,
 	<em>PrimitiveOperationSpace</em>, <em>VariableSpace</em>,
-	<em>OperationSpace</em> y <em>Expression</em>
+	<em>OperationSpace</em>
 */
 
 /** @file main.cc
     @brief Programa principal para la calculadora de expresiones aritméticas
 */
 
+#ifndef NO_DIAGRAM
 #include <iostream>
+#include "FunctionsIO.hh"
+#endif
+
 #include "Environment.hh"
 #include "Expression.hh"
-
-#ifndef NO_DIAGRAM
-
-#include "FunctionsIO.hh"
-
-#endif
 
 using namespace std;
 
@@ -32,6 +30,7 @@ int main(){
 	Expression exp;
 	while(readExpression(env,exp)){
 		writeExpression(env,exp);
+		exp.clear();
 	}
-	env.write_env();
+	env.write();
 }

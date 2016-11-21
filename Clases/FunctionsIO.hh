@@ -4,12 +4,11 @@
 */
 
 #ifndef NO_DIAGRAM
-
 #include <iostream>
+#endif
+
 #include "Environment.hh"
 #include "Expression.hh"
-
-#endif
 
 using namespace std;
 

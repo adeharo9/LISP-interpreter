@@ -5,14 +5,10 @@
 #ifndef ENVIRONMENT_HH
 #define ENVIRONMENT_HH
 
-#ifndef NO_DIAGRAM
-
 #include "Expression.hh"
 #include "PrimitiveOperationSpace.hh"
 #include "VariableSpace.hh"
 #include "OperationSpace.hh"
-
-#endif
 
 using namespace std;
 
@@ -20,8 +16,6 @@ using namespace std;
     @brief Representa un entorno de ejecución con todas las operaciones
     primitivas predefinidas, así como con todas las variables y
     operaciones definidas por el usuario
-
-    Todas las operaciones son de <b>coste ?</b>
 */
 
 class Environment {
@@ -29,6 +23,8 @@ class Environment {
 private:
 
 	/* INVARIANTE
+		El entorno contiene las operaciones primitivas, así
+		como las variables y operaciones definidas por el usuario
 	*/
 
 	typedef Expression (*primitiveOperation)(const Expression&);
@@ -201,7 +197,7 @@ public:
 			 en relacion al/los espacio/s vacío/s por el canal estándar de
 			 salida
 	*/
-	void write_env();
+	void write() const;
 
 	/** @brief Operación de escritura de una variable concreta
 
@@ -214,7 +210,7 @@ public:
 			 en caso que el resultado de evaluar la expresión sea
 			 indefinido, se escribe "indefinido"
 	*/
-	void write_var(string key);
+	void write_var(string key) const;
 
 	/** @brief Operación de escritura de una operación concreta
 
@@ -225,7 +221,7 @@ public:
 		\post Se ha escrito el contenido de la operación con clave 'key' por
 			 el canal estándar de salida
 	*/
-	void write_op(string key);
+	void write_op(string key) const;
 
 };
 
