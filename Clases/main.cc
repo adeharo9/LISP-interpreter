@@ -3,9 +3,7 @@
  
 	Este programa constituye una calculadora de expresiones aritméticas usando un lenguaje de tipo LISP
 
-	Se introducen las clases <em>Expression</em>, <em>Environment</em>,
-	<em>PrimitiveOperationSpace</em>, <em>VariableSpace</em>,
-	<em>OperationSpace</em>
+	Se introducen las clases <em>Expression</em>, <em>Environment</em>, <em>PrimitiveOperationSpace</em>, <em>VariableSpace</em>, <em>OperationSpace</em>
 */
 
 /** @file main.cc
