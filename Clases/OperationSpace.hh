@@ -116,6 +116,16 @@ public:
     */
     bool exists(string key) const;
 
+    /** @brief Consultora de recuperación de operación
+
+    	\pre 'key' es un string no vacío;
+    		el mapa de operaciones 'opMap' del parámetro implícito contiene
+			una operación con clave 'key'
+    	\post Devuelve los parámetros y la expresión, respectivamente, en
+    		 forma de pair, de la operación representada por la clave 'key'
+    */
+    pair<string,string> retrieve(string key) const;
+
 	//_______ I/O
 
 	/** @brief Operación de escritura de todo el mapa de operaciones

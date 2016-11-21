@@ -106,6 +106,16 @@ public:
     */
     bool exists(string key) const;
 
+    /** @brief Consultora de recuperación de variable
+
+    	\pre 'key' es un string no vacío;
+    		el mapa de variables 'varMap' del parámetro implícito contiene
+			una	variable con clave 'key'
+    	\post Devuelve la expresión representada por la variable de clave
+    		 'key'
+    */
+    Expression retrieve(string key) const;
+
 	//_______ I/O
 
 	/** @brief Operación de escritura de todo el mapa de variables

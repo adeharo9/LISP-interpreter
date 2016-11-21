@@ -38,9 +38,10 @@ private:
 	struct definition {
 		bool undefined;
 		int val;
-		string op;
 	};
 
+	definition def;
+	string op;
 	list<definition> exp;
 
 public:

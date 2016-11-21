@@ -31,6 +31,8 @@ private:
 	/* INVARIANTE
 	*/
 
+	typedef Expression (*primitiveOperation)(const Expression&);
+
 	PrimitiveOperationSpace primOpSpace;
 	VariableSpace varSpace;
 	OperationSpace opSpace;
@@ -150,6 +152,38 @@ public:
     		 en otro caso, devuelve falso
     */
 	bool exists_op(string key) const;
+
+	/** @brief Consultora de recuperación de operación primitiva
+
+    	\pre 'key' es un string no vacío;
+    		el mapa de operaciones primitivas 'primOpMap' del espacio de
+    		operaciones primitivas 'primOpSpace' del parámetro implícito
+    		contiene una operación primitiva con clave 'key'
+    	\post Devuelve la operación primitiva representada por la clave
+    		 'key'
+    */
+	primitiveOperation retrieve_prim_op(string key) const;
+
+	/** @brief Consultora de recuperación de variable
+
+    	\pre 'key' es un string no vacío;
+    		el mapa de variables 'varMap' del espacio de variables 'varSpace'
+    		del parámetro implícito contiene una variable con clave 'key'
+    	\post Devuelve la expresión representada por la variable de clave
+    		 'key'
+    */
+	Expression retrieve_var(string key) const;
+
+	/** @brief Consultora de recuperación de operación
+
+    	\pre 'key' es un string no vacío;
+    		el mapa de operaciones 'opMap' del espacio de operaciones
+    		'opSpace' del parámetro implícito contiene una operación
+    		con clave 'key'
+    	\post Devuelve los parámetros y la expresión, respectivamente en
+    		 forma de pair, de la operación representada por la clave 'key'
+    */
+	pair<string,string> retrieve_op(string key) const;
 
 	//_______ I/O
 

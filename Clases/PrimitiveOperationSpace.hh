@@ -28,7 +28,7 @@ private:
 	/* INVARIANTE
 	*/
 
-	typedef Expression (*primitiveOperation)(const Expression&) ;
+	typedef Expression (*primitiveOperation)(const Expression&);
 
 	map<string,primitiveOperation> primOpMap;
 
@@ -102,6 +102,18 @@ public:
 			 de un ámbito de visibilidad
 	*/
 	~PrimitiveOperationSpace();
+
+	//_______ CONSULTORES
+
+	/** @brief Consultora de recuperación de operación primitiva
+
+    	\pre 'key' es un string no vacío;
+    		el mapa de operaciones primitivas 'primOpMap' del parámetro
+    		implícito contiene una operación primitiva con clave 'key'
+    	\post Devuelve la operación primitiva representada por la clave
+    		 'key'
+    */
+	primitiveOperation retrieve(string key) const;
 
 };
 
