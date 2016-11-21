@@ -18,6 +18,10 @@ private:
 		list<node*> nodes;
 	};
 
+	/*typedef typename std::__cxx11::list<tree<T>::node*>::iterator list_node_pointer_iterator;
+	typedef typename std::__cxx11::list<tree<T> >::iterator list_tree_iterator;
+	typedef typename std::__cxx11::list<tree<T> >::const_iterator list_tree_const_iterator;*/
+
 	typedef typename std::__cxx11::list<tree<T>::node*>::iterator list_node_pointer_iterator;
 	typedef typename std::__cxx11::list<tree<T> >::iterator list_tree_iterator;
 	typedef typename std::__cxx11::list<tree<T> >::const_iterator list_tree_const_iterator;

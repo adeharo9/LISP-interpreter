@@ -1,10 +1,28 @@
+/** @file Environment.hh
+    @brief Especificación de la clase Environment
+*/
+
 #ifndef ENVIRONMENT_HH
 #define ENVIRONMENT_HH
+
+#ifndef NO_DIAGRAM
 
 #include "Expression.hh"
 #include "PrimitiveOperationSpace.hh"
 #include "VariableSpace.hh"
 #include "OperationSpace.hh"
+
+#endif
+
+using namespace std;
+
+/** @class Environment
+    @brief Representa un entorno de ejecución con todas las operaciones
+    primitivas predefinidas, así como con todas las variables y
+    operaciones definidas por el usuario
+
+    Todas las operaciones son de <b>coste ?</b>
+*/
 
 class Environment {
 
@@ -21,94 +39,125 @@ public:
 
 	//_______ CONSTRUCTORES
 
-	Environment();
-	/* Pre: cierto */
-	/* Post: crea un objeto con mapa de operaciones primitivas 'primOpMap'
+	/** @brief Constructora por defecto
+
+		Se ejecuta automáticamente al declarar un nuevo entorno
+		\pre <em>Cierto</em>
+		\post Crea un objeto con mapa de operaciones primitivas 'primOpMap'
 			 del espacio de operaciones primitivas 'primOpSpace'
 			 inicializado con las operaciones primitivas, un espacio de
 			 variables 'varSpace' con mapa de variables 'varMap' vacío y un
 			 espacio de operaciones 'opSpace' con un mapa de operaciones
-			 'opMap' vacío */
+			 'opMap' vacío
+	*/
+	Environment();
 
 	//_______ DESTRUCTORES
 
+	/** @brief Destructora por defecto
+
+		Se ejecuta automáticamente al salir de un ámbito de visibilidad
+		\pre <em>Cierto</em>
+		\post Libera los recursos locales del parámetro implícito al salir
+			 de un ámbito de visibilidad
+	*/
 	~Environment();
-	/* Pre: cierto */
-	/* Post: libera los recursos locales del parámetro implícito al salir
-			 de un ámbito de visibilidad */
 
 	//_______ MODIFICADORES
 
-	void add_var(string key, const Expression& exp);
-	/* Pre: 'key' es un string no vacío;
+	/** @brief Modificadora por adición de variable
+
+		\pre 'key' es un string no vacío;
 			el mapa de variables 'varMap' del espacio de variables
 			'varSpace' del parámetro implícito no contiene ninguna variable
-			con clave 'key' */
-	/* Post: se añade al mapa de variables 'varMap' del espacio de
+			con clave 'key'
+		\post Se añade al mapa de variables 'varMap' del espacio de
 			 variables 'varSpace' del parámetro implícito la variable con
-			 clave 'key' y expresión 'exp' */
+			 clave 'key' y expresión 'exp'
+	*/
+	void add_var(string key, const Expression& exp);
 
-	void add_op(string key, string parameters, string exp);
-	/* Pre: 'key' es un string no vacío;
+	/** @brief Modificadora por adición de operación
+
+		\pre 'key' es un string no vacío;
 			'key' no corresponde al nombre de ninguna de las operaciones
 			primitivas;
 			el mapa de operaciones 'opMap' del espacio de operaciones
 			'opSpace' del parámetro implícito no contiene ninguna operación
-			con clave 'key' */
-	/* Post: se añade al mapa de operaciones 'opMap' del espacio de
+			con clave 'key'
+		\post Se añade al mapa de operaciones 'opMap' del espacio de
 			 operaciones 'opSpace' del parámetro implícito la operación
-			 con clave 'key', parámetros 'parameters' y expresión 'exp' */
+			 con clave 'key', parámetros 'parameters' y expresión 'exp'
+	*/
+	void add_op(string key, string parameters, string exp);
 
-	void update_var(string key, const Expression& exp);
-	/* Pre: 'key' es un string no vacío;
+	/** @brief Modificadora por actualización de variable
+
+		\pre 'key' es un string no vacío;
 			el mapa de variables 'varMap' del espacio de variables
 			'varSpace' del parámetro implícito contiene una variable con
-			clave 'key' */
-	/* Post: la expresión de la variable con clave 'key' en el mapa de
+			clave 'key'
+		\post La expresión de la variable con clave 'key' en el mapa de
 			 variables 'varMap' del espacio de variables 'varSpace' del
-			 parámetro implícito pasa a ser 'exp' */
+			 parámetro implícito pasa a ser 'exp'
+	*/
+	void update_var(string key, const Expression& exp);
 
-	void update_op(string key string parameters, string exp);
-	/* Pre: 'key' es un string no vacío;
+	/** @brief Modificadora por actualización de operación
+
+		\pre 'key' es un string no vacío;
 			'key' no corresponde al nombre de ninguna de las operaciones
 			primitivas;
 			el mapa de operaciones 'opMap' del espacio de operaciones
 			'opSpace' del parámetro implícito contiene una operación con
-			clave 'key' */
-	/* Post: los parámetros y la expresión de la operación con clave 'key'
+			clave 'key'
+		\post Los parámetros y la expresión de la operación con clave 'key'
 			 en el mapa de operaciones 'opMap' del espacio de operaciones
 			 'opSpace' del parámetro implícito pasan a ser 'parameters' y
-			 'exp', respectivamente */
+			 'exp', respectivamente
+	*/
+	void update_op(string key, string parameters, string exp);
 
 	//_______ CONSULTORES
 
-	bool is_primitive(string key) const;
-	/* Pre: 'key' es un string no vacío */
-	/* Post: devuelve cierto si la operación de clave 'key' es una
+	/** @brief Consultora de existencia de operación primitiva
+
+		\pre 'key' es un string no vacío
+		\post Devuelve cierto si la operación de clave 'key' es una
 			 operación primitiva contenida en el mapa de operaciones
 			 'primOpMap' del espacio de operaciones primitivas
 			 'primOpSpace';
-			 en otro caso, devuelve falso */
+			 en otro caso, devuelve falso
+	*/
+	bool is_primitive(string key) const;
 
-	bool exists_var(string key) const;
-    /* Pre: 'key' es un string no vacío */
-    /* Post: devuelve cierto si la variable con clave 'key' existe en el
+	/** @brief Consultora de existencia de variable
+
+    	\pre 'key' es un string no vacío
+    	\post Devuelve cierto si la variable con clave 'key' existe en el
     		 mapa de variables 'varMap' del espacio de variables 'varSpace'
     		 del parámetro implícito;
-    		 en otro caso, devuelve falso */
+    		 en otro caso, devuelve falso
+    */
+	bool exists_var(string key) const;
 
-	bool exists_op(string key) const;
-    /* Pre: 'key' es un string no vacío */
-    /* Post: devuelve cierto si la operación con clave 'key' existe en el
+	/** @brief Consultora de existencia de operación
+
+    	\pre 'key' es un string no vacío
+    	\post Devuelve cierto si la operación con clave 'key' existe en el
     		 mapa de operaciones 'opMap' del espacio de operaciones
     		 'opSpace' del parámetro implícito;
-    		 en otro caso, devuelve falso */
+    		 en otro caso, devuelve falso
+    */
+	bool exists_op(string key) const;
 
 	//_______ I/O
 
-	void write_env();
-	/* Pre: cierto */
-	/* Post: se ha escrito el contenido del espacio de variables 'varSpace'
+	/** @brief Operación de escritura de todo el entorno de variables y
+		operaciones definidas por el usuario
+
+		\pre <em>Cierto</em>
+		\post Se ha escrito el contenido del espacio de variables 'varSpace'
 			 y del espacio de operaciones 'opSpace' por el canal estándar
 			 de salida, si lo tenían;
 			 en el caso del contenido del espacio de variables 'varSpace',
@@ -116,25 +165,33 @@ public:
 			 variables es indefinido, se escribe "indefinido";
 			 si alguno o ambos espacios están vacíos, no se escribe nada
 			 en relacion al/los espacio/s vacío/s por el canal estándar de
-			 salida */
+			 salida
+	*/
+	void write_env();
 
-	void write_var(string key);
-	/* Pre: 'key' es un string no vacío;
+	/** @brief Operación de escritura de una variable concreta
+
+		\pre 'key' es un string no vacío;
 			el mapa de variables 'varMap' del espacio de variables
 			'varSpace' del parámetro implícito contiene una variable con
-			clave 'key' */
-	/* Post: se ha escrito el contenido de la variable con clave 'key' por
+			clave 'key'
+		\post Se ha escrito el contenido de la variable con clave 'key' por
 			 el canal estándar de salida;
 			 en caso que el resultado de evaluar la expresión sea
-			 indefinido, se escribe "indefinido" */
+			 indefinido, se escribe "indefinido"
+	*/
+	void write_var(string key);
 
-	void write_op(string key);
-	/* Pre: 'key' es un string no vacío;
+	/** @brief Operación de escritura de una operación concreta
+
+		\pre 'key' es un string no vacío;
 			el mapa de operaciones 'opMap' del espacio de operaciones
 			'opSpace' del parámetro implícito contiene una operación con
-			clave 'key' */
-	/* Post: se ha escrito el contenido de la operación con clave 'key' por
-			 el canal estándar de salida */
+			clave 'key'
+		\post Se ha escrito el contenido de la operación con clave 'key' por
+			 el canal estándar de salida
+	*/
+	void write_op(string key);
 
 };
 

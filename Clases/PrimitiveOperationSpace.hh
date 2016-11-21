@@ -1,10 +1,25 @@
+/** @file PrimitiveOperationSpace.hh
+    @brief Especificación de la clase PrimitiveOperationSpace
+*/
+
 #ifndef PRIMITIVEOPERATIONSPACE_HH
 #define PRIMITIVEOPERATIONSPACE_HH
+
+#ifndef NO_DIAGRAM
 
 #include <map>
 #include "Expression.hh"
 
+#endif
+
 using namespace std;
+
+/** @class PrimitiveOperationSpace
+    @brief Representa un espacio de operaciones primitivas predefinidas
+    en forma de mapa de operaciones
+
+    Todas las operaciones son de <b>coste ?</b>
+*/
 
 class PrimitiveOperationSpace {
 
@@ -67,17 +82,26 @@ public:
 
 	//_______ CONSTRUCTORES
 
+	/** @brief Constructora por defecto
+
+		Se ejecuta automáticamente al declarar un nuevo espacio de
+		operaciones primitivas predefinidas
+		\pre <em>Cierto</em>
+		\post Crea un objeto con mapa de operaciones primitivas 'primOpMap'
+			 inicializado con las operaciones primitivas
+	*/
 	PrimitiveOperationSpace();
-	/* Pre: cierto */
-	/* Post: crea un objeto con mapa de operaciones primitivas 'primOpMap'
-			 inicializado con las operaciones primitivas */
 
 	//_______ DESTRUCTORES
 
+	/** @brief Destructora por defecto
+
+		Se ejecuta automáticamente al salir de un ámbito de visibilidad
+		\pre <em>Cierto</em>
+		\post Libera los recursos locales del parámetro implícito al salir
+			 de un ámbito de visibilidad
+	*/
 	~PrimitiveOperationSpace();
-	/* Pre: cierto */
-	/* Post: libera los recursos locales del parámetro implícito al salir
-			 de un ámbito de visibilidad */
 
 };
 
