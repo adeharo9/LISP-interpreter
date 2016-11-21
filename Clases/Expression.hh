@@ -25,7 +25,7 @@ class Expression {
 
 private:
 
-	struct definition {
+	/*struct definition {
 		bool undefined;
 		bool isVal;
 		bool isOp;
@@ -33,7 +33,15 @@ private:
 	    string op;
 	};
 
-	tree<definition> exp;
+	tree<definition> exp;*/
+
+	struct definition {
+		bool undefined;
+		int val;
+		string op;
+	};
+
+	list<definition> exp;
 
 public:
 
@@ -81,7 +89,7 @@ public:
 			y con el resto de elementos de sus ramas igual a los elementos
 			de 'lExp'
 	*/
-	Expression(string inOperator, const list<tree<definition> >& lExp);
+	Expression(string inOperator, const list<definition>& lExp);
 
 	/** @brief Constructora con lista de inicialización
 
@@ -95,7 +103,7 @@ public:
 			 y con los elementos de sus ramas igual a los elementos de
 			 'lExp'
 	*/
-	Expression(const list<tree<definition> >& lExp);
+	Expression(const list<definition>& lExp);
 
 	/** @brief Constructora por copia
 
@@ -130,6 +138,13 @@ public:
 				indefinido
 	*/
 	void evaluate();
+
+	/** @brief Operación de vaciado de expresión
+
+		\pre <em>Cierto</em>
+		\post El parámetro implícito pasa a estar vacío
+	*/
+	void clear();
 
 	//_______ CONSULTORES
 
@@ -173,9 +188,12 @@ public:
 
 		\pre Hay preparada en el canal estándar de entrada una expresión
 		\post El parámetro implícito pasa a tener los atributos leídos del
-			 canal estándar de entrada
+			 canal estándar de entrada;
+			 devuelve cierto si en el canal estándar de entrada no había
+			 string "****";
+			 en otro caso, devuelve falso
 	*/
-	void read();
+	bool read();
 
 	/** @brief Operación de escritura de expresión
 
