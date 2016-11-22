@@ -30,6 +30,8 @@ private:
     
     map<string, definition> opMap;
 
+    static int countVars(string parameters);
+
 public:
 
 	//_______ CONSTRUCTORES

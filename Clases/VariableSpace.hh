@@ -50,7 +50,8 @@ public:
 	/** @brief Constructora por copia
 
 		\pre <em>Cierto</em>
-		\post Crea un objeto copia de 'varSpace'*/
+		\post Crea un objeto copia de 'varSpace'
+	*/
 	VariableSpace(const VariableSpace& varSpace);
 	
 	//_______ DESTRUCTORES

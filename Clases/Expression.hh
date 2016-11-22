@@ -96,12 +96,26 @@ public:
 	*/
 	void clear();
 
-	/** @brief Modificadora de valor
+	/** @brief Modificadora del campo undefined
+
+		\pre <em>Cierto</em>
+		\post El parámetro implícito pasa a ser undefined
+	*/
+	void set_undefined();
+
+	/** @brief Modificadora de valor por asignación
 
 		\pre <em>Cierto</em>
 		\post El parámetro implícito pasa a tener valor 'value'; la lista 'lExp' del parámetro implícito pasa a estar vacía; 'op' pasa a ser un string vacío
 	*/
 	void set_value(int value);
+
+	/** @brief Modificadora de valor por adición
+
+		\pre 'val' está inicializada a un valor concreto
+		\post El parámetro implícito pasa a tener valor 'val' igual a la suma de 'val' más 'value'
+	*/
+	void add_value(int value);
 
 	/** @brief Modificadora de lista
 
@@ -146,6 +160,43 @@ public:
 		\post Devuelve cierto si el parámetro implícito es una lista de expresiones; en otro caso, devuelve falso
 	*/
 	bool is_list() const;
+
+	/** @brief Consultora de valor
+
+		\pre El parámetro implícito no es undefined; el parámetro implícito no está vacío
+		\post Devuelve el valor 'val' del parámetro implícito
+	*/
+	void get_value() const;
+
+	//_______ ITERADORES
+
+	/** @brief Iterador de inicio de lista
+
+		\pre <em>Cierto</em>
+		\post Devuelve un iterador que apunta al inicio de la lista 'lExp'
+	*/
+	list<Expression*>::iterator begin();
+
+	/** @brief Iterador constante de inicio de lista
+
+		\pre <em>Cierto</em>
+		\post Devuelve un const_iterator que apunta al inicio de la lista 'lExp'
+	*/
+	list<Expression*>::const_iterator begin() const;
+
+	/** @brief Iterador de final de lista
+
+		\pre <em>Cierto</em>
+		\post Devuelve un iterador que apunta al final de la lista 'lExp'
+	*/
+	list<Expression*>::iterator end();
+
+	/** @brief Iterador constante de final de lista
+
+		\pre <em>Cierto</em>
+		\post Devuelve un const_iterator que apunta al final de la lista 'lExp'
+	*/
+	list<Expression*>::const_iterator end() const;
 
 	//_______ I/O
 

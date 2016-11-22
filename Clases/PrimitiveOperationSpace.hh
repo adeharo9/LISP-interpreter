@@ -33,11 +33,11 @@ private:
 
 	static Expression sum(const Expression& exp);
 	/* Pre: 'exp' es una lista con dos punteros a dos expresiones enteras */
-	/* Post: devuelve el valor de la suma de las dos expresiones enteras */
+	/* Post: devuelve el valor de la suma de las dos expresiones enteras o undefined si alguno de los valores era undefined */
 
 	static Expression neg(const Expression& exp);
 	/* Pre: 'exp' es una lista con un puntero a una expresión entera */
-	/* Post: devuelve el valor de la expresión entera cambiado de signo */
+	/* Post: devuelve el valor de la expresión entera cambiado de signo o undefined si el valor era undefined */
 
 	static Expression cons(const Expression& exp);
 	/* Pre: 'exp' es una expresión entera y una lista con punteros a expresiones enteras */
@@ -45,7 +45,7 @@ private:
 
 	static Expression head(const Expression& exp);
 	/* Pre: 'exp' es una lista no vacía de punteros a expresiones enteras */
-	/* Post: devuelve el valor del primer puntero de la lista */
+	/* Post: devuelve el valor del primer puntero de la lista o undefined si era undefined */
 
 	static Expression tail(const Expression& exp);
 	/* Pre: 'exp' es una lista no vacía de punteros a enteros */
