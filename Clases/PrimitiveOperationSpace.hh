@@ -25,53 +25,53 @@ private:
 		El espacio de operaciones primitivas no puede modificarse una vez ha sido creado
 	*/
 
-	typedef Expression (*primitiveOperation)(const Expression&);
+	typedef void (*primitiveOperation)(Expression&);
 
 	map<string, primitiveOperation> primOpMap;
 
 	//_______ MÉTODOS PRIVADOS
 
-	static Expression sum(const Expression& exp);
+	static void sum(Expression& exp);
 	/* Pre: 'exp' es una lista con dos punteros a dos expresiones enteras */
 	/* Post: devuelve el valor de la suma de las dos expresiones enteras o undefined si alguno de los valores era undefined */
 
-	static Expression neg(const Expression& exp);
+	static void neg(Expression& exp);
 	/* Pre: 'exp' es una lista con un puntero a una expresión entera */
 	/* Post: devuelve el valor de la expresión entera cambiado de signo o undefined si el valor era undefined */
 
-	static Expression cons(const Expression& exp);
+	static void cons(Expression& exp);
 	/* Pre: 'exp' es una expresión entera y una lista con punteros a expresiones enteras */
 	/* Post: devuelve una lista con la expresión entera como cabeza de la lista */
 
-	static Expression head(const Expression& exp);
+	static void head(Expression& exp);
 	/* Pre: 'exp' es una lista no vacía de punteros a expresiones enteras */
 	/* Post: devuelve el valor del primer puntero de la lista o undefined si era undefined */
 
-	static Expression tail(const Expression& exp);
+	static void tail(Expression& exp);
 	/* Pre: 'exp' es una lista no vacía de punteros a enteros */
 	/* Post: devuelve la lista sin el primer elemento */
 
-	static Expression equal(const Expression& exp);
+	static void equal(Expression& exp);
 	/* Pre: 'exp' es una lista con dos punteros a dos expresiones evaluables del mismo tipo */
 	/* Post: devuelve 1 si ambas expresiones son iguales; en otro caso, devuelve 0 */
 
-	static Expression less(const Expression& exp);
+	static void less(Expression& exp);
 	/* Pre: 'exp' es una lista con dos punteros a dos expresiones evaluables del mismo tipo */
 	/* Post: devuelve 1 si ambas expresiones son iguales; en otro caso, devuelve 0 */
 
-	static Expression bool_not(const Expression& exp);
+	static void bool_not(Expression& exp);
 	/* Pre: 'exp' es un booleano */
 	/* Post: devuelve el valor de 'exp' negado */
 
-	static Expression bool_and(const Expression& exp);
+	static void bool_and(Expression& exp);
 	/* Pre: 'exp' es una lista con dos punteros a dos booleanos */
 	/* Post: devuelve 1 si ambos valores son 1;  en otro caso, devuelve 0 */
 
-	static Expression bool_or(const Expression& exp);
+	static void bool_or(Expression& exp);
 	/* Pre: 'exp' es una lista con dos punteros a dos booleanos */
 	/* Post: devuelve 0 si ambos valores son 0;  en otro caso, devuelve 1 */
 
-	static Expression cond_if(const Expression& exp);
+	static void cond_if(Expression& exp);
 	/* Pre: 'exp' es un valor booleano y una lista con dos punteros a dos expresiones evaluables */
 	/* Post: devuelve el resultado de evaluar la primera expresión  si el booleano era 1;  en otro caso, devuelve el resultado de evaluar la  segunda expresión */
 

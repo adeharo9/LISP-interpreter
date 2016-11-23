@@ -6,63 +6,83 @@ using namespace std;
 
 //_______ MÉTODOS PRIVADOS
 
-Expression PrimitiveOperationSpace::sum(const Expression& exp) {
-	Expression aux(0);
-	list<Expression*>::const_iterator const_it = exp.begin();
-	while(const_it != exp.end() and not *const_it->undefined()) {
-		aux.add_value(*const_it->get_value());
-		++const_it;
+void PrimitiveOperationSpace::sum(Expression& exp) {
+	if(exp.size() != 2) {
+		exp.set_undefined();
 	}
-	if(*const_it->undefined()) {
-		aux.set_undefined();
+	else {
+		int sum=0;
+		list<Expression*>::iterator it = exp.begin();
+		while(it != exp.end() and *it->is_value()) {
+			sum += *it->get_value();
+			++it;
+		}
+		if(it == exp.end()) {
+			exp.set_value(sum);
+		}
+		else{
+			exp.set_undefined();
+		}
 	}
-	return aux;
 }
 
-Expression PrimitiveOperationSpace::neg(const Expression& exp) {
-	Expression aux;
-	if(exp.undefined()){
-		aux.set_undefined();
+void PrimitiveOperationSpace::neg(Expression& exp) {
+	if(exp.is_value()){
+		exp.set_value(-1*exp.get_value());
 	}
 	else{
-		aux.set_value(-exp.get_value());
+		aux.set_undefined();
 	}
-	return aux;
 }
 
-Expression PrimitiveOperationSpace::cons(const Expression& exp) {
+void PrimitiveOperationSpace::cons(Expression& exp) {
+	if(exp.size() != 2){
+		exp.set_undefined();
+	}
+	else{
+
+	}
+}
+
+void PrimitiveOperationSpace::head(Expression& exp) {
+	if(exp.is_list()){
+		exp = *(*exp.begin());
+	}
+	else{
+		exp.set_undefined();
+	}
+}
+
+void PrimitiveOperationSpace::tail(Expression& exp) {
+	if(exp.is_list()){
+		exp.erase(exp.begin());
+	}
+	else{
+		exp.set_undefined();
+	}
+}
+
+void PrimitiveOperationSpace::equal(Expression& exp) {
 
 }
 
-Expression PrimitiveOperationSpace::head(const Expression& exp) {
+void PrimitiveOperationSpace::less(Expression& exp) {
 
 }
 
-Expression PrimitiveOperationSpace::tail(const Expression& exp) {
+void PrimitiveOperationSpace::bool_not(Expression& exp) {
 
 }
 
-Expression PrimitiveOperationSpace::equal(const Expression& exp) {
+void PrimitiveOperationSpace::bool_and(Expression& exp) {
 
 }
 
-Expression PrimitiveOperationSpace::less(const Expression& exp) {
+void PrimitiveOperationSpace::bool_or(Expression& exp) {
 
 }
 
-Expression PrimitiveOperationSpace::bool_not(const Expression& exp) {
-
-}
-
-Expression PrimitiveOperationSpace::bool_and(const Expression& exp) {
-
-}
-
-Expression PrimitiveOperationSpace::bool_or(const Expression& exp) {
-
-}
-
-Expression PrimitiveOperationSpace::cond_if(const Expression& exp) {
+void PrimitiveOperationSpace::cond_if(Expression& exp) {
 
 }
 

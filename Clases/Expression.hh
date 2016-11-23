@@ -83,6 +83,20 @@ public:
 
 	//_______ MODIFICADORES
 
+	/** @brief Operación de asignación
+
+		\pre <em>Cierto</em>
+		\post El parámetro implícito pasa a ser una copia de 'inExp'
+	*/
+	void operator = (const Expression& inExp);
+
+	/** @brief Operación de comparación de igualdad
+
+		\pre <em>Cierto</em>
+		\post Devuelve cierto si el parámetro implícito es igual a 'inExp'
+	*/
+	bool operator == (const Expression& inExp) const;
+
 	/** @brief Operación de evaluación de expresión
 
 		\pre El parámetro implícito no está vácío
@@ -96,6 +110,20 @@ public:
 		\post El parámetro implícito pasa a estar vacío: 'empt' igual a cierto; 'undef' igual a falso; 'val' sin inicializar; 'op' es un string vacío; 'lExp' es una lista vacía
 	*/
 	void clear();
+
+	/** @brief Operación de borrado de elemetos de lista
+
+		\pre 'lExp' no es una lista vacía
+		\post Se borra el elemento apuntado por el iterador 'it' de la lista 'lExp'; devuelve un iterador al elemento siguiente al borrado
+	*/
+	list<Expression*>::iterator erase(list<Expression*>::iterator it);
+
+	/** @brief Operación de vaciado de expresión
+
+		\pre 'lExp' no es una lista vacía
+		\post El parámetro implícito pasa a tener los elementos de lExpression antes del elemento apuntado por it
+	*/
+	void splice(list<Expression*>::iterator it, list<Expression*> lExpression);
 
 	/** @brief Modificadora del campo undefined
 
@@ -126,6 +154,13 @@ public:
 	void add_value(int value);
 
 	//_______ CONSULTORES
+
+	/** @brief Consultora de tamaño de lista
+
+		\pre <em>Cierto</em>
+		\post Devuelve el tamaño de la lsita 'lExp'
+	*/
+	int size() const;
 
 	/** @brief Consultora de estado
 
@@ -168,6 +203,13 @@ public:
 		\post Devuelve el valor 'val' del parámetro implícito
 	*/
 	int get_value() const;
+
+	/** @brief Consultora de operador
+
+		\pre El parámetro implícito no es undefined; el parámetro implícito no está vacío; el parámetro implícito representa una expresión a evaluar
+		\post Devuelve el operador 'op' del parámetro implícito
+	*/
+	string get_op() const;
 
 	//_______ ITERADORES
 
