@@ -53,8 +53,7 @@ void OperationSpace::update(string key, string parameters, string exp) {
 //_______ CONSULTORES
 
 bool OperationSpace::exists(string key) const {
-	map<string, definition>::const_iterator const_it = opMap.find(key);
-	return const_it != opMap.end();
+	return opMap.find(key) != opMap.end();
 }
 
 pair<string, string> OperationSpace::retrieve(string key) const {
@@ -65,11 +64,14 @@ pair<string, string> OperationSpace::retrieve(string key) const {
 //_______ I/O
 
 void OperationSpace::write() const {
-
+	cout << "Operacions:" << endl;
+	map<string, definition>::const_iterator const_it = opMap.begin();
+	while(const_it != opMap.end()) {
+		cout << const_it->first << " #"<< countVars(const_it->second.parameters) << endl;
+		++const_it;
+	}
 }
 
 void OperationSpace::write_op(string key) const {
-	string parameters = opMap[key].parameters;
-	cout << key << " #";
-	// ACABAR
+	cout << key << " #"<< countVars(opMap[key].parameters) << endl;
 }

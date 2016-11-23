@@ -8,19 +8,26 @@ using namespace std;
 
 Expression PrimitiveOperationSpace::sum(const Expression& exp) {
 	Expression aux(0);
-	list<Expression*>::const_iterator const_it= exp.begin();
-	while(const_it != exp.end() and not const_it->undefined()){
-		aux.add_value(const_it->get_value());
+	list<Expression*>::const_iterator const_it = exp.begin();
+	while(const_it != exp.end() and not *const_it->undefined()) {
+		aux.add_value(*const_it->get_value());
 		++const_it;
 	}
-	if(const_it->undefined()){
+	if(*const_it->undefined()) {
 		aux.set_undefined();
 	}
 	return aux;
 }
 
 Expression PrimitiveOperationSpace::neg(const Expression& exp) {
-
+	Expression aux;
+	if(exp.undefined()){
+		aux.set_undefined();
+	}
+	else{
+		aux.set_value(-exp.get_value());
+	}
+	return aux;
 }
 
 Expression PrimitiveOperationSpace::cons(const Expression& exp) {
@@ -79,6 +86,10 @@ PrimitiveOperationSpace::~PrimitiveOperationSpace() {
 }
 
 //_______ CONSULTORES
+
+bool PrimitiveOperationSpace::exists(string key) const {
+	return primOpMap.find(key) != primOpMap.end();
+}
 
 primitiveOperation PrimitiveOperationSpace::retrieve(string key) const {
 	return primOpMap[key];

@@ -5,6 +5,8 @@
 
 using namespace std;
 
+//_______ CONSTRUCTORES
+
 VariableSpace::VariableSpace() {
 }
 
@@ -34,8 +36,7 @@ void VariableSpace::update(string key, const Expression& exp) {
 //_______ CONSULTORES
 
 bool VariableSpace::exists(string key) const {
-	map<string, Expression>::const_iterator const_it = varMap.find(key);
-	return const_it != varMap.end();
+	return varMap.find(key) != varMap.end();
 }
 
 Expression VariableSpace::retrieve(string key) const {
@@ -45,13 +46,13 @@ Expression VariableSpace::retrieve(string key) const {
 //_______ I/O
 
 void VariableSpace::write() const {
+	cout << "Variables:" << endl;
 	map<string, Expression>::const_iterator const_it = varMap.begin();
-	while(const_it != varMap.end()){
+	while(const_it != varMap.end()) {
 		cout << const_it->first << " ";
 		const_it->second.write();
 		++const_it;
 	}
-	cout<<endl;
 }
 
 void VariableSpace::write_var(string key) const {

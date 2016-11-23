@@ -99,6 +99,13 @@ public:
 
 	//_______ CONSULTORES
 
+	/** @brief Consultora de existencia de operación primitiva
+
+    	\pre 'key' es un string no vacío
+    	\post Devuelve cierto si la operación primitiva con clave 'key' existe en el mapa de operaciones primitivas 'opMap' del parámetro implícito; en otro caso, devuelve falso
+    */
+	bool exists(string key) const;
+
 	/** @brief Consultora de recuperación de operación primitiva
 
     	\pre 'key' es un string no vacío; el mapa de operaciones primitivas 'primOpMap' del parámetro implícito contiene una operación primitiva con clave 'key'

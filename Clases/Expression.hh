@@ -20,7 +20,8 @@ class Expression {
 private:
 
 	/* INVARIANTE
-
+		Una expresión indefinida no está vacía;
+		Una expresión vacía no está indefinida;
 	*/
 
 	bool empt;
@@ -110,19 +111,19 @@ public:
 	*/
 	void set_value(int value);
 
-	/** @brief Modificadora de valor por adición
-
-		\pre 'val' está inicializada a un valor concreto
-		\post El parámetro implícito pasa a tener valor 'val' igual a la suma de 'val' más 'value'
-	*/
-	void add_value(int value);
-
 	/** @brief Modificadora de lista
 
 		\pre <em>Cierto</em>
 		\post El parámetro implícito pasa a tener 'lExp' igual a 'lExpression'; 'op' pasa a ser un string vacío
 	*/
 	void set_list(const list<Expression*>& lExpression);
+
+	/** @brief Modificadora de valor por adición
+
+		\pre 'val' está inicializada a un valor concreto
+		\post El parámetro implícito pasa a tener valor 'val' igual a la suma de 'val' más 'value'
+	*/
+	void add_value(int value);
 
 	//_______ CONSULTORES
 
@@ -163,10 +164,10 @@ public:
 
 	/** @brief Consultora de valor
 
-		\pre El parámetro implícito no es undefined; el parámetro implícito no está vacío
+		\pre El parámetro implícito no es undefined; el parámetro implícito no está vacío; el parámetro implícito representa un valor
 		\post Devuelve el valor 'val' del parámetro implícito
 	*/
-	void get_value() const;
+	int get_value() const;
 
 	//_______ ITERADORES
 
