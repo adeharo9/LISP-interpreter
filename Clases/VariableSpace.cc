@@ -39,7 +39,7 @@ bool VariableSpace::exists(string key) const {
 	return varMap.find(key) != varMap.end();
 }
 
-Expression VariableSpace::retrieve(string key) const {
+Expression VariableSpace::retrieve(string key) {
 	return varMap[key];
 }
 
@@ -55,7 +55,7 @@ void VariableSpace::write() const {
 	}
 }
 
-void VariableSpace::write_var(string key) const {
+void VariableSpace::write_var(string key) {
 	cout << key << " ";
 	varMap[key].write();
 }

@@ -56,7 +56,7 @@ bool OperationSpace::exists(string key) const {
 	return opMap.find(key) != opMap.end();
 }
 
-pair<string, string> OperationSpace::retrieve(string key) const {
+pair<string, string> OperationSpace::retrieve(string key) {
 	definition aux = opMap[key];
 	return make_pair(aux.parameters,aux.exp);
 }
@@ -72,6 +72,6 @@ void OperationSpace::write() const {
 	}
 }
 
-void OperationSpace::write_op(string key) const {
+void OperationSpace::write_op(string key) {
 	cout << key << " #"<< countVars(opMap[key].parameters) << endl;
 }

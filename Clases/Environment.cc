@@ -3,6 +3,8 @@
 
 using namespace std;
 
+typedef void (*primitiveOperation)(Expression&);
+
 //_______ CONSTRUCTORES
 
 Environment::Environment() {
@@ -45,15 +47,15 @@ bool Environment::exists_op(string key) const {
 	return opSpace.exists(key);
 }
 
-primitiveOperation Environment::retrieve_prim(string key) const {
+primitiveOperation Environment::retrieve_prim(string key) {
 	return primOpSpace.retrieve(key);
 }
 
-Expression Environment::retrieve_var(string key) const {
+Expression Environment::retrieve_var(string key) {
 	return varSpace.retrieve(key);
 }
 
-pair<string, string> Environment::retrieve_op(string key) const {
+pair<string, string> Environment::retrieve_op(string key) {
 	return opSpace.retrieve(key);
 }
 
@@ -64,10 +66,10 @@ void Environment::write() const {
 	opSpace.write();
 }
 
-void Environment::write_var(string key) const {
+void Environment::write_var(string key) {
 	varSpace.write_var(key);
 }
 
-void Environment::write_op(string key) const {
+void Environment::write_op(string key) {
 	opSpace.write_op(key);
 }

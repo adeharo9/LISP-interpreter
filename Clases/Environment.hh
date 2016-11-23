@@ -24,7 +24,7 @@ private:
 		El entorno contiene las operaciones primitivas, así como las variables y operaciones definidas por el usuario
 	*/
 
-	typedef Expression (*primitiveOperation)(const Expression&);
+	typedef void (*primitiveOperation)(Expression&);
 
 	PrimitiveOperationSpace primOpSpace;
 	VariableSpace varSpace;
@@ -110,21 +110,21 @@ public:
     	\pre 'key' es un string no vacío; el mapa de operaciones primitivas 'primOpMap' del espacio de operaciones primitivas 'primOpSpace' del parámetro implícito contiene una operación primitiva con clave 'key'
     	\post Devuelve la operación primitiva representada por la clave 'key'
     */
-	primitiveOperation retrieve_prim(string key) const;
+	primitiveOperation retrieve_prim(string key);
 
 	/** @brief Consultora de recuperación de variable
 
     	\pre 'key' es un string no vacío; el mapa de variables 'varMap' del espacio de variables 'varSpace' del parámetro implícito contiene una variable con clave 'key'
     	\post Devuelve la expresión representada por la variable de clave 'key'
     */
-	Expression retrieve_var(string key) const;
+	Expression retrieve_var(string key);
 
 	/** @brief Consultora de recuperación de operación
 
     	\pre 'key' es un string no vacío; el mapa de operaciones 'opMap' del espacio de operaciones 'opSpace' del parámetro implícito contiene una operación con clave 'key'
     	\post Devuelve los parámetros y la expresión, respectivamente en forma de pair, de la operación representada por la clave 'key'
     */
-	pair<string, string> retrieve_op(string key) const;
+	pair<string, string> retrieve_op(string key);
 
 	//_______ I/O
 
@@ -140,14 +140,14 @@ public:
 		\pre 'key' es un string no vacío; el mapa de variables 'varMap' del espacio de variables 'varSpace' del parámetro implícito contiene una variable con clave 'key'
 		\post Se ha escrito el contenido de la variable con clave 'key' por el canal estándar de salida; en caso que el resultado de evaluar la expresión sea indefinido, se escribe "indefinido"
 	*/
-	void write_var(string key) const;
+	void write_var(string key);
 
 	/** @brief Operación de escritura de una operación concreta
 
 		\pre 'key' es un string no vacío; el mapa de operaciones 'opMap' del espacio de operaciones 'opSpace' del parámetro implícito contiene una operación con clave 'key'
 		\post Se ha escrito el contenido de la operación con clave 'key' por el canal estándar de salida
 	*/
-	void write_op(string key) const;
+	void write_op(string key);
 
 };
 

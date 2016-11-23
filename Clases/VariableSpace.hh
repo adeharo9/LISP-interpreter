@@ -94,7 +94,7 @@ public:
     	\pre 'key' es un string no vacío; el mapa de variables 'varMap' del parámetro implícito contiene una variable con clave 'key'
     	\post Devuelve la expresión representada por la variable de clave 'key'
     */
-    Expression retrieve(string key) const;
+    Expression retrieve(string key);
 
 	//_______ I/O
 
@@ -110,7 +110,7 @@ public:
 		\pre 'key' es un string no vacío; el mapa de variables 'varMap' del parámetro implícito contiene una variable con clave 'key'
 		\post Se ha escrito el contenido de la variable con clave 'key' por el canal estándar de salida; en caso que el resultado de evaluar la expresión sea indefinido, se escribe "indefinido"
 	*/
-	void write_var(string key) const;
+	void write_var(string key);
 
 };
 

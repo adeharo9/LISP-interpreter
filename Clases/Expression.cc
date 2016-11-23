@@ -17,19 +17,19 @@ Expression::Expression(int value) {
 
 Expression::Expression(string inOperator, const list<Expression*>& lExpression) {
 	empt = false;
-	undefined = false;
+	undef = false;
 	op = inOperator;
 	lExp = lExpression;
 }
 
 Expression::Expression(const list<Expression*>& lExpression) {
 	empt = false;
-	undefined = false;
+	undef = false;
 	lExp = lExpression;
 }
 
 Expression::Expression(const Expression& inExp) {
-	empt = inExp.emtp;
+	empt = inExp.empt;
 	undef = inExp.undef;
 	val = inExp.val;
 	op = inExp.op;
@@ -44,7 +44,7 @@ Expression::~Expression() {
 //_______ MODIFICADORES
 
 void Expression::operator = (const Expression& inExp) {
-	empt = inExp.emtp;
+	empt = inExp.empt;
 	undef = inExp.undef;
 	val = inExp.val;
 	op = inExp.op;
@@ -58,7 +58,7 @@ bool Expression::operator == (const Expression& inExp) const{
 	else if(this->is_op() and inExp.is_op()) {
 		bool aux = this->get_op() == inExp.get_op();
 		list<Expression*>::const_iterator it1 = this->begin();
-		list<Expression*>::const_iterator it2 = inExp->begin();
+		list<Expression*>::const_iterator it2 = inExp.begin();
 		while(aux and it1 != this->end() and it2 != inExp.end()){
 			aux = *(*it2) == *(*it2);
 			++it1;
@@ -68,7 +68,7 @@ bool Expression::operator == (const Expression& inExp) const{
 	}
 	else if(this->is_list() and inExp.is_list()) {
 		list<Expression*>::const_iterator it1 = this->begin();
-		list<Expression*>::const_iterator it2 = inExp->begin();
+		list<Expression*>::const_iterator it2 = inExp.begin();
 		bool aux = *(*it2) == *(*it2);
 		++it1;
 		++it2;
@@ -77,9 +77,10 @@ bool Expression::operator == (const Expression& inExp) const{
 			++it1;
 			++it2;
 		}
+		return aux;
 	}
 	else {
-		return this->empty() and inExp.emtpy()
+		return this->empty() and inExp.empty();
 	}
 }
 
@@ -96,7 +97,7 @@ void Expression::clear() {
 	}
 }
 
-list<Expression*>::iterator erase(list<Expression*>::iterator it) {
+list<Expression*>::iterator Expression::erase(list<Expression*>::iterator it) {
 	return lExp.erase(it);
 }
 
@@ -166,6 +167,10 @@ int Expression::get_value() const {
 	return val;
 }
 
+string Expression::get_op() const {
+	return op;
+}
+
 //_______ ITERADORES
 
 list<Expression*>::iterator Expression::begin() {
@@ -195,10 +200,10 @@ void Expression::write() const {
 	}
 	else {
 		list<Expression*>::const_iterator const_it = lExp.begin();
-		cout << "(" << *const_it->get_value();
+		cout << "(" << (*const_it)->get_value();
 		++const_it;
 		while(const_it != lExp.end()) {
-			cout << " " << *const_it->get_value();
+			cout << " " << (*const_it)->get_value();
 			++const_it;
 		}
 		cout << ")";

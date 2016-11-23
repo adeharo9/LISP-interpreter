@@ -4,6 +4,8 @@
 
 using namespace std;
 
+typedef void (*primitiveOperation)(Expression&);
+
 //_______ MÉTODOS PRIVADOS
 
 void PrimitiveOperationSpace::sum(Expression& exp) {
@@ -13,8 +15,8 @@ void PrimitiveOperationSpace::sum(Expression& exp) {
 	else {
 		int sum=0;
 		list<Expression*>::iterator it = exp.begin();
-		while(it != exp.end() and *it->is_value()) {
-			sum += *it->get_value();
+		while(it != exp.end() and (*it)->is_value()) {
+			sum += (*it)->get_value();
 			++it;
 		}
 		if(it == exp.end()) {
@@ -31,7 +33,7 @@ void PrimitiveOperationSpace::neg(Expression& exp) {
 		exp.set_value(-1*exp.get_value());
 	}
 	else{
-		aux.set_undefined();
+		exp.set_undefined();
 	}
 }
 
@@ -111,6 +113,6 @@ bool PrimitiveOperationSpace::exists(string key) const {
 	return primOpMap.find(key) != primOpMap.end();
 }
 
-primitiveOperation PrimitiveOperationSpace::retrieve(string key) const {
+primitiveOperation PrimitiveOperationSpace::retrieve(string key) {
 	return primOpMap[key];
 }
