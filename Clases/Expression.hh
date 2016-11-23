@@ -197,6 +197,13 @@ public:
 	*/
 	bool is_list() const;
 
+	/** @brief Consultora de tipo de expresión booleana
+
+		\pre El parámetro implícito no está vacío
+		\post Devuelve cierto si el parámetro implícito es una expresión booleana; en otro caso, devuelve falso
+	*/
+	bool is_bool() const;
+
 	/** @brief Consultora de valor
 
 		\pre El parámetro implícito no es undefined; el parámetro implícito no está vacío; el parámetro implícito representa un valor

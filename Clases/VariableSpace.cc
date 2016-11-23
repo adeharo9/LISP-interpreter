@@ -39,7 +39,7 @@ bool VariableSpace::exists(string key) const {
 	return varMap.find(key) != varMap.end();
 }
 
-Expression VariableSpace::retrieve(string key) {
+Expression VariableSpace::get(string key) {
 	return varMap[key];
 }
 

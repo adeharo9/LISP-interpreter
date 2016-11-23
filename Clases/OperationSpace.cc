@@ -56,7 +56,7 @@ bool OperationSpace::exists(string key) const {
 	return opMap.find(key) != opMap.end();
 }
 
-pair<string, string> OperationSpace::retrieve(string key) {
+pair<string, string> OperationSpace::get(string key) {
 	definition aux = opMap[key];
 	return make_pair(aux.parameters,aux.exp);
 }

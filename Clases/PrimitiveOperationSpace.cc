@@ -13,7 +13,7 @@ void PrimitiveOperationSpace::sum(Expression& exp) {
 		exp.set_undefined();
 	}
 	else {
-		int sum=0;
+		int sum = 0;
 		list<Expression*>::iterator it = exp.begin();
 		while(it != exp.end() and (*it)->is_value()) {
 			sum += (*it)->get_value();
@@ -22,50 +22,65 @@ void PrimitiveOperationSpace::sum(Expression& exp) {
 		if(it == exp.end()) {
 			exp.set_value(sum);
 		}
-		else{
+		else {
 			exp.set_undefined();
 		}
 	}
 }
 
 void PrimitiveOperationSpace::neg(Expression& exp) {
-	if(exp.is_value()){
+	if(exp.is_value()) {
 		exp.set_value(-1*exp.get_value());
 	}
-	else{
+	else {
 		exp.set_undefined();
 	}
 }
 
 void PrimitiveOperationSpace::cons(Expression& exp) {
-	if(exp.size() != 2){
+	if(exp.size() != 2) {
 		exp.set_undefined();
 	}
-	else{
+	else {
 
 	}
 }
 
 void PrimitiveOperationSpace::head(Expression& exp) {
-	if(exp.is_list()){
+	if(exp.is_list()) {
 		exp = *(*exp.begin());
 	}
-	else{
+	else {
 		exp.set_undefined();
 	}
 }
 
 void PrimitiveOperationSpace::tail(Expression& exp) {
-	if(exp.is_list()){
+	if(exp.is_list()) {
 		exp.erase(exp.begin());
 	}
-	else{
+	else {
 		exp.set_undefined();
 	}
 }
 
 void PrimitiveOperationSpace::equal(Expression& exp) {
-
+	if(exp.size() != 2) {
+		exp.set_undefined();
+	}
+	else {
+		list<Expression*>::iterator it1 = exp.begin();
+		list<Expression*>::iterator it2 = ++exp.begin();
+		if((*it1)->undefined() or (*it2)->undefined()) {
+			exp.set_undefined();
+		}
+		else if(*(*it1) == *(*it2)) {
+			exp.set_value(1);
+		}
+		else {
+			exp.set_value(0);
+		}
+	}
 }
 
 void PrimitiveOperationSpace::less(Expression& exp) {
@@ -113,6 +128,6 @@ bool PrimitiveOperationSpace::exists(string key) const {
 	return primOpMap.find(key) != primOpMap.end();
 }
 
-primitiveOperation PrimitiveOperationSpace::retrieve(string key) {
+primitiveOperation PrimitiveOperationSpace::get(string key) {
 	return primOpMap[key];
 }

@@ -94,7 +94,7 @@ public:
     	\pre 'key' es un string no vacío; el mapa de variables 'varMap' del parámetro implícito contiene una variable con clave 'key'
     	\post Devuelve la expresión representada por la variable de clave 'key'
     */
-    Expression retrieve(string key);
+    Expression get(string key);
 
 	//_______ I/O
 
