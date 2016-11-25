@@ -9,45 +9,39 @@ typedef void (*primitiveOperation)(Expression&);
 //_______ MÉTODOS PRIVADOS
 
 void PrimitiveOperationSpace::sum(Expression& exp) {
-	if(exp.size() != 2) {
-		exp.set_undefined();
-	}
-	else {
-		int sum = 0;
-		list<Expression*>::iterator it = exp.begin();
-		while(it != exp.end() and (*it)->is_value()) {
-			sum += (*it)->get_value();
-			++it;
-		}
-		if(it == exp.end()) {
-			exp.set_value(sum);
+	if(exp.is_op() and exp.size() == 2) {
+		if((*exp.begin())->is_value() and (*exp.second())->is_value()) {
+			exp.set_value(((*exp.begin())->get_value())+((*exp.second())->get_value()));
 		}
 		else {
 			exp.set_undefined();
 		}
 	}
+	else {
+		exp.set_undefined();
+	}
 }
 
 void PrimitiveOperationSpace::neg(Expression& exp) {
-	if(exp.is_value()) {
-		exp.set_value(-1*exp.get_value());
+	if(exp.is_op() and exp.size() == 1) {
+		exp.set_value(-1*((*exp.begin())->get_value()));
 	}
 	else {
 		exp.set_undefined();
 	}
 }
 
-void PrimitiveOperationSpace::cons(Expression& exp) {
-	if(exp.size() != 2) {
-		exp.set_undefined();
+/*void PrimitiveOperationSpace::cons(Expression& exp) {
+	if(exp.is_op() and exp.size() == 2) {
+		exp.splice(exp.begin(),);
 	}
 	else {
-
+		exp.set_undefined();
 	}
-}
+}*/
 
 void PrimitiveOperationSpace::head(Expression& exp) {
-	if(exp.is_list()) {
+	if(exp.is_op()) {
 		exp = *(*exp.begin());
 	}
 	else {
@@ -56,8 +50,9 @@ void PrimitiveOperationSpace::head(Expression& exp) {
 }
 
 void PrimitiveOperationSpace::tail(Expression& exp) {
-	if(exp.is_list()) {
+	if(exp.is_op()) {
 		exp.erase(exp.begin());
+		exp.set_list();
 	}
 	else {
 		exp.set_undefined();
@@ -65,42 +60,92 @@ void PrimitiveOperationSpace::tail(Expression& exp) {
 }
 
 void PrimitiveOperationSpace::equal(Expression& exp) {
-	if(exp.size() != 2) {
-		exp.set_undefined();
-	}
-	else {
-		list<Expression*>::iterator it1 = exp.begin();
-		list<Expression*>::iterator it2 = ++exp.begin();
-		if((*it1)->undefined() or (*it2)->undefined()) {
+	if(exp.is_op() and exp.size() == 2) {
+		if((*exp.begin())->undefined() or (*exp.second())->undefined()) {
 			exp.set_undefined();
 		}
-		else if(*(*it1) == *(*it2)) {
-			exp.set_value(1);
-		}
 		else {
-			exp.set_value(0);
+			exp.set_value(*(*exp.begin()) == *(*exp.second()));
 		}
+	}
+	else {
+		exp.set_undefined();
 	}
 }
 
 void PrimitiveOperationSpace::less(Expression& exp) {
-
+	if(exp.is_op() and exp.size() == 2) {
+		if((*exp.begin())->undefined() or (*exp.second())->undefined()) {
+			exp.set_undefined();
+		}
+		else {
+			exp.set_value(*(*exp.begin()) < *(*exp.second()));
+		}
+	}
+	else {
+		exp.set_undefined();
+	}
 }
 
 void PrimitiveOperationSpace::bool_not(Expression& exp) {
-
+	if(exp.is_op() and exp.size() == 1) {
+		if((*exp.begin())->is_bool()) {
+			exp.set_value((*exp.begin())->get_value() == 0);
+		}
+		else {
+			exp.set_undefined();
+		}
+	}
+	else {
+		exp.set_undefined();
+	}
 }
 
 void PrimitiveOperationSpace::bool_and(Expression& exp) {
-
+	if(exp.is_op() and exp.size() == 2) {
+		if((*exp.begin())->is_bool() and (*exp.second())->is_bool()) {
+			exp.set_value(((*exp.begin())->get_value() == 1) and ((*exp.second())->get_value() == 1));
+		}
+		else {
+			exp.set_undefined();
+		}
+	}
+	else {
+		exp.set_undefined();
+	}
 }
 
 void PrimitiveOperationSpace::bool_or(Expression& exp) {
-
+	if(exp.is_op() and exp.size() == 2) {
+		if((*exp.begin())->is_bool() and (*exp.second())->is_bool()) {
+			exp.set_value(((*exp.begin())->get_value() == 1) or ((*exp.second())->get_value() == 1));
+		}
+		else {
+			exp.set_undefined();
+		}
+	}
+	else {
+		exp.set_undefined();
+	}
 }
 
 void PrimitiveOperationSpace::cond_if(Expression& exp) {
-
+	if(exp.is_op() and exp.size() == 3) {
+		if((*exp.begin())->is_bool()) {
+			if((*exp.begin())->get_value() == 1) {
+				exp = *(*exp.second());
+			}
+			else {
+				exp = *(*exp.third());
+			}
+		}
+		else {
+			exp.set_undefined();
+		}
+	}
+	else {
+		exp.set_undefined();
+	}
 }
 
 //_______ CONSTRUCTORES

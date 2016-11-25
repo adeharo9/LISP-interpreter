@@ -97,6 +97,13 @@ public:
 	*/
 	bool operator == (const Expression& inExp) const;
 
+	/** @brief Operación de comparación de inferioridad exclusiva
+
+		\pre <em>Cierto</em>
+		\post Devuelve cierto si el parámetro implícito es menor exclusivo que 'inExp'
+	*/
+	bool operator < (const Expression& inExp) const;
+
 	/** @brief Operación de evaluación de expresión
 
 		\pre El parámetro implícito no está vácío
@@ -138,6 +145,13 @@ public:
 		\post El parámetro implícito pasa a tener valor 'value'; la lista 'lExp' del parámetro implícito pasa a estar vacía; 'op' pasa a ser un string vacío
 	*/
 	void set_value(int value);
+
+	/** @brief Modificadora de lista
+
+		\pre <em>Cierto</em>
+		\post El parámetro implícito pasa a ser una lista, si no lo era
+	*/
+	void set_list();
 
 	/** @brief Modificadora de lista
 
@@ -233,6 +247,34 @@ public:
 		\post Devuelve un const_iterator que apunta al inicio de la lista 'lExp'
 	*/
 	list<Expression*>::const_iterator begin() const;
+
+	/** @brief Iterador de segundo elemento de lista
+
+		\pre <em>Cierto</em>
+		\post Devuelve un iterador que apunta al segundo elemento de la lista 'lExp'
+	*/
+	list<Expression*>::iterator second();
+
+	/** @brief Iterador constante de segundo elemento de lista
+
+		\pre <em>Cierto</em>
+		\post Devuelve un const_iterator que apunta al segundo elemento de la lista 'lExp'
+	*/
+	list<Expression*>::const_iterator second() const;
+
+	/** @brief Iterador de tercer elemento de lista
+
+		\pre <em>Cierto</em>
+		\post Devuelve un iterador que apunta al tercer elemento de la lista 'lExp'
+	*/
+	list<Expression*>::iterator third();
+
+	/** @brief Iterador constante de tercer elemento de lista
+
+		\pre <em>Cierto</em>
+		\post Devuelve un const_iterator que apunta al tercer elemento de la lista 'lExp'
+	*/
+	list<Expression*>::const_iterator third() const;
 
 	/** @brief Iterador de final de lista
 
