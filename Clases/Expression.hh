@@ -165,7 +165,7 @@ public:
 		\pre 'val' está inicializada a un valor concreto
 		\post El parámetro implícito pasa a tener valor 'val' igual a la suma de 'val' más 'value'
 	*/
-	void add_value(int value);
+	//void add_value(int value);
 
 	//_______ CONSULTORES
 
@@ -231,6 +231,13 @@ public:
 		\post Devuelve el operador 'op' del parámetro implícito
 	*/
 	string get_op() const;
+
+	/** @brief Consultora de la lista
+
+		\pre El parámetro implícito no es undefined; el parámetro implícito no está vacío; el parámetro implícito representa una lista
+		\post Devuelve la lista 'lExp' del parámetro implícito
+	*/
+	list<Expression*> get_list() const;
 
 	//_______ ITERADORES
 

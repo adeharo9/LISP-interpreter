@@ -184,9 +184,9 @@ void Expression::set_list(const list<Expression*>& lExpression) {
 	lExp = lExpression;
 }
 
-void Expression::add_value(int value) {
+/*void Expression::add_value(int value) {
 	val += value;
-}
+}*/
 
 //_______ CONSULTORES
 
@@ -224,6 +224,10 @@ int Expression::get_value() const {
 
 string Expression::get_op() const {
 	return op;
+}
+
+list<Expression*> Expression::get_list() const{
+	return lExp;
 }
 
 //_______ ITERADORES

@@ -24,25 +24,46 @@ void PrimitiveOperationSpace::sum(Expression& exp) {
 
 void PrimitiveOperationSpace::neg(Expression& exp) {
 	if(exp.is_op() and exp.size() == 1) {
-		exp.set_value(-1*((*exp.begin())->get_value()));
+		if((*exp.begin())->is_value()) {
+			exp.set_value(-1*((*exp.begin())->get_value()));
+		}
+		else{
+			exp.set_undefined();
+		}
 	}
 	else {
 		exp.set_undefined();
 	}
 }
 
-/*void PrimitiveOperationSpace::cons(Expression& exp) {
+void PrimitiveOperationSpace::cons(Expression& exp) {
 	if(exp.is_op() and exp.size() == 2) {
-		exp.splice(exp.begin(),);
+		if((*exp.begin())->is_value() and (*exp.second())->is_list()){
+
+			//exp = (*exp.second())->
+
+			list<Expression*> aux = (*exp.second())->get_list();
+			exp.splice(exp.second(),aux);
+			exp.erase(--exp.end());
+		}
+		else{
+			exp.set_undefined();
+		}
 	}
 	else {
 		exp.set_undefined();
 	}
-}*/
+}
 
 void PrimitiveOperationSpace::head(Expression& exp) {
-	if(exp.is_op()) {
-		exp = *(*exp.begin());
+	if(exp.is_op() and exp.size() == 1) {
+		if((*exp.begin())->is_list()) {
+			exp = *(*((*exp.begin())->begin()));
+			//exp = *(*exp.begin())->begin();
+		}
+		else {
+			exp.set_undefined();
+		}
 	}
 	else {
 		exp.set_undefined();
@@ -50,9 +71,16 @@ void PrimitiveOperationSpace::head(Expression& exp) {
 }
 
 void PrimitiveOperationSpace::tail(Expression& exp) {
-	if(exp.is_op()) {
-		exp.erase(exp.begin());
-		exp.set_list();
+	if(exp.is_op() and exp.size() == 1) {
+		if((*exp.begin())->is_list()) {
+			(*exp.begin())->erase((*exp.begin())->begin());
+			exp = *(*exp.begin());
+			//exp.erase(exp.begin());
+			//exp.set_list();
+		}
+		else {
+			exp.set_undefined();
+		}
 	}
 	else {
 		exp.set_undefined();
