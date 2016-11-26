@@ -2,10 +2,6 @@
     @brief Especificación de las operaciones de lectura/escritura de expresiones
 */
 
-#ifndef NO_DIAGRAM
-#include <iostream>
-#endif
-
 #include "Environment.hh"
 #include "Expression.hh"
 

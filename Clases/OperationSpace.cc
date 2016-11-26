@@ -58,7 +58,7 @@ bool OperationSpace::exists(string key) const {
 
 pair<string, string> OperationSpace::get(string key) {
 	definition aux = opMap[key];
-	return make_pair(aux.parameters,aux.exp);
+	return make_pair(aux.parameters, aux.exp);
 }
 
 //_______ I/O
@@ -67,11 +67,11 @@ void OperationSpace::write() const {
 	cout << "Operacions:" << endl;
 	map<string, definition>::const_iterator const_it = opMap.begin();
 	while(const_it != opMap.end()) {
-		cout << const_it->first << " #"<< countVars(const_it->second.parameters) << endl;
+		cout << const_it->first << " #" << countVars(const_it->second.parameters) << endl;
 		++const_it;
 	}
 }
 
 void OperationSpace::write_op(string key) {
-	cout << key << " #"<< countVars(opMap[key].parameters) << endl;
+	cout << key << " #" << countVars(opMap[key].parameters) << endl;
 }

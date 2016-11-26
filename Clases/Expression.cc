@@ -134,7 +134,7 @@ list<Expression*>::iterator Expression::erase(list<Expression*>::iterator it) {
 }
 
 void Expression::splice(list<Expression*>::iterator it, list<Expression*> lExpression) {
-	lExp.splice(it,lExpression);
+	lExp.splice(it, lExpression);
 }
 
 void Expression::set_undefined() {

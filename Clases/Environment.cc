@@ -1,5 +1,9 @@
 #include <iostream>
 #include "Environment.hh"
+#include "Expression.hh"
+#include "PrimitiveOperationSpace.hh"
+#include "VariableSpace.hh"
+#include "OperationSpace.hh"
 
 using namespace std;
 
@@ -18,19 +22,19 @@ Environment::~Environment() {
 //_______ MODIFICADORES
 
 void Environment::add_var(string key, const Expression& exp) {
-	varSpace.add(key,exp);
+	varSpace.add(key, exp);
 }
 
 void Environment::add_op(string key, string parameters, string exp) {
-	opSpace.add(key,parameters,exp);
+	opSpace.add(key, parameters, exp);
 }
 
 void Environment::update_var(string key, const Expression& exp) {
-	varSpace.update(key,exp);
+	varSpace.update(key, exp);
 }
 
 void Environment::update_op(string key, string parameters, string exp) {
-	opSpace.update(key,parameters,exp);
+	opSpace.update(key, parameters, exp);
 }
 
 //_______ CONSULTORES
@@ -47,16 +51,16 @@ bool Environment::exists_op(string key) const {
 	return opSpace.exists(key);
 }
 
-primitiveOperation Environment::retrieve_prim(string key) {
-	return primOpSpace.retrieve(key);
+primitiveOperation Environment::get_prim(string key) {
+	return primOpSpace.get(key);
 }
 
-Expression Environment::retrieve_var(string key) {
-	return varSpace.retrieve(key);
+Expression Environment::get_var(string key) {
+	return varSpace.get(key);
 }
 
-pair<string, string> Environment::retrieve_op(string key) {
-	return opSpace.retrieve(key);
+pair<string, string> Environment::get_op(string key) {
+	return opSpace.get(key);
 }
 
 //_______ I/O
