@@ -93,22 +93,11 @@ bool Expression::operator < (const Expression& inExp) const{
 	if(this->is_value() and inExp.is_value()) {
 		return this->get_value() < inExp.get_value();
 	}
-	/*else if(this->is_op() and inExp.is_op()) {
-		bool aux = this->get_op() == inExp.get_op();
-		list<Expression*>::const_iterator it1 = this->begin();
-		list<Expression*>::const_iterator it2 = inExp.begin();
-		while(aux and it1 != this->end() and it2 != inExp.end()){
-			aux = *(*it1) < *(*it2);
-			++it1;
-			++it2;
-		}
-		return aux;
-	}*/
 	else if(this->is_list() and inExp.is_list()) {
 		if(this->size() == inExp.size()){
 			list<Expression*>::const_iterator it1 = this->begin();
 			list<Expression*>::const_iterator it2 = inExp.begin();
-			bool aux = *(*it1) == *(*it2);
+			bool aux = *(*it1) < *(*it2);
 			++it1;
 			++it2;
 			while(aux and it1 != this->end()){
@@ -123,7 +112,7 @@ bool Expression::operator < (const Expression& inExp) const{
 		}
 	}
 	else {
-		return this->empty() and inExp.empty();
+		return false;
 	}
 }
 
