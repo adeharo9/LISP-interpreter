@@ -301,7 +301,7 @@ public:
 
 	/** @brief Operación de escritura de expresión
 
-		\pre El parámetro implícito no está vacío
+		\pre El parámetro implícito no está vacío y representa un valor indefinido, un valor concreto o una lista de valores
 		\post Escribe el valor de la expresión o la lista de valores de la lista de expresiones representada/s por el parámetro implícito por el canal estandar de salida
 	*/
 	void write() const;

@@ -252,13 +252,10 @@ list<Expression*>::const_iterator Expression::end() const {
 //_______ I/O
 
 void Expression::write() const {
-	if(undef) {
-		cout << "indefinit" << endl;
+	if(this->is_value()) {
+		cout << val;
 	}
-	else if(this->is_value()) {
-		cout << val << endl;
-	}
-	else {
+	else if(this->is_list()) {
 		list<Expression*>::const_iterator const_it = lExp.begin();
 		cout << "(" << (*const_it)->get_value();
 		++const_it;
@@ -266,6 +263,9 @@ void Expression::write() const {
 			cout << " " << (*const_it)->get_value();
 			++const_it;
 		}
-		cout << ")";
+		cout << ")" << endl;
+	}
+	else {
+		cout << "indefinit";
 	}
 }
