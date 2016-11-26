@@ -179,41 +179,41 @@ public:
 	/** @brief Consultora de estado
 
 		\pre <em>Cierto</em>
-		\post Devuelve cierto si el parámetro implícito es indefinido; en otro caso, devuelve falso
-	*/
-	bool undefined() const;
-
-	/** @brief Consultora de estado
-
-		\pre <em>Cierto</em>
 		\post Devuelve cierto si el parámetro implícito está vacío; en otro caso, devuelve falso
 	*/
 	bool empty() const;
 
+	/** @brief Consultora de estado
+
+		\pre <em>Cierto</em>
+		\post Devuelve cierto si el parámetro implícito es indefinido; en otro caso, devuelve falso
+	*/
+	bool undefined() const;
+
 	/** @brief Consultora de tipo de expresión variable
 
-		\pre El parámetro implícito no está vacío
+		\pre <em>Cierto</em>
 		\post Devuelve cierto si el parámetro implícito es un valor atómico; en otro caso, devuelve falso
 	*/
 	bool is_value() const;
 
 	/** @brief Consultora de tipo de expresión operación
 
-		\pre El parámetro implícito no está vacío
+		\pre <em>Cierto</em>
 		\post Devuelve cierto si el parámetro implícito es una operación a ser evaluada; en otro caso, devuelve falso
 	*/
 	bool is_op() const;
 
 	/** @brief Consultora de tipo de expresión lista
 
-		\pre El parámetro implícito no está vacío
+		\pre <em>Cierto</em>
 		\post Devuelve cierto si el parámetro implícito es una lista de expresiones; en otro caso, devuelve falso
 	*/
 	bool is_list() const;
 
 	/** @brief Consultora de tipo de expresión booleana
 
-		\pre El parámetro implícito no está vacío
+		\pre <em>Cierto</em>
 		\post Devuelve cierto si el parámetro implícito es una expresión booleana; en otro caso, devuelve falso
 	*/
 	bool is_bool() const;

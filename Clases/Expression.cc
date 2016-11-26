@@ -51,7 +51,7 @@ void Expression::operator = (const Expression& inExp) {
 	lExp = inExp.lExp;
 }
 
-bool Expression::operator == (const Expression& inExp) const{
+bool Expression::operator == (const Expression& inExp) const {
 	if(this->is_value() and inExp.is_value()) {
 		return this->get_value() == inExp.get_value();
 	}
@@ -59,7 +59,7 @@ bool Expression::operator == (const Expression& inExp) const{
 		bool aux = this->get_op() == inExp.get_op();
 		list<Expression*>::const_iterator it1 = this->begin();
 		list<Expression*>::const_iterator it2 = inExp.begin();
-		while(aux and it1 != this->end() and it2 != inExp.end()){
+		while(aux and it1 != this->end() and it2 != inExp.end()) {
 			aux = *(*it1) == *(*it2);
 			++it1;
 			++it2;
@@ -67,20 +67,20 @@ bool Expression::operator == (const Expression& inExp) const{
 		return aux;
 	}*/
 	else if(this->is_list() and inExp.is_list()) {
-		if(this->size() == inExp.size()){
+		if(this->size() == inExp.size()) {
 			list<Expression*>::const_iterator it1 = this->begin();
 			list<Expression*>::const_iterator it2 = inExp.begin();
 			bool aux = *(*it1) == *(*it2);
 			++it1;
 			++it2;
-			while(aux and it1 != this->end()){
+			while(aux and it1 != this->end()) {
 				aux = *(*it1) == *(*it2);
 				++it1;
 				++it2;
 			}
 			return aux;
 		}
-		else{
+		else {
 			return false;
 		}
 	}
@@ -89,25 +89,25 @@ bool Expression::operator == (const Expression& inExp) const{
 	}
 }
 
-bool Expression::operator < (const Expression& inExp) const{
+bool Expression::operator < (const Expression& inExp) const {
 	if(this->is_value() and inExp.is_value()) {
 		return this->get_value() < inExp.get_value();
 	}
 	else if(this->is_list() and inExp.is_list()) {
-		if(this->size() == inExp.size()){
+		if(this->size() == inExp.size()) {
 			list<Expression*>::const_iterator it1 = this->begin();
 			list<Expression*>::const_iterator it2 = inExp.begin();
 			bool aux = *(*it1) < *(*it2);
 			++it1;
 			++it2;
-			while(aux and it1 != this->end()){
+			while(aux and it1 != this->end()) {
 				aux = *(*it1) < *(*it2);
 				++it1;
 				++it2;
 			}
 			return aux;
 		}
-		else{
+		else {
 			return false;
 		}
 	}
@@ -121,7 +121,7 @@ void Expression::evaluate() {
 }
 
 void Expression::clear() {
-	if(not empt){
+	if(not empt) {
 		empt = true;
 		undef = false;
 		op.clear();
@@ -138,7 +138,7 @@ void Expression::splice(list<Expression*>::iterator it, list<Expression*> lExpre
 }
 
 void Expression::set_undefined() {
-	if(not undef){
+	if(not undef) {
 		empt = false;
 		undef = true;
 		op.clear();
@@ -147,7 +147,7 @@ void Expression::set_undefined() {
 }
 
 void Expression::set_value(int value) {
-	if(not this->is_value()){
+	if(not this->is_value()) {
 		empt = false;
 		undef = false;
 		op.clear();
@@ -157,7 +157,7 @@ void Expression::set_value(int value) {
 }
 
 void Expression::set_list() {
-	if(not this->is_list()){
+	if(not this->is_list()) {
 		empt = false;
 		undef = false;
 		op.clear();
@@ -165,7 +165,7 @@ void Expression::set_list() {
 }
 
 void Expression::set_list(const list<Expression*>& lExpression) {
-	if(not this->is_list()){
+	if(not this->is_list()) {
 		empt = false;
 		undef = false;
 		op.clear();
@@ -173,34 +173,30 @@ void Expression::set_list(const list<Expression*>& lExpression) {
 	lExp = lExpression;
 }
 
-/*void Expression::add_value(int value) {
-	val += value;
-}*/
-
 //_______ CONSULTORES
 
 int Expression::size() const {
 	return lExp.size();
 }
 
-bool Expression::undefined() const {
-	return undef;
-}
-
 bool Expression::empty() const {
 	return empt;
 }
 
+bool Expression::undefined() const {
+	return undef;
+}
+
 bool Expression::is_value() const {
-	return not undef and op.size() == 0 and lExp.size() == 0;
+	return not empt and not undef and op.size() == 0 and lExp.size() == 0;
 }
 
 bool Expression::is_op() const {
-	return not undef and op.size() != 0 and lExp.size() != 0;
+	return not empt and not undef and op.size() != 0 and lExp.size() != 0;
 }
 
 bool Expression::is_list() const {
-	return not undef and op.size() == 0 and lExp.size() != 0;
+	return not empt and not undef and op.size() == 0 and lExp.size() != 0;
 }
 
 bool Expression::is_bool() const {
@@ -215,7 +211,7 @@ string Expression::get_op() const {
 	return op;
 }
 
-list<Expression*> Expression::get_list() const{
+list<Expression*> Expression::get_list() const {
 	return lExp;
 }
 
