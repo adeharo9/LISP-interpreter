@@ -52,6 +52,10 @@ void OperationSpace::update(string key, string parameters, string exp) {
 
 //_______ CONSULTORES
 
+bool OperationSpace::empty() const {
+	return opMap.empty();
+}
+
 bool OperationSpace::exists(string key) const {
 	return opMap.find(key) != opMap.end();
 }

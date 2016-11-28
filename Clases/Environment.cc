@@ -43,6 +43,14 @@ bool Environment::is_primitive(string key) const {
 	return primOpSpace.exists(key);
 }
 
+bool Environment::is_op(string key) const {
+	return primOpSpace.exists(key) or opSpace.exists(key);
+}
+
+bool Environment::exists(string key) const {
+	return primOpSpace.exists(key) or varSpace.exists(key) or opSpace.exists(key);
+}
+
 bool Environment::exists_var(string key) const {
 	return varSpace.exists(key);
 }
@@ -66,8 +74,12 @@ pair<string, string> Environment::get_op(string key) {
 //_______ I/O
 
 void Environment::write() const {
-	varSpace.write();
-	opSpace.write();
+	if(not varSpace.empty()) {
+		varSpace.write();
+	}
+	if(not opSpace.empty()) {
+		opSpace.write();
+	}
 }
 
 void Environment::write_var(string key) {

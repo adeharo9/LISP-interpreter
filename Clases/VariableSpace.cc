@@ -35,6 +35,10 @@ void VariableSpace::update(string key, const Expression& exp) {
 
 //_______ CONSULTORES
 
+bool VariableSpace::empty() const {
+	return varMap.empty();
+}
+
 bool VariableSpace::exists(string key) const {
 	return varMap.find(key) != varMap.end();
 }
@@ -51,6 +55,7 @@ void VariableSpace::write() const {
 	while(const_it != varMap.end()) {
 		cout << const_it->first << " ";
 		const_it->second.write();
+		cout << endl;
 		++const_it;
 	}
 }

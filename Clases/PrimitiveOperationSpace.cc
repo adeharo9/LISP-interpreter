@@ -43,6 +43,7 @@ void PrimitiveOperationSpace::cons(Expression& exp) {
 			list<Expression*> aux = (*exp.second())->get_list();
 			exp.splice(exp.second(),aux);
 			exp.erase(--exp.end());
+			exp.set_list();
 		}
 		else {
 			exp.set_undefined();

@@ -146,6 +146,20 @@ public:
 	*/
 	void set_value(int value);
 
+	/** @brief Modificadora de operador
+
+		\pre <em>Cierto</em>
+		\post El parámetro implícito pasa a tener operador 'op'; la lista 'lExp' queda vacía a la espera de ser asignada mediante el método set_op_list()
+	*/
+	void set_op(string op);
+
+	/** @brief Modificadora de lista de operación
+
+		\pre El parámetro implícito es una operación a la espera de ser asignada una lista
+		\post El parámetro implícito pasa a tener lista 'lExp' igual a 'lExpression'; el parámetro implícito es una operación
+	*/
+	void set_op_list(const list<Expression*>& lExpression);
+
 	/** @brief Modificadora de lista
 
 		\pre <em>Cierto</em>

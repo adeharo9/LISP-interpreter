@@ -82,6 +82,13 @@ public:
 
 	//_______ CONSULTORES
 
+    /** @brief Consultora de mapa vacío
+
+    	\pre <em>Cierto</em>
+    	\post Devuelve cierto si el mapa de variables 'varMap' está vacío
+    */
+    bool empty() const;
+
     /** @brief Consultora de existencia de variable
 
     	\pre 'key' es un string no vacío

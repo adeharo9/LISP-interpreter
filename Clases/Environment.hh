@@ -91,6 +91,20 @@ public:
 	*/
 	bool is_primitive(string key) const;
 
+	/** @brief Consultora de existencia de operación
+
+		\pre 'key' es un string no vacío
+		\post Devuelve cierto si la operación de clave 'key' es una operación contenida en el mapa de operaciones 'opMap' del espacio de operaciones 'opSpace' o en el mapa de operaciones primitivas 'primOpMap' del espacio de operaciones primitivas 'primOpSpace'; en otro caso, devuelve falso
+	*/
+	bool is_op(string key) const;
+
+	/** @brief Consultora de existencia
+
+    	\pre 'key' es un string no vacío
+    	\post Devuelve cierto si el string 'key' figura como clave de alguna variable u operación de algún mapa de algún espacio del parámetro implícito; en otro caso, devuelve falso
+    */
+	bool exists(string key) const;
+
 	/** @brief Consultora de existencia de variable
 
     	\pre 'key' es un string no vacío

@@ -156,6 +156,19 @@ void Expression::set_value(int value) {
 	val = value;
 }
 
+void Expression::set_op(string inOperator) {
+	if(not this->is_op()) {
+		empt = false;
+		undef = false;
+		lExp.clear();
+	}
+	op = inOperator;
+}
+
+void Expression::set_op_list(const list<Expression*>& lExpression) {
+	lExp = lExpression;
+}
+
 void Expression::set_list() {
 	if(not this->is_list()) {
 		empt = false;
@@ -252,7 +265,10 @@ list<Expression*>::const_iterator Expression::end() const {
 //_______ I/O
 
 void Expression::write() const {
-	if(this->is_value()) {
+	if(empt) {
+		cout << "()";
+	}
+	else if(this->is_value()) {
 		cout << val;
 	}
 	else if(this->is_list()) {
@@ -263,7 +279,7 @@ void Expression::write() const {
 			cout << " " << (*const_it)->get_value();
 			++const_it;
 		}
-		cout << ")" << endl;
+		cout << ")";
 	}
 	else {
 		cout << "indefinit";
