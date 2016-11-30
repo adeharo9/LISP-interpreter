@@ -6,7 +6,7 @@
 
 using namespace std;
 
-bool isNum(string str) {
+/*bool isNum(string str) {
 	int i = 0;
 	if(not str.empty() and (str[i] == '-' or (str[i] >= '0' and str[i] <= '9'))) {
 			++i;
@@ -15,6 +15,16 @@ bool isNum(string str) {
 		}
 	}
 	return not str.empty() and i == str.size();
+}
+*/
+
+bool isNum(string str) {
+	string::cons_iteratior it = str.begin();
+	(*it == '-') ? it++;
+	while (it != str.end() and isdigit(*it)){
+		it++;
+	}
+	return !str.empty() and *it == str.end();
 }
 
 void getString(string& buff, string& str) {
@@ -46,7 +56,34 @@ void getString(string& buff, string& str) {
 	}
 }
 
+
+
 bool readExpression(Environment& env, Expression& exp) {
+
+	string inbuff, instr;
+	bool fin = false;
+	int parentesispaertura, parentesiscerrar;
+	parentesispaertura = parentesiscerrar = 0;
+	
+	while( !fin or instr != ')'){
+		cin >> instr;
+		getString(inbuff, instr);
+
+		if (instr = '('){
+			parentesispaertura++;
+		} else if (instr = '('){
+			parentesiscerrar++;
+		} else if (instr = '****'){
+			fin = true;
+		} else if (isNum(instr)){
+			add_value(instr); /*añade el valor a la lista de valores de la variable expresion */
+		} else if (exist_var(instr)){
+			add_value(get_var(instr));
+		} else if (exist_op(instr)){
+			set_op(instr);
+		}
+
+	}
 
 }
 
