@@ -39,7 +39,7 @@ void PrimitiveOperationSpace::neg(Expression& exp) {
 
 void PrimitiveOperationSpace::cons(Expression& exp) {
 	if(exp.is_op() and exp.size() == 2) {
-		if((*exp.begin())->is_value() and (*exp.second())->is_list()) {
+		if((*exp.begin())->is_value() and ((*exp.second())->empty() or (*exp.second())->is_list())) {
 			list<Expression*> aux = (*exp.second())->get_list();
 			exp.splice(exp.second(),aux);
 			exp.erase(--exp.end());
@@ -56,7 +56,7 @@ void PrimitiveOperationSpace::cons(Expression& exp) {
 
 void PrimitiveOperationSpace::head(Expression& exp) {
 	if(exp.is_op() and exp.size() == 1) {
-		if((*exp.begin())->is_list()) {
+		if((*exp.begin())->is_list() and not (*exp.begin())->empty()) {
 			exp = *(*((*exp.begin())->begin()));
 		}
 		else {
@@ -70,9 +70,13 @@ void PrimitiveOperationSpace::head(Expression& exp) {
 
 void PrimitiveOperationSpace::tail(Expression& exp) {
 	if(exp.is_op() and exp.size() == 1) {
-		if((*exp.begin())->is_list()) {
-			(*exp.begin())->erase((*exp.begin())->begin());
-			exp = *(*exp.begin());
+		if((*exp.begin())->is_list() and not (*exp.begin())->empty()) {
+			if((*exp.begin())->erase((*exp.begin())->begin()) != (*exp.begin())->end()) {
+				exp = *(*exp.begin());
+			}
+			else {
+				exp.clear();
+			}
 		}
 		else {
 			exp.set_undefined();
@@ -85,11 +89,12 @@ void PrimitiveOperationSpace::tail(Expression& exp) {
 
 void PrimitiveOperationSpace::equal(Expression& exp) {
 	if(exp.is_op() and exp.size() == 2) {
-		if((*exp.begin())->undefined() or (*exp.second())->undefined()) {
-			exp.set_undefined();
+		if(((*exp.begin())->is_value() and (*exp.second())->is_value()) or ((*exp.begin())->is_list() and (*exp.second())->is_list())){
+		/* or ((*exp.begin())->empty() and (*exp.second())->empty())){*/
+			exp.set_value(*(*exp.begin()) == *(*exp.second()));
 		}
 		else {
-			exp.set_value(*(*exp.begin()) == *(*exp.second()));
+			exp.set_undefined();
 		}
 	}
 	else {
@@ -99,11 +104,11 @@ void PrimitiveOperationSpace::equal(Expression& exp) {
 
 void PrimitiveOperationSpace::less(Expression& exp) {
 	if(exp.is_op() and exp.size() == 2) {
-		if((*exp.begin())->undefined() or (*exp.second())->undefined()) {
-			exp.set_undefined();
+		if(((*exp.begin())->is_value() and (*exp.second())->is_value()) or ((*exp.begin())->is_list() and (*exp.second())->is_list())){
+			exp.set_value(*(*exp.begin()) < *(*exp.second()));
 		}
 		else {
-			exp.set_value(*(*exp.begin()) < *(*exp.second()));
+			exp.set_undefined();
 		}
 	}
 	else {
@@ -154,6 +159,20 @@ void PrimitiveOperationSpace::bool_or(Expression& exp) {
 }
 
 void PrimitiveOperationSpace::cond_if(Expression& exp) {
+	if(exp.is_op() and exp.size() == 2) {
+		if((*exp.begin())->is_bool()) {
+			exp = *(*exp.second());
+		}
+		else {
+			exp.set_undefined();
+		}
+	}
+	else {
+		exp.set_undefined();
+	}
+}
+
+/*void PrimitiveOperationSpace::cond_if(Expression& exp) {
 	if(exp.is_op() and exp.size() == 3) {
 		if((*exp.begin())->is_bool()) {
 			if((*exp.begin())->get_value() == 1) {
@@ -170,7 +189,7 @@ void PrimitiveOperationSpace::cond_if(Expression& exp) {
 	else {
 		exp.set_undefined();
 	}
-}
+}*/
 
 //_______ CONSTRUCTORES
 

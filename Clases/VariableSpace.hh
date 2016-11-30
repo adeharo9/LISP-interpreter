@@ -66,6 +66,8 @@ public:
 
 	//_______ MODIFICADORES
 
+	void clear();
+
 	/** @brief Modificadora por adición de variable
 
 		\pre 'key' es un string no vacío; el mapa de variables 'varMap' del parámetro implícito no contiene ninguna variable con clave 'key'

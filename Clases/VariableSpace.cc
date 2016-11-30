@@ -25,6 +25,10 @@ VariableSpace::~VariableSpace() {
 
 //_______ MODIFICADORES
 
+void VariableSpace::clear() {
+	varMap.clear();
+}
+
 void VariableSpace::add(string key, const Expression& exp) {
 	varMap[key] = exp;
 }
@@ -55,7 +59,6 @@ void VariableSpace::write() const {
 	while(const_it != varMap.end()) {
 		cout << const_it->first << " ";
 		const_it->second.write();
-		cout << endl;
 		++const_it;
 	}
 }

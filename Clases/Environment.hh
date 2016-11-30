@@ -82,6 +82,13 @@ public:
 	*/
 	void update_op(string key, string parameters, string exp);
 
+	/** @brief Modificadora por actualización de operación
+
+		\pre <em>Cierto</em>
+		\post El espacio de variables varSpace del parámetro implícito pasa a estar vacío
+	*/
+	void erase_varspace();
+
 	//_______ CONSULTORES
 
 	/** @brief Consultora de existencia de operación primitiva

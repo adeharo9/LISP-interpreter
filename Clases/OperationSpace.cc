@@ -7,10 +7,20 @@ using namespace std;
 //_______ MÉTODOS PRIVADOS
 
 int OperationSpace::countVars(string parameters) {
-	// ACABAR
-	int c = 0;
-	
-	return c;
+	if(parameters.empty()) {
+		return 0;
+	}
+	else {
+		int c = 1;
+		int i = 0;
+		while(i < parameters.size()) {
+			if(parameters[i] == ' ') {
+				++c;
+			}
+			++i;
+		}
+		return c;
+	}
 }
 
 //_______ CONSTRUCTORES

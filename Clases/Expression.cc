@@ -55,24 +55,11 @@ bool Expression::operator == (const Expression& inExp) const {
 	if(this->is_value() and inExp.is_value()) {
 		return this->get_value() == inExp.get_value();
 	}
-	/*else if(this->is_op() and inExp.is_op()) {
-		bool aux = this->get_op() == inExp.get_op();
-		list<Expression*>::const_iterator it1 = this->begin();
-		list<Expression*>::const_iterator it2 = inExp.begin();
-		while(aux and it1 != this->end() and it2 != inExp.end()) {
-			aux = *(*it1) == *(*it2);
-			++it1;
-			++it2;
-		}
-		return aux;
-	}*/
 	else if(this->is_list() and inExp.is_list()) {
 		if(this->size() == inExp.size()) {
 			list<Expression*>::const_iterator it1 = this->begin();
 			list<Expression*>::const_iterator it2 = inExp.begin();
-			bool aux = *(*it1) == *(*it2);
-			++it1;
-			++it2;
+			bool aux = true;
 			while(aux and it1 != this->end()) {
 				aux = *(*it1) == *(*it2);
 				++it1;
@@ -85,7 +72,7 @@ bool Expression::operator == (const Expression& inExp) const {
 		}
 	}
 	else {
-		return this->empty() and inExp.empty();
+		return empt and inExp.empt;
 	}
 }
 
@@ -94,7 +81,7 @@ bool Expression::operator < (const Expression& inExp) const {
 		return this->get_value() < inExp.get_value();
 	}
 	else if(this->is_list() and inExp.is_list()) {
-		if(this->size() == inExp.size()) {
+		if(this->size() == inExp.size() and not this->empt) {
 			list<Expression*>::const_iterator it1 = this->begin();
 			list<Expression*>::const_iterator it2 = inExp.begin();
 			bool aux = *(*it1) < *(*it2);
@@ -114,10 +101,6 @@ bool Expression::operator < (const Expression& inExp) const {
 	else {
 		return false;
 	}
-}
-
-void Expression::evaluate() {
-
 }
 
 void Expression::clear() {
@@ -171,7 +154,7 @@ void Expression::set_op_list(const list<Expression*>& lExpression) {
 
 void Expression::set_list() {
 	if(not this->is_list()) {
-		empt = false;
+		empt = this->lExp.size() == 0;
 		undef = false;
 		op.clear();
 	}
@@ -179,10 +162,10 @@ void Expression::set_list() {
 
 void Expression::set_list(const list<Expression*>& lExpression) {
 	if(not this->is_list()) {
-		empt = false;
 		undef = false;
 		op.clear();
 	}
+	empt = lExpression.size() == 0;
 	lExp = lExpression;
 }
 
@@ -209,7 +192,8 @@ bool Expression::is_op() const {
 }
 
 bool Expression::is_list() const {
-	return not empt and not undef and op.size() == 0 and lExp.size() != 0;
+	return empt or (not undef and op.size() == 0 and lExp.size() != 0);
+	//return not empt and not undef and op.size() == 0 and lExp.size() != 0;
 }
 
 bool Expression::is_bool() const {
@@ -266,10 +250,10 @@ list<Expression*>::const_iterator Expression::end() const {
 
 void Expression::write() const {
 	if(empt) {
-		cout << "()";
+		cout << "()" << endl;
 	}
 	else if(this->is_value()) {
-		cout << val;
+		cout << val << endl;
 	}
 	else if(this->is_list()) {
 		list<Expression*>::const_iterator const_it = lExp.begin();
@@ -279,9 +263,9 @@ void Expression::write() const {
 			cout << " " << (*const_it)->get_value();
 			++const_it;
 		}
-		cout << ")";
+		cout << ")" << endl;
 	}
 	else {
-		cout << "indefinit";
+		cout << "indefinit" << endl;
 	}
 }

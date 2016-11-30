@@ -37,6 +37,10 @@ void Environment::update_op(string key, string parameters, string exp) {
 	opSpace.update(key, parameters, exp);
 }
 
+void Environment::erase_varspace() {
+	varSpace.clear();
+}
+
 //_______ CONSULTORES
 
 bool Environment::is_primitive(string key) const {
