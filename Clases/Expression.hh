@@ -24,11 +24,18 @@ private:
 		Una expresión vacía no está indefinida;
 	*/
 
-	bool empt;
-	bool undef;
+	bool b_undef;
+	bool b_empty;
+	bool b_val;
+	bool b_op;
+	bool b_list;
 	int val;
 	string op;
 	list<Expression*> lExp;
+
+	static list<Expression*> cp_exp_list(list<Expression*> lExpression);
+
+	static void rm_exp_list(list<Expression*> lExpression);
 
 public:
 
@@ -38,7 +45,7 @@ public:
 
 		Se ejecuta automáticamente al declarar una nueva expresión
 		\pre <em>Cierto</em>
-		\post Crea un objeto vacío: 'empt' igual a cierto; 'undef' igual a falso; 'val' sin inicializar; 'op' es un string vacío; 'lExp' es una lista vacía
+		\post Crea un objeto vacío: 'b_empty' igual a cierto; 'b_undef' igual a falso; 'val' sin inicializar; 'op' es un string vacío; 'lExp' es una lista vacía
 
 	*/
 	Expression();
@@ -46,21 +53,21 @@ public:
 	/** @brief Constructora con valor de inicialización
 
 		\pre <em>Cierto</em>
-		\post Crea un objeto con los siguientes valores: 'empt' igual a falso; 'undef' igual a falso; 'val' igual a 'value'; 'op' es un string vacío; 'lExp' es una lista vacía
+		\post Crea un objeto con los siguientes valores: 'b_empty' igual a falso; 'b_undef' igual a falso; 'val' igual a 'value'; 'op' es un string vacío; 'lExp' es una lista vacía
 	*/
 	Expression(int value);
 
 	/** @brief Constructora con operación de inicialización
 
 		\pre 'inOperator' es un string no vacío; 'inOperator' es un operador existente en el espacio de operaciones primitivas o en el espacio de operaciones definidas por el usuario 'lExpression' es una lista no vacía de punteros a expresiones
-		\post Crea un objeto con los siguientes valores: 'empt' igual a falso; 'undef' igual a falso; 'val' sin inicializar; 'op' igual a 'inOperator'; 'lExp' igual a 'lExpression'
+		\post Crea un objeto con los siguientes valores: 'b_empty' igual a falso; 'b_undef' igual a falso; 'val' sin inicializar; 'op' igual a 'inOperator'; 'lExp' igual a 'lExpression'
 	*/
 	Expression(string inOperator, const list<Expression*>& lExpression);
 
 	/** @brief Constructora con lista de inicialización
 
 		\pre 'lExpression' es una lista no vacía de punteros a expresiones
-		\post Crea un objeto con los siguientes valores: 'empt' igual a falso; 'undef' igual a falso; 'val' sin inicializar; 'op' es un string vacío; 'lExp' igual a 'lExpression'
+		\post Crea un objeto con los siguientes valores: 'b_empty' igual a falso; 'b_undef' igual a falso; 'val' sin inicializar; 'op' es un string vacío; 'lExp' igual a 'lExpression'
 	*/
 	Expression(const list<Expression*>& lExpression);
 
@@ -88,7 +95,7 @@ public:
 		\pre <em>Cierto</em>
 		\post El parámetro implícito pasa a ser una copia de 'inExp'
 	*/
-	void operator = (const Expression& inExp);
+	Expression& operator = (const Expression& inExp);
 
 	/** @brief Operación de comparación de igualdad
 
@@ -107,14 +114,14 @@ public:
 	/** @brief Operación de evaluación de expresión
 
 		\pre El parámetro implícito no está vácío
-		\post El parámetro implícito pasa a ser: valor, representado por 'val', si era una expresión evaluable; lista, representada por 'lExp', si era una lista de expresiones evaluables; indefinido, representado por 'undef' igual a cierto, si la evaluación de la expresión representada por el parámetro implícito era indefinida
+		\post El parámetro implícito pasa a ser: valor, representado por 'val', si era una expresión evaluable; lista, representada por 'lExp', si era una lista de expresiones evaluables; indefinido, representado por 'b_undef' igual a cierto, si la evaluación de la expresión representada por el parámetro implícito era indefinida
 	*/
 	void evaluate();
 
 	/** @brief Operación de vaciado de expresión
 
 		\pre <em>Cierto</em>
-		\post El parámetro implícito pasa a estar vacío: 'empt' igual a cierto; 'undef' igual a falso; 'val' sin inicializar; 'op' es un string vacío; 'lExp' es una lista vacía
+		\post El parámetro implícito pasa a estar vacío: 'b_empty' igual a cierto; 'b_undef' igual a falso; 'val' sin inicializar; 'op' es un string vacío; 'lExp' es una lista vacía
 	*/
 	void clear();
 
@@ -174,12 +181,12 @@ public:
 	*/
 	void set_list(const list<Expression*>& lExpression);
 
-	/** @brief Modificadora de valor por adición
+	/** @brief Modificadora de lista
 
-		\pre 'val' está inicializada a un valor concreto
-		\post El parámetro implícito pasa a tener valor 'val' igual a la suma de 'val' más 'value'
+		\pre <em>Cierto</em>
+		\post El parámetro implícito pasa a ser una lista vacía
 	*/
-	//void add_value(int value);
+	void set_empty_list();
 
 	//_______ CONSULTORES
 
@@ -224,6 +231,13 @@ public:
 		\post Devuelve cierto si el parámetro implícito es una lista de expresiones; en otro caso, devuelve falso
 	*/
 	bool is_list() const;
+
+	/** @brief Consultora de tipo de expresión lista vacía
+
+		\pre <em>Cierto</em>
+		\post Devuelve cierto si el parámetro implícito es una lista de expresiones vacía; en otro caso, devuelve falso
+	*/
+	bool is_empty_list() const;
 
 	/** @brief Consultora de tipo de expresión booleana
 

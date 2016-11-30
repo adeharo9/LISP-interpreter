@@ -4,63 +4,119 @@
 
 using namespace std;
 
+//_______ METODES PRIVATS
+
+list<Expression*> Expression::cp_exp_list(list<Expression*> lExpression) {
+	list<Expression*> aux;
+	Expression* pAux;
+	list<Expression*>::iterator it = lExpression.begin();
+	while(it != lExpression.end()){
+		pAux = new Expression;
+		pAux->b_undef = (*it)->b_undef;
+		pAux->b_empty = (*it)->b_empty;
+		pAux->b_val = (*it)->b_val;
+		pAux->b_op = (*it)->b_op;
+		pAux->b_list = (*it)->b_list;
+		pAux->val = (*it)->val;
+		pAux->op = (*it)->op;
+		pAux->lExp = cp_exp_list((*it)->lExp);
+		aux.insert(aux.end(), pAux);
+		++it;
+	}
+	return aux;
+}
+
+void Expression::rm_exp_list(list<Expression*> lExpression) {
+	list<Expression*>::iterator it = lExpression.begin();
+	while(it != lExpression.end()) {
+		rm_exp_list((*it)->lExp);
+		delete *it;
+		++it;
+	}
+}
+
+//_______ CONSTRUCTORES
+
 Expression::Expression() {
-	empt = true;
-	undef = false;
+	b_undef = false;
+	b_empty = true;
+	b_val = false;
+	b_op = false;
+	b_list = false;
 }
 
 Expression::Expression(int value) {
-	empt = false;
-	undef = false;
+	b_undef = false;
+	b_empty = false;
+	b_val = true;
+	b_op = false;
+	b_list = false;
 	val = value;
 }
 
 Expression::Expression(string inOperator, const list<Expression*>& lExpression) {
-	empt = false;
-	undef = false;
+	b_undef = false;
+	b_empty = false;
+	b_val = false;
+	b_op = true;
+	b_list = false;
 	op = inOperator;
-	lExp = lExpression;
+	lExp = cp_exp_list(lExpression);
 }
 
 Expression::Expression(const list<Expression*>& lExpression) {
-	empt = false;
-	undef = false;
-	lExp = lExpression;
+	b_undef = false;
+	b_empty = false;
+	b_val = false;
+	b_op = false;
+	b_list = true;
+	lExp = cp_exp_list(lExpression);
 }
 
 Expression::Expression(const Expression& inExp) {
-	empt = inExp.empt;
-	undef = inExp.undef;
+	b_undef = inExp.b_undef;
+	b_empty = inExp.b_empty;
+	b_val = inExp.b_val;
+	b_op = inExp.b_op;
+	b_list = inExp.b_list;
 	val = inExp.val;
 	op = inExp.op;
-	lExp = inExp.lExp;
+	lExp = cp_exp_list(inExp.lExp);
 }
 
 //_______ DESTRUCTORES
 
 Expression::~Expression() {
+	rm_exp_list(lExp);
 }
 
 //_______ MODIFICADORES
 
-void Expression::operator = (const Expression& inExp) {
-	empt = inExp.empt;
-	undef = inExp.undef;
+Expression& Expression::operator = (const Expression& inExp) {
+	b_undef = inExp.b_undef;
+	b_empty = inExp.b_empty;
+	b_val = inExp.b_val;
+	b_op = inExp.b_op;
+	b_list = inExp.b_list;
 	val = inExp.val;
 	op = inExp.op;
-	lExp = inExp.lExp;
+	if(this != &inExp) {
+		rm_exp_list(lExp);
+		lExp = cp_exp_list(inExp.lExp);
+	}
+	return *this;
 }
 
 bool Expression::operator == (const Expression& inExp) const {
-	if(this->is_value() and inExp.is_value()) {
-		return this->get_value() == inExp.get_value();
+	if(b_val and inExp.b_val) {
+		return val == inExp.val;
 	}
-	else if(this->is_list() and inExp.is_list()) {
-		if(this->size() == inExp.size()) {
-			list<Expression*>::const_iterator it1 = this->begin();
-			list<Expression*>::const_iterator it2 = inExp.begin();
+	else if(b_list and inExp.b_list) {
+		if(lExp.size() == inExp.size()) {
+			list<Expression*>::const_iterator it1 = lExp.begin();
+			list<Expression*>::const_iterator it2 = inExp.lExp.begin();
 			bool aux = true;
-			while(aux and it1 != this->end()) {
+			while(aux and it1 != lExp.end()) {
 				aux = *(*it1) == *(*it2);
 				++it1;
 				++it2;
@@ -72,22 +128,22 @@ bool Expression::operator == (const Expression& inExp) const {
 		}
 	}
 	else {
-		return empt and inExp.empt;
+		return b_empty and inExp.b_empty;
 	}
 }
 
 bool Expression::operator < (const Expression& inExp) const {
-	if(this->is_value() and inExp.is_value()) {
-		return this->get_value() < inExp.get_value();
+	if(b_val and inExp.b_val) {
+		return val < inExp.val;
 	}
-	else if(this->is_list() and inExp.is_list()) {
-		if(this->size() == inExp.size() and not this->empt) {
-			list<Expression*>::const_iterator it1 = this->begin();
-			list<Expression*>::const_iterator it2 = inExp.begin();
+	else if(b_list and inExp.b_list) {
+		if(lExp.size() == inExp.size() and not b_empty) {
+			list<Expression*>::const_iterator it1 = lExp.begin();
+			list<Expression*>::const_iterator it2 = inExp.lExp.begin();
 			bool aux = *(*it1) < *(*it2);
 			++it1;
 			++it2;
-			while(aux and it1 != this->end()) {
+			while(aux and it1 != lExp.end()) {
 				aux = *(*it1) < *(*it2);
 				++it1;
 				++it2;
@@ -104,12 +160,16 @@ bool Expression::operator < (const Expression& inExp) const {
 }
 
 void Expression::clear() {
-	if(not empt) {
-		empt = true;
-		undef = false;
-		op.clear();
-		lExp.clear();
+	if(not b_empty) {
+		b_undef = false;
+		b_empty = true;
+		b_val = false;
+		b_op = false;
+		b_list = false;
 	}
+	op.clear();
+	rm_exp_list(lExp);
+	lExp.clear();
 }
 
 list<Expression*>::iterator Expression::erase(list<Expression*>::iterator it) {
@@ -121,52 +181,69 @@ void Expression::splice(list<Expression*>::iterator it, list<Expression*> lExpre
 }
 
 void Expression::set_undefined() {
-	if(not undef) {
-		empt = false;
-		undef = true;
-		op.clear();
-		lExp.clear();
+	if(not b_undef) {
+		b_undef = true;
+		b_empty = false;
+		b_val = false;
+		b_op = false;
+		b_list = false;
 	}
 }
 
 void Expression::set_value(int value) {
-	if(not this->is_value()) {
-		empt = false;
-		undef = false;
-		op.clear();
-		lExp.clear();
+	if(not b_val) {
+		b_undef = false;
+		b_empty = false;
+		b_val = true;
+		b_op = false;
+		b_list = false;
 	}
 	val = value;
 }
 
 void Expression::set_op(string inOperator) {
-	if(not this->is_op()) {
-		empt = false;
-		undef = false;
-		lExp.clear();
+	if(not b_op) {
+		b_undef = false;
+		b_empty = false;
+		b_val = false;
+		b_op = true;
+		b_list = false;
 	}
 	op = inOperator;
 }
 
 void Expression::set_op_list(const list<Expression*>& lExpression) {
-	lExp = lExpression;
+	lExp = cp_exp_list(lExpression);
 }
 
 void Expression::set_list() {
-	if(not this->is_list()) {
-		empt = this->lExp.size() == 0;
-		undef = false;
-		op.clear();
+	if(not b_list) {
+		b_undef = false;
+		b_val = false;
+		b_op = false;
+		b_list = true;
 	}
 }
 
 void Expression::set_list(const list<Expression*>& lExpression) {
-	if(not this->is_list()) {
-		undef = false;
-		op.clear();
+	if(not b_list) {
+		b_undef = false;
+		b_empty = lExpression.size() == 0;
+		b_val = false;
+		b_op = false;
+		b_list = true;
 	}
-	empt = lExpression.size() == 0;
-	lExp = lExpression;
+	lExp = cp_exp_list(lExpression);
+}
+
+void Expression::set_empty_list() {
+	if(not b_list) {
+		b_undef = false;
+		b_empty = true;
+		b_val = false;
+		b_op = false;
+		b_list = true;
+	}
 }
 
 //_______ CONSULTORES
@@ -176,28 +253,31 @@ int Expression::size() const {
 }
 
 bool Expression::empty() const {
-	return empt;
+	return b_empty and not b_list;
 }
 
 bool Expression::undefined() const {
-	return undef;
+	return b_undef;
 }
 
 bool Expression::is_value() const {
-	return not empt and not undef and op.size() == 0 and lExp.size() == 0;
+	return b_val;
 }
 
 bool Expression::is_op() const {
-	return not empt and not undef and op.size() != 0 and lExp.size() != 0;
+	return b_op;
 }
 
 bool Expression::is_list() const {
-	return empt or (not undef and op.size() == 0 and lExp.size() != 0);
-	//return not empt and not undef and op.size() == 0 and lExp.size() != 0;
+	return b_list;
+}
+
+bool Expression::is_empty_list() const {
+	return b_list and b_empty;
 }
 
 bool Expression::is_bool() const {
-	return this->is_value() and (this->get_value() == 0 or this->get_value() == 1);
+	return b_val and (val == 0 or val == 1);
 }
 
 int Expression::get_value() const {
@@ -249,18 +329,18 @@ list<Expression*>::const_iterator Expression::end() const {
 //_______ I/O
 
 void Expression::write() const {
-	if(empt) {
+	if(b_empty) {
 		cout << "()" << endl;
 	}
-	else if(this->is_value()) {
+	else if(b_val) {
 		cout << val << endl;
 	}
-	else if(this->is_list()) {
+	else if(b_list) {
 		list<Expression*>::const_iterator const_it = lExp.begin();
-		cout << "(" << (*const_it)->get_value();
+		cout << "(" << (*const_it)->val;
 		++const_it;
 		while(const_it != lExp.end()) {
-			cout << " " << (*const_it)->get_value();
+			cout << " " << (*const_it)->val;
 			++const_it;
 		}
 		cout << ")" << endl;
