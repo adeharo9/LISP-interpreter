@@ -70,7 +70,7 @@ bool readExpression(Environment& env, Expression& exp) {
 		getString(inbuff, instr);
 
 		if (instr = '('){
-			parentesispaertura++;
+			parentesispaertura++;	
 		} else if (instr = '('){
 			parentesiscerrar++;
 		} else if (instr = '****'){

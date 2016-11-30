@@ -1,7 +1,7 @@
 git hub commands
 
 sincronizar:
-	git fetch
+	git pull
 Aceptar y subir mis cambios:
 	git add * //añadir cambios
 	git commit -m "comentario que quiera" //añadir comentario
