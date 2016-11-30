@@ -107,6 +107,13 @@ public:
     */
     pair<string, string> get(string key);
 
+    /** @brief Consultora de número de parámetros
+
+    	\pre 'key' es un string no vacío; el mapa de operaciones 'opMap' del parámetro implícito contiene una operación con clave 'key'
+    	\post Devuelve el número de parámetros de la operación representada por la clave 'key'
+    */
+    int num_pars(string key);
+
 	//_______ I/O
 
 	/** @brief Operación de escritura de todo el espacio de operaciones

@@ -75,6 +75,10 @@ pair<string, string> Environment::get_op(string key) {
 	return opSpace.get(key);
 }
 
+int Environment::num_pars_op(string key) {
+	return opSpace.num_pars(key);
+}
+
 //_______ I/O
 
 void Environment::write() const {

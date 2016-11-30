@@ -75,6 +75,10 @@ pair<string, string> OperationSpace::get(string key) {
 	return make_pair(aux.parameters, aux.exp);
 }
 
+int OperationSpace::num_pars(string key) {
+	return countVars(opMap[key].parameters);
+}
+
 //_______ I/O
 
 void OperationSpace::write() const {
