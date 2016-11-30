@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>PRO2 - Práctica QT16-17 - Calculadora de expresiones aritméticas: Fichero Fuente main.cc</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">PRO2 - Práctica QT16-17 - Calculadora de expresiones aritméticas
+   &#160;<span id="projectnumber">Versión 1 22-nov-2016</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.11 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="globals.html"><span>Miembros&#160;de&#160;los&#160;ficheros</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">main.cc</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="main_8cc.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#ifndef NO_DIAGRAM</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_functions_i_o_8hh.html">FunctionsIO.hh</a>&quot;</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#endif</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_environment_8hh.html">Environment.hh</a>&quot;</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_expression_8hh.html">Expression.hh</a>&quot;</span></div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="main_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4">   26</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="main_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>(){</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_environment.html">Environment</a> env;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_expression.html">Expression</a> exp;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">while</span>(<a class="code" href="_functions_i_o_8hh.html#a5429735a78582fc727e3354244cc18e1">readExpression</a>(env,exp)){</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <a class="code" href="_functions_i_o_8hh.html#a1f5d4be1acc9cacc171d7ee86ded390f">writeExpression</a>(env,exp);</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        exp.<a class="code" href="class_expression.html#ab2e0ccb0146cccd559c39f8913f9585e">clear</a>();</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    env.<a class="code" href="class_environment.html#ae219751d8017a3ca66b11b74fd45cf9c">write</a>();</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div><div class="ttc" id="_functions_i_o_8hh_html_a5429735a78582fc727e3354244cc18e1"><div class="ttname"><a href="_functions_i_o_8hh.html#a5429735a78582fc727e3354244cc18e1">readExpression</a></div><div class="ttdeci">bool readExpression(Environment &amp;env, Expression &amp;exp)</div><div class="ttdoc">Operación de lectura de expresiones. </div></div>
+<div class="ttc" id="class_expression_html"><div class="ttname"><a href="class_expression.html">Expression</a></div><div class="ttdoc">Representa una expresión, evaluable o no, mediante el resultado de evaluarla. </div><div class="ttdef"><b>Definition:</b> <a href="_expression_8hh_source.html#l00018">Expression.hh:18</a></div></div>
+<div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
+<div class="ttc" id="main_8cc_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="main_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdoc">Programa principal para la calculadora de expresiones aritméticas. </div><div class="ttdef"><b>Definition:</b> <a href="main_8cc_source.html#l00026">main.cc:26</a></div></div>
+<div class="ttc" id="_functions_i_o_8hh_html"><div class="ttname"><a href="_functions_i_o_8hh.html">FunctionsIO.hh</a></div><div class="ttdoc">Especificación de las operaciones de lectura/escritura de expresiones. </div></div>
+<div class="ttc" id="class_expression_html_ab2e0ccb0146cccd559c39f8913f9585e"><div class="ttname"><a href="class_expression.html#ab2e0ccb0146cccd559c39f8913f9585e">Expression::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Operación de vaciado de expresión. </div></div>
+<div class="ttc" id="class_environment_html"><div class="ttname"><a href="class_environment.html">Environment</a></div><div class="ttdoc">Representa un entorno de ejecución con todas las operaciones primitivas predefinidas, así como con todas las variables y operaciones definidas por el usuario. </div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00019">Environment.hh:19</a></div></div>
+<div class="ttc" id="_environment_8hh_html"><div class="ttname"><a href="_environment_8hh.html">Environment.hh</a></div><div class="ttdoc">Especificación de la clase Environment. </div></div>
+<div class="ttc" id="_functions_i_o_8hh_html_a1f5d4be1acc9cacc171d7ee86ded390f"><div class="ttname"><a href="_functions_i_o_8hh.html#a1f5d4be1acc9cacc171d7ee86ded390f">writeExpression</a></div><div class="ttdeci">void writeExpression(const Environment &amp;env, const Expression &amp;exp)</div><div class="ttdoc">Operación de escritura de expresiones. </div></div>
+<div class="ttc" id="class_environment_html_ae219751d8017a3ca66b11b74fd45cf9c"><div class="ttname"><a href="class_environment.html#ae219751d8017a3ca66b11b74fd45cf9c">Environment::write</a></div><div class="ttdeci">void write() const </div><div class="ttdoc">Operación de escritura de todo el entorno de variables y operaciones definidas por el usuario...</div></div>
+<div class="ttc" id="_expression_8hh_html"><div class="ttname"><a href="_expression_8hh.html">Expression.hh</a></div><div class="ttdoc">Especificación de la clase Expression. </div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.11
+</small></address>
+</body>
+</html>
