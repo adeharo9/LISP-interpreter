@@ -1,3 +1,4 @@
+#include <iostream>
 #include <map>
 #include <list>
 #include "PrimitiveOperationSpace.hh"
@@ -39,7 +40,7 @@ void PrimitiveOperationSpace::neg(Expression& exp) {
 
 void PrimitiveOperationSpace::cons(Expression& exp) {
 	if(exp.is_op() and exp.size() == 2) {
-		if((*exp.begin())->is_value() and ((*exp.second())->empty() or (*exp.second())->is_list())) {
+		if((*exp.begin())->is_value() and (*exp.second())->is_list()) {
 			list<Expression*> aux = (*exp.second())->get_list();
 			exp.splice(exp.second(),aux);
 			exp.erase(--exp.end());
@@ -56,7 +57,7 @@ void PrimitiveOperationSpace::cons(Expression& exp) {
 
 void PrimitiveOperationSpace::head(Expression& exp) {
 	if(exp.is_op() and exp.size() == 1) {
-		if((*exp.begin())->is_list() and not (*exp.begin())->empty()) {
+		if((*exp.begin())->is_list() and not (*exp.begin())->is_empty_list()) {
 			exp = *(*((*exp.begin())->begin()));
 		}
 		else {
@@ -70,12 +71,12 @@ void PrimitiveOperationSpace::head(Expression& exp) {
 
 void PrimitiveOperationSpace::tail(Expression& exp) {
 	if(exp.is_op() and exp.size() == 1) {
-		if((*exp.begin())->is_list() and not (*exp.begin())->empty()) {
+		if((*exp.begin())->is_list() and not (*exp.begin())->is_empty_list()) {
 			if((*exp.begin())->erase((*exp.begin())->begin()) != (*exp.begin())->end()) {
 				exp = *(*exp.begin());
 			}
 			else {
-				exp.clear();
+				exp.set_empty_list();
 			}
 		}
 		else {
@@ -90,7 +91,6 @@ void PrimitiveOperationSpace::tail(Expression& exp) {
 void PrimitiveOperationSpace::equal(Expression& exp) {
 	if(exp.is_op() and exp.size() == 2) {
 		if(((*exp.begin())->is_value() and (*exp.second())->is_value()) or ((*exp.begin())->is_list() and (*exp.second())->is_list())){
-		/* or ((*exp.begin())->empty() and (*exp.second())->empty())){*/
 			exp.set_value(*(*exp.begin()) == *(*exp.second()));
 		}
 		else {
@@ -161,7 +161,8 @@ void PrimitiveOperationSpace::bool_or(Expression& exp) {
 void PrimitiveOperationSpace::cond_if(Expression& exp) {
 	if(exp.is_op() and exp.size() == 2) {
 		if((*exp.begin())->is_bool()) {
-			exp = *(*exp.second());
+			//exp = *(*exp.second());
+			exp.assign_ncp(*(*exp.second()));
 		}
 		else {
 			exp.set_undefined();

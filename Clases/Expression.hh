@@ -139,6 +139,22 @@ public:
 	*/
 	void splice(list<Expression*>::iterator it, list<Expression*> lExpression);
 
+	/** @brief Operación de cambio de listas
+
+		\pre <em>Cierto</em>
+		\post El parámetro implícito pasa a tener 'lExpression' como lista; 'lExpression' pasa a ser la lista del parámetro implícito
+	*/
+	void swap(list<Expression*>& lExpression);
+
+	void assign_ncp(Expression& inExp);
+
+	/** @brief Operación de cambio de listas
+
+		\pre <em>Cierto</em>
+		\post El parámetro implícito pasa a tener la lista de 'inExp'; 'inExp' pasa a tener la lista del parámetro implícito
+	*/
+	void swap_list(Expression& inExp);
+
 	/** @brief Modificadora del campo undefined
 
 		\pre <em>Cierto</em>

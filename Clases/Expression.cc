@@ -29,7 +29,6 @@ list<Expression*> Expression::cp_exp_list(list<Expression*> lExpression) {
 void Expression::rm_exp_list(list<Expression*> lExpression) {
 	list<Expression*>::iterator it = lExpression.begin();
 	while(it != lExpression.end()) {
-		rm_exp_list((*it)->lExp);
 		delete *it;
 		++it;
 	}
@@ -101,8 +100,9 @@ Expression& Expression::operator = (const Expression& inExp) {
 	val = inExp.val;
 	op = inExp.op;
 	if(this != &inExp) {
+		list<Expression*> aux = cp_exp_list(inExp.lExp);
 		rm_exp_list(lExp);
-		lExp = cp_exp_list(inExp.lExp);
+		lExp = aux;
 	}
 	return *this;
 }
@@ -160,7 +160,7 @@ bool Expression::operator < (const Expression& inExp) const {
 }
 
 void Expression::clear() {
-	if(not b_empty) {
+	if(not (b_empty and not b_list)) {
 		b_undef = false;
 		b_empty = true;
 		b_val = false;
@@ -178,6 +178,29 @@ list<Expression*>::iterator Expression::erase(list<Expression*>::iterator it) {
 
 void Expression::splice(list<Expression*>::iterator it, list<Expression*> lExpression) {
 	lExp.splice(it, lExpression);
+}
+
+void Expression::swap(list<Expression*>& lExpression) {
+	list<Expression*> aux = lExp;
+	lExp = lExpression;
+	lExpression = aux;
+}
+
+void Expression::assign_ncp(Expression& inExp) {
+	b_undef = inExp.b_undef;
+	b_empty = inExp.b_empty;
+	b_val = inExp.b_val;
+	b_op = inExp.b_op;
+	b_list = inExp.b_list;
+	val = inExp.val;
+	op = inExp.op;
+	lExp = inExp.lExp;
+}
+
+void Expression::swap_list(Expression& inExp) {
+	list<Expression*> aux = lExp;
+	lExp = inExp.lExp;
+	inExp.lExp = aux;
 }
 
 void Expression::set_undefined() {
@@ -219,6 +242,7 @@ void Expression::set_op_list(const list<Expression*>& lExpression) {
 void Expression::set_list() {
 	if(not b_list) {
 		b_undef = false;
+		b_empty = lExp.size() == 0;
 		b_val = false;
 		b_op = false;
 		b_list = true;
@@ -289,7 +313,7 @@ string Expression::get_op() const {
 }
 
 list<Expression*> Expression::get_list() const {
-	return lExp;
+	return cp_exp_list(lExp);
 }
 
 //_______ ITERADORES
@@ -329,7 +353,7 @@ list<Expression*>::const_iterator Expression::end() const {
 //_______ I/O
 
 void Expression::write() const {
-	if(b_empty) {
+	if(b_list and b_empty) {
 		cout << "()" << endl;
 	}
 	else if(b_val) {
