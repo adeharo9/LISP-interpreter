@@ -1,0 +1,759 @@
+\hypertarget{class_expression}{}\section{Referencia de la Clase Expression}
+\label{class_expression}\index{Expression@{Expression}}
+
+
+Representa una expresión, evaluable o no, mediante el resultado de evaluarla.  
+
+
+
+
+{\ttfamily \#include $<$Expression.\+hh$>$}
+
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_expression_afcf87716bf0abfe8d414c92529e1564a}{Expression} ()
+\begin{DoxyCompactList}\small\item\em Constructora por defecto. \end{DoxyCompactList}\item 
+\hyperlink{class_expression_af3585b12f597cad047c2939dcceb41bc}{Expression} (int value)
+\begin{DoxyCompactList}\small\item\em Constructora con valor de inicialización. \end{DoxyCompactList}\item 
+\hyperlink{class_expression_a7de929ee2b5020ee2b3d50e0e959340f}{Expression} (string in\+Operator, const list$<$ \hyperlink{class_expression}{Expression} $\ast$ $>$ \&l\+Expression)
+\begin{DoxyCompactList}\small\item\em Constructora con operación de inicialización. \end{DoxyCompactList}\item 
+\hyperlink{class_expression_aefc4947a77277148ad0dc79506ac8e79}{Expression} (const list$<$ \hyperlink{class_expression}{Expression} $\ast$ $>$ \&l\+Expression)
+\begin{DoxyCompactList}\small\item\em Constructora con lista de inicialización. \end{DoxyCompactList}\item 
+\hyperlink{class_expression_ae84af9ba2a88741d6f65a70ef8869faf}{Expression} (const \hyperlink{class_expression}{Expression} \&in\+Exp)
+\begin{DoxyCompactList}\small\item\em Constructora por copia. \end{DoxyCompactList}\item 
+\hyperlink{class_expression_a3e99570b177da619eeb2c5787cbb148e}{$\sim$\+Expression} ()
+\begin{DoxyCompactList}\small\item\em Destructora por defecto. \end{DoxyCompactList}\item 
+void \hyperlink{class_expression_a962312da1eebebaada8517daa02b8070}{operator=} (const \hyperlink{class_expression}{Expression} \&in\+Exp)
+\begin{DoxyCompactList}\small\item\em Operación de asignación. \end{DoxyCompactList}\item 
+bool \hyperlink{class_expression_a8cd982884bef615b9c79526dce0956f6}{operator==} (const \hyperlink{class_expression}{Expression} \&in\+Exp) const 
+\begin{DoxyCompactList}\small\item\em Operación de comparación de igualdad. \end{DoxyCompactList}\item 
+bool \hyperlink{class_expression_a4f1f64418752d14e116f55b7b57355b8}{operator$<$} (const \hyperlink{class_expression}{Expression} \&in\+Exp) const 
+\begin{DoxyCompactList}\small\item\em Operación de comparación de inferioridad exclusiva. \end{DoxyCompactList}\item 
+void \hyperlink{class_expression_a907c90971da33ed6eae071178a6b15a6}{evaluate} ()
+\begin{DoxyCompactList}\small\item\em Operación de evaluación de expresión. \end{DoxyCompactList}\item 
+void \hyperlink{class_expression_ab2e0ccb0146cccd559c39f8913f9585e}{clear} ()
+\begin{DoxyCompactList}\small\item\em Operación de vaciado de expresión. \end{DoxyCompactList}\item 
+list$<$ \hyperlink{class_expression}{Expression} $\ast$ $>$\+::iterator \hyperlink{class_expression_aadecbbd3374a578d539afd653d9773f8}{erase} (list$<$ \hyperlink{class_expression}{Expression} $\ast$ $>$\+::iterator it)
+\begin{DoxyCompactList}\small\item\em Operación de borrado de elemetos de lista. \end{DoxyCompactList}\item 
+void \hyperlink{class_expression_afcd885fc3562809ede2796b722bb4854}{splice} (list$<$ \hyperlink{class_expression}{Expression} $\ast$ $>$\+::iterator it, list$<$ \hyperlink{class_expression}{Expression} $\ast$ $>$ l\+Expression)
+\begin{DoxyCompactList}\small\item\em Operación de vaciado de expresión. \end{DoxyCompactList}\item 
+void \hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\+\_\+undefined} ()
+\begin{DoxyCompactList}\small\item\em Modificadora del campo undefined. \end{DoxyCompactList}\item 
+void \hyperlink{class_expression_a307683cc3735bf81d823931aab2d64e0}{set\+\_\+value} (int value)
+\begin{DoxyCompactList}\small\item\em Modificadora de valor por asignación. \end{DoxyCompactList}\item 
+void \hyperlink{class_expression_adffd3a10200510c64055e550e9eebb1f}{set\+\_\+op} (string op)
+\begin{DoxyCompactList}\small\item\em Modificadora de operador. \end{DoxyCompactList}\item 
+void \hyperlink{class_expression_a1c3e554b2d82446c8f1322fb7812e9cc}{set\+\_\+op\+\_\+list} (const list$<$ \hyperlink{class_expression}{Expression} $\ast$ $>$ \&l\+Expression)
+\begin{DoxyCompactList}\small\item\em Modificadora de lista de operación. \end{DoxyCompactList}\item 
+void \hyperlink{class_expression_a66db516be4fa87d58df4806938676508}{set\+\_\+list} ()
+\begin{DoxyCompactList}\small\item\em Modificadora de lista. \end{DoxyCompactList}\item 
+void \hyperlink{class_expression_af424140108512e290c5cef0da96b2e51}{set\+\_\+list} (const list$<$ \hyperlink{class_expression}{Expression} $\ast$ $>$ \&l\+Expression)
+\begin{DoxyCompactList}\small\item\em Modificadora de lista. \end{DoxyCompactList}\item 
+int \hyperlink{class_expression_a0e8980139631cf7bc9fd3bca9d8caddc}{size} () const 
+\begin{DoxyCompactList}\small\item\em Modificadora de valor por adición. \end{DoxyCompactList}\item 
+bool \hyperlink{class_expression_a0020daf119d82799da034fd0513ca614}{empty} () const 
+\begin{DoxyCompactList}\small\item\em Consultora de estado. \end{DoxyCompactList}\item 
+bool \hyperlink{class_expression_a97f9b6fc78a7ef17dd9595e53a9b6239}{undefined} () const 
+\begin{DoxyCompactList}\small\item\em Consultora de estado. \end{DoxyCompactList}\item 
+bool \hyperlink{class_expression_a4ee60df2f212d8a4cc228ce7db2da81b}{is\+\_\+value} () const 
+\begin{DoxyCompactList}\small\item\em Consultora de tipo de expresión variable. \end{DoxyCompactList}\item 
+bool \hyperlink{class_expression_a422fb496720b177eaed37a9694613384}{is\+\_\+op} () const 
+\begin{DoxyCompactList}\small\item\em Consultora de tipo de expresión operación. \end{DoxyCompactList}\item 
+bool \hyperlink{class_expression_ae835c069faf7d6821fe6037e384f02c0}{is\+\_\+list} () const 
+\begin{DoxyCompactList}\small\item\em Consultora de tipo de expresión lista. \end{DoxyCompactList}\item 
+bool \hyperlink{class_expression_ad42c70dcee3b195c77749ca6435c244d}{is\+\_\+bool} () const 
+\begin{DoxyCompactList}\small\item\em Consultora de tipo de expresión booleana. \end{DoxyCompactList}\item 
+int \hyperlink{class_expression_add3f908cb67ed993a5e886447fd70df0}{get\+\_\+value} () const 
+\begin{DoxyCompactList}\small\item\em Consultora de valor. \end{DoxyCompactList}\item 
+string \hyperlink{class_expression_a9216cba5bbd3ffa8c3a625a66b91b36f}{get\+\_\+op} () const 
+\begin{DoxyCompactList}\small\item\em Consultora de operador. \end{DoxyCompactList}\item 
+list$<$ \hyperlink{class_expression}{Expression} $\ast$ $>$ \hyperlink{class_expression_a02b464bb904f9e47806c3ace82f9ce40}{get\+\_\+list} () const 
+\begin{DoxyCompactList}\small\item\em Consultora de la lista. \end{DoxyCompactList}\item 
+list$<$ \hyperlink{class_expression}{Expression} $\ast$ $>$\+::iterator \hyperlink{class_expression_a2d506d902ad4cc9c0e674ae53c89e846}{begin} ()
+\begin{DoxyCompactList}\small\item\em Iterador de inicio de lista. \end{DoxyCompactList}\item 
+list$<$ \hyperlink{class_expression}{Expression} $\ast$ $>$\+::const\+\_\+iterator \hyperlink{class_expression_af19f7a8509a9d6e77360d082d6d9b488}{begin} () const 
+\begin{DoxyCompactList}\small\item\em Iterador constante de inicio de lista. \end{DoxyCompactList}\item 
+list$<$ \hyperlink{class_expression}{Expression} $\ast$ $>$\+::iterator \hyperlink{class_expression_a27233f1069927e3006cadabf17402e73}{second} ()
+\begin{DoxyCompactList}\small\item\em Iterador de segundo elemento de lista. \end{DoxyCompactList}\item 
+list$<$ \hyperlink{class_expression}{Expression} $\ast$ $>$\+::const\+\_\+iterator \hyperlink{class_expression_a53baf6cfbdc54ea6799daf47ec83cb56}{second} () const 
+\begin{DoxyCompactList}\small\item\em Iterador constante de segundo elemento de lista. \end{DoxyCompactList}\item 
+list$<$ \hyperlink{class_expression}{Expression} $\ast$ $>$\+::iterator \hyperlink{class_expression_a5b079de9216600ec3611cd3133fd8e36}{third} ()
+\begin{DoxyCompactList}\small\item\em Iterador de tercer elemento de lista. \end{DoxyCompactList}\item 
+list$<$ \hyperlink{class_expression}{Expression} $\ast$ $>$\+::const\+\_\+iterator \hyperlink{class_expression_a6e7cfc98e94c1592f671a6185e39a12e}{third} () const 
+\begin{DoxyCompactList}\small\item\em Iterador constante de tercer elemento de lista. \end{DoxyCompactList}\item 
+list$<$ \hyperlink{class_expression}{Expression} $\ast$ $>$\+::iterator \hyperlink{class_expression_a224d334180625d4645f8adc7a333cfdf}{end} ()
+\begin{DoxyCompactList}\small\item\em Iterador de final de lista. \end{DoxyCompactList}\item 
+list$<$ \hyperlink{class_expression}{Expression} $\ast$ $>$\+::const\+\_\+iterator \hyperlink{class_expression_aa0865e537598b1adf1c29696d083c9a8}{end} () const 
+\begin{DoxyCompactList}\small\item\em Iterador constante de final de lista. \end{DoxyCompactList}\item 
+void \hyperlink{class_expression_a6d5d0fa496e3713c332c9f1edc269de5}{write} () const 
+\begin{DoxyCompactList}\small\item\em Operación de escritura de expresión. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Representa una expresión, evaluable o no, mediante el resultado de evaluarla. 
+
+\subsection{Documentación del constructor y destructor}
+\index{Expression@{Expression}!Expression@{Expression}}
+\index{Expression@{Expression}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{Expression()}{Expression()}}]{\setlength{\rightskip}{0pt plus 5cm}Expression\+::\+Expression (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_expression_afcf87716bf0abfe8d414c92529e1564a}{}\label{class_expression_afcf87716bf0abfe8d414c92529e1564a}
+
+
+Constructora por defecto. 
+
+Se ejecuta automáticamente al declarar una nueva expresión \begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Crea un objeto vacío\+: \textquotesingle{}empt\textquotesingle{} igual a cierto; \textquotesingle{}undef\textquotesingle{} igual a falso; \textquotesingle{}val\textquotesingle{} sin inicializar; \textquotesingle{}op\textquotesingle{} es un string vacío; \textquotesingle{}l\+Exp\textquotesingle{} es una lista vacía 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!Expression@{Expression}}
+\index{Expression@{Expression}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{Expression(int value)}{Expression(int value)}}]{\setlength{\rightskip}{0pt plus 5cm}Expression\+::\+Expression (
+\begin{DoxyParamCaption}
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{class_expression_af3585b12f597cad047c2939dcceb41bc}{}\label{class_expression_af3585b12f597cad047c2939dcceb41bc}
+
+
+Constructora con valor de inicialización. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Crea un objeto con los siguientes valores\+: \textquotesingle{}empt\textquotesingle{} igual a falso; \textquotesingle{}undef\textquotesingle{} igual a falso; \textquotesingle{}val\textquotesingle{} igual a \textquotesingle{}value\textquotesingle{}; \textquotesingle{}op\textquotesingle{} es un string vacío; \textquotesingle{}l\+Exp\textquotesingle{} es una lista vacía 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!Expression@{Expression}}
+\index{Expression@{Expression}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{Expression(string in\+Operator, const list$<$ Expression $\ast$ $>$ \&l\+Expression)}{Expression(string inOperator, const list< Expression * > &lExpression)}}]{\setlength{\rightskip}{0pt plus 5cm}Expression\+::\+Expression (
+\begin{DoxyParamCaption}
+\item[{string}]{in\+Operator, }
+\item[{const list$<$ {\bf Expression} $\ast$ $>$ \&}]{l\+Expression}
+\end{DoxyParamCaption}
+)}\hypertarget{class_expression_a7de929ee2b5020ee2b3d50e0e959340f}{}\label{class_expression_a7de929ee2b5020ee2b3d50e0e959340f}
+
+
+Constructora con operación de inicialización. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}in\+Operator\textquotesingle{} es un string no vacío; \textquotesingle{}in\+Operator\textquotesingle{} es un operador existente en el espacio de operaciones primitivas o en el espacio de operaciones definidas por el usuario \textquotesingle{}l\+Expression\textquotesingle{} es una lista no vacía de punteros a expresiones 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Crea un objeto con los siguientes valores\+: \textquotesingle{}empt\textquotesingle{} igual a falso; \textquotesingle{}undef\textquotesingle{} igual a falso; \textquotesingle{}val\textquotesingle{} sin inicializar; \textquotesingle{}op\textquotesingle{} igual a \textquotesingle{}in\+Operator\textquotesingle{}; \textquotesingle{}l\+Exp\textquotesingle{} igual a \textquotesingle{}l\+Expression\textquotesingle{} 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!Expression@{Expression}}
+\index{Expression@{Expression}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{Expression(const list$<$ Expression $\ast$ $>$ \&l\+Expression)}{Expression(const list< Expression * > &lExpression)}}]{\setlength{\rightskip}{0pt plus 5cm}Expression\+::\+Expression (
+\begin{DoxyParamCaption}
+\item[{const list$<$ {\bf Expression} $\ast$ $>$ \&}]{l\+Expression}
+\end{DoxyParamCaption}
+)}\hypertarget{class_expression_aefc4947a77277148ad0dc79506ac8e79}{}\label{class_expression_aefc4947a77277148ad0dc79506ac8e79}
+
+
+Constructora con lista de inicialización. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}l\+Expression\textquotesingle{} es una lista no vacía de punteros a expresiones 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Crea un objeto con los siguientes valores\+: \textquotesingle{}empt\textquotesingle{} igual a falso; \textquotesingle{}undef\textquotesingle{} igual a falso; \textquotesingle{}val\textquotesingle{} sin inicializar; \textquotesingle{}op\textquotesingle{} es un string vacío; \textquotesingle{}l\+Exp\textquotesingle{} igual a \textquotesingle{}l\+Expression\textquotesingle{} 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!Expression@{Expression}}
+\index{Expression@{Expression}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{Expression(const Expression \&in\+Exp)}{Expression(const Expression &inExp)}}]{\setlength{\rightskip}{0pt plus 5cm}Expression\+::\+Expression (
+\begin{DoxyParamCaption}
+\item[{const {\bf Expression} \&}]{in\+Exp}
+\end{DoxyParamCaption}
+)}\hypertarget{class_expression_ae84af9ba2a88741d6f65a70ef8869faf}{}\label{class_expression_ae84af9ba2a88741d6f65a70ef8869faf}
+
+
+Constructora por copia. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Crea un objeto copia de in\+Exp 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!````~Expression@{$\sim$\+Expression}}
+\index{````~Expression@{$\sim$\+Expression}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{$\sim$\+Expression()}{~Expression()}}]{\setlength{\rightskip}{0pt plus 5cm}Expression\+::$\sim$\+Expression (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_expression_a3e99570b177da619eeb2c5787cbb148e}{}\label{class_expression_a3e99570b177da619eeb2c5787cbb148e}
+
+
+Destructora por defecto. 
+
+Se ejecuta automáticamente al salir de un ámbito de visibilidad \begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad 
+\end{DoxyPostcond}
+
+
+\subsection{Documentación de las funciones miembro}
+\index{Expression@{Expression}!begin@{begin}}
+\index{begin@{begin}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{begin()}{begin()}}]{\setlength{\rightskip}{0pt plus 5cm}list$<$ {\bf Expression} $\ast$ $>$\+::iterator Expression\+::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_expression_a2d506d902ad4cc9c0e674ae53c89e846}{}\label{class_expression_a2d506d902ad4cc9c0e674ae53c89e846}
+
+
+Iterador de inicio de lista. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve un iterador que apunta al inicio de la lista \textquotesingle{}l\+Exp\textquotesingle{} 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!begin@{begin}}
+\index{begin@{begin}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{begin() const }{begin() const }}]{\setlength{\rightskip}{0pt plus 5cm}list$<$ {\bf Expression} $\ast$ $>$\+::const\+\_\+iterator Expression\+::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_expression_af19f7a8509a9d6e77360d082d6d9b488}{}\label{class_expression_af19f7a8509a9d6e77360d082d6d9b488}
+
+
+Iterador constante de inicio de lista. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve un const\+\_\+iterator que apunta al inicio de la lista \textquotesingle{}l\+Exp\textquotesingle{} 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!clear@{clear}}
+\index{clear@{clear}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{clear()}{clear()}}]{\setlength{\rightskip}{0pt plus 5cm}void Expression\+::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_expression_ab2e0ccb0146cccd559c39f8913f9585e}{}\label{class_expression_ab2e0ccb0146cccd559c39f8913f9585e}
+
+
+Operación de vaciado de expresión. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El parámetro implícito pasa a estar vacío\+: \textquotesingle{}empt\textquotesingle{} igual a cierto; \textquotesingle{}undef\textquotesingle{} igual a falso; \textquotesingle{}val\textquotesingle{} sin inicializar; \textquotesingle{}op\textquotesingle{} es un string vacío; \textquotesingle{}l\+Exp\textquotesingle{} es una lista vacía 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!empty@{empty}}
+\index{empty@{empty}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{empty() const }{empty() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Expression\+::empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_expression_a0020daf119d82799da034fd0513ca614}{}\label{class_expression_a0020daf119d82799da034fd0513ca614}
+
+
+Consultora de estado. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve cierto si el parámetro implícito está vacío; en otro caso, devuelve falso 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!end@{end}}
+\index{end@{end}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{end()}{end()}}]{\setlength{\rightskip}{0pt plus 5cm}list$<$ {\bf Expression} $\ast$ $>$\+::iterator Expression\+::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_expression_a224d334180625d4645f8adc7a333cfdf}{}\label{class_expression_a224d334180625d4645f8adc7a333cfdf}
+
+
+Iterador de final de lista. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve un iterador que apunta al final de la lista \textquotesingle{}l\+Exp\textquotesingle{} 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!end@{end}}
+\index{end@{end}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{end() const }{end() const }}]{\setlength{\rightskip}{0pt plus 5cm}list$<$ {\bf Expression} $\ast$ $>$\+::const\+\_\+iterator Expression\+::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_expression_aa0865e537598b1adf1c29696d083c9a8}{}\label{class_expression_aa0865e537598b1adf1c29696d083c9a8}
+
+
+Iterador constante de final de lista. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve un const\+\_\+iterator que apunta al final de la lista \textquotesingle{}l\+Exp\textquotesingle{} 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!erase@{erase}}
+\index{erase@{erase}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{erase(list$<$ Expression $\ast$ $>$\+::iterator it)}{erase(list< Expression * >::iterator it)}}]{\setlength{\rightskip}{0pt plus 5cm}list$<$ {\bf Expression} $\ast$ $>$\+::iterator Expression\+::erase (
+\begin{DoxyParamCaption}
+\item[{list$<$ {\bf Expression} $\ast$ $>$\+::iterator}]{it}
+\end{DoxyParamCaption}
+)}\hypertarget{class_expression_aadecbbd3374a578d539afd653d9773f8}{}\label{class_expression_aadecbbd3374a578d539afd653d9773f8}
+
+
+Operación de borrado de elemetos de lista. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}l\+Exp\textquotesingle{} no es una lista vacía 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se borra el elemento apuntado por el iterador \textquotesingle{}it\textquotesingle{} de la lista \textquotesingle{}l\+Exp\textquotesingle{}; devuelve un iterador al elemento siguiente al borrado 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{evaluate()}{evaluate()}}]{\setlength{\rightskip}{0pt plus 5cm}void Expression\+::evaluate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_expression_a907c90971da33ed6eae071178a6b15a6}{}\label{class_expression_a907c90971da33ed6eae071178a6b15a6}
+
+
+Operación de evaluación de expresión. 
+
+\begin{DoxyPrecond}{Precondición}
+El parámetro implícito no está vácío 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El parámetro implícito pasa a ser\+: valor, representado por \textquotesingle{}val\textquotesingle{}, si era una expresión evaluable; lista, representada por \textquotesingle{}l\+Exp\textquotesingle{}, si era una lista de expresiones evaluables; indefinido, representado por \textquotesingle{}undef\textquotesingle{} igual a cierto, si la evaluación de la expresión representada por el parámetro implícito era indefinida 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!get\+\_\+list@{get\+\_\+list}}
+\index{get\+\_\+list@{get\+\_\+list}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{get\+\_\+list() const }{get_list() const }}]{\setlength{\rightskip}{0pt plus 5cm}list$<$ {\bf Expression} $\ast$ $>$ Expression\+::get\+\_\+list (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_expression_a02b464bb904f9e47806c3ace82f9ce40}{}\label{class_expression_a02b464bb904f9e47806c3ace82f9ce40}
+
+
+Consultora de la lista. 
+
+\begin{DoxyPrecond}{Precondición}
+El parámetro implícito no es undefined; el parámetro implícito no está vacío; el parámetro implícito representa una lista 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve la lista \textquotesingle{}l\+Exp\textquotesingle{} del parámetro implícito 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!get\+\_\+op@{get\+\_\+op}}
+\index{get\+\_\+op@{get\+\_\+op}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{get\+\_\+op() const }{get_op() const }}]{\setlength{\rightskip}{0pt plus 5cm}string Expression\+::get\+\_\+op (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_expression_a9216cba5bbd3ffa8c3a625a66b91b36f}{}\label{class_expression_a9216cba5bbd3ffa8c3a625a66b91b36f}
+
+
+Consultora de operador. 
+
+\begin{DoxyPrecond}{Precondición}
+El parámetro implícito no es undefined; el parámetro implícito no está vacío; el parámetro implícito representa una expresión a evaluar 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve el operador \textquotesingle{}op\textquotesingle{} del parámetro implícito 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!get\+\_\+value@{get\+\_\+value}}
+\index{get\+\_\+value@{get\+\_\+value}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{get\+\_\+value() const }{get_value() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Expression\+::get\+\_\+value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_expression_add3f908cb67ed993a5e886447fd70df0}{}\label{class_expression_add3f908cb67ed993a5e886447fd70df0}
+
+
+Consultora de valor. 
+
+\begin{DoxyPrecond}{Precondición}
+El parámetro implícito no es undefined; el parámetro implícito no está vacío; el parámetro implícito representa un valor 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve el valor \textquotesingle{}val\textquotesingle{} del parámetro implícito 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!is\+\_\+bool@{is\+\_\+bool}}
+\index{is\+\_\+bool@{is\+\_\+bool}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{is\+\_\+bool() const }{is_bool() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Expression\+::is\+\_\+bool (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_expression_ad42c70dcee3b195c77749ca6435c244d}{}\label{class_expression_ad42c70dcee3b195c77749ca6435c244d}
+
+
+Consultora de tipo de expresión booleana. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve cierto si el parámetro implícito es una expresión booleana; en otro caso, devuelve falso 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!is\+\_\+list@{is\+\_\+list}}
+\index{is\+\_\+list@{is\+\_\+list}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{is\+\_\+list() const }{is_list() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Expression\+::is\+\_\+list (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_expression_ae835c069faf7d6821fe6037e384f02c0}{}\label{class_expression_ae835c069faf7d6821fe6037e384f02c0}
+
+
+Consultora de tipo de expresión lista. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve cierto si el parámetro implícito es una lista de expresiones; en otro caso, devuelve falso 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!is\+\_\+op@{is\+\_\+op}}
+\index{is\+\_\+op@{is\+\_\+op}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{is\+\_\+op() const }{is_op() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Expression\+::is\+\_\+op (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_expression_a422fb496720b177eaed37a9694613384}{}\label{class_expression_a422fb496720b177eaed37a9694613384}
+
+
+Consultora de tipo de expresión operación. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve cierto si el parámetro implícito es una operación a ser evaluada; en otro caso, devuelve falso 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!is\+\_\+value@{is\+\_\+value}}
+\index{is\+\_\+value@{is\+\_\+value}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{is\+\_\+value() const }{is_value() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Expression\+::is\+\_\+value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_expression_a4ee60df2f212d8a4cc228ce7db2da81b}{}\label{class_expression_a4ee60df2f212d8a4cc228ce7db2da81b}
+
+
+Consultora de tipo de expresión variable. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve cierto si el parámetro implícito es un valor atómico; en otro caso, devuelve falso 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{operator$<$(const Expression \&in\+Exp) const }{operator<(const Expression &inExp) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Expression\+::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Expression} \&}]{in\+Exp}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_expression_a4f1f64418752d14e116f55b7b57355b8}{}\label{class_expression_a4f1f64418752d14e116f55b7b57355b8}
+
+
+Operación de comparación de inferioridad exclusiva. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve cierto si el parámetro implícito es menor exclusivo que \textquotesingle{}in\+Exp\textquotesingle{} 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!operator=@{operator=}}
+\index{operator=@{operator=}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{operator=(const Expression \&in\+Exp)}{operator=(const Expression &inExp)}}]{\setlength{\rightskip}{0pt plus 5cm}void Expression\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Expression} \&}]{in\+Exp}
+\end{DoxyParamCaption}
+)}\hypertarget{class_expression_a962312da1eebebaada8517daa02b8070}{}\label{class_expression_a962312da1eebebaada8517daa02b8070}
+
+
+Operación de asignación. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El parámetro implícito pasa a ser una copia de \textquotesingle{}in\+Exp\textquotesingle{} 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!operator==@{operator==}}
+\index{operator==@{operator==}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{operator==(const Expression \&in\+Exp) const }{operator==(const Expression &inExp) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Expression\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Expression} \&}]{in\+Exp}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_expression_a8cd982884bef615b9c79526dce0956f6}{}\label{class_expression_a8cd982884bef615b9c79526dce0956f6}
+
+
+Operación de comparación de igualdad. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve cierto si el parámetro implícito es igual a \textquotesingle{}in\+Exp\textquotesingle{} 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!second@{second}}
+\index{second@{second}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{second()}{second()}}]{\setlength{\rightskip}{0pt plus 5cm}list$<$ {\bf Expression} $\ast$ $>$\+::iterator Expression\+::second (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_expression_a27233f1069927e3006cadabf17402e73}{}\label{class_expression_a27233f1069927e3006cadabf17402e73}
+
+
+Iterador de segundo elemento de lista. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve un iterador que apunta al segundo elemento de la lista \textquotesingle{}l\+Exp\textquotesingle{} 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!second@{second}}
+\index{second@{second}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{second() const }{second() const }}]{\setlength{\rightskip}{0pt plus 5cm}list$<$ {\bf Expression} $\ast$ $>$\+::const\+\_\+iterator Expression\+::second (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_expression_a53baf6cfbdc54ea6799daf47ec83cb56}{}\label{class_expression_a53baf6cfbdc54ea6799daf47ec83cb56}
+
+
+Iterador constante de segundo elemento de lista. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve un const\+\_\+iterator que apunta al segundo elemento de la lista \textquotesingle{}l\+Exp\textquotesingle{} 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!set\+\_\+list@{set\+\_\+list}}
+\index{set\+\_\+list@{set\+\_\+list}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{set\+\_\+list()}{set_list()}}]{\setlength{\rightskip}{0pt plus 5cm}void Expression\+::set\+\_\+list (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_expression_a66db516be4fa87d58df4806938676508}{}\label{class_expression_a66db516be4fa87d58df4806938676508}
+
+
+Modificadora de lista. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El parámetro implícito pasa a ser una lista, si no lo era 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!set\+\_\+list@{set\+\_\+list}}
+\index{set\+\_\+list@{set\+\_\+list}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{set\+\_\+list(const list$<$ Expression $\ast$ $>$ \&l\+Expression)}{set_list(const list< Expression * > &lExpression)}}]{\setlength{\rightskip}{0pt plus 5cm}void Expression\+::set\+\_\+list (
+\begin{DoxyParamCaption}
+\item[{const list$<$ {\bf Expression} $\ast$ $>$ \&}]{l\+Expression}
+\end{DoxyParamCaption}
+)}\hypertarget{class_expression_af424140108512e290c5cef0da96b2e51}{}\label{class_expression_af424140108512e290c5cef0da96b2e51}
+
+
+Modificadora de lista. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El parámetro implícito pasa a tener \textquotesingle{}l\+Exp\textquotesingle{} igual a \textquotesingle{}l\+Expression\textquotesingle{}; \textquotesingle{}op\textquotesingle{} pasa a ser un string vacío 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!set\+\_\+op@{set\+\_\+op}}
+\index{set\+\_\+op@{set\+\_\+op}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{set\+\_\+op(string op)}{set_op(string op)}}]{\setlength{\rightskip}{0pt plus 5cm}void Expression\+::set\+\_\+op (
+\begin{DoxyParamCaption}
+\item[{string}]{op}
+\end{DoxyParamCaption}
+)}\hypertarget{class_expression_adffd3a10200510c64055e550e9eebb1f}{}\label{class_expression_adffd3a10200510c64055e550e9eebb1f}
+
+
+Modificadora de operador. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El parámetro implícito pasa a tener operador \textquotesingle{}op\textquotesingle{}; la lista \textquotesingle{}l\+Exp\textquotesingle{} queda vacía a la espera de ser asignada mediante el método \hyperlink{class_expression_a1c3e554b2d82446c8f1322fb7812e9cc}{set\+\_\+op\+\_\+list()} 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!set\+\_\+op\+\_\+list@{set\+\_\+op\+\_\+list}}
+\index{set\+\_\+op\+\_\+list@{set\+\_\+op\+\_\+list}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{set\+\_\+op\+\_\+list(const list$<$ Expression $\ast$ $>$ \&l\+Expression)}{set_op_list(const list< Expression * > &lExpression)}}]{\setlength{\rightskip}{0pt plus 5cm}void Expression\+::set\+\_\+op\+\_\+list (
+\begin{DoxyParamCaption}
+\item[{const list$<$ {\bf Expression} $\ast$ $>$ \&}]{l\+Expression}
+\end{DoxyParamCaption}
+)}\hypertarget{class_expression_a1c3e554b2d82446c8f1322fb7812e9cc}{}\label{class_expression_a1c3e554b2d82446c8f1322fb7812e9cc}
+
+
+Modificadora de lista de operación. 
+
+\begin{DoxyPrecond}{Precondición}
+El parámetro implícito es una operación a la espera de ser asignada una lista 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El parámetro implícito pasa a tener lista \textquotesingle{}l\+Exp\textquotesingle{} igual a \textquotesingle{}l\+Expression\textquotesingle{}; el parámetro implícito es una operación 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!set\+\_\+undefined@{set\+\_\+undefined}}
+\index{set\+\_\+undefined@{set\+\_\+undefined}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{set\+\_\+undefined()}{set_undefined()}}]{\setlength{\rightskip}{0pt plus 5cm}void Expression\+::set\+\_\+undefined (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_expression_a1d3ddfe83d20f47930792807e8b22248}{}\label{class_expression_a1d3ddfe83d20f47930792807e8b22248}
+
+
+Modificadora del campo undefined. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El parámetro implícito pasa a ser undefined 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!set\+\_\+value@{set\+\_\+value}}
+\index{set\+\_\+value@{set\+\_\+value}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{set\+\_\+value(int value)}{set_value(int value)}}]{\setlength{\rightskip}{0pt plus 5cm}void Expression\+::set\+\_\+value (
+\begin{DoxyParamCaption}
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{class_expression_a307683cc3735bf81d823931aab2d64e0}{}\label{class_expression_a307683cc3735bf81d823931aab2d64e0}
+
+
+Modificadora de valor por asignación. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El parámetro implícito pasa a tener valor \textquotesingle{}value\textquotesingle{}; la lista \textquotesingle{}l\+Exp\textquotesingle{} del parámetro implícito pasa a estar vacía; \textquotesingle{}op\textquotesingle{} pasa a ser un string vacío 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!size@{size}}
+\index{size@{size}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{size() const }{size() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Expression\+::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_expression_a0e8980139631cf7bc9fd3bca9d8caddc}{}\label{class_expression_a0e8980139631cf7bc9fd3bca9d8caddc}
+
+
+Modificadora de valor por adición. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}val\textquotesingle{} está inicializada a un valor concreto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El parámetro implícito pasa a tener valor \textquotesingle{}val\textquotesingle{} igual a la suma de \textquotesingle{}val\textquotesingle{} más \textquotesingle{}value\textquotesingle{}Consultora de tamaño de lista
+\end{DoxyPostcond}
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve el tamaño de la lsita \textquotesingle{}l\+Exp\textquotesingle{} 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!splice@{splice}}
+\index{splice@{splice}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{splice(list$<$ Expression $\ast$ $>$\+::iterator it, list$<$ Expression $\ast$ $>$ l\+Expression)}{splice(list< Expression * >::iterator it, list< Expression * > lExpression)}}]{\setlength{\rightskip}{0pt plus 5cm}void Expression\+::splice (
+\begin{DoxyParamCaption}
+\item[{list$<$ {\bf Expression} $\ast$ $>$\+::iterator}]{it, }
+\item[{list$<$ {\bf Expression} $\ast$ $>$}]{l\+Expression}
+\end{DoxyParamCaption}
+)}\hypertarget{class_expression_afcd885fc3562809ede2796b722bb4854}{}\label{class_expression_afcd885fc3562809ede2796b722bb4854}
+
+
+Operación de vaciado de expresión. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}l\+Exp\textquotesingle{} no es una lista vacía 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El parámetro implícito pasa a tener los elementos de l\+Expression antes del elemento apuntado por it 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!third@{third}}
+\index{third@{third}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{third()}{third()}}]{\setlength{\rightskip}{0pt plus 5cm}list$<$ {\bf Expression} $\ast$ $>$\+::iterator Expression\+::third (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_expression_a5b079de9216600ec3611cd3133fd8e36}{}\label{class_expression_a5b079de9216600ec3611cd3133fd8e36}
+
+
+Iterador de tercer elemento de lista. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve un iterador que apunta al tercer elemento de la lista \textquotesingle{}l\+Exp\textquotesingle{} 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!third@{third}}
+\index{third@{third}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{third() const }{third() const }}]{\setlength{\rightskip}{0pt plus 5cm}list$<$ {\bf Expression} $\ast$ $>$\+::const\+\_\+iterator Expression\+::third (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_expression_a6e7cfc98e94c1592f671a6185e39a12e}{}\label{class_expression_a6e7cfc98e94c1592f671a6185e39a12e}
+
+
+Iterador constante de tercer elemento de lista. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve un const\+\_\+iterator que apunta al tercer elemento de la lista \textquotesingle{}l\+Exp\textquotesingle{} 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!undefined@{undefined}}
+\index{undefined@{undefined}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{undefined() const }{undefined() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Expression\+::undefined (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_expression_a97f9b6fc78a7ef17dd9595e53a9b6239}{}\label{class_expression_a97f9b6fc78a7ef17dd9595e53a9b6239}
+
+
+Consultora de estado. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve cierto si el parámetro implícito es indefinido; en otro caso, devuelve falso 
+\end{DoxyPostcond}
+\index{Expression@{Expression}!write@{write}}
+\index{write@{write}!Expression@{Expression}}
+\subsubsection[{\texorpdfstring{write() const }{write() const }}]{\setlength{\rightskip}{0pt plus 5cm}void Expression\+::write (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_expression_a6d5d0fa496e3713c332c9f1edc269de5}{}\label{class_expression_a6d5d0fa496e3713c332c9f1edc269de5}
+
+
+Operación de escritura de expresión. 
+
+\begin{DoxyPrecond}{Precondición}
+El parámetro implícito no está vacío y representa un valor indefinido, un valor concreto o una lista de valores 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Escribe el valor de la expresión o la lista de valores de la lista de expresiones representada/s por el parámetro implícito por el canal estandar de salida 
+\end{DoxyPostcond}
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_expression_8hh}{Expression.\+hh}\item 
+Expression.\+cc\end{DoxyCompactItemize}
