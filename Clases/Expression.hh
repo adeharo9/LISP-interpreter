@@ -33,9 +33,11 @@ private:
 	string op;
 	list<Expression*> lExp;
 
-	static list<Expression*> cp_exp_list(list<Expression*> lExpression);
+	static list<Expression*> cp_exp_list(const list<Expression*>& lExp);
 
-	static void rm_exp_list(list<Expression*> lExpression);
+	static void rm_exp_list(list<Expression*>& lExp);
+
+	static void rm_exp_list_excep(list<Expression*>& lExp, Expression& inExp);
 
 public:
 
@@ -55,28 +57,28 @@ public:
 		\pre <em>Cierto</em>
 		\post Crea un objeto con los siguientes valores: 'b_empty' igual a falso; 'b_undef' igual a falso; 'val' igual a 'value'; 'op' es un string vacío; 'lExp' es una lista vacía
 	*/
-	Expression(int value);
+	//Expression(int value);
 
 	/** @brief Constructora con operación de inicialización
 
 		\pre 'inOperator' es un string no vacío; 'inOperator' es un operador existente en el espacio de operaciones primitivas o en el espacio de operaciones definidas por el usuario 'lExpression' es una lista no vacía de punteros a expresiones
 		\post Crea un objeto con los siguientes valores: 'b_empty' igual a falso; 'b_undef' igual a falso; 'val' sin inicializar; 'op' igual a 'inOperator'; 'lExp' igual a 'lExpression'
 	*/
-	Expression(string inOperator, const list<Expression*>& lExpression);
+	//Expression(string inOperator, const list<Expression*>& lExpression);
 
 	/** @brief Constructora con lista de inicialización
 
 		\pre 'lExpression' es una lista no vacía de punteros a expresiones
 		\post Crea un objeto con los siguientes valores: 'b_empty' igual a falso; 'b_undef' igual a falso; 'val' sin inicializar; 'op' es un string vacío; 'lExp' igual a 'lExpression'
 	*/
-	Expression(const list<Expression*>& lExpression);
+	//Expression(const list<Expression*>& lExpression);
 
 	/** @brief Constructora por copia
 
 		\pre <em>Cierto</em>
 		\post Crea un objeto copia de inExp
 	*/
-	Expression(const Expression& inExp);
+	//Expression(const Expression& inExp);
 
 	//_______ DESTRUCTORES
 
@@ -111,12 +113,7 @@ public:
 	*/
 	bool operator < (const Expression& inExp) const;
 
-	/** @brief Operación de evaluación de expresión
-
-		\pre El parámetro implícito no está vácío
-		\post El parámetro implícito pasa a ser: valor, representado por 'val', si era una expresión evaluable; lista, representada por 'lExp', si era una lista de expresiones evaluables; indefinido, representado por 'b_undef' igual a cierto, si la evaluación de la expresión representada por el parámetro implícito era indefinida
-	*/
-	void evaluate();
+	//void assign_ncp(Expression& inExp);
 
 	/** @brief Operación de vaciado de expresión
 
@@ -144,9 +141,7 @@ public:
 		\pre <em>Cierto</em>
 		\post El parámetro implícito pasa a tener 'lExpression' como lista; 'lExpression' pasa a ser la lista del parámetro implícito
 	*/
-	void swap(list<Expression*>& lExpression);
-
-	void assign_ncp(Expression& inExp);
+	//void swap_list(list<Expression*>& lExpression);
 
 	/** @brief Operación de cambio de listas
 
@@ -154,6 +149,23 @@ public:
 		\post El parámetro implícito pasa a tener la lista de 'inExp'; 'inExp' pasa a tener la lista del parámetro implícito
 	*/
 	void swap_list(Expression& inExp);
+
+	//void swap(Expression& inExp);
+
+	//void move(Expression& inExp);
+
+	/** @brief Modificadora del campo undefined
+
+		\pre El parámetro implícito 
+		\post El parámetro implícito pasa a ser undefined
+	*/
+	Expression& operator << (Expression& inExp);
+
+	//void move_list(list<Expression*>& lExpression);
+
+	Expression& operator << (list<Expression*>& lExpression);
+
+	void operator >> (list<Expression*>& lExpression);
 
 	/** @brief Modificadora del campo undefined
 
@@ -181,7 +193,7 @@ public:
 		\pre El parámetro implícito es una operación a la espera de ser asignada una lista
 		\post El parámetro implícito pasa a tener lista 'lExp' igual a 'lExpression'; el parámetro implícito es una operación
 	*/
-	void set_op_list(const list<Expression*>& lExpression);
+	//void set_op_list(const list<Expression*>& lExpression);
 
 	/** @brief Modificadora de lista
 
@@ -195,7 +207,7 @@ public:
 		\pre <em>Cierto</em>
 		\post El parámetro implícito pasa a tener 'lExp' igual a 'lExpression'; 'op' pasa a ser un string vacío
 	*/
-	void set_list(const list<Expression*>& lExpression);
+	//void set_list(const list<Expression*>& lExpression);
 
 	/** @brief Modificadora de lista
 

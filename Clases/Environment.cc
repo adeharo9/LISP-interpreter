@@ -29,13 +29,13 @@ void Environment::add_op(string key, string parameters, string exp) {
 	opSpace.add(key, parameters, exp);
 }
 
-void Environment::update_var(string key, const Expression& exp) {
+/*void Environment::update_var(string key, const Expression& exp) {
 	varSpace.update(key, exp);
-}
+}*/
 
-void Environment::update_op(string key, string parameters, string exp) {
+/*void Environment::update_op(string key, string parameters, string exp) {
 	opSpace.update(key, parameters, exp);
-}
+}*/
 
 void Environment::erase_varspace() {
 	varSpace.clear();

@@ -80,7 +80,7 @@ public:
 		\pre 'key' es un string no vacío; el mapa de variables 'varMap' del parámetro implícito contiene una	variable con clave 'key'
 		\post La expresión de la variable con clave 'key' en el mapa de variables 'varMap' del parámetro implícito pasa a ser 'exp'
 	*/
-	void update(string key, const Expression& exp);
+	//void update(string key, const Expression& exp);
 
 	//_______ CONSULTORES
 

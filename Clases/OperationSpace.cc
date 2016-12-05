@@ -53,12 +53,12 @@ void OperationSpace::add(string key, string parameters, string exp) {
 	opMap[key] = aux;
 }
 
-void OperationSpace::update(string key, string parameters, string exp) {
+/*void OperationSpace::update(string key, string parameters, string exp) {
 	definition aux;
 	aux.parameters = parameters;
 	aux.exp = exp;
 	opMap[key] = aux;
-}
+}*/
 
 //_______ CONSULTORES
 

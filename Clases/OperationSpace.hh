@@ -82,7 +82,7 @@ public:
 		\pre 'key' es un string no vacío; 'key' no corresponde al nombre de ninguna de las operaciones primitivas; el mapa de operaciones 'opMap' del parámetro implícito contiene una	operación con clave 'key'
 		\post Los parámetros y la expresión de la operación con clave 'key' en el mapa de operaciones 'opMap' del parámetro implícito pasan a ser 'parameters' y 'exp', respectivamente
 	*/
-	void update(string key, string parameters, string exp);
+	//void update(string key, string parameters, string exp);
 
 	//_______ CONSULTORES
 

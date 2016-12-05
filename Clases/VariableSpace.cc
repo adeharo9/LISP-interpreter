@@ -33,9 +33,9 @@ void VariableSpace::add(string key, const Expression& exp) {
 	varMap[key] = exp;
 }
 
-void VariableSpace::update(string key, const Expression& exp) {
+/*void VariableSpace::update(string key, const Expression& exp) {
 	varMap[key] = exp;
-}
+}*/
 
 //_______ CONSULTORES
 

@@ -41,9 +41,12 @@ void PrimitiveOperationSpace::neg(Expression& exp) {
 void PrimitiveOperationSpace::cons(Expression& exp) {
 	if(exp.is_op() and exp.size() == 2) {
 		if((*exp.begin())->is_value() and (*exp.second())->is_list()) {
-			list<Expression*> aux = (*exp.second())->get_list();
-			exp.splice(exp.second(),aux);
-			exp.erase(--exp.end());
+			list<Expression*> aux;
+			*(*exp.second()) >> aux;
+			(*exp.second())->~Expression();
+			//(*exp.second())->swap_list(aux);
+			exp.splice(exp.end(),aux);
+			exp.erase(exp.second());
 			exp.set_list();
 		}
 		else {
@@ -58,7 +61,7 @@ void PrimitiveOperationSpace::cons(Expression& exp) {
 void PrimitiveOperationSpace::head(Expression& exp) {
 	if(exp.is_op() and exp.size() == 1) {
 		if((*exp.begin())->is_list() and not (*exp.begin())->is_empty_list()) {
-			exp = *(*((*exp.begin())->begin()));
+			exp << *(*((*exp.begin())->begin()));
 		}
 		else {
 			exp.set_undefined();
@@ -73,7 +76,7 @@ void PrimitiveOperationSpace::tail(Expression& exp) {
 	if(exp.is_op() and exp.size() == 1) {
 		if((*exp.begin())->is_list() and not (*exp.begin())->is_empty_list()) {
 			if((*exp.begin())->erase((*exp.begin())->begin()) != (*exp.begin())->end()) {
-				exp = *(*exp.begin());
+				exp << *(*exp.begin());
 			}
 			else {
 				exp.set_empty_list();
@@ -161,8 +164,7 @@ void PrimitiveOperationSpace::bool_or(Expression& exp) {
 void PrimitiveOperationSpace::cond_if(Expression& exp) {
 	if(exp.is_op() and exp.size() == 2) {
 		if((*exp.begin())->is_bool()) {
-			//exp = *(*exp.second());
-			exp.assign_ncp(*(*exp.second()));
+			exp << *(*exp.second());
 		}
 		else {
 			exp.set_undefined();
@@ -172,25 +174,6 @@ void PrimitiveOperationSpace::cond_if(Expression& exp) {
 		exp.set_undefined();
 	}
 }
-
-/*void PrimitiveOperationSpace::cond_if(Expression& exp) {
-	if(exp.is_op() and exp.size() == 3) {
-		if((*exp.begin())->is_bool()) {
-			if((*exp.begin())->get_value() == 1) {
-				exp = *(*exp.second());
-			}
-			else {
-				exp = *(*exp.third());
-			}
-		}
-		else {
-			exp.set_undefined();
-		}
-	}
-	else {
-		exp.set_undefined();
-	}
-}*/
 
 //_______ CONSTRUCTORES
 
