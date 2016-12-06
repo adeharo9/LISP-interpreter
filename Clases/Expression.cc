@@ -101,7 +101,7 @@ Expression::~Expression() {
 
 //_______ MODIFICADORES
 
-Expression& Expression::operator = (const Expression& inExp) {
+Expression& Expression::operator = ( Expression& inExp) {
 	if(this != &inExp) {
 		b_undef = inExp.b_undef;
 		b_empty = inExp.b_empty;
@@ -114,6 +114,8 @@ Expression& Expression::operator = (const Expression& inExp) {
 		rm_exp_list(lExp);
 		lExp = aux;
 	}
+	cout << "Hola: ";
+	this->write();
 	return *this;
 }
 

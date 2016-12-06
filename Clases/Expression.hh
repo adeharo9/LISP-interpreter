@@ -97,7 +97,7 @@ public:
 		\pre <em>Cierto</em>
 		\post El parámetro implícito pasa a ser una copia de 'inExp'
 	*/
-	Expression& operator = (const Expression& inExp);
+	Expression& operator = ( Expression& inExp);
 
 	/** @brief Operación de comparación de igualdad
 
