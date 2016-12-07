@@ -54,45 +54,6 @@ Expression::Expression() {
 	b_list = false;
 }
 
-/*Expression::Expression(int value) {
-	b_undef = false;
-	b_empty = false;
-	b_val = true;
-	b_op = false;
-	b_list = false;
-	val = value;
-}*/
-
-/*Expression::Expression(string inOperator, const list<Expression*>& lExpression) {
-	b_undef = false;
-	b_empty = false;
-	b_val = false;
-	b_op = true;
-	b_list = false;
-	op = inOperator;
-	lExp = cp_exp_list(lExpression);
-}*/
-
-/*Expression::Expression(const list<Expression*>& lExpression) {
-	b_undef = false;
-	b_empty = false;
-	b_val = false;
-	b_op = false;
-	b_list = true;
-	lExp = cp_exp_list(lExpression);
-}*/
-
-/*Expression::Expression(const Expression& inExp) {
-	b_undef = inExp.b_undef;
-	b_empty = inExp.b_empty;
-	b_val = inExp.b_val;
-	b_op = inExp.b_op;
-	b_list = inExp.b_list;
-	val = inExp.val;
-	op = inExp.op;
-	lExp = cp_exp_list(inExp.lExp);
-}*/
-
 //_______ DESTRUCTORES
 
 Expression::~Expression() {
@@ -169,17 +130,6 @@ bool Expression::operator < (const Expression& inExp) const {
 	}
 }
 
-/*void Expression::assign_ncp(Expression& inExp) {
-	b_undef = inExp.b_undef;
-	b_empty = inExp.b_empty;
-	b_val = inExp.b_val;
-	b_op = inExp.b_op;
-	b_list = inExp.b_list;
-	val = inExp.val;
-	op = inExp.op;
-	lExp = inExp.lExp;
-}*/
-
 void Expression::clear() {
 	if(not (b_empty and not b_list)) {
 		b_undef = false;
@@ -187,13 +137,14 @@ void Expression::clear() {
 		b_val = false;
 		b_op = false;
 		b_list = false;
-		op.clear();
-		rm_exp_list(lExp);
-		lExp.clear();
 	}
+	op.clear();
+	rm_exp_list(lExp);
+	lExp.clear();
 }
 
 list<Expression*>::iterator Expression::erase(list<Expression*>::iterator it) {
+	rm_exp_list((*it)->lExp);
 	return lExp.erase(it);
 }
 
@@ -201,70 +152,16 @@ void Expression::splice(list<Expression*>::iterator it, list<Expression*> lExpre
 	lExp.splice(it, lExpression);
 }
 
-/*void Expression::swap_list(list<Expression*>& lExpression) {
-	list<Expression*> aux = lExp;
-	lExp = lExpression;
-	lExpression = aux;
-}*/
-
-void Expression::swap_list(Expression& inExp) {
-	list<Expression*> aux = lExp;
-	lExp = inExp.lExp;
-	inExp.lExp = aux;
+void Expression::insert(list<Expression*>::iterator it, Expression* pExp) {
+	lExp.insert(it, pExp);
 }
 
-/*void Expression::swap(Expression& inExp) {
-	if(this != &inExp){
-		bool b_aux = b_undef;
-		b_undef = inExp.b_undef;
-		inExp.b_undef = b_aux;
-
-		b_aux = b_empty;
-		b_empty = inExp.b_empty;
-		inExp.b_empty = b_aux;
-
-		b_aux = b_val;
-		b_val = inExp.b_val;
-		inExp.b_val = b_aux;
-
-		b_aux = b_op;
-		b_op = inExp.b_op;
-		inExp.b_op = b_aux;
-
-		b_aux = b_list;
-		b_list = inExp.b_list;
-		inExp.b_list = b_aux;
-
-		int i_aux = val;
-		val = inExp.val;
-		inExp.val = i_aux;
-
-		string s_aux = op;
-		op = inExp.op;
-		inExp.op = s_aux;
-
-		list<Expression*> l_aux = lExp;
-		lExp = inExp.lExp;
-		inExp.lExp = l_aux;
-	}
-}*/
-
-/*void Expression::move(Expression& inExp) {
-	if(this != &inExp){
-		b_undef = inExp.b_undef;
-		b_empty = inExp.b_empty;
-		b_val = inExp.b_val;
-		b_op = inExp.b_op;
-		b_list = inExp.b_list;
-		val = inExp.val;
-		op = inExp.op;
-		rm_exp_list_excep(lExp, inExp);
-		lExp = inExp.lExp;
-		inExp.lExp.clear();
-		//inExp.~Expression();
-		inExp.clear();
-	}
-}*/
+void Expression::swap_list(Expression& inExp) {
+	//list<Expression*> aux = lExp;
+	//lExp = inExp.lExp;
+	lExp.swap(inExp.lExp);
+	//inExp.lExp = aux;
+}
 
 Expression& Expression::operator << (Expression& inExp) {
 	if(this != &inExp){
@@ -284,11 +181,14 @@ Expression& Expression::operator << (Expression& inExp) {
 	return *this;
 }
 
-/*void Expression::move_list(list<Expression*>& lExpression) {
-	rm_exp_list(lExp);
-	lExp = lExpression;
-	lExpression.clear();
-}*/
+void Expression::move_list(Expression& inExp) {
+	if(this != &inExp) {
+		rm_exp_list_excep(lExp, inExp);
+		lExp = inExp.lExp;
+		inExp.lExp.clear();
+		inExp.clear();
+	}
+}
 
 Expression& Expression::operator << (list<Expression*>& lExpression) {
 	rm_exp_list(lExp);
@@ -301,7 +201,6 @@ void Expression::operator >> (list<Expression*>& lExpression) {
 	rm_exp_list(lExpression);
 	lExpression = lExp;
 	lExp.clear();
-	
 }
 
 void Expression::set_undefined() {
@@ -311,6 +210,9 @@ void Expression::set_undefined() {
 		b_val = false;
 		b_op = false;
 		b_list = false;
+		op.clear();
+		rm_exp_list(lExp);
+		lExp.clear();
 	}
 }
 
@@ -321,6 +223,9 @@ void Expression::set_value(int value) {
 		b_val = true;
 		b_op = false;
 		b_list = false;
+		op.clear();
+		rm_exp_list(lExp);
+		lExp.clear();
 	}
 	val = value;
 }
@@ -332,34 +237,22 @@ void Expression::set_op(string inOperator) {
 		b_val = false;
 		b_op = true;
 		b_list = false;
+		rm_exp_list(lExp);
+		lExp.clear();
 	}
 	op = inOperator;
 }
 
-/*void Expression::set_op_list(const list<Expression*>& lExpression) {
-	lExp = cp_exp_list(lExpression);
-}*/
-
 void Expression::set_list() {
 	if(not b_list) {
 		b_undef = false;
-		b_empty = lExp.size() == 0;
+		b_empty = lExp.empty();
 		b_val = false;
 		b_op = false;
 		b_list = true;
+		op.clear();
 	}
 }
-
-/*void Expression::set_list(const list<Expression*>& lExpression) {
-	if(not b_list) {
-		b_undef = false;
-		b_empty = lExpression.size() == 0;
-		b_val = false;
-		b_op = false;
-		b_list = true;
-	}
-	lExp = cp_exp_list(lExpression);
-}*/
 
 void Expression::set_empty_list() {
 	if(not b_list) {
@@ -368,6 +261,9 @@ void Expression::set_empty_list() {
 		b_val = false;
 		b_op = false;
 		b_list = true;
+		op.clear();
+		rm_exp_list(lExp);
+		lExp.clear();
 	}
 }
 
@@ -411,10 +307,6 @@ int Expression::get_value() const {
 
 string Expression::get_op() const {
 	return op;
-}
-
-list<Expression*> Expression::get_list() const {
-	return cp_exp_list(lExp);
 }
 
 //_______ ITERADORES

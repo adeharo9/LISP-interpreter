@@ -14,6 +14,12 @@ typedef void (*primitiveOperation)(Expression&);
 Environment::Environment() {
 }
 
+Environment::Environment(const Environment& env) {
+	primOpSpace = env.primOpSpace;
+	varSpace = env.varSpace;
+	opSpace = env.opSpace;
+}
+
 //_______ DESTRUCTORES
 
 Environment::~Environment() {

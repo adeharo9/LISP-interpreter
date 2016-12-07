@@ -44,7 +44,6 @@ void PrimitiveOperationSpace::cons(Expression& exp) {
 			list<Expression*> aux;
 			*(*exp.second()) >> aux;
 			(*exp.second())->~Expression();
-			//(*exp.second())->swap_list(aux);
 			exp.splice(exp.end(),aux);
 			exp.erase(exp.second());
 			exp.set_list();

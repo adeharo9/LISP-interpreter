@@ -150,6 +150,8 @@ public:
 	*/
 	void swap_list(Expression& inExp);
 
+	void insert(list<Expression*>::iterator it, Expression* pExp);
+
 	//void swap(Expression& inExp);
 
 	//void move(Expression& inExp);
@@ -162,6 +164,8 @@ public:
 	Expression& operator << (Expression& inExp);
 
 	//void move_list(list<Expression*>& lExpression);
+
+	void move_list(Expression& inExp);
 
 	Expression& operator << (list<Expression*>& lExpression);
 
@@ -293,7 +297,7 @@ public:
 		\pre El parámetro implícito no es undefined; el parámetro implícito no está vacío; el parámetro implícito representa una lista
 		\post Devuelve la lista 'lExp' del parámetro implícito
 	*/
-	list<Expression*> get_list() const;
+	//list<Expression*> get_list() const;
 
 	//_______ ITERADORES
 
