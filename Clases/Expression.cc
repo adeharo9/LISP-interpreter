@@ -101,7 +101,7 @@ Expression::~Expression() {
 
 //_______ MODIFICADORES
 
-Expression& Expression::operator = ( Expression& inExp) {
+Expression& Expression::operator = (const Expression& inExp) {
 	if(this != &inExp) {
 		b_undef = inExp.b_undef;
 		b_empty = inExp.b_empty;
@@ -114,8 +114,6 @@ Expression& Expression::operator = ( Expression& inExp) {
 		rm_exp_list(lExp);
 		lExp = aux;
 	}
-	cout << "Hola: ";
-	this->write();
 	return *this;
 }
 
@@ -209,10 +207,15 @@ void Expression::splice(list<Expression*>::iterator it, list<Expression*> lExpre
 	lExpression = aux;
 }*/
 
+void Expression::insert(list<Expression*>::iterator it, Expression* pExp) {
+	lExp.insert(it, pExp);
+}
+
 void Expression::swap_list(Expression& inExp) {
-	list<Expression*> aux = lExp;
-	lExp = inExp.lExp;
-	inExp.lExp = aux;
+	//list<Expression*> aux = lExp;
+	//lExp = inExp.lExp;
+	lExp.swap(inExp.lExp);
+	//inExp.lExp = aux;
 }
 
 /*void Expression::swap(Expression& inExp) {
@@ -284,6 +287,15 @@ Expression& Expression::operator << (Expression& inExp) {
 		inExp.clear();
 	}
 	return *this;
+}
+
+void Expression::move_list(Expression& inExp) {
+	if(this != &inExp) {
+		rm_exp_list_excep(lExp, inExp);
+		lExp = inExp.lExp;
+		inExp.lExp.clear();
+		inExp.clear();
+	}
 }
 
 /*void Expression::move_list(list<Expression*>& lExpression) {

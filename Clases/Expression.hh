@@ -97,7 +97,7 @@ public:
 		\pre <em>Cierto</em>
 		\post El parámetro implícito pasa a ser una copia de 'inExp'
 	*/
-	Expression& operator = ( Expression& inExp);
+	Expression& operator = (const Expression& inExp);
 
 	/** @brief Operación de comparación de igualdad
 
@@ -150,6 +150,8 @@ public:
 	*/
 	void swap_list(Expression& inExp);
 
+	void insert(list<Expression*>::iterator it, Expression* pExp);
+
 	//void swap(Expression& inExp);
 
 	//void move(Expression& inExp);
@@ -162,6 +164,8 @@ public:
 	Expression& operator << (Expression& inExp);
 
 	//void move_list(list<Expression*>& lExpression);
+
+	void move_list(Expression& inExp);
 
 	Expression& operator << (list<Expression*>& lExpression);
 
