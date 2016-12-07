@@ -42,6 +42,8 @@ public:
 	*/
 	Environment();
 
+	Environment(const Environment& env);
+
 	//_______ DESTRUCTORES
 
 	/** @brief Destructora por defecto

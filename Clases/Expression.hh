@@ -297,7 +297,7 @@ public:
 		\pre El parámetro implícito no es undefined; el parámetro implícito no está vacío; el parámetro implícito representa una lista
 		\post Devuelve la lista 'lExp' del parámetro implícito
 	*/
-	list<Expression*> get_list() const;
+	//list<Expression*> get_list() const;
 
 	//_______ ITERADORES
 
