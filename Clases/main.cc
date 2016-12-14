@@ -26,7 +26,7 @@ using namespace std;
 int main(){
 	Environment env;
 	Expression exp;
-	while(readExpression(env,exp)){
+	while(read(env,exp)){
 		writeExpression(env,exp);
 		exp.clear();
 	}

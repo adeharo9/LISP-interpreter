@@ -34,7 +34,7 @@ void getString(string& buff, string& str) {
 	}
 	else if(buff[0] == '(') {
 		str = buff[0];
-		buff.erase(0,1);
+		buff.erase(0,1); // borrar desde la posicion 0 hasta la posicion 1 del string
 	}
 	else if(buff[0] == ')'){
 		str = buff[0];
@@ -44,7 +44,7 @@ void getString(string& buff, string& str) {
 		buff.erase(0,1);
 		getString(buff, str);
 	}
-	else if(buff == "****") {
+	else if(buff == '****') {
 		buff.swap(str);
 	}
 	else {
@@ -56,49 +56,63 @@ void getString(string& buff, string& str) {
 	}
 }
 
+bool read(Environment& env, Expression& exp){
+	string inbuff, instr;
+
+	getString(inbuff, instr);
+	if(instr == "****"){
+		return false;
+	}
+	else if(isNum(instr)){
+		cout >> instr >> endl;
+	}
+	else{
+		readExpression(env, exp, inbuff);
+	}
+	
+}
 
 //pre 'env' es un entorno con un espacio de operaciones primitivas inicializado con las operaciones primitivas predefinidas; 'exp' es una expresión no vacía
 //post Escribe el valor de la expresión representada por 'exp' por el canal estándar de salida
-bool readExpression(Environment& env, Expression& exp) {
+bool readExpression(Environment& env, Expression& exp, String buff) {
 
-	string inbuff, instr;
+	string instr;
 	bool fin = false;
 	int parentesis;
 	parentesis = 0;
-	
+		
+
+
 	do{
-		cin >> instr;
 		getString(inbuff, instr);
 
-		if (instr = '('){
-			parentesis++;	
+		if (instr == '('){
+			parentesis++;
+			readExpression(env, exp, inbuff);
 		}
-		else if (instr = ')'){
+		else if (instr == ')'){
 			parentesis--; 
-
 			if(parentesis < 0 ){
 				//EXCEPTION --------------------------------
 			}
-
 		}
-		else if (instr = '****'){
-			fin = true;
-			return false;
-		}
-		else if (isNum(instr) or env.exists_var(instr)){
-			(isNum(instr)) ? exp.add_value(instr); : exp.add_value(env.get_var(instr));
+		else if (isNum(instr)){
+			exp.insert(exp.end(), instr);
 			 /*añade el valor numerico o el valor de una variable a la lista de valores lExp */
 		}
-		else if (!env.exists(instr)){  //verifica si existe este valor como operador, variable u otro, si no es asi lo crea con el valor
+		else if(env.exists_var(instr)){
+			Expression* pExp = new Expression;
+			*pExp = env.get_var(instr);
+			exp.insert(exp.end() , pExp);
+		}
+		else if (instr == 'define'){  //verifica si existe este valor como operador, variable u otro, si no es asi lo crea con el valor
 			
-			is_new_var = true;   // necesito un booleano para saber si se hico la definicion de una variable, para utilizarla a la hora de imprimir
-			readExpression(env, inbuff);						
-			env.add_var(instr, exp);
+			define(instr);
 
 		}
 		else if (env.is_op(instr)){  // verifica que instr sea una operacion definida por el usuario o de las primitivas, en el caso de acierto terminamos de leer de forma recursiva y evaluamos.
 			exp.set_op(instr);
-			readExpression(env, inbuff);
+			readExpression(env, exp, inbuff);
 
 		}
 	} while(parentesis != ')');
@@ -110,27 +124,23 @@ bool readExpression(Environment& env, Expression& exp) {
 }		
 
 void writeExpression(const Environment& env, const Expression& exp) {
-
-	if (){
-
-	}
-	else if(exp.is_value()){
-		cout << exp.get_value();
+	
+	if(exp.is_value()){
+		cout << exp.get_value() << endl;
 	}
 	else if(exp.is_list()){
 		cout << '(';
-		while( it != exp.end()){  //verificar declaracion de iterador end y const end?? cual es al que se esta llamando
-			cout << (*it).get_value() << ' ' ;
-			++it;
+		list<Expression*>::const_iterator it = exp.begin(); 
+		if (!exp.is_empty_list()){
+			cout << (*it)->get_value();
+			while( it != exp.end()){  //verificar declaracion de iterador end y const end?? cual es al que se esta llamando
+				cout  << ' '; 
+				cout << (*it)->get_value();
+				++it;
+			}
 		}
+
 		cout << ')' << endl;
-		
-	}
-	else if(exp.is_bool()){
-		
-	}
-	else if(exp.undefined()){
-		
 	}
 }
 
@@ -145,6 +155,39 @@ void evaluate(Expression& exp){
 	}
 }
 
+void define(string Ininstr){
+	int parentesis, instructionBlock;
+	string inbuff, instr, definition;
+	parentesis = instructionBlock = 0;
+	Expression exp;
+
+	while(parentesis >= 0){
+		getString(inbuff, instr)
+		definition += instr + ' ';
+		if(instr == '('){
+			parentesis++;
+		}else if(instr == ')'){
+			parentesis--;
+			if (parentesis == 0){
+				instructionBlock++;
+			}
+		}
+	}
+	if(instructionBlock <= 1){
+		// definir variable
+		string variable;
+		getString(definition, instr);
+		variable = instr;
+		readExpression(env, exp, definition) {
+		env.set_var(variable, exp);
+
+	} else {
+		// definir expresion
+
+	}
+}
+
+
 
 /*Funciones a crear ------------------------------*/
 
@@ -154,3 +197,4 @@ añade un avalor a una lista de valores de la clase expresion
 
 evaluate_op
 evalua la operacion con sus operandos
+
