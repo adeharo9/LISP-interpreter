@@ -10,10 +10,6 @@ using namespace std;
 VariableSpace::VariableSpace() {
 }
 
-VariableSpace::VariableSpace(string key, const Expression& exp) {
-	varMap[key] = exp;
-}
-
 VariableSpace::VariableSpace(const VariableSpace& varSpace) {
 	varMap = varSpace.varMap;
 }
@@ -33,10 +29,6 @@ void VariableSpace::add(string key, const Expression& exp) {
 	varMap[key] = exp;
 }
 
-/*void VariableSpace::update(string key, const Expression& exp) {
-	varMap[key] = exp;
-}*/
-
 //_______ CONSULTORES
 
 bool VariableSpace::empty() const {
@@ -47,7 +39,7 @@ bool VariableSpace::exists(string key) const {
 	return varMap.find(key) != varMap.end();
 }
 
-Expression VariableSpace::get(string key) {
+Expression& VariableSpace::get(string key) {
 	return varMap[key];
 }
 

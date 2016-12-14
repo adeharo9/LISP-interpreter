@@ -40,18 +40,6 @@ public:
 	*/
 	VariableSpace();
 
-	/** @brief Constructora con valor de inicialización
-
-		\pre 'key' es un string no vacío
-		\post Crea un objeto con mapa de variables 'varMap' inicializado con la variable de clave 'key' y expresión 'exp'
-	*/
-	VariableSpace(string key, const Expression& exp);
-
-	/** @brief Constructora por copia
-
-		\pre <em>Cierto</em>
-		\post Crea un objeto copia de 'varSpace'
-	*/
 	VariableSpace(const VariableSpace& varSpace);
 	
 	//_______ DESTRUCTORES
@@ -75,13 +63,6 @@ public:
 	*/
 	void add(string key, const Expression& exp);
 
-	/** @brief Modificadora por actualización de variable
-
-		\pre 'key' es un string no vacío; el mapa de variables 'varMap' del parámetro implícito contiene una	variable con clave 'key'
-		\post La expresión de la variable con clave 'key' en el mapa de variables 'varMap' del parámetro implícito pasa a ser 'exp'
-	*/
-	//void update(string key, const Expression& exp);
-
 	//_______ CONSULTORES
 
     /** @brief Consultora de mapa vacío
@@ -103,7 +84,7 @@ public:
     	\pre 'key' es un string no vacío; el mapa de variables 'varMap' del parámetro implícito contiene una variable con clave 'key'
     	\post Devuelve la expresión representada por la variable de clave 'key'
     */
-    Expression get(string key);
+    Expression& get(string key) ;
 
 	//_______ I/O
 

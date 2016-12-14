@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Environment.hh"
 #include "Expression.hh"
 #include "PrimitiveOperationSpace.hh"
@@ -8,6 +7,7 @@
 using namespace std;
 
 typedef void (*primitiveOperation)(Expression&);
+
 
 //_______ CONSTRUCTORES
 
@@ -20,10 +20,12 @@ Environment::Environment(const Environment& env) {
 	opSpace = env.opSpace;
 }
 
+
 //_______ DESTRUCTORES
 
 Environment::~Environment() {
 }
+
 
 //_______ MODIFICADORES
 
@@ -35,17 +37,10 @@ void Environment::add_op(string key, string parameters, string exp) {
 	opSpace.add(key, parameters, exp);
 }
 
-/*void Environment::update_var(string key, const Expression& exp) {
-	varSpace.update(key, exp);
-}*/
-
-/*void Environment::update_op(string key, string parameters, string exp) {
-	opSpace.update(key, parameters, exp);
-}*/
-
 void Environment::erase_varspace() {
 	varSpace.clear();
 }
+
 
 //_______ CONSULTORES
 
@@ -73,7 +68,7 @@ primitiveOperation Environment::get_prim(string key) {
 	return primOpSpace.get(key);
 }
 
-Expression Environment::get_var(string key) {
+Expression& Environment::get_var(string key) {
 	return varSpace.get(key);
 }
 
@@ -84,6 +79,7 @@ pair<string, string> Environment::get_op(string key) {
 int Environment::num_pars_op(string key) {
 	return opSpace.num_pars(key);
 }
+
 
 //_______ I/O
 

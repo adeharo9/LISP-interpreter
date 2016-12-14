@@ -28,17 +28,6 @@ int OperationSpace::countVars(string parameters) {
 OperationSpace::OperationSpace() {
 }
 
-OperationSpace::OperationSpace(string key, string parameters, string exp) {
-	definition aux;
-	aux.parameters = parameters;
-	aux.exp = exp;
-	opMap[key] = aux;
-}
-
-OperationSpace::OperationSpace(const OperationSpace& opSpace) {
-	opMap = opSpace.opMap;
-}
-
 //_______ DESTRUCTORES
 
 OperationSpace::~OperationSpace() {
@@ -52,13 +41,6 @@ void OperationSpace::add(string key, string parameters, string exp) {
 	aux.exp = exp;
 	opMap[key] = aux;
 }
-
-/*void OperationSpace::update(string key, string parameters, string exp) {
-	definition aux;
-	aux.parameters = parameters;
-	aux.exp = exp;
-	opMap[key] = aux;
-}*/
 
 //_______ CONSULTORES
 

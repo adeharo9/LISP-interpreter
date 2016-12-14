@@ -1,6 +1,6 @@
 OPTIONS = -D_JUDGE_ -D_GLIBCXX_DEBUG -O2 -Wall -Wextra -Werror -Wno-uninitialized -Wno-sign-compare -std=c++11
 
-all: program.exe
+all: program.exe #clean_o
 
 program.exe: program.o FunctionsIO.o Expression.o Environment.o PrimitiveOperationSpace.o VariableSpace.o OperationSpace.o
 	g++ -o program.exe program.o FunctionsIO.o Expression.o Environment.o PrimitiveOperationSpace.o VariableSpace.o OperationSpace.o
@@ -35,3 +35,7 @@ clean:
 	rm -f *.o
 	rm -f *.exe
 	rm -f practica.tar
+
+clean_o:
+	rm -f *~
+	rm -f *.o

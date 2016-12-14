@@ -26,11 +26,15 @@ private:
 
 	typedef void (*primitiveOperation)(Expression&);
 
+
+	//_______ ATRIBUTOS
+
 	PrimitiveOperationSpace primOpSpace;
 	VariableSpace varSpace;
 	OperationSpace opSpace;
 
 public:
+
 
 	//_______ CONSTRUCTORES
 
@@ -44,6 +48,7 @@ public:
 
 	Environment(const Environment& env);
 
+
 	//_______ DESTRUCTORES
 
 	/** @brief Destructora por defecto
@@ -53,6 +58,7 @@ public:
 		\post Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad
 	*/
 	~Environment();
+
 
 	//_______ MODIFICADORES
 
@@ -70,26 +76,13 @@ public:
 	*/
 	void add_op(string key, string parameters, string exp);
 
-	/** @brief Modificadora por actualización de variable
-
-		\pre 'key' es un string no vacío; el mapa de variables 'varMap' del espacio de variables 'varSpace' del parámetro implícito contiene una variable con clave 'key'
-		\post La expresión de la variable con clave 'key' en el mapa de variables 'varMap' del espacio de variables 'varSpace' del parámetro implícito pasa a ser 'exp'
-	*/
-	//void update_var(string key, const Expression& exp);
-
-	/** @brief Modificadora por actualización de operación
-
-		\pre 'key' es un string no vacío; 'key' no corresponde al nombre de ninguna de las operaciones primitivas; el mapa de operaciones 'opMap' del espacio de operaciones 'opSpace' del parámetro implícito contiene una operación con clave 'key'
-		\post Los parámetros y la expresión de la operación con clave 'key' en el mapa de operaciones 'opMap' del espacio de operaciones 'opSpace' del parámetro implícito pasan a ser 'parameters' y 'exp', respectivamente
-	*/
-	//void update_op(string key, string parameters, string exp);
-
 	/** @brief Modificadora por actualización de operación
 
 		\pre <em>Cierto</em>
 		\post El espacio de variables varSpace del parámetro implícito pasa a estar vacío
 	*/
 	void erase_varspace();
+
 
 	//_______ CONSULTORES
 
@@ -140,7 +133,7 @@ public:
     	\pre 'key' es un string no vacío; el mapa de variables 'varMap' del espacio de variables 'varSpace' del parámetro implícito contiene una variable con clave 'key'
     	\post Devuelve la expresión representada por la variable de clave 'key'
     */
-	Expression get_var(string key);
+	Expression& get_var(string key);
 
 	/** @brief Consultora de recuperación de operación
 
@@ -155,6 +148,7 @@ public:
     	\post Devuelve el número de parámetros de la operación representada por la clave 'key'
     */
 	int num_pars_op(string key);
+
 
 	//_______ I/O
 

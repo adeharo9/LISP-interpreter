@@ -7,6 +7,7 @@
 
 #ifndef NO_DIAGRAM
 #include <list>
+#include <string>
 #endif
 
 using namespace std;
@@ -24,6 +25,8 @@ private:
 		Una expresión vacía no está indefinida;
 	*/
 
+	//_______ ATRIBUTOS
+
 	bool b_undef;
 	bool b_empty;
 	bool b_val;
@@ -33,10 +36,28 @@ private:
 	string op;
 	list<Expression*> lExp;
 
+	//_______ MÉTODOS PRIVADOS
+
+	/** @brief Método privado de copia de lista de expresiones
+
+		\pre <em>Cierto</em>
+		\post Devuelve una lista de punteros que apuntan a una copia de los objetos contenidos por 'lExp', es decir, devuelve una lista conteniendo una copia del contenido de la lista 'lExp'
+
+	*/
 	static list<Expression*> cp_exp_list(const list<Expression*>& lExp);
 
+	/** @brief Método privado de borrado de lista de expresiones
+
+		\pre <em>Cierto</em>
+		\post Elimina todos los elementos apuntados por la lista 'lExp' y libera la memoria ocupada por ellos
+	*/
 	static void rm_exp_list(list<Expression*>& lExp);
 
+	/** @brief Método privado de borrado de lista de expresiones
+
+		\pre <em>Cierto</em>
+		\post Elimina todos los elementos apuntados por la lista 'lExpression' a excepción del elemento 'inExp' y todos los que dependen de él (si forma parte de 'lExp' o de alguno de los elementos apuntados por los elementos de 'lExp'), y libera la memoria ocupada por ellos
+	*/
 	static void rm_exp_list_excep(list<Expression*>& lExp, Expression& inExp);
 
 public:
@@ -47,38 +68,17 @@ public:
 
 		Se ejecuta automáticamente al declarar una nueva expresión
 		\pre <em>Cierto</em>
-		\post Crea un objeto vacío: 'b_empty' igual a cierto; 'b_undef' igual a falso; 'val' sin inicializar; 'op' es un string vacío; 'lExp' es una lista vacía
+		\post Crea un objeto vacío: 'b_undef' igual a falso; 'b_empty' igual a cierto; 'b_val' igual a falso; 'b_op' igual a falso; 'b_list' igual a falso; 'val' sin inicializar; 'op' es un string vacío; 'lExp' es una lista vacía
 
 	*/
 	Expression();
 
-	/** @brief Constructora con valor de inicialización
-
-		\pre <em>Cierto</em>
-		\post Crea un objeto con los siguientes valores: 'b_empty' igual a falso; 'b_undef' igual a falso; 'val' igual a 'value'; 'op' es un string vacío; 'lExp' es una lista vacía
-	*/
-	//Expression(int value);
-
-	/** @brief Constructora con operación de inicialización
-
-		\pre 'inOperator' es un string no vacío; 'inOperator' es un operador existente en el espacio de operaciones primitivas o en el espacio de operaciones definidas por el usuario 'lExpression' es una lista no vacía de punteros a expresiones
-		\post Crea un objeto con los siguientes valores: 'b_empty' igual a falso; 'b_undef' igual a falso; 'val' sin inicializar; 'op' igual a 'inOperator'; 'lExp' igual a 'lExpression'
-	*/
-	//Expression(string inOperator, const list<Expression*>& lExpression);
-
-	/** @brief Constructora con lista de inicialización
-
-		\pre 'lExpression' es una lista no vacía de punteros a expresiones
-		\post Crea un objeto con los siguientes valores: 'b_empty' igual a falso; 'b_undef' igual a falso; 'val' sin inicializar; 'op' es un string vacío; 'lExp' igual a 'lExpression'
-	*/
-	//Expression(const list<Expression*>& lExpression);
-
 	/** @brief Constructora por copia
 
 		\pre <em>Cierto</em>
-		\post Crea un objeto copia de inExp
+		\post Crea un objeto copia de 'inExp'
 	*/
-	//Expression(const Expression& inExp);
+	Expression(const Expression& inExp);
 
 	//_______ DESTRUCTORES
 
@@ -90,37 +90,65 @@ public:
 	*/
 	~Expression();
 
-	//_______ MODIFICADORES
+	//_______ OPERADORES
 
-	/** @brief Operación de asignación
+	/** @brief Operación de asignación por copia
 
 		\pre <em>Cierto</em>
 		\post El parámetro implícito pasa a ser una copia de 'inExp'
 	*/
 	Expression& operator = (const Expression& inExp);
 
+	/** @brief Operación de asignación por transferencia
+
+		\pre <em>Cierto</em>
+		\post El parámetro implícito pasa a tener todos los elementos de 'inExp' mediante transferencia (sin reubicación de datos en memoria); 'inExp' pasa a estar vacío
+	*/
+	Expression& operator << (Expression& inExp);
+
+	/** @brief Operación de asignación de lista de expresiones por transferencia
+
+		\pre <em>Cierto</em>
+		\post El parámetro implícito pasa a tener la lista de expresiones de 'lExpression' mediante transferencia (sin reubicación de datos en memoria); 'lExpression' pasa a estar vacía
+	*/
+	Expression& operator << (list<Expression*>& lExpression);
+
+	/** @brief Operación de asignación de lista de expresiones por transferencia
+
+		\pre <em>Cierto</em>
+		\post La lista 'lExpression' pasa a tener la lista de expresiones del parámetro implícito mediante transferencia (sin reubicación de datos en memoria); la lista del parámetro implícito pasa a estar vacía
+	*/
+	void operator >> (list<Expression*>& lExpression);
+
 	/** @brief Operación de comparación de igualdad
 
 		\pre <em>Cierto</em>
-		\post Devuelve cierto si el parámetro implícito es igual a 'inExp'
+		\post Si el parámetro implícito y 'inExp' son valores, devuelve cierto si son iguales; si ambos son listas de expresiones, devuelve cierto si los elementos de las respectivas posiciones de ambas listas son iguales; en otro caso, devuelve falso
 	*/
 	bool operator == (const Expression& inExp) const;
 
-	/** @brief Operación de comparación de inferioridad exclusiva
+	/** @brief Operación de comparación lexicográfica de inferioridad exclusiva
 
 		\pre <em>Cierto</em>
-		\post Devuelve cierto si el parámetro implícito es menor exclusivo que 'inExp'
+		\post Devuelve cierto si el parámetro implícito es lexicográficamente menor exclusivo que 'inExp'
 	*/
 	bool operator < (const Expression& inExp) const;
 
-	//void assign_ncp(Expression& inExp);
+	//_______ MODIFICADORES
 
 	/** @brief Operación de vaciado de expresión
 
 		\pre <em>Cierto</em>
-		\post El parámetro implícito pasa a estar vacío: 'b_empty' igual a cierto; 'b_undef' igual a falso; 'val' sin inicializar; 'op' es un string vacío; 'lExp' es una lista vacía
+		\post El parámetro implícito pasa a estar vacío: 'b_undef' igual a falso; 'b_empty' igual a cierto; 'b_val' igual a falso; 'b_op' igual a falso; 'b_list' igual a falso; 'val' sin inicializar; 'op' es un string vacío; 'lExp' es una lista vacía
 	*/
 	void clear();
+
+	/** @brief Operación de inserción de elemetos de lista
+
+		\pre 'it' es un iterador a 'lExp', pero no a su inicio; 'pExp' es un puntero a una expresión existente en memoria
+		\post Se inserta el puntero 'pExp' en la posición precedente al iterador 'it' en 'lExp'
+	*/
+	void insert(list<Expression*>::iterator it, Expression* pExp);
 
 	/** @brief Operación de borrado de elemetos de lista
 
@@ -129,94 +157,59 @@ public:
 	*/
 	list<Expression*>::iterator erase(list<Expression*>::iterator it);
 
-	/** @brief Operación de vaciado de expresión
+	/** @brief Operación de empalmado de listas
 
-		\pre 'lExp' no es una lista vacía
-		\post El parámetro implícito pasa a tener los elementos de lExpression antes del elemento apuntado por it
+		\pre 'it' es un iterador a 'lExp', pero no a su inicio
+		\post 'lExp' pasa a tener los elementos de 'lExpression' antes del elemento apuntado por 'it'
 	*/
 	void splice(list<Expression*>::iterator it, list<Expression*> lExpression);
 
 	/** @brief Operación de cambio de listas
 
 		\pre <em>Cierto</em>
-		\post El parámetro implícito pasa a tener 'lExpression' como lista; 'lExpression' pasa a ser la lista del parámetro implícito
-	*/
-	//void swap_list(list<Expression*>& lExpression);
-
-	/** @brief Operación de cambio de listas
-
-		\pre <em>Cierto</em>
-		\post El parámetro implícito pasa a tener la lista de 'inExp'; 'inExp' pasa a tener la lista del parámetro implícito
+		\post El parámetro implícito pasa a tener la lista de expresiones de 'inExp'; 'inExp' pasa a tener la lista de expresiones del parámetro implícito
 	*/
 	void swap_list(Expression& inExp);
 
-	void insert(list<Expression*>::iterator it, Expression* pExp);
+	/** @brief Operación de asignación de lista de expresiones por transferencia
 
-	//void swap(Expression& inExp);
-
-	//void move(Expression& inExp);
-
-	/** @brief Modificadora del campo undefined
-
-		\pre El parámetro implícito 
-		\post El parámetro implícito pasa a ser undefined
+		\pre <em>Cierto</em>
+		\post El parámetro implícito pasa a tener la lista de expresiones de 'inExp' mediante transferencia (sin reubicación de datos en memoria); 'inExp' pasa a tener una lista de expresiones vacía
 	*/
-	Expression& operator << (Expression& inExp);
-
-	//void move_list(list<Expression*>& lExpression);
-
 	void move_list(Expression& inExp);
-
-	Expression& operator << (list<Expression*>& lExpression);
-
-	void operator >> (list<Expression*>& lExpression);
 
 	/** @brief Modificadora del campo undefined
 
 		\pre <em>Cierto</em>
-		\post El parámetro implícito pasa a ser undefined
+		\post El parámetro implícito pasa a ser undefined, si aun no lo era: 'b_undef' igual a cierto; 'b_empty' igual a falso; 'b_val' igual a falso; 'b_op' igual a falso; 'b_list' igual a falso; 'op' es un string vacío; 'lExp' es una lista vacía
 	*/
 	void set_undefined();
 
 	/** @brief Modificadora de valor por asignación
 
 		\pre <em>Cierto</em>
-		\post El parámetro implícito pasa a tener valor 'value'; la lista 'lExp' del parámetro implícito pasa a estar vacía; 'op' pasa a ser un string vacío
+		\post El parámetro implícito pasa a tener valor 'value' y pasa a ser un valor, si aun no lo era: 'b_undef' igual a falso; 'b_empty' igual a falso; 'b_val' igual a cierto; 'b_op' igual a falso; 'b_list' igual a falso; 'op' es un string vacío; 'lExp' es una lista vacía
 	*/
 	void set_value(int value);
 
 	/** @brief Modificadora de operador
 
 		\pre <em>Cierto</em>
-		\post El parámetro implícito pasa a tener operador 'op'; la lista 'lExp' queda vacía a la espera de ser asignada mediante el método set_op_list()
+		\post El parámetro implícito pasa a tener operador 'op' y pasa a ser una operación, si aun no lo era: 'b_undef' igual a falso; 'b_empty' igual a falso; 'b_val' igual a falso; 'b_op' igual a cierto; 'b_list' igual a falso; 'op' es un string vacío; 'lExp' es una lista vacía a la espera de ser inicializada mediante algún otro método
 	*/
 	void set_op(string op);
-
-	/** @brief Modificadora de lista de operación
-
-		\pre El parámetro implícito es una operación a la espera de ser asignada una lista
-		\post El parámetro implícito pasa a tener lista 'lExp' igual a 'lExpression'; el parámetro implícito es una operación
-	*/
-	//void set_op_list(const list<Expression*>& lExpression);
 
 	/** @brief Modificadora de lista
 
 		\pre <em>Cierto</em>
-		\post El parámetro implícito pasa a ser una lista, si no lo era
+		\post El parámetro implícito pasa a ser una lista, si aun no lo era: 'b_undef' igual a falso; 'b_empty' igual a 'lExp.empty()'; 'b_val' igual a falso; 'b_op' igual a falso; 'b_list' igual a cierto; 'op' es un string vacío
 	*/
 	void set_list();
 
 	/** @brief Modificadora de lista
 
 		\pre <em>Cierto</em>
-		\post El parámetro implícito pasa a tener 'lExp' igual a 'lExpression'; 'op' pasa a ser un string vacío
-	*/
-	//void set_list(const list<Expression*>& lExpression);
-
-	/** @brief Modificadora de lista
-
-		\pre <em>Cierto</em>
-		\post El parámetro implícito pasa a ser una lista vacía
+		\post El parámetro implícito pasa a ser una lista vacía, si aun no lo era: 'b_undef' igual a falso; 'b_empty' igual a cierto; 'b_val' igual a falso; 'b_op' igual a falso; 'b_list' igual a cierto; 'op' es un string vacío; 'lExp' es una lista vacía
 	*/
 	void set_empty_list();
 
@@ -225,16 +218,9 @@ public:
 	/** @brief Consultora de tamaño de lista
 
 		\pre <em>Cierto</em>
-		\post Devuelve el tamaño de la lsita 'lExp'
+		\post Devuelve el tamaño de la lista de expresiones 'lExp'
 	*/
 	int size() const;
-
-	/** @brief Consultora de estado
-
-		\pre <em>Cierto</em>
-		\post Devuelve cierto si el parámetro implícito está vacío; en otro caso, devuelve falso
-	*/
-	bool empty() const;
 
 	/** @brief Consultora de estado
 
@@ -243,10 +229,17 @@ public:
 	*/
 	bool undefined() const;
 
+	/** @brief Consultora de estado
+
+		\pre <em>Cierto</em>
+		\post Devuelve cierto si el parámetro implícito es vacío; en otro caso, devuelve falso
+	*/
+	bool empty() const;
+
 	/** @brief Consultora de tipo de expresión variable
 
 		\pre <em>Cierto</em>
-		\post Devuelve cierto si el parámetro implícito es un valor atómico; en otro caso, devuelve falso
+		\post Devuelve cierto si el parámetro implícito es un valor; en otro caso, devuelve falso
 	*/
 	bool is_value() const;
 
@@ -260,7 +253,7 @@ public:
 	/** @brief Consultora de tipo de expresión lista
 
 		\pre <em>Cierto</em>
-		\post Devuelve cierto si el parámetro implícito es una lista de expresiones; en otro caso, devuelve falso
+		\post Devuelve cierto si el parámetro implícito es una lista de expresiones o una lista vacía; en otro caso, devuelve falso
 	*/
 	bool is_list() const;
 
@@ -280,89 +273,72 @@ public:
 
 	/** @brief Consultora de valor
 
-		\pre El parámetro implícito no es undefined; el parámetro implícito no está vacío; el parámetro implícito representa un valor
+		\pre El parámetro implícito representa un valor ('b_val' es cierto y 'val' ha sido inicializado con un valor)
 		\post Devuelve el valor 'val' del parámetro implícito
 	*/
 	int get_value() const;
 
 	/** @brief Consultora de operador
 
-		\pre El parámetro implícito no es undefined; el parámetro implícito no está vacío; el parámetro implícito representa una expresión a evaluar
+		\pre El parámetro implícito representa una expresión a evaluar ('b_op' es cierto y 'op' ha sido inicializado con un operador)
 		\post Devuelve el operador 'op' del parámetro implícito
 	*/
 	string get_op() const;
 
-	/** @brief Consultora de la lista
+	void whatis() const;
 
-		\pre El parámetro implícito no es undefined; el parámetro implícito no está vacío; el parámetro implícito representa una lista
-		\post Devuelve la lista 'lExp' del parámetro implícito
-	*/
-	//list<Expression*> get_list() const;
 
 	//_______ ITERADORES
 
 	/** @brief Iterador de inicio de lista
 
 		\pre <em>Cierto</em>
-		\post Devuelve un iterador que apunta al inicio de la lista 'lExp'
+		\post Devuelve un iterador que apunta al inicio de la lista de expresiones 'lExp'
 	*/
 	list<Expression*>::iterator begin();
 
 	/** @brief Iterador constante de inicio de lista
 
 		\pre <em>Cierto</em>
-		\post Devuelve un const_iterator que apunta al inicio de la lista 'lExp'
+		\post Devuelve un const_iterator que apunta al inicio de la lista de expresiones 'lExp'
 	*/
 	list<Expression*>::const_iterator begin() const;
 
 	/** @brief Iterador de segundo elemento de lista
 
 		\pre <em>Cierto</em>
-		\post Devuelve un iterador que apunta al segundo elemento de la lista 'lExp'
+		\post Devuelve un iterador que apunta al segundo elemento de la lista de expresiones 'lExp'
 	*/
 	list<Expression*>::iterator second();
 
 	/** @brief Iterador constante de segundo elemento de lista
 
 		\pre <em>Cierto</em>
-		\post Devuelve un const_iterator que apunta al segundo elemento de la lista 'lExp'
+		\post Devuelve un const_iterator que apunta al segundo elemento de la lista de expresiones 'lExp'
 	*/
 	list<Expression*>::const_iterator second() const;
-
-	/** @brief Iterador de tercer elemento de lista
-
-		\pre <em>Cierto</em>
-		\post Devuelve un iterador que apunta al tercer elemento de la lista 'lExp'
-	*/
-	list<Expression*>::iterator third();
-
-	/** @brief Iterador constante de tercer elemento de lista
-
-		\pre <em>Cierto</em>
-		\post Devuelve un const_iterator que apunta al tercer elemento de la lista 'lExp'
-	*/
-	list<Expression*>::const_iterator third() const;
 
 	/** @brief Iterador de final de lista
 
 		\pre <em>Cierto</em>
-		\post Devuelve un iterador que apunta al final de la lista 'lExp'
+		\post Devuelve un iterador que apunta al final de la lista de expresiones 'lExp'
 	*/
 	list<Expression*>::iterator end();
 
 	/** @brief Iterador constante de final de lista
 
 		\pre <em>Cierto</em>
-		\post Devuelve un const_iterator que apunta al final de la lista 'lExp'
+		\post Devuelve un const_iterator que apunta al final de la lista de expresiones 'lExp'
 	*/
 	list<Expression*>::const_iterator end() const;
+
 
 	//_______ I/O
 
 	/** @brief Operación de escritura de expresión
 
-		\pre El parámetro implícito no está vacío y representa un valor indefinido, un valor concreto o una lista de valores
-		\post Escribe el valor de la expresión o la lista de valores de la lista de expresiones representada/s por el parámetro implícito por el canal estandar de salida
+		\pre <em>Cierto</em>
+		\post Escribe el valor de la expresión o la lista de valores de la lista de expresiones representada/s por el parámetro implícito por el canal estandar de salida; en caso que el parámetro implícito no represente ninguno de los tipos permitidos, escribe "indefinit"
 	*/
 	void write() const;
 
