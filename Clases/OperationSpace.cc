@@ -35,7 +35,7 @@ OperationSpace::~OperationSpace() {
 
 //_______ MODIFICADORES
 
-void OperationSpace::add(string key, string parameters, string exp) {
+void OperationSpace::set(string key, string parameters, string exp) {
 	definition aux;
 	aux.parameters = parameters;
 	aux.exp = exp;

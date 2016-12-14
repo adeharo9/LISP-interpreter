@@ -8,7 +8,6 @@ using namespace std;
 
 typedef void (*primitiveOperation)(Expression&);
 
-
 //_______ CONSTRUCTORES
 
 Environment::Environment() {
@@ -20,27 +19,24 @@ Environment::Environment(const Environment& env) {
 	opSpace = env.opSpace;
 }
 
-
 //_______ DESTRUCTORES
 
 Environment::~Environment() {
 }
 
-
 //_______ MODIFICADORES
 
-void Environment::add_var(string key, const Expression& exp) {
-	varSpace.add(key, exp);
+void Environment::set_var(string key, const Expression& exp) {
+	varSpace.set(key, exp);
 }
 
-void Environment::add_op(string key, string parameters, string exp) {
-	opSpace.add(key, parameters, exp);
+void Environment::set_op(string key, string parameters, string exp) {
+	opSpace.set(key, parameters, exp);
 }
 
 void Environment::erase_varspace() {
 	varSpace.clear();
 }
-
 
 //_______ CONSULTORES
 
@@ -79,7 +75,6 @@ pair<string, string> Environment::get_op(string key) {
 int Environment::num_pars_op(string key) {
 	return opSpace.num_pars(key);
 }
-
 
 //_______ I/O
 

@@ -56,12 +56,12 @@ public:
 
 	//_______ MODIFICADORES
 
-	/** @brief Modificadora por adición de operación
+	/** @brief Modificadora por establecimiento de operación
 
 		\pre 'key' es un string no vacío; 'key' no corresponde al nombre de ninguna de las operaciones primitivas; el mapa de operaciones 'opMap' del parámetro implícito no contiene ninguna operación con clave 'key'
 		\post Se añade al mapa de operaciones 'opMap' del parámetro implícito la operacion con clave 'key', parámetros 'parameters' y expresión 'exp'
 	*/
-	void add(string key, string parameters, string exp);
+	void set(string key, string parameters, string exp);
 
 	//_______ CONSULTORES
 

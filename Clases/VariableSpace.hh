@@ -40,6 +40,11 @@ public:
 	*/
 	VariableSpace();
 
+	/** @brief Constructora por copia
+
+		\pre <em>Cierto</em>
+		\post Crea un objeto copia de 'varSpace'
+	*/
 	VariableSpace(const VariableSpace& varSpace);
 	
 	//_______ DESTRUCTORES
@@ -54,14 +59,19 @@ public:
 
 	//_______ MODIFICADORES
 
+	/** @brief Modificadora por eliminación de contenido de mapa
+
+		\pre <em>Cierto</em>
+		\post Elimina el contenido del mapa 'varMap'
+	*/
 	void clear();
 
-	/** @brief Modificadora por adición de variable
+	/** @brief Modificadora por establecimiento de variable
 
 		\pre 'key' es un string no vacío; el mapa de variables 'varMap' del parámetro implícito no contiene ninguna variable con clave 'key'
 		\post Se añade al mapa de variables 'varMap' del parámetro implícito la variable con clave 'key' y expresión 'exp'
 	*/
-	void add(string key, const Expression& exp);
+	void set(string key, const Expression& exp);
 
 	//_______ CONSULTORES
 

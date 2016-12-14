@@ -25,7 +25,7 @@ void VariableSpace::clear() {
 	varMap.clear();
 }
 
-void VariableSpace::add(string key, const Expression& exp) {
+void VariableSpace::set(string key, const Expression& exp) {
 	varMap[key] = exp;
 }
 

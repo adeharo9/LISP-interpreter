@@ -31,49 +31,82 @@ private:
 
 	//_______ MÉTODOS PRIVADOS
 
+	/** @brief Operación de suma
+
+		\pre <em>Cierto</em>
+		\post Si 'exp' era una lista con dos punteros a dos expresiones enteras, 'exp' pasa a contener el valor de la suma de las dos expresiones enteras; en otro caso, 'exp' pasa a ser undefined
+	*/
 	static void sum(Expression& exp);
-	/* Pre: 'exp' es una lista con dos punteros a dos expresiones enteras */
-	/* Post: devuelve el valor de la suma de las dos expresiones enteras o undefined si alguno de los valores era undefined */
 
+	/** @brief Operación de negación
+
+		\pre <em>Cierto</em>
+		\post Si 'exp' era una lista con un puntero a una expresión entera, 'exp' pasa a contener el valor de la expresión entera cambiado de signo; en otro caso, 'exp' pasa a ser undefined
+	*/
 	static void neg(Expression& exp);
-	/* Pre: 'exp' es una lista con un puntero a una expresión entera */
-	/* Post: devuelve el valor de la expresión entera cambiado de signo o undefined si el valor era undefined */
 
+	/** @brief Operación de empalme de valor en lista
+
+		\pre <em>Cierto</em>
+		\post Si 'exp' era una lista con un puntero a una expresión entera y un puntero a una expresión lista de expresiones enteras, 'exp' pasa a tener una lista con la expresión entera como cabeza de la lista; en otro caso, 'exp' pasa a ser undefined
+	*/
 	static void cons(Expression& exp);
-	/* Pre: 'exp' es una expresión entera y una lista con punteros a expresiones enteras */
-	/* Post: devuelve una lista con la expresión entera como cabeza de la lista */
 
+	/** @brief Operación de separación de primer valor de lista
+
+		\pre <em>Cierto</em>
+		\post Si 'exp' era una lista no vacía de punteros a expresiones enteras, 'exp' pasa a ser el valor apuntado por el primer puntero de la lista; en otro caso, 'exp' pasa a ser undefined
+	*/
 	static void head(Expression& exp);
-	/* Pre: 'exp' es una lista no vacía de punteros a expresiones enteras */
-	/* Post: devuelve el valor del primer puntero de la lista o undefined si era undefined */
 
+	/** @brief Operación de eliminación de primer elemento de lista
+
+		\pre <em>Cierto</em>
+		\post Si 'exp' era una lista no vacía de punteros a enteros, 'exp' pasa a tener la misma lista sin el primer elemento
+	*/
 	static void tail(Expression& exp);
-	/* Pre: 'exp' es una lista no vacía de punteros a enteros */
-	/* Post: devuelve la lista sin el primer elemento */
 
+	/** @brief Operación de comparación de igualdad
+
+		\pre <em>Cierto</em>
+		\post Si 'exp' era una lista con dos punteros a dos expresiones evaluables del mismo tipo, 'exp' pasa a tener valor 1 si ambas expresiones eran iguales, y 0 si no lo eran; en otro caso, 'exp' pasa a ser undefined
+	*/
 	static void equal(Expression& exp);
-	/* Pre: 'exp' es una lista con dos punteros a dos expresiones evaluables del mismo tipo */
-	/* Post: devuelve 1 si ambas expresiones son iguales; en otro caso, devuelve 0 */
 
+	/** @brief Operación de comparación de inferioridad lexicográfica exclusiva
+
+		\pre <em>Cierto</em>
+		\post Si 'exp' era una lista con dos punteros a dos expresiones evaluables del mismo tipo, 'exp' pasa a tener valor 1 si ambas expresiones eran iguales, y 0 si no lo eran; en otro caso, 'exp' pasa a ser undefined
+	*/
 	static void less(Expression& exp);
-	/* Pre: 'exp' es una lista con dos punteros a dos expresiones evaluables del mismo tipo */
-	/* Post: devuelve 1 si ambas expresiones son iguales; en otro caso, devuelve 0 */
 
+	/** @brief Operación booleana NOT
+
+		\pre <em>Cierto</em>
+		\post Si 'exp' era un booleano, 'exp' pasa a tener el valor de 'exp' negado; en otro caso, 'exp' pasa a ser undefined
+	*/
 	static void bool_not(Expression& exp);
-	/* Pre: 'exp' es un booleano */
-	/* Post: devuelve el valor de 'exp' negado */
 
+	/** @brief Operación booleana Y
+
+		\pre <em>Cierto</em>
+		\post Si 'exp' era una lista con dos punteros a dos booleanos, 'exp' pasa a tener valor 1 si ambos valores eran 1, y 0 si no lo eran; en otro caso, 'exp' pasa a ser undefined
+	*/
 	static void bool_and(Expression& exp);
-	/* Pre: 'exp' es una lista con dos punteros a dos booleanos */
-	/* Post: devuelve 1 si ambos valores son 1;  en otro caso, devuelve 0 */
 
+	/** @brief Operación booleana OR
+
+		\pre <em>Cierto</em>
+		\post Si 'exp' era una lista con dos punteros a dos booleanos, 'exp' pasa a ser 0 si ambos valores eran 0, y 1 si no lo eran; en otro caso, 'exp' pasa a ser undefined
+	*/
 	static void bool_or(Expression& exp);
-	/* Pre: 'exp' es una lista con dos punteros a dos booleanos */
-	/* Post: devuelve 0 si ambos valores son 0;  en otro caso, devuelve 1 */
 
+	/** @brief Operación condicional
+
+		\pre <em>Cierto</em>
+		\post Si 'exp' era una lista con un valor booleano y una expresión, 'exp' pasa a ser igual a dicha expresión; en otro caso, 'exp' es undefined
+	*/
 	static void cond_if(Expression& exp);
-	/* Pre: 'exp' es un valor booleano y una lista con dos punteros a dos expresiones evaluables */
-	/* Post: devuelve el resultado de evaluar la primera expresión  si el booleano era 1;  en otro caso, devuelve el resultado de evaluar la  segunda expresión */
 
 public:
 

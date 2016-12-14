@@ -26,7 +26,6 @@ private:
 
 	typedef void (*primitiveOperation)(Expression&);
 
-
 	//_______ ATRIBUTOS
 
 	PrimitiveOperationSpace primOpSpace;
@@ -34,7 +33,6 @@ private:
 	OperationSpace opSpace;
 
 public:
-
 
 	//_______ CONSTRUCTORES
 
@@ -46,8 +44,12 @@ public:
 	*/
 	Environment();
 
-	Environment(const Environment& env);
+	/** @brief Constructora por copia
 
+		\pre <em>Cierto</em>
+		\post Crea un objeto copia de 'env'
+	*/
+	Environment(const Environment& env);
 
 	//_______ DESTRUCTORES
 
@@ -59,30 +61,28 @@ public:
 	*/
 	~Environment();
 
-
 	//_______ MODIFICADORES
 
-	/** @brief Modificadora por adición de variable
+	/** @brief Modificadora por establecimiento de variable
 
-		\pre 'key' es un string no vacío; el mapa de variables 'varMap' del espacio de variables 'varSpace' del parámetro implícito no contiene ninguna variable con clave 'key'
-		\post Se añade al mapa de variables 'varMap' del espacio de variables 'varSpace' del parámetro implícito la variable con clave 'key' y expresión 'exp'
+		\pre 'key' es un string no vacío
+		\post Se añade al mapa de variables 'varMap' del espacio de variables 'varSpace' del parámetro implícito la variable con clave 'key' y expresión 'exp', o se actualiza su expresión a 'exp' si ya existía previamente
 	*/
-	void add_var(string key, const Expression& exp);
+	void set_var(string key, const Expression& exp);
 
-	/** @brief Modificadora por adición de operación
+	/** @brief Modificadora por establecimiento de operación
 
-		\pre 'key' es un string no vacío; 'key' no corresponde al nombre de ninguna de las operaciones primitivas; el mapa de operaciones 'opMap' del espacio de operaciones 'opSpace' del parámetro implícito no contiene ninguna operación con clave 'key'
-		\post Se añade al mapa de operaciones 'opMap' del espacio de operaciones 'opSpace' del parámetro implícito la operación con clave 'key', parámetros 'parameters' y expresión 'exp'
+		\pre 'key' es un string no vacío; 'key' no corresponde al nombre de ninguna de las operaciones primitivas
+		\post Se añade al mapa de operaciones 'opMap' del espacio de operaciones 'opSpace' del parámetro implícito la operación con clave 'key', parámetros 'parameters' y expresión 'exp', o se actualizan sus parámetros a 'parameters' y su expresión a 'exp' si ya existía previamente
 	*/
-	void add_op(string key, string parameters, string exp);
+	void set_op(string key, string parameters, string exp);
 
-	/** @brief Modificadora por actualización de operación
+	/** @brief Modificadora por eliminación de espacio de variables
 
 		\pre <em>Cierto</em>
 		\post El espacio de variables varSpace del parámetro implícito pasa a estar vacío
 	*/
 	void erase_varspace();
-
 
 	//_______ CONSULTORES
 
@@ -131,7 +131,7 @@ public:
 	/** @brief Consultora de recuperación de variable
 
     	\pre 'key' es un string no vacío; el mapa de variables 'varMap' del espacio de variables 'varSpace' del parámetro implícito contiene una variable con clave 'key'
-    	\post Devuelve la expresión representada por la variable de clave 'key'
+    	\post Devuelve un alias de la expresión representada por la variable de clave 'key'
     */
 	Expression& get_var(string key);
 
@@ -148,7 +148,6 @@ public:
     	\post Devuelve el número de parámetros de la operación representada por la clave 'key'
     */
 	int num_pars_op(string key);
-
 
 	//_______ I/O
 
