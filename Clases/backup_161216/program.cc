@@ -6,8 +6,8 @@
 	Se introducen las clases <em>Expression</em>, <em>Environment</em>, <em>PrimitiveOperationSpace</em>, <em>VariableSpace</em>, <em>OperationSpace</em>
 */
 
-/** @file main.cc
-    @brief Programa principal para la calculadora de expresiones aritméticas
+/** @file program.cc
+    @brief Programa principal de la calculadora de expresiones aritméticas
 */
 
 #ifndef NO_DIAGRAM
@@ -15,19 +15,18 @@
 #include "FunctionsIO.hh"
 #endif
 
-#include "Environment.hh"
 #include "Expression.hh"
+#include "Environment.hh"
 
 using namespace std;
 
 /** @brief Programa principal para la calculadora de expresiones aritméticas
 */
 
-int main(){
+int main() {
 	Environment env;
 	Expression exp;
-	while(read(env,exp)){
-		writeExpression(env,exp);
+	while(read(env, exp)) {
 		exp.clear();
 	}
 	env.write();
