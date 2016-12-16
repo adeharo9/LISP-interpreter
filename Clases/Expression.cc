@@ -5,6 +5,9 @@
 
 using namespace std;
 
+typedef list<Expression*>::iterator iter;
+typedef list<Expression*>::const_iterator const_iter;
+
 Expression* rm_excep = NULL;
 
 //_______ METODOS PRIVADOS
@@ -12,17 +15,17 @@ Expression* rm_excep = NULL;
 list<Expression*> Expression::cp_exp_list(const list<Expression*>& lExp) {
 	list<Expression*> aux;
 	Expression* pAux;
-	list<Expression*>::const_iterator const_it = lExp.begin();
+	const_iter const_it = lExp.begin();
 	while(const_it != lExp.end()){
 		pAux = new Expression;
-		pAux->b_undef = (*const_it)->b_undef;
-		pAux->b_empty = (*const_it)->b_empty;
-		pAux->b_val = (*const_it)->b_val;
-		pAux->b_op = (*const_it)->b_op;
-		pAux->b_list = (*const_it)->b_list;
-		pAux->val = (*const_it)->val;
-		pAux->op = (*const_it)->op;
-		pAux->lExp = cp_exp_list((*const_it)->lExp);
+		pAux -> b_undef = (*const_it) -> b_undef;
+		pAux -> b_empty = (*const_it) -> b_empty;
+		pAux -> b_val = (*const_it) -> b_val;
+		pAux -> b_op = (*const_it) -> b_op;
+		pAux -> b_list = (*const_it) -> b_list;
+		pAux -> val = (*const_it) -> val;
+		pAux -> op = (*const_it) -> op;
+		pAux -> lExp = cp_exp_list((*const_it) -> lExp);
 		aux.insert(aux.end(), pAux);
 		++const_it;
 	}
@@ -30,12 +33,10 @@ list<Expression*> Expression::cp_exp_list(const list<Expression*>& lExp) {
 }
 
 void Expression::rm_exp_list(list<Expression*>& lExp) {
-	list<Expression*>::iterator it = lExp.begin();
-	while(it != lExp.end()) {
+	for (iter it = lExp.begin(); it != lExp.end(); ++it) {
 		if(*it != rm_excep){
 			delete *it;
 		}
-		++it;
 	}
 	lExp.clear();
 }
@@ -104,6 +105,7 @@ Expression& Expression::operator << (Expression& inExp) {
 		lExp = inExp.lExp;
 		inExp.lExp.clear();
 		inExp.clear();
+		delete &inExp;
 	}
 	return *this;
 }
@@ -126,23 +128,21 @@ bool Expression::operator == (const Expression& inExp) const {
 		return val == inExp.val;
 	}
 	else if(b_list and inExp.b_list) {
-		if(lExp.size() == inExp.size()) {
-			list<Expression*>::const_iterator it1 = lExp.begin();
-			list<Expression*>::const_iterator it2 = inExp.lExp.begin();
-			bool aux = true;
-			while(aux and it1 != lExp.end()) {
-				aux = *(*it1) == *(*it2);
-				++it1;
-				++it2;
+		if(lExp.size() == inExp.lExp.size()) {
+			const_iter c_it1 = lExp.begin();
+			const_iter c_it2 = inExp.lExp.begin();
+			while(c_it1 != lExp.end() and (*(*c_it1) == *(*c_it2))) {
+				++c_it1;
+				++c_it2;
 			}
-			return aux;
+			return c_it1 == lExp.end();
 		}
 		else {
 			return false;
 		}
 	}
 	else {
-		return b_empty and inExp.b_empty;
+		return false;
 	}
 }
 
@@ -151,18 +151,13 @@ bool Expression::operator < (const Expression& inExp) const {
 		return val < inExp.val;
 	}
 	else if(b_list and inExp.b_list) {
-		if(lExp.size() == inExp.size() and not b_empty) {
-			list<Expression*>::const_iterator it1 = lExp.begin();
-			list<Expression*>::const_iterator it2 = inExp.lExp.begin();
-			while(it1 != lExp.end() and (*(*it1) == *(*it2))) {
-				++it1;
-				++it2;
-			}
-			return it1 != lExp.end() and *(*it1) < *(*it2);
+		const_iter c_it1 = lExp.begin();
+		const_iter c_it2 = inExp.lExp.begin();
+		while(c_it1 != lExp.end() and c_it2 != inExp.lExp.end() and (*(*c_it1) == *(*c_it2))) {
+			++c_it1;
+			++c_it2;
 		}
-		else {
-			return false;
-		}
+		return (c_it1 == lExp.end() and c_it2 != inExp.lExp.end()) or (c_it1 != lExp.end() and c_it2!= inExp.lExp.end() and *(*c_it1) < *(*c_it2));
 	}
 	else {
 		return false;
@@ -184,16 +179,16 @@ void Expression::clear() {
 	lExp.clear();
 }
 
-void Expression::insert(list<Expression*>::iterator it, Expression* pExp) {
+void Expression::insert(iter it, Expression* pExp) {
 	lExp.insert(it, pExp);
 }
 
-list<Expression*>::iterator Expression::erase(list<Expression*>::iterator it) {
-	rm_exp_list((*it)->lExp);
+iter Expression::erase(iter it) {
+	delete *it;
 	return lExp.erase(it);
 }
 
-void Expression::splice(list<Expression*>::iterator it, list<Expression*> lExpression) {
+void Expression::splice(iter it, list<Expression*> lExpression) {
 	lExp.splice(it, lExpression);
 }
 
@@ -327,27 +322,27 @@ void Expression::whatis() const {
 
 //_______ ITERADORES
 
-list<Expression*>::iterator Expression::begin() {
+iter Expression::begin() {
 	return lExp.begin();
 }
 
-list<Expression*>::const_iterator Expression::begin() const {
+const_iter Expression::begin() const {
 	return lExp.begin();
 }
 
-list<Expression*>::iterator Expression::second() {
+iter Expression::second() {
 	return ++lExp.begin();
 }
 
-list<Expression*>::const_iterator Expression::second() const {
+const_iter Expression::second() const {
 	return ++lExp.begin();
 }
 
-list<Expression*>::iterator Expression::end() {
+iter Expression::end() {
 	return lExp.end();
 }
 
-list<Expression*>::const_iterator Expression::end() const {
+const_iter Expression::end() const {
 	return lExp.end();
 }
 
@@ -361,12 +356,12 @@ void Expression::write() const {
 		cout << val << endl;
 	}
 	else if(b_list) {
-		list<Expression*>::const_iterator const_it = lExp.begin();
-		cout << "(" << (*const_it)->val;
-		++const_it;
-		while(const_it != lExp.end()) {
-			cout << " " << (*const_it)->val;
-			++const_it;
+		const_iter c_it = lExp.begin();
+		cout << "(" << (*c_it) -> val;
+		++c_it;
+		while(c_it != lExp.end()) {
+			cout << " " << (*c_it) -> val;
+			++c_it;
 		}
 		cout << ")" << endl;
 	}

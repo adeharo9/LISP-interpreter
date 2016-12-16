@@ -6,21 +6,18 @@ using namespace std;
 
 //_______ MÉTODOS PRIVADOS
 
+//(define abs (x) (x))
+//(abs 1)
+//CURIOSO, ESTÁ MAL
+
 int OperationSpace::countVars(string parameters) {
-	if(parameters.empty()) {
-		return 0;
-	}
-	else {
-		int c = 1;
-		int i = 0;
-		while(i < parameters.size()) {
-			if(parameters[i] == ' ') {
-				++c;
-			}
-			++i;
+	int c = not parameters.empty();
+	for(int i = 1; i < parameters.size(); ++i) {
+		if(parameters[i] == ' ') {
+			++c;
 		}
-		return c;
 	}
+	return c;
 }
 
 //_______ CONSTRUCTORES
@@ -37,6 +34,7 @@ OperationSpace::~OperationSpace() {
 
 void OperationSpace::set(string key, string parameters, string exp) {
 	definition aux;
+	aux.n_parameters = countVars(parameters);
 	aux.parameters = parameters;
 	aux.exp = exp;
 	opMap[key] = aux;
@@ -58,7 +56,7 @@ pair<string, string> OperationSpace::get(string key) {
 }
 
 int OperationSpace::num_pars(string key) {
-	return countVars(opMap[key].parameters);
+	return opMap[key].n_parameters;
 }
 
 //_______ I/O
@@ -67,11 +65,11 @@ void OperationSpace::write() const {
 	cout << "Operacions:" << endl;
 	map<string, definition>::const_iterator const_it = opMap.begin();
 	while(const_it != opMap.end()) {
-		cout << const_it->first << " #" << countVars(const_it->second.parameters) << endl;
+		cout << const_it -> first << " #" << const_it -> second.n_parameters << endl;
 		++const_it;
 	}
 }
 
 void OperationSpace::write_op(string key) {
-	cout << key << " #" << countVars(opMap[key].parameters) << endl;
+	cout << key << " #" << opMap[key].n_parameters << endl;
 }

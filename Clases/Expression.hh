@@ -20,6 +20,9 @@ class Expression {
 
 private:
 
+	typedef list<Expression*>::iterator iter;
+	typedef list<Expression*>::const_iterator const_iter;
+
 	/* INVARIANTE
 		Una expresión indefinida no está vacía;
 		Una expresión vacía no está indefinida;
@@ -148,21 +151,21 @@ public:
 		\pre 'it' es un iterador a 'lExp', pero no a su inicio; 'pExp' es un puntero a una expresión existente en memoria
 		\post Se inserta el puntero 'pExp' en la posición precedente al iterador 'it' en 'lExp'
 	*/
-	void insert(list<Expression*>::iterator it, Expression* pExp);
+	void insert(iter it, Expression* pExp);
 
 	/** @brief Operación de borrado de elemetos de lista
 
 		\pre 'lExp' no es una lista vacía
 		\post Se borra el elemento apuntado por el iterador 'it' de la lista 'lExp'; devuelve un iterador al elemento siguiente al borrado
 	*/
-	list<Expression*>::iterator erase(list<Expression*>::iterator it);
+	iter erase(iter it);
 
 	/** @brief Operación de empalmado de listas
 
 		\pre 'it' es un iterador a 'lExp', pero no a su inicio
 		\post 'lExp' pasa a tener los elementos de 'lExpression' antes del elemento apuntado por 'it'
 	*/
-	void splice(list<Expression*>::iterator it, list<Expression*> lExpression);
+	void splice(iter it, list<Expression*> lExpression);
 
 	/** @brief Operación de cambio de listas
 
@@ -295,42 +298,42 @@ public:
 		\pre <em>Cierto</em>
 		\post Devuelve un iterador que apunta al inicio de la lista de expresiones 'lExp'
 	*/
-	list<Expression*>::iterator begin();
+	iter begin();
 
 	/** @brief Iterador constante de inicio de lista
 
 		\pre <em>Cierto</em>
 		\post Devuelve un const_iterator que apunta al inicio de la lista de expresiones 'lExp'
 	*/
-	list<Expression*>::const_iterator begin() const;
+	const_iter begin() const;
 
 	/** @brief Iterador de segundo elemento de lista
 
 		\pre <em>Cierto</em>
 		\post Devuelve un iterador que apunta al segundo elemento de la lista de expresiones 'lExp'
 	*/
-	list<Expression*>::iterator second();
+	iter second();
 
 	/** @brief Iterador constante de segundo elemento de lista
 
 		\pre <em>Cierto</em>
 		\post Devuelve un const_iterator que apunta al segundo elemento de la lista de expresiones 'lExp'
 	*/
-	list<Expression*>::const_iterator second() const;
+	const_iter second() const;
 
 	/** @brief Iterador de final de lista
 
 		\pre <em>Cierto</em>
 		\post Devuelve un iterador que apunta al final de la lista de expresiones 'lExp'
 	*/
-	list<Expression*>::iterator end();
+	iter end();
 
 	/** @brief Iterador constante de final de lista
 
 		\pre <em>Cierto</em>
 		\post Devuelve un const_iterator que apunta al final de la lista de expresiones 'lExp'
 	*/
-	list<Expression*>::const_iterator end() const;
+	const_iter end() const;
 
 
 	//_______ I/O
