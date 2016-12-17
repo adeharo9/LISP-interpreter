@@ -92,9 +92,6 @@ bool readExpression(Environment& env, Expression& exp, String buff) {
 		}
 		else if (instr == ')'){
 			parentesis--; 
-			if(parentesis < 0 ){
-				//EXCEPTION --------------------------------
-			}
 		}
 		else if (isNum(instr)){
 			exp.insert(exp.end(), instr);
@@ -144,14 +141,25 @@ void writeExpression(const Environment& env, const Expression& exp) {
 	}
 }
 
-void evaluate(Expression& exp){
+void evaluate(Expression& exp, Environment& env){
 
-	
 	if(env.is_primitive(exp.get_op)){
 		env.get_prim(exp.get_op())(exp); //llama a la funcion primitiva con la 'key' (exp.get_op()) a esta funcion se le envia el parametro exp
 	}
 	else if(env.is_op(exp.get_op)) {
-		env.get_op(exp.get_op())(exp); //llama a la opracion definida por el usuario con la 'key' (exp.get_op()) a esta funcion se le envia el parametro exp, retorna el resultado en la misma exp
+		pair<string, string> paramExp;
+		Environment envcopy(env);
+		envcopy.erase_varspace();
+		paramExp = envcopy.get_op(exp.get_op()); 
+		list<Expression*>::const_iterator itlist = exp.begin();
+
+		while(!paramExp.first.empty() and itlist != exp.end()){
+			getString(paramExp.first, instr);
+			envcopy.set_var(instr, *(*itlist));
+		}
+
+
+		//llama a la opracion definida por el usuario con la 'key' (exp.get_op()) a esta funcion se le envia el parametro exp, retorna el resultado en la misma exp
 	}
 }
 
@@ -183,7 +191,15 @@ void define(string Ininstr){
 
 	} else {
 		// definir expresion
-
+		string variable, paremterslist;
+		getString(definition, instr);
+		variable = instr;
+		
+		while(instr != ')'){
+			getString(definition, instr);
+			paremterslist+= instr + ' ';
+		}
+		env.set_op(variable, paremterslist, definition);
 	}
 }
 
