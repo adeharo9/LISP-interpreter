@@ -6,13 +6,15 @@
 
 using namespace std;
 
-bool isNum(string str) {
-	string::cons_iteratior it = str.begin();
-	(*it == '-') ? it++;
+bool isNum(string str) 	{
+	string::const_iterator it = str.begin();
+	if((*it) == '-'){
+		it++;
+	}
 	while (it != str.end() and isdigit(*it)){
 		it++;
 	}
-	return !str.empty() and *it == str.end();
+	return !str.empty() and it == str.end();
 }
 
 void getString(string& buff, string& str) {
@@ -52,7 +54,7 @@ bool read(Environment& env, Expression& exp){
 		return false;
 	}
 	else if(isNum(instr)){
-		cout >> instr >> endl;
+		cout << instr << endl;
 	}
 	else{
 		readExpression(env, exp, inbuff);
@@ -62,37 +64,41 @@ bool read(Environment& env, Expression& exp){
 
 //pre 'env' es un entorno con un espacio de operaciones primitivas inicializado con las operaciones primitivas predefinidas; 'exp' es una expresión no vacía
 //post Escribe el valor de la expresión representada por 'exp' por el canal estándar de salida
-bool readExpression(Environment& env, Expression& exp, String buff) {
+bool readExpression(Environment& env, Expression& exp, string buff) {
 
-	string instr;
+	string instr, inbuff;
 	bool fin = false;
 	int parentesis;
 	parentesis = 0;
-		
+	list<Expression*>::iterador it = exp.begin();
 
 
 	do{
 		getString(inbuff, instr);
 
-		if (instr == '('){
+		if (instr == "("){
 			parentesis++;
 			readExpression(env, exp, inbuff);
 		}
-		else if (instr == ')'){
+		else if (instr == ")"){
 			parentesis--; 
 		}
 		else if (isNum(instr)){
-			exp.insert(exp.end(), instr);
-			 /*añade el valor numerico o el valor de una variable a la lista de valores lExp */
+			Expression* numExp = new Expression;
+			int num = stoi( instr );
+			
+			*numExp.set_value(num);
+			exp.insert(exp.end(), numExp);  /* Insert es con iterador no con el valor directamente */
+			 
 		}
 		else if(env.exists_var(instr)){
 			Expression* pExp = new Expression;
 			*pExp = env.get_var(instr);
 			exp.insert(exp.end() , pExp);
 		}
-		else if (instr == 'define'){  //verifica si existe este valor como operador, variable u otro, si no es asi lo crea con el valor
+		else if (instr == "define"){  //verifica si existe este valor como operador, variable u otro, si no es asi lo crea con el valor
 			
-			define(instr);
+			define(instr, env);
 
 		}
 		else if (env.is_op(instr)){  // verifica que instr sea una operacion definida por el usuario o de las primitivas, en el caso de acierto terminamos de leer de forma recursiva y evaluamos.
@@ -100,9 +106,9 @@ bool readExpression(Environment& env, Expression& exp, String buff) {
 			readExpression(env, exp, inbuff);
 
 		}
-	} while(parentesis != ')');
+	} while(instr != ")");
 
-	evaluate(exp);
+	evaluate(exp, env);
 
 	return true;
 
@@ -131,38 +137,38 @@ void writeExpression(const Environment& env, const Expression& exp) {
 
 void evaluate(Expression& exp, Environment& env){
 
-	if(env.is_primitive(exp.get_op)){
+	if(env.is_primitive(exp.get_op())){
 		env.get_prim(exp.get_op())(exp); //llama a la funcion primitiva con la 'key' (exp.get_op()) a esta funcion se le envia el parametro exp
 	}
-	else if(env.is_op(exp.get_op)) {
+	else if(env.is_op(exp.get_op())) {
 		pair<string, string> paramExp;
 		Environment envcopy(env);
 		envcopy.erase_varspace();
 		paramExp = envcopy.get_op(exp.get_op()); 
 		list<Expression*>::const_iterator itlist = exp.begin();
-		
+		string instr;
 
 		while(!paramExp.first.empty() and itlist != exp.end()){
 			getString(paramExp.first, instr);
 			envcopy.set_var(instr, *(*itlist));
 		}
 		
-		readExpression(envcopy, exp, paramExp.second());
+		readExpression(envcopy, exp, paramExp.second);
 	}
 }
 
-void define(string Ininstr){
+void define(string Ininstrn, Environment& env){
 	int parentesis, instructionBlock;
 	string inbuff, instr, definition;
 	parentesis = instructionBlock = 0;
 	Expression exp;
 
 	while(parentesis >= 0){
-		getString(inbuff, instr)
+		getString(inbuff, instr);
 		definition += instr + ' ';
-		if(instr == '('){
+		if(instr == "("){
 			parentesis++;
-		}else if(instr == ')'){
+		}else if(instr == ")"){
 			parentesis--;
 			if (parentesis == 0){
 				instructionBlock++;
@@ -174,7 +180,7 @@ void define(string Ininstr){
 		string variable;
 		getString(definition, instr);
 		variable = instr;
-		readExpression(env, exp, definition) {
+		readExpression(env, exp, definition);
 		env.set_var(variable, exp);
 
 	} else {
@@ -183,7 +189,7 @@ void define(string Ininstr){
 		getString(definition, instr);
 		variable = instr;
 		
-		while(instr != ')'){
+		while(instr != ")"){
 			getString(definition, instr);
 			paremterslist+= instr + ' ';
 		}
