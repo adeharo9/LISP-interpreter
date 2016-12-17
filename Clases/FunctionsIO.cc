@@ -6,18 +6,6 @@
 
 using namespace std;
 
-/*bool isNum(string str) {
-	int i = 0;
-	if(not str.empty() and (str[i] == '-' or (str[i] >= '0' and str[i] <= '9'))) {
-			++i;
-		while(i < str.size() and str[i] >= '0' and str[i] <= '9') {
-			++i;
-		}
-	}
-	return not str.empty() and i == str.size();
-}
-*/
-
 bool isNum(string str) {
 	string::cons_iteratior it = str.begin();
 	(*it == '-') ? it++;
@@ -44,7 +32,7 @@ void getString(string& buff, string& str) {
 		buff.erase(0,1);
 		getString(buff, str);
 	}
-	else if(buff == '****') {
+	else if(buff == "****") {
 		buff.swap(str);
 	}
 	else {
@@ -152,14 +140,14 @@ void evaluate(Expression& exp, Environment& env){
 		envcopy.erase_varspace();
 		paramExp = envcopy.get_op(exp.get_op()); 
 		list<Expression*>::const_iterator itlist = exp.begin();
+		
 
 		while(!paramExp.first.empty() and itlist != exp.end()){
 			getString(paramExp.first, instr);
 			envcopy.set_var(instr, *(*itlist));
 		}
-
-
-		//llama a la opracion definida por el usuario con la 'key' (exp.get_op()) a esta funcion se le envia el parametro exp, retorna el resultado en la misma exp
+		
+		readExpression(envcopy, exp, paramExp.second());
 	}
 }
 
@@ -202,15 +190,3 @@ void define(string Ininstr){
 		env.set_op(variable, paremterslist, definition);
 	}
 }
-
-
-
-/*Funciones a crear ------------------------------*/
-
-/*
- add_value
-añade un avalor a una lista de valores de la clase expresion
-
-evaluate_op
-evalua la operacion con sus operandos
-
