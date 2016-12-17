@@ -31,12 +31,24 @@ private:
 	//_______ ATRIBUTOS
 
 	/*
+	type
 	0 --> undefined
 	1 --> empty
 	2 --> val
 	3 --> op
 	4 --> list
-	5 --> empty list
+	*/
+
+	/*
+	type
+	0 --> undefined
+	1 --> empty
+	2 --> bool
+	3 --> val
+	4 --> op
+	5 --> list
+	6 --> bool or val
+	7 --> bool or val or list
 	*/
 	unsigned char type;
 	int val;

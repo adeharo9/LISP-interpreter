@@ -6,10 +6,6 @@ using namespace std;
 
 //_______ MÉTODOS PRIVADOS
 
-//(define abs (x) (x))
-//(abs 1)
-//CURIOSO, ESTÁ MAL
-
 int OperationSpace::countVars(string parameters) {
 	int c = not parameters.empty();
 	for(int i = 1; i < parameters.size(); ++i) {
@@ -63,10 +59,10 @@ int OperationSpace::num_pars(string key) {
 
 void OperationSpace::write() const {
 	cout << "Operacions:" << endl;
-	map<string, definition>::const_iterator const_it = opMap.begin();
-	while(const_it != opMap.end()) {
-		cout << const_it -> first << " #" << const_it -> second.n_parameters << endl;
-		++const_it;
+	map<string, definition>::const_iterator c_it = opMap.begin();
+	while(c_it != opMap.end()) {
+		cout << c_it -> first << " #" << c_it -> second.n_parameters << endl;
+		++c_it;
 	}
 }
 

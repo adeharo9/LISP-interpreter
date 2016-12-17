@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include <map>
 #include <list>
 #include "PrimitiveOperationSpace.hh"
@@ -176,17 +177,62 @@ void PrimitiveOperationSpace::cond_if(Expression& exp) {
 //_______ CONSTRUCTORES
 
 PrimitiveOperationSpace::PrimitiveOperationSpace() {
-	primOpMap["+"] = &sum;
-	primOpMap["-"] = &neg;
-	primOpMap["cons"] = &cons;
-	primOpMap["head"] = &head;
-	primOpMap["tail"] = &tail;
-	primOpMap["="] = &equal;
-	primOpMap["<"] = &less;
-	primOpMap["not"] = &bool_not;
-	primOpMap["and"] = &bool_and;
-	primOpMap["or"] = &bool_or;
-	primOpMap["if"] = &cond_if;
+	definition aux;
+
+	aux.r_type = 2;
+	aux.i_type = vector<uchar>(2, 2);
+	aux.fun = &sum;
+	primOpMap["+"] = aux;
+
+	aux.r_type = 2;
+	aux.i_type = vector<uchar>(1, 2);
+	aux.fun = &neg;
+	primOpMap["-"] = aux;
+
+	aux.r_type = 4;
+	aux.i_type = vector<uchar>(2);
+	aux.fun = &cons;
+	primOpMap["cons"] = aux;
+
+	aux.r_type = 4;
+	aux.i_type = vector<uchar>(1, 4);
+	aux.fun = &head;
+	primOpMap["head"] = aux;
+
+	aux.r_type = 4;
+	aux.i_type = vector<uchar>(1, 4);
+	aux.fun = &tail;
+	primOpMap["tail"] = aux;
+
+	aux.r_type = 2;
+	aux.i_type = vector<uchar>(2, 5);
+	aux.fun = &equal;
+	primOpMap["="] = aux;
+
+	aux.r_type = 2;
+	aux.i_type = vector<uchar>(2, 5);
+	aux.fun = &less;
+	primOpMap["<"] = aux;
+
+	aux.r_type = 2;
+	aux.i_type = vector<uchar>(1, 2);
+	aux.fun = &bool_not;
+	primOpMap["not"] = aux;
+
+	aux.r_type = 2;
+	aux.i_type = vector<uchar>(1, 2);
+	aux.fun = &bool_and;
+	primOpMap["and"] = aux;
+
+	aux.r_type = 2;
+	aux.i_type = vector<uchar>(1, 2);
+	aux.fun = &bool_or;
+	primOpMap["or"] = aux;
+
+	aux.r_type = 2;
+	aux.i_type = vector<uchar>(1, 2);
+	aux.fun = &cond_if;
+	primOpMap["if"] = aux;
 }
 
 PrimitiveOperationSpace::~PrimitiveOperationSpace() {
@@ -199,5 +245,5 @@ bool PrimitiveOperationSpace::exists(string key) const {
 }
 
 primitiveOperation PrimitiveOperationSpace::get(string key) {
-	return primOpMap[key];
+	return primOpMap[key].fun;
 }

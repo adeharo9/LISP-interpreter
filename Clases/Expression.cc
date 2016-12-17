@@ -107,7 +107,7 @@ bool Expression::operator == (const Expression& inExp) const {
 	if(type == 2 and inExp.type == 2) {
 		return val == inExp.val;
 	}
-	else if((type == 4 or type == 5) and (inExp.type == 4  or inExp.type == 5)) {
+	else if(type == 4 and inExp.type == 4) {
 		if(lExp.size() == inExp.lExp.size()) {
 			const_iter c_it1 = lExp.begin();
 			const_iter c_it2 = inExp.lExp.begin();
@@ -130,7 +130,7 @@ bool Expression::operator < (const Expression& inExp) const {
 	if(type == 2 and inExp.type == 2) {
 		return val < inExp.val;
 	}
-	else if((type == 4 or type == 5) and (inExp.type == 4  or inExp.type == 5)) {
+	else if(type == 4 and inExp.type == 4) {
 		const_iter c_it1 = lExp.begin();
 		const_iter c_it2 = inExp.lExp.begin();
 		while(c_it1 != lExp.end() and c_it2 != inExp.lExp.end() and (*(*c_it1) == *(*c_it2))) {
@@ -149,10 +149,10 @@ bool Expression::operator < (const Expression& inExp) const {
 void Expression::clear() {
 	if(type != 1) {
 		type = 1;
+		op.clear();
+		rm_exp_list(lExp);
+		lExp.clear();
 	}
-	op.clear();
-	rm_exp_list(lExp);
-	lExp.clear();
 }
 
 void Expression::insert(iter it, Expression* pExp) {
@@ -210,15 +210,15 @@ void Expression::set_op(string inOperator) {
 }
 
 void Expression::set_list() {
-	if(type != 4 or type != 5) {
-		type = 4 + lExp.empty();
+	if(type != 4) {
+		type = 4;
 		op.clear();
 	}
 }
 
 void Expression::set_empty_list() {
-	if(type != 5) {
-		type = 5;
+	if(type != 4 or not lExp.empty()) {
+		type = 4;
 		op.clear();
 		rm_exp_list(lExp);
 		lExp.clear();
@@ -248,11 +248,11 @@ bool Expression::is_op() const {
 }
 
 bool Expression::is_list() const {
-	return type == 4 or type == 5;
+	return type == 4;
 }
 
 bool Expression::is_empty_list() const {
-	return type == 5;
+	return type == 4 and lExp.empty();
 }
 
 bool Expression::is_bool() const {
@@ -274,7 +274,6 @@ void Expression::whatis() const {
 		cout << "val: " << (type == 2) << endl;
 		cout << "op: " << (type == 3) << endl;
 		cout << "list: " << (type == 4) << endl;
-		cout << "empty list: " << (type == 5) << endl;
 }
 
 //_______ ITERADORES
@@ -309,7 +308,7 @@ void Expression::write() const {
 	if(type == 2) {
 		cout << val << endl;
 	}
-	else if(type == 4 or type == 5) {
+	else if(type == 4) {
 		cout << "(";
 		if(not lExp.empty()) {
 			const_iter c_it = lExp.begin();
