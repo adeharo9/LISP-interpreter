@@ -30,11 +30,15 @@ private:
 
 	//_______ ATRIBUTOS
 
-	bool b_undef;
-	bool b_empty;
-	bool b_val;
-	bool b_op;
-	bool b_list;
+	/*
+	0 --> undefined
+	1 --> empty
+	2 --> val
+	3 --> op
+	4 --> list
+	5 --> empty list
+	*/
+	unsigned char type;
 	int val;
 	string op;
 	list<Expression*> lExp;
