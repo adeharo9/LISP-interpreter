@@ -41,7 +41,7 @@ bool readExpression(Environment& env, Expression& exp, string buff);
 	\pre 'env' es un entorno con un espacio de operaciones primitivas inicializado con las operaciones primitivas predefinidas; 'exp' es una expresión no vacía
 	\post Escribe el valor de la expresión representada por 'exp' por el canal estándar de salida
 */
-void writeExpression(const Environment& env, const Expression& exp);
+void writeExpression(const Expression& exp);
 
 /** @brief 
 

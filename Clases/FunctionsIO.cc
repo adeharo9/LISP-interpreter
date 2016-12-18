@@ -61,25 +61,25 @@ bool read(Environment& env, Expression& exp){
 		readExpression(env, exp, inbuff);
 	}
 	
+	return true;
 }
 
 //pre 'env' es un entorno con un espacio de operaciones primitivas inicializado con las operaciones primitivas predefinidas; 'exp' es una expresión no vacía
 //post Escribe el valor de la expresión representada por 'exp' por el canal estándar de salida
 bool readExpression(Environment& env, Expression& exp, string buff) {
 
-	string instr, inbuff;
-	bool fin = false;
+	string instr;
 	int parentesis;
 	parentesis = 0;
 	list<Expression*>::iterator it = exp.begin();
 
 
 	do{
-		getString(inbuff, instr);
+		getString(buff, instr);
 
 		if (instr == "("){
 			parentesis++;
-			readExpression(env, exp, inbuff);
+			readExpression(env, exp, buff);
 		}
 		else if (instr == ")"){
 			parentesis--; 
@@ -104,7 +104,7 @@ bool readExpression(Environment& env, Expression& exp, string buff) {
 		}
 		else if (env.is_op(instr)){  // verifica que instr sea una operacion definida por el usuario o de las primitivas, en el caso de acierto terminamos de leer de forma recursiva y evaluamos.
 			exp.set_op(instr);
-			readExpression(env, exp, inbuff);
+			readExpression(env, exp, buff);
 
 		}
 	} while(instr != ")");
@@ -115,7 +115,7 @@ bool readExpression(Environment& env, Expression& exp, string buff) {
 
 }		
 
-void writeExpression(const Environment& env, const Expression& exp) {
+void writeExpression(const Expression& exp) {
 	
 	if(exp.is_value()){
 		cout << exp.get_value() << endl;
@@ -165,7 +165,7 @@ void define(string Ininstrn, Environment& env){
 	Expression exp;
 
 	while(parentesis >= 0){
-		getString(inbuff, instr);
+		getString(Ininstrn, instr);
 		definition += instr + ' ';
 		if(instr == "("){
 			parentesis++;
