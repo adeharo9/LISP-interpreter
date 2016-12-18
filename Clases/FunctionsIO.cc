@@ -6,7 +6,8 @@
 
 using namespace std;
 
-bool isNum(string str) 	{
+
+bool isNum(string str){
 	string::const_iterator it = str.begin();
 	if((*it) == '-'){
 		it++;
@@ -70,7 +71,7 @@ bool readExpression(Environment& env, Expression& exp, string buff) {
 	bool fin = false;
 	int parentesis;
 	parentesis = 0;
-	list<Expression*>::iterador it = exp.begin();
+	list<Expression*>::iterator it = exp.begin();
 
 
 	do{
@@ -85,9 +86,9 @@ bool readExpression(Environment& env, Expression& exp, string buff) {
 		}
 		else if (isNum(instr)){
 			Expression* numExp = new Expression;
-			int num = stoi( instr );
-			
-			*numExp.set_value(num);
+			int num = stoi(instr);
+
+			(*numExp).set_value(num);
 			exp.insert(exp.end(), numExp);  /* Insert es con iterador no con el valor directamente */
 			 
 		}

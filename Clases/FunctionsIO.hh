@@ -49,7 +49,7 @@ void writeExpression(const Environment& env, const Expression& exp);
 
 	\post Se ha creado una expresion con una la varible u operación a crear. Si la expresion es correcta, si es indefinida se creara una exp con el valor indefinido.
 */
-void define(string Ininstrn, Environment& env){
+void define(string Ininstrn, Environment& env);
 
 /** @brief 
 
