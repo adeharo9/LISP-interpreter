@@ -27,8 +27,6 @@ int main() {
 	Environment env;
 	Expression exp;
 	while(read(env, exp)) {
-		cout<<"program.cc imprimir valor"<<endl;
-		writeExpression(exp);
 		exp.clear();
 	}
 	env.write();

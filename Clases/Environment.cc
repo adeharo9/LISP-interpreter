@@ -79,12 +79,8 @@ int Environment::num_pars_op(string key) {
 //_______ I/O
 
 void Environment::write() const {
-	if(not varSpace.empty()) {
-		varSpace.write();
-	}
-	if(not opSpace.empty()) {
-		opSpace.write();
-	}
+	varSpace.write();
+	opSpace.write();
 }
 
 void Environment::write_var(string key) {

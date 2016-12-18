@@ -7,7 +7,6 @@
 
 #ifndef NO_DIAGRAM
 #include <map>
-#include <vector>
 #endif
 
 #include "Expression.hh"
@@ -27,15 +26,8 @@ private:
 	*/
 
 	typedef void (*primitiveOperation)(Expression&);
-	typedef unsigned char uchar;
 
-	struct definition {
-		uchar r_type;
-		vector<uchar> i_type;
-		primitiveOperation fun;
-	};
-
-	map<string, definition> primOpMap;
+	map<string, primitiveOperation> primOpMap;
 
 	//_______ MÉTODOS PRIVADOS
 
