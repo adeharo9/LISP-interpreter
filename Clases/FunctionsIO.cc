@@ -49,20 +49,23 @@ void getString(string& buff, string& str) {
 
 bool read(Environment& env, Expression& exp){
 	string inbuff, instr;
+	bool result;
 
 	getString(inbuff, instr);
 	if(instr == "****"){
-		return false;
+		result = false;
 	}
 	else if(isNum(instr)){
 		cout << instr << endl;
+		result = true;
 	}
 	else{
 		inbuff.insert(0, instr);
-		readExpression(env, exp, inbuff);
+		cout<<"antes de llamar readExpression"<<endl;
+		result = readExpression(env, exp, inbuff);
+		cout<<"despues de llamar readExpression"<<endl;
 	}
-	
-	return true;
+	return result;
 }
 
 //pre 'env' es un entorno con un espacio de operaciones primitivas inicializado con las operaciones primitivas predefinidas; 'exp' es una expresión no vacía
@@ -84,7 +87,7 @@ bool readExpression(Environment& env, Expression& exp, string& inbuff) {
 			readExpression(env, exp, inbuff);
 		}
 		else if (instr == ")"){
-			cout<<"cerrar parentesis"<<parentesis<<endl;
+			cout<<"cerrar parentesis = "<<parentesis<<endl;
 			parentesis--; 
 		}
 		else if (isNum(instr)){
@@ -115,9 +118,8 @@ bool readExpression(Environment& env, Expression& exp, string& inbuff) {
 		}
 	}
 
-	cout<<"evaluate"<<endl;
 	evaluate(exp, env);
-
+	cout<<"evaluate"<<endl;
 	return true;
 
 }		
@@ -148,9 +150,8 @@ void writeExpression(const Expression& exp) {
 void evaluate(Expression& exp, Environment& env){
 
 	if(env.is_primitive(exp.get_op())){
-		cout<<"is primitive"<<endl;
 		env.get_prim(exp.get_op())(exp); //llama a la funcion primitiva con la 'key' (exp.get_op()) a esta funcion se le envia el parametro exp
-		cout<<"get prim"<<endl;
+		cout<<"is primitive"<<endl;
 	}
 	else if(env.is_op(exp.get_op())) {
 		pair<string, string> paramExp;
@@ -193,18 +194,29 @@ void define(string Ininstrn, Environment& env){
 		getString(definition, instr);
 		variable = instr;
 		readExpression(env, exp, definition);
-		env.set_var(variable, exp);
+		
+		if(!exp.undefined()){
+			env.set_var(variable, exp);
+		}
+		cout << definition << " " << endl;
 
 	} else {
 		// definir expresion
-		string variable, paremterslist;
+		string operador, paremterslist;
 		getString(definition, instr);
-		variable = instr;
-		
+		operador = instr;
+		int count = 0;
+
 		while(instr != ")"){
 			getString(definition, instr);
 			paremterslist+= instr + ' ';
+			count++;
 		}
-		env.set_op(variable, paremterslist, definition);
+
+		cout << operador;
+
+		if(count > 1){
+			cout << "*" << count;
+		}
 	}
 }
