@@ -1,0 +1,796 @@
+.TH "Expression" 3 "Miércoles, 7 de Diciembre de 2016" "Version v1.1" "Calculadora de expresiones aritméticas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Expression \- Representa una expresión, evaluable o no, mediante el resultado de evaluarla\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Expression\&.hh>\fP
+.SS "Métodos públicos"
+
+.in +1c
+.ti -1c
+.RI "\fBExpression\fP ()"
+.br
+.RI "\fIConstructora por defecto\&. \fP"
+.ti -1c
+.RI "\fBExpression\fP (int value)"
+.br
+.RI "\fIConstructora con valor de inicialización\&. \fP"
+.ti -1c
+.RI "\fBExpression\fP (string inOperator, const list< \fBExpression\fP * > &lExpression)"
+.br
+.RI "\fIConstructora con operación de inicialización\&. \fP"
+.ti -1c
+.RI "\fBExpression\fP (const list< \fBExpression\fP * > &lExpression)"
+.br
+.RI "\fIConstructora con lista de inicialización\&. \fP"
+.ti -1c
+.RI "\fBExpression\fP (const \fBExpression\fP &inExp)"
+.br
+.RI "\fIConstructora por copia\&. \fP"
+.ti -1c
+.RI "\fB~Expression\fP ()"
+.br
+.RI "\fIDestructora por defecto\&. \fP"
+.ti -1c
+.RI "void \fBoperator=\fP (const \fBExpression\fP &inExp)"
+.br
+.RI "\fIOperación de asignación\&. \fP"
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBExpression\fP &inExp) const "
+.br
+.RI "\fIOperación de comparación de igualdad\&. \fP"
+.ti -1c
+.RI "bool \fBoperator<\fP (const \fBExpression\fP &inExp) const "
+.br
+.RI "\fIOperación de comparación de inferioridad exclusiva\&. \fP"
+.ti -1c
+.RI "void \fBevaluate\fP ()"
+.br
+.RI "\fIOperación de evaluación de expresión\&. \fP"
+.ti -1c
+.RI "void \fBclear\fP ()"
+.br
+.RI "\fIOperación de vaciado de expresión\&. \fP"
+.ti -1c
+.RI "list< \fBExpression\fP * >::iterator \fBerase\fP (list< \fBExpression\fP * >::iterator it)"
+.br
+.RI "\fIOperación de borrado de elemetos de lista\&. \fP"
+.ti -1c
+.RI "void \fBsplice\fP (list< \fBExpression\fP * >::iterator it, list< \fBExpression\fP * > lExpression)"
+.br
+.RI "\fIOperación de vaciado de expresión\&. \fP"
+.ti -1c
+.RI "void \fBset_undefined\fP ()"
+.br
+.RI "\fIModificadora del campo undefined\&. \fP"
+.ti -1c
+.RI "void \fBset_value\fP (int value)"
+.br
+.RI "\fIModificadora de valor por asignación\&. \fP"
+.ti -1c
+.RI "void \fBset_op\fP (string op)"
+.br
+.RI "\fIModificadora de operador\&. \fP"
+.ti -1c
+.RI "void \fBset_op_list\fP (const list< \fBExpression\fP * > &lExpression)"
+.br
+.RI "\fIModificadora de lista de operación\&. \fP"
+.ti -1c
+.RI "void \fBset_list\fP ()"
+.br
+.RI "\fIModificadora de lista\&. \fP"
+.ti -1c
+.RI "void \fBset_list\fP (const list< \fBExpression\fP * > &lExpression)"
+.br
+.RI "\fIModificadora de lista\&. \fP"
+.ti -1c
+.RI "int \fBsize\fP () const "
+.br
+.RI "\fIModificadora de valor por adición\&. \fP"
+.ti -1c
+.RI "bool \fBempty\fP () const "
+.br
+.RI "\fIConsultora de estado\&. \fP"
+.ti -1c
+.RI "bool \fBundefined\fP () const "
+.br
+.RI "\fIConsultora de estado\&. \fP"
+.ti -1c
+.RI "bool \fBis_value\fP () const "
+.br
+.RI "\fIConsultora de tipo de expresión variable\&. \fP"
+.ti -1c
+.RI "bool \fBis_op\fP () const "
+.br
+.RI "\fIConsultora de tipo de expresión operación\&. \fP"
+.ti -1c
+.RI "bool \fBis_list\fP () const "
+.br
+.RI "\fIConsultora de tipo de expresión lista\&. \fP"
+.ti -1c
+.RI "bool \fBis_bool\fP () const "
+.br
+.RI "\fIConsultora de tipo de expresión booleana\&. \fP"
+.ti -1c
+.RI "int \fBget_value\fP () const "
+.br
+.RI "\fIConsultora de valor\&. \fP"
+.ti -1c
+.RI "string \fBget_op\fP () const "
+.br
+.RI "\fIConsultora de operador\&. \fP"
+.ti -1c
+.RI "list< \fBExpression\fP * > \fBget_list\fP () const "
+.br
+.RI "\fIConsultora de la lista\&. \fP"
+.ti -1c
+.RI "list< \fBExpression\fP * >::iterator \fBbegin\fP ()"
+.br
+.RI "\fIIterador de inicio de lista\&. \fP"
+.ti -1c
+.RI "list< \fBExpression\fP * >::const_iterator \fBbegin\fP () const "
+.br
+.RI "\fIIterador constante de inicio de lista\&. \fP"
+.ti -1c
+.RI "list< \fBExpression\fP * >::iterator \fBsecond\fP ()"
+.br
+.RI "\fIIterador de segundo elemento de lista\&. \fP"
+.ti -1c
+.RI "list< \fBExpression\fP * >::const_iterator \fBsecond\fP () const "
+.br
+.RI "\fIIterador constante de segundo elemento de lista\&. \fP"
+.ti -1c
+.RI "list< \fBExpression\fP * >::iterator \fBthird\fP ()"
+.br
+.RI "\fIIterador de tercer elemento de lista\&. \fP"
+.ti -1c
+.RI "list< \fBExpression\fP * >::const_iterator \fBthird\fP () const "
+.br
+.RI "\fIIterador constante de tercer elemento de lista\&. \fP"
+.ti -1c
+.RI "list< \fBExpression\fP * >::iterator \fBend\fP ()"
+.br
+.RI "\fIIterador de final de lista\&. \fP"
+.ti -1c
+.RI "list< \fBExpression\fP * >::const_iterator \fBend\fP () const "
+.br
+.RI "\fIIterador constante de final de lista\&. \fP"
+.ti -1c
+.RI "void \fBwrite\fP () const "
+.br
+.RI "\fIOperación de escritura de expresión\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Representa una expresión, evaluable o no, mediante el resultado de evaluarla\&. 
+.SH "Documentación del constructor y destructor"
+.PP 
+.SS "Expression::Expression ()"
+
+.PP
+Constructora por defecto\&. Se ejecuta automáticamente al declarar una nueva expresión 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Crea un objeto vacío: 'empt' igual a cierto; 'undef' igual a falso; 'val' sin inicializar; 'op' es un string vacío; 'lExp' es una lista vacía 
+.RE
+.PP
+
+.SS "Expression::Expression (int value)"
+
+.PP
+Constructora con valor de inicialización\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Crea un objeto con los siguientes valores: 'empt' igual a falso; 'undef' igual a falso; 'val' igual a 'value'; 'op' es un string vacío; 'lExp' es una lista vacía 
+.RE
+.PP
+
+.SS "Expression::Expression (string inOperator, const list< \fBExpression\fP * > & lExpression)"
+
+.PP
+Constructora con operación de inicialización\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+'inOperator' es un string no vacío; 'inOperator' es un operador existente en el espacio de operaciones primitivas o en el espacio de operaciones definidas por el usuario 'lExpression' es una lista no vacía de punteros a expresiones 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Crea un objeto con los siguientes valores: 'empt' igual a falso; 'undef' igual a falso; 'val' sin inicializar; 'op' igual a 'inOperator'; 'lExp' igual a 'lExpression' 
+.RE
+.PP
+
+.SS "Expression::Expression (const list< \fBExpression\fP * > & lExpression)"
+
+.PP
+Constructora con lista de inicialización\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+'lExpression' es una lista no vacía de punteros a expresiones 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Crea un objeto con los siguientes valores: 'empt' igual a falso; 'undef' igual a falso; 'val' sin inicializar; 'op' es un string vacío; 'lExp' igual a 'lExpression' 
+.RE
+.PP
+
+.SS "Expression::Expression (const \fBExpression\fP & inExp)"
+
+.PP
+Constructora por copia\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Crea un objeto copia de inExp 
+.RE
+.PP
+
+.SS "Expression::~Expression ()"
+
+.PP
+Destructora por defecto\&. Se ejecuta automáticamente al salir de un ámbito de visibilidad 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad 
+.RE
+.PP
+
+.SH "Documentación de las funciones miembro"
+.PP 
+.SS "list< \fBExpression\fP * >::iterator Expression::begin ()"
+
+.PP
+Iterador de inicio de lista\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve un iterador que apunta al inicio de la lista 'lExp' 
+.RE
+.PP
+
+.SS "list< \fBExpression\fP * >::const_iterator Expression::begin () const"
+
+.PP
+Iterador constante de inicio de lista\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve un const_iterator que apunta al inicio de la lista 'lExp' 
+.RE
+.PP
+
+.SS "void Expression::clear ()"
+
+.PP
+Operación de vaciado de expresión\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+El parámetro implícito pasa a estar vacío: 'empt' igual a cierto; 'undef' igual a falso; 'val' sin inicializar; 'op' es un string vacío; 'lExp' es una lista vacía 
+.RE
+.PP
+
+.SS "bool Expression::empty () const"
+
+.PP
+Consultora de estado\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve cierto si el parámetro implícito está vacío; en otro caso, devuelve falso 
+.RE
+.PP
+
+.SS "list< \fBExpression\fP * >::iterator Expression::end ()"
+
+.PP
+Iterador de final de lista\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve un iterador que apunta al final de la lista 'lExp' 
+.RE
+.PP
+
+.SS "list< \fBExpression\fP * >::const_iterator Expression::end () const"
+
+.PP
+Iterador constante de final de lista\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve un const_iterator que apunta al final de la lista 'lExp' 
+.RE
+.PP
+
+.SS "list< \fBExpression\fP * >::iterator Expression::erase (list< \fBExpression\fP * >::iterator it)"
+
+.PP
+Operación de borrado de elemetos de lista\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+'lExp' no es una lista vacía 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Se borra el elemento apuntado por el iterador 'it' de la lista 'lExp'; devuelve un iterador al elemento siguiente al borrado 
+.RE
+.PP
+
+.SS "void Expression::evaluate ()"
+
+.PP
+Operación de evaluación de expresión\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+El parámetro implícito no está vácío 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+El parámetro implícito pasa a ser: valor, representado por 'val', si era una expresión evaluable; lista, representada por 'lExp', si era una lista de expresiones evaluables; indefinido, representado por 'undef' igual a cierto, si la evaluación de la expresión representada por el parámetro implícito era indefinida 
+.RE
+.PP
+
+.SS "list< \fBExpression\fP * > Expression::get_list () const"
+
+.PP
+Consultora de la lista\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+El parámetro implícito no es undefined; el parámetro implícito no está vacío; el parámetro implícito representa una lista 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve la lista 'lExp' del parámetro implícito 
+.RE
+.PP
+
+.SS "string Expression::get_op () const"
+
+.PP
+Consultora de operador\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+El parámetro implícito no es undefined; el parámetro implícito no está vacío; el parámetro implícito representa una expresión a evaluar 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve el operador 'op' del parámetro implícito 
+.RE
+.PP
+
+.SS "int Expression::get_value () const"
+
+.PP
+Consultora de valor\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+El parámetro implícito no es undefined; el parámetro implícito no está vacío; el parámetro implícito representa un valor 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve el valor 'val' del parámetro implícito 
+.RE
+.PP
+
+.SS "bool Expression::is_bool () const"
+
+.PP
+Consultora de tipo de expresión booleana\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve cierto si el parámetro implícito es una expresión booleana; en otro caso, devuelve falso 
+.RE
+.PP
+
+.SS "bool Expression::is_list () const"
+
+.PP
+Consultora de tipo de expresión lista\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve cierto si el parámetro implícito es una lista de expresiones; en otro caso, devuelve falso 
+.RE
+.PP
+
+.SS "bool Expression::is_op () const"
+
+.PP
+Consultora de tipo de expresión operación\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve cierto si el parámetro implícito es una operación a ser evaluada; en otro caso, devuelve falso 
+.RE
+.PP
+
+.SS "bool Expression::is_value () const"
+
+.PP
+Consultora de tipo de expresión variable\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve cierto si el parámetro implícito es un valor atómico; en otro caso, devuelve falso 
+.RE
+.PP
+
+.SS "bool Expression::operator< (const \fBExpression\fP & inExp) const"
+
+.PP
+Operación de comparación de inferioridad exclusiva\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve cierto si el parámetro implícito es menor exclusivo que 'inExp' 
+.RE
+.PP
+
+.SS "void Expression::operator= (const \fBExpression\fP & inExp)"
+
+.PP
+Operación de asignación\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+El parámetro implícito pasa a ser una copia de 'inExp' 
+.RE
+.PP
+
+.SS "bool Expression::operator== (const \fBExpression\fP & inExp) const"
+
+.PP
+Operación de comparación de igualdad\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve cierto si el parámetro implícito es igual a 'inExp' 
+.RE
+.PP
+
+.SS "list< \fBExpression\fP * >::iterator Expression::second ()"
+
+.PP
+Iterador de segundo elemento de lista\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve un iterador que apunta al segundo elemento de la lista 'lExp' 
+.RE
+.PP
+
+.SS "list< \fBExpression\fP * >::const_iterator Expression::second () const"
+
+.PP
+Iterador constante de segundo elemento de lista\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve un const_iterator que apunta al segundo elemento de la lista 'lExp' 
+.RE
+.PP
+
+.SS "void Expression::set_list ()"
+
+.PP
+Modificadora de lista\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+El parámetro implícito pasa a ser una lista, si no lo era 
+.RE
+.PP
+
+.SS "void Expression::set_list (const list< \fBExpression\fP * > & lExpression)"
+
+.PP
+Modificadora de lista\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+El parámetro implícito pasa a tener 'lExp' igual a 'lExpression'; 'op' pasa a ser un string vacío 
+.RE
+.PP
+
+.SS "void Expression::set_op (string op)"
+
+.PP
+Modificadora de operador\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+El parámetro implícito pasa a tener operador 'op'; la lista 'lExp' queda vacía a la espera de ser asignada mediante el método \fBset_op_list()\fP 
+.RE
+.PP
+
+.SS "void Expression::set_op_list (const list< \fBExpression\fP * > & lExpression)"
+
+.PP
+Modificadora de lista de operación\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+El parámetro implícito es una operación a la espera de ser asignada una lista 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+El parámetro implícito pasa a tener lista 'lExp' igual a 'lExpression'; el parámetro implícito es una operación 
+.RE
+.PP
+
+.SS "void Expression::set_undefined ()"
+
+.PP
+Modificadora del campo undefined\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+El parámetro implícito pasa a ser undefined 
+.RE
+.PP
+
+.SS "void Expression::set_value (int value)"
+
+.PP
+Modificadora de valor por asignación\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+El parámetro implícito pasa a tener valor 'value'; la lista 'lExp' del parámetro implícito pasa a estar vacía; 'op' pasa a ser un string vacío 
+.RE
+.PP
+
+.SS "int Expression::size () const"
+
+.PP
+Modificadora de valor por adición\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+'val' está inicializada a un valor concreto 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+El parámetro implícito pasa a tener valor 'val' igual a la suma de 'val' más 'value'Consultora de tamaño de lista
+.RE
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve el tamaño de la lsita 'lExp' 
+.RE
+.PP
+
+.SS "void Expression::splice (list< \fBExpression\fP * >::iterator it, list< \fBExpression\fP * > lExpression)"
+
+.PP
+Operación de vaciado de expresión\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+'lExp' no es una lista vacía 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+El parámetro implícito pasa a tener los elementos de lExpression antes del elemento apuntado por it 
+.RE
+.PP
+
+.SS "list< \fBExpression\fP * >::iterator Expression::third ()"
+
+.PP
+Iterador de tercer elemento de lista\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve un iterador que apunta al tercer elemento de la lista 'lExp' 
+.RE
+.PP
+
+.SS "list< \fBExpression\fP * >::const_iterator Expression::third () const"
+
+.PP
+Iterador constante de tercer elemento de lista\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve un const_iterator que apunta al tercer elemento de la lista 'lExp' 
+.RE
+.PP
+
+.SS "bool Expression::undefined () const"
+
+.PP
+Consultora de estado\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve cierto si el parámetro implícito es indefinido; en otro caso, devuelve falso 
+.RE
+.PP
+
+.SS "void Expression::write () const"
+
+.PP
+Operación de escritura de expresión\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+El parámetro implícito no está vacío y representa un valor indefinido, un valor concreto o una lista de valores 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Escribe el valor de la expresión o la lista de valores de la lista de expresiones representada/s por el parámetro implícito por el canal estandar de salida 
+.RE
+.PP
+
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Calculadora de expresiones aritméticas del código fuente\&.

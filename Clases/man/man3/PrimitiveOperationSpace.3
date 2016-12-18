@@ -1,0 +1,106 @@
+.TH "PrimitiveOperationSpace" 3 "Miércoles, 7 de Diciembre de 2016" "Version v1.1" "Calculadora de expresiones aritméticas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PrimitiveOperationSpace \- Representa un espacio de operaciones primitivas predefinidas en forma de mapa de operaciones\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <PrimitiveOperationSpace\&.hh>\fP
+.SS "Métodos públicos"
+
+.in +1c
+.ti -1c
+.RI "\fBPrimitiveOperationSpace\fP ()"
+.br
+.RI "\fIConstructora por defecto\&. \fP"
+.ti -1c
+.RI "\fB~PrimitiveOperationSpace\fP ()"
+.br
+.RI "\fIDestructora por defecto\&. \fP"
+.ti -1c
+.RI "bool \fBexists\fP (string key) const "
+.br
+.RI "\fIConsultora de existencia de operación primitiva\&. \fP"
+.ti -1c
+.RI "primitiveOperation \fBget\fP (string key)"
+.br
+.RI "\fIConsultora de recuperación de operación primitiva\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Representa un espacio de operaciones primitivas predefinidas en forma de mapa de operaciones\&. 
+.SH "Documentación del constructor y destructor"
+.PP 
+.SS "PrimitiveOperationSpace::PrimitiveOperationSpace ()"
+
+.PP
+Constructora por defecto\&. Se ejecuta automáticamente al declarar un nuevo espacio de operaciones primitivas predefinidas 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Crea un objeto con mapa de operaciones primitivas 'primOpMap' inicializado con las operaciones primitivas 
+.RE
+.PP
+
+.SS "PrimitiveOperationSpace::~PrimitiveOperationSpace ()"
+
+.PP
+Destructora por defecto\&. Se ejecuta automáticamente al salir de un ámbito de visibilidad 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad 
+.RE
+.PP
+
+.SH "Documentación de las funciones miembro"
+.PP 
+.SS "bool PrimitiveOperationSpace::exists (string key) const"
+
+.PP
+Consultora de existencia de operación primitiva\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+'key' es un string no vacío 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve cierto si la operación primitiva con clave 'key' existe en el mapa de operaciones primitivas 'opMap' del parámetro implícito; en otro caso, devuelve falso 
+.RE
+.PP
+
+.SS "primitiveOperation PrimitiveOperationSpace::get (string key)"
+
+.PP
+Consultora de recuperación de operación primitiva\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+'key' es un string no vacío; el mapa de operaciones primitivas 'primOpMap' del parámetro implícito contiene una operación primitiva con clave 'key' 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve la operación primitiva representada por la clave 'key' 
+.RE
+.PP
+
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Calculadora de expresiones aritméticas del código fuente\&.

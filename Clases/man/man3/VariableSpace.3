@@ -1,0 +1,249 @@
+.TH "VariableSpace" 3 "Miércoles, 7 de Diciembre de 2016" "Version v1.1" "Calculadora de expresiones aritméticas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+VariableSpace \- Representa un espacio de variables definidas por el usuario en forma de mapa de variables\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <VariableSpace\&.hh>\fP
+.SS "Métodos públicos"
+
+.in +1c
+.ti -1c
+.RI "\fBVariableSpace\fP ()"
+.br
+.RI "\fIConstructora por defecto\&. \fP"
+.ti -1c
+.RI "\fBVariableSpace\fP (string key, const \fBExpression\fP &exp)"
+.br
+.RI "\fIConstructora con valor de inicialización\&. \fP"
+.ti -1c
+.RI "\fBVariableSpace\fP (const \fBVariableSpace\fP &varSpace)"
+.br
+.RI "\fIConstructora por copia\&. \fP"
+.ti -1c
+.RI "\fB~VariableSpace\fP ()"
+.br
+.RI "\fIDestructora por defecto\&. \fP"
+.ti -1c
+.RI "void \fBclear\fP ()"
+.br
+.ti -1c
+.RI "void \fBadd\fP (string key, const \fBExpression\fP &exp)"
+.br
+.RI "\fIModificadora por adición de variable\&. \fP"
+.ti -1c
+.RI "void \fBupdate\fP (string key, const \fBExpression\fP &exp)"
+.br
+.RI "\fIModificadora por actualización de variable\&. \fP"
+.ti -1c
+.RI "bool \fBempty\fP () const "
+.br
+.RI "\fIConsultora de mapa vacío\&. \fP"
+.ti -1c
+.RI "bool \fBexists\fP (string key) const "
+.br
+.RI "\fIConsultora de existencia de variable\&. \fP"
+.ti -1c
+.RI "\fBExpression\fP \fBget\fP (string key)"
+.br
+.RI "\fIConsultora de recuperación de variable\&. \fP"
+.ti -1c
+.RI "void \fBwrite\fP () const "
+.br
+.RI "\fIOperación de escritura de todo el espacio de variables\&. \fP"
+.ti -1c
+.RI "void \fBwrite_var\fP (string key)"
+.br
+.RI "\fIOperación de escritura de una variable concreta\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Representa un espacio de variables definidas por el usuario en forma de mapa de variables\&. 
+.SH "Documentación del constructor y destructor"
+.PP 
+.SS "VariableSpace::VariableSpace ()"
+
+.PP
+Constructora por defecto\&. Se ejecuta automáticamente al declarar un nuevo espacio de variables 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Crea un objeto con mapa de variables 'varMap' vacío 
+.RE
+.PP
+
+.SS "VariableSpace::VariableSpace (string key, const \fBExpression\fP & exp)"
+
+.PP
+Constructora con valor de inicialización\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+'key' es un string no vacío 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Crea un objeto con mapa de variables 'varMap' inicializado con la variable de clave 'key' y expresión 'exp' 
+.RE
+.PP
+
+.SS "VariableSpace::VariableSpace (const \fBVariableSpace\fP & varSpace)"
+
+.PP
+Constructora por copia\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Crea un objeto copia de 'varSpace' 
+.RE
+.PP
+
+.SS "VariableSpace::~VariableSpace ()"
+
+.PP
+Destructora por defecto\&. Se ejecuta automáticamente al salir de un ámbito de visibilidad 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad 
+.RE
+.PP
+
+.SH "Documentación de las funciones miembro"
+.PP 
+.SS "void VariableSpace::add (string key, const \fBExpression\fP & exp)"
+
+.PP
+Modificadora por adición de variable\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+'key' es un string no vacío; el mapa de variables 'varMap' del parámetro implícito no contiene ninguna variable con clave 'key' 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Se añade al mapa de variables 'varMap' del parámetro implícito la variable con clave 'key' y expresión 'exp' 
+.RE
+.PP
+
+.SS "bool VariableSpace::empty () const"
+
+.PP
+Consultora de mapa vacío\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve cierto si el mapa de variables 'varMap' está vacío 
+.RE
+.PP
+
+.SS "bool VariableSpace::exists (string key) const"
+
+.PP
+Consultora de existencia de variable\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+'key' es un string no vacío 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve cierto si la variable con clave 'key' existe en el mapa de variables 'varMap' del parámetro implícito; en otro caso, devuelve falso 
+.RE
+.PP
+
+.SS "\fBExpression\fP VariableSpace::get (string key)"
+
+.PP
+Consultora de recuperación de variable\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+'key' es un string no vacío; el mapa de variables 'varMap' del parámetro implícito contiene una variable con clave 'key' 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve la expresión representada por la variable de clave 'key' 
+.RE
+.PP
+
+.SS "void VariableSpace::update (string key, const \fBExpression\fP & exp)"
+
+.PP
+Modificadora por actualización de variable\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+'key' es un string no vacío; el mapa de variables 'varMap' del parámetro implícito contiene una variable con clave 'key' 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+La expresión de la variable con clave 'key' en el mapa de variables 'varMap' del parámetro implícito pasa a ser 'exp' 
+.RE
+.PP
+
+.SS "void VariableSpace::write () const"
+
+.PP
+Operación de escritura de todo el espacio de variables\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+El mapa de variables 'varMap' del parámetro implícito no está vacío 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Se ha escrito el contenido del mapa de variables 'varMap' del parámetro implícito por el canal estándar de salida; en caso que el resultado de evaluar la expresión sea indefinido, se escribe 'indefinido' 
+.RE
+.PP
+
+.SS "void VariableSpace::write_var (string key)"
+
+.PP
+Operación de escritura de una variable concreta\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+'key' es un string no vacío; el mapa de variables 'varMap' del parámetro implícito contiene una variable con clave 'key' 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Se ha escrito el contenido de la variable con clave 'key' por el canal estándar de salida; en caso que el resultado de evaluar la expresión sea indefinido, se escribe 'indefinido' 
+.RE
+.PP
+
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Calculadora de expresiones aritméticas del código fuente\&.

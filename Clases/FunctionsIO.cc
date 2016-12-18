@@ -58,6 +58,7 @@ bool read(Environment& env, Expression& exp){
 		cout << instr << endl;
 	}
 	else{
+		inbuff.insert(0, instr);
 		readExpression(env, exp, inbuff);
 	}
 	
@@ -66,25 +67,28 @@ bool read(Environment& env, Expression& exp){
 
 //pre 'env' es un entorno con un espacio de operaciones primitivas inicializado con las operaciones primitivas predefinidas; 'exp' es una expresión no vacía
 //post Escribe el valor de la expresión representada por 'exp' por el canal estándar de salida
-bool readExpression(Environment& env, Expression& exp, string buff) {
-
+bool readExpression(Environment& env, Expression& exp, string& inbuff) {
 	string instr;
 	int parentesis;
 	parentesis = 0;
 	list<Expression*>::iterator it = exp.begin();
 
 
-	do{
-		getString(buff, instr);
+	 while(instr != ")"){
+		
+		getString(inbuff, instr);
 
 		if (instr == "("){
+			cout<<"abrir parentesis"<<endl;
 			parentesis++;
-			readExpression(env, exp, buff);
+			readExpression(env, exp, inbuff);
 		}
 		else if (instr == ")"){
+			cout<<"cerrar parentesis"<<parentesis<<endl;
 			parentesis--; 
 		}
 		else if (isNum(instr)){
+			cout<<"es numero"<<endl;
 			Expression* numExp = new Expression;
 			int num = stoi(instr);
 
@@ -93,22 +97,25 @@ bool readExpression(Environment& env, Expression& exp, string buff) {
 			 
 		}
 		else if(env.exists_var(instr)){
+			cout<<"exit var"<<endl;
 			Expression* pExp = new Expression;
 			*pExp = env.get_var(instr);
 			exp.insert(exp.end() , pExp);
 		}
 		else if (instr == "define"){  //verifica si existe este valor como operador, variable u otro, si no es asi lo crea con el valor
-			
+			cout<<"define"<<endl;
 			define(instr, env);
 
 		}
 		else if (env.is_op(instr)){  // verifica que instr sea una operacion definida por el usuario o de las primitivas, en el caso de acierto terminamos de leer de forma recursiva y evaluamos.
+			cout<<"is operator"<<endl;
 			exp.set_op(instr);
-			readExpression(env, exp, buff);
+			readExpression(env, exp, inbuff);
 
 		}
-	} while(instr != ")");
+	}
 
+	cout<<"evaluate"<<endl;
 	evaluate(exp, env);
 
 	return true;
@@ -119,6 +126,7 @@ void writeExpression(const Expression& exp) {
 	
 	if(exp.is_value()){
 		cout << exp.get_value() << endl;
+		cout<<"Imprimir valor"<<endl;
 	}
 	else if(exp.is_list()){
 		cout << '(';
@@ -133,13 +141,16 @@ void writeExpression(const Expression& exp) {
 		}
 
 		cout << ')' << endl;
+		cout<<"Imprimir lista"<<endl;
 	}
 }
 
 void evaluate(Expression& exp, Environment& env){
 
 	if(env.is_primitive(exp.get_op())){
+		cout<<"is primitive"<<endl;
 		env.get_prim(exp.get_op())(exp); //llama a la funcion primitiva con la 'key' (exp.get_op()) a esta funcion se le envia el parametro exp
+		cout<<"get prim"<<endl;
 	}
 	else if(env.is_op(exp.get_op())) {
 		pair<string, string> paramExp;

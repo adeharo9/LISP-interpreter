@@ -1,0 +1,68 @@
+.TH "ExceptionHandler" 3 "Miércoles, 7 de Diciembre de 2016" "Version v1.1" "Calculadora de expresiones aritméticas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ExceptionHandler \- Controla la generación de excepciones en caso de fallo de las condiciones básicas de funcionamiento del programa\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ExceptionHandler\&.hh>\fP
+.PP
+Herencias exception\&.
+.SS "Métodos públicos"
+
+.in +1c
+.ti -1c
+.RI "\fBExceptionHandler\fP (const char *inMsg)"
+.br
+.RI "\fIConstructora con valor de inicialización\&. \fP"
+.ti -1c
+.RI "const char * \fBwhat\fP () const   throw ()"
+.br
+.RI "\fIConsultor de motivo de excepción\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Controla la generación de excepciones en caso de fallo de las condiciones básicas de funcionamiento del programa\&. 
+.SH "Documentación del constructor y destructor"
+.PP 
+.SS "ExceptionHandler::ExceptionHandler (const char * inMsg)\fC [inline]\fP"
+
+.PP
+Constructora con valor de inicialización\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+\fICierto\fP 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Genera una excepción que muestra, si se proporciona, un mensaje por el canal estándar de salida de errores 
+.RE
+.PP
+
+.SH "Documentación de las funciones miembro"
+.PP 
+.SS "const char* ExceptionHandler::what () const\fC [inline]\fP"
+
+.PP
+Consultor de motivo de excepción\&. 
+.PP
+\fBPrecondición:\fP
+.RS 4
+Se ha generado una excepción 
+.RE
+.PP
+\fBPostcondición:\fP
+.RS 4
+Devuelve el motivo por el que se ha generado la excepción, si se proporciona, contenido en el mensaje msg 
+.RE
+.PP
+
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Calculadora de expresiones aritméticas del código fuente\&.

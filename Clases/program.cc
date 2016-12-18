@@ -27,6 +27,7 @@ int main() {
 	Environment env;
 	Expression exp;
 	while(read(env, exp)) {
+		writeExpression(exp);
 		exp.clear();
 	}
 	env.write();

@@ -34,7 +34,8 @@ bool isNum(string str);
 	\pre 'env' es un entorno con un espacio de operaciones primitivas inicializado con las operaciones primitivas predefinidas; 'exp' es una expresión vacía, buff es la expresion de entrada a tratar.
 	\post Se han leído los datos del buff y se han asignado a 'env' si eran una definición de una variable o operación o a 'exp' si representaban una expresión evaluable
 */
-bool readExpression(Environment& env, Expression& exp, string buff);
+bool readExpression(Environment& env, Expression& exp, string& inbuff);
+
 
 /** @brief Operación de escritura de expresiones
 
