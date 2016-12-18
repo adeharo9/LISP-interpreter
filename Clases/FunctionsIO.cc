@@ -11,6 +11,9 @@ bool isNum(string str){
 	string::const_iterator it = str.begin();
 	if((*it) == '-'){
 		it++;
+		if(!isdigit(*it)){
+			it--;
+		}
 	}
 	while (it != str.end() and isdigit(*it)){
 		it++;
@@ -19,6 +22,9 @@ bool isNum(string str){
 }
 
 void getString(string& buff, string& str) {
+	
+	cout<<"buffer: "<< buff << "\ninstr: " << str << "\n" << endl;
+
 	if(buff.empty()) {
 		cin >> buff;
 		getString(buff, str);
@@ -60,6 +66,7 @@ bool read(Environment& env, Expression& exp){
 		result = true;
 	}
 	else{
+		
 		inbuff.insert(0, instr);
 		cout<<"antes de llamar readExpression"<<endl;
 		result = readExpression(env, exp, inbuff);
@@ -72,56 +79,60 @@ bool read(Environment& env, Expression& exp){
 //post Escribe el valor de la expresión representada por 'exp' por el canal estándar de salida
 bool readExpression(Environment& env, Expression& exp, string& inbuff) {
 	string instr;
-	int parentesis;
-	parentesis = 0;
 	list<Expression*>::iterator it = exp.begin();
+	cout<<"inicio del readExpression"<<endl;
 
 
-	 while(instr != ")"){
-		
+	do{
+		cout<<"inicio del while"<<endl;
 		getString(inbuff, instr);
 
 		if (instr == "("){
 			cout<<"abrir parentesis"<<endl;
-			parentesis++;
-			readExpression(env, exp, inbuff);
+			Expression* pExp = new Expression;
+			exp.insert(exp.end() , pExp);
+			readExpression(env, *pExp, inbuff);
+		
 		}
+
 		else if (instr == ")"){
-			cout<<"cerrar parentesis = "<<parentesis<<endl;
-			parentesis--; 
+			cout<<"cerrar parentesis"<<endl; 
+			evaluate(exp, env);
+			cout<<"evaluate"<<endl;
+			cout<< exp.get_value() << endl;
+
 		}
+
 		else if (isNum(instr)){
 			cout<<"es numero"<<endl;
 			Expression* numExp = new Expression;
 			int num = stoi(instr);
-
 			(*numExp).set_value(num);
 			exp.insert(exp.end(), numExp);  /* Insert es con iterador no con el valor directamente */
-			 
+			
 		}
+
 		else if(env.exists_var(instr)){
 			cout<<"exit var"<<endl;
 			Expression* pExp = new Expression;
 			*pExp = env.get_var(instr);
 			exp.insert(exp.end() , pExp);
+			
 		}
+
 		else if (instr == "define"){  //verifica si existe este valor como operador, variable u otro, si no es asi lo crea con el valor
 			cout<<"define"<<endl;
 			define(instr, env);
-
 		}
+
 		else if (env.is_op(instr)){  // verifica que instr sea una operacion definida por el usuario o de las primitivas, en el caso de acierto terminamos de leer de forma recursiva y evaluamos.
 			cout<<"is operator"<<endl;
 			exp.set_op(instr);
-			readExpression(env, exp, inbuff);
-
+			
 		}
-	}
+	}while( instr!= ")");
 
-	evaluate(exp, env);
-	cout<<"evaluate"<<endl;
 	return true;
-
 }		
 
 void writeExpression(const Expression& exp) {
@@ -160,6 +171,7 @@ void evaluate(Expression& exp, Environment& env){
 		paramExp = envcopy.get_op(exp.get_op()); 
 		list<Expression*>::const_iterator itlist = exp.begin();
 		string instr;
+		
 
 		while(!paramExp.first.empty() and itlist != exp.end()){
 			getString(paramExp.first, instr);
@@ -193,6 +205,7 @@ void define(string Ininstrn, Environment& env){
 		string variable;
 		getString(definition, instr);
 		variable = instr;
+
 		readExpression(env, exp, definition);
 		
 		if(!exp.undefined()){
