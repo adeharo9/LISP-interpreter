@@ -60,6 +60,10 @@ string& Input::next() {
 	}
 	else {
 		str.clear();
+		/* INVARIANTE
+			'str' contiene una cadena de caracteres que va aumentando por su final
+			'buff' contiene una cadena de caracteres que se va reduciendo por su inicio
+		*/
 		while(not buff.empty() and buff[0] != '(' and buff[0] != ')' and buff[0] != ' ') {
 			str+=buff[0];
 			buff.erase(0,1);
@@ -82,38 +86,22 @@ void Input::previous() {
 string Input::nextExpression() {
 	int aux = p;
 	string str = next();
+	/* INVARIANTE
+		'str' es la porción de entrada leída desde la condición inicial p = aux hasta el estado actual de p
+	*/
 	while(p > aux) {
 		str += ' ' + next();
 	}
-	/*do {
-		str += next() + ' ';
-	} while(p > aux);*/
 	return str;
 }
 
 void Input::endOfExpression() {
+	/* INVARIANTE
+		'p' es el número de paréntesis abiertos que quedan por cerrar en el momento de la lectura de entrada mediante el método next()
+	*/
 	while(p > 0) {
 		next();
 	}
-}
-
-int Input::countExpressions() {
-	int c = 0;
-	int aux = p;
-	next();
-	while(str != ")") {
-		if(str != "(") {
-			++c;
-		}
-		else {
-			do {
-				next();
-			} while(p > aux);
-			++c;
-		}
-		next();
-	}
-	return c;
 }
 
 //_______ CONSULTORES
