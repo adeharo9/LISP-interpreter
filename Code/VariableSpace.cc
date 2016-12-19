@@ -48,6 +48,9 @@ Expression& VariableSpace::get(string key) {
 void VariableSpace::write() const {
 	cout << "Variables:" << endl;
 	map<string, Expression>::const_iterator c_it = varMap.begin();
+	/* INVARIANTE
+		varMap.begin() <= c_it < varMap.end()
+	*/
 	while(c_it != varMap.end()) {
 		cout << c_it -> first << " ";
 		c_it -> second.write();

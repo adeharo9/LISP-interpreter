@@ -128,21 +128,21 @@ public:
     */
 	bool exists_var(string key) const;
 
-	/** @brief Consultora de existencia de operación
+	/** @brief Consultora de existencia de operación definida por el usuario
 
     	\pre 'key' es un string no vacío
-    	\post Devuelve cierto si la operación con nombre 'key' existe en el espacio de operaciones del parámetro implícito; en otro caso, devuelve falso
+    	\post Devuelve cierto si la operación con nombre 'key' existe en el espacio de operaciones definidas por el usuario del parámetro implícito; en otro caso, devuelve falso
     */
 	bool exists_op(string key) const;
 
-	/** @brief Consultora de operación primitiva
+	/** @brief Consultora de recuperación de operación primitiva
 
     	\pre 'key' es un string no vacío; el espacio de operaciones primitivas del parámetro implícito contiene una operación primitiva con nombre 'key'
     	\post Devuelve la operación primitiva de nombre 'key'
     */
 	primitiveOperation get_prim(string key);
 
-	/** @brief Consultora de variable
+	/** @brief Consultora de recuperación de variable
 
     	\pre 'key' es un string no vacío; el espacio de variables del parámetro implícito contiene una variable con nombre 'key'
     	\post Devuelve un alias de la expresión representada por la variable de nombre 'key'
@@ -156,9 +156,9 @@ public:
     */
 	pair<string, string> get_op(string key);
 
-	/** @brief Consultora de número de parámetros de operación
+	/** @brief Consultora de número de parámetros de operación definida por el usuario
 
-    	\pre 'key' es un string no vacío; el espacio de operaciones del parámetro implícito contiene una operación con nombre 'key'
+    	\pre 'key' es un string no vacío; el espacio de operaciones definidas por el usuario del parámetro implícito contiene una operación con nombre 'key'
     	\post Devuelve el número de parámetros de entrada de la operación de nombre 'key'
     */
 	int num_pars_op(string key);

@@ -80,40 +80,40 @@ public:
 
 	//_______ CONSULTORES
 
-    /** @brief Consultora de mapa vacío
+    /** @brief Consultora de parámetro implícito vacío
 
     	\pre <em>Cierto</em>
-    	\post Devuelve cierto si el mapa de variables 'varMap' está vacío
+    	\post Devuelve cierto si el parámetro implícito está vacío
     */
     bool empty() const;
 
     /** @brief Consultora de existencia de variable
 
     	\pre 'key' es un string no vacío
-    	\post Devuelve cierto si la variable con nombre 'key' existe en el mapa de variables 'varMap' del parámetro implícito; en otro caso, devuelve falso
+    	\post Devuelve cierto si la variable con nombre 'key' existe en el parámetro implícito; en otro caso, devuelve falso
     */
     bool exists(string key) const;
 
     /** @brief Consultora de recuperación de variable
 
-    	\pre 'key' es un string no vacío; el mapa de variables 'varMap' del parámetro implícito contiene una variable con nombre 'key'
+    	\pre 'key' es un string no vacío; el parámetro implícito contiene una variable con nombre 'key'
     	\post Devuelve la expresión representada por la variable de nombre 'key'
     */
     Expression& get(string key) ;
 
 	//_______ I/O
 
-	/** @brief Operación de escritura de todo el espacio de variables
+	/** @brief Operación de escritura del espacio de variables definidas por el usuario
 
-		\pre El mapa de variables 'varMap' del parámetro implícito no está vacío
-		\post Se ha escrito el contenido del mapa de variables 'varMap' del parámetro implícito por el canal estándar de salida; en caso que el resultado de evaluar la expresión sea indefinido, se escribe "indefinido"
+		\pre El parámetro implícito no está vacío
+		\post Se ha escrito el contenido delparámetro implícito por el canal estándar de salida
 	*/
 	void write() const;
 
-	/** @brief Operación de escritura de una variable concreta
+	/** @brief Operación de escritura de variable definida por el usuario
 
-		\pre 'key' es un string no vacío; el mapa de variables 'varMap' del parámetro implícito contiene una variable con nombre 'key'
-		\post Se ha escrito el contenido de la variable con nombre 'key' por el canal estándar de salida; en caso que el resultado de evaluar la expresión sea indefinido, se escribe "indefinido"
+		\pre 'key' es un string no vacío; el parámetro implícito contiene una variable con nombre 'key'
+		\post Se ha escrito el contenido de la variable con nombre 'key' por el canal estándar de salida
 	*/
 	void write_var(string key);
 

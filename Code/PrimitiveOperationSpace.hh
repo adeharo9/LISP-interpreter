@@ -43,21 +43,21 @@ private:
 	*/
 	static void sum(Expression& exp);
 
-	/** @brief Operación de negación
+	/** @brief Operación de cambio de signo
 
 		\pre 'exp' = 'EXP'
 		\post Si 'EXP' era una lista con un puntero a una expresión entera, 'exp' pasa a contener el valor de la expresión entera cambiado de signo; en otro caso, 'exp' pasa a ser indefinido
 	*/
 	static void neg(Expression& exp);
 
-	/** @brief Operación de empalme de valor en lista
+	/** @brief Operación de empalme de elemento en lista
 
 		\pre 'exp' = 'EXP'
 		\post Si 'EXP' era una lista con un puntero a una expresión entera y un puntero a una expresión lista de expresiones enteras, 'exp' pasa a tener una lista con la expresión entera como cabeza de la lista; en otro caso, 'exp' pasa a ser indefinido
 	*/
 	static void cons(Expression& exp);
 
-	/** @brief Operación de separación de primer valor de lista
+	/** @brief Operación de separación de primer elemento de lista
 
 		\pre 'exp' = 'EXP'
 		\post Si 'EXP' era una lista no vacía de punteros a expresiones enteras, 'exp' pasa a ser el valor apuntado por el primer puntero de la lista; en otro caso, 'exp' pasa a ser indefinido
