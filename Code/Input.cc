@@ -108,11 +108,17 @@ int Input::countExpressions() {
 	int c = 0;
 	int aux = p;
 	next();
+	/* INVARIANTE
+		c es la cantidad de expresiones que hay contenidas en la entrada desde p = aux hasta la iteración actual
+	*/
 	while(str != ")") {
 		if(str != "(") {
 			++c;
 		}
 		else {
+			/* INVARIANTE
+				p >= aux
+			*/
 			do {
 				next();
 			} while(p > aux);

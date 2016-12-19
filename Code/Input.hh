@@ -136,7 +136,7 @@ public:
 	*/
 	int get_p() const;
 
-	/** @brief Consultora de buffer
+	/** @brief Consultora de buffer de entrada
 
 		\pre <em>Cierto</em>
 		\post Devuelve el contenido del buffer de entrada
