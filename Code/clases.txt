@@ -1,0 +1,31 @@
+ El volumen de la unidad C es OS
+ El n£mero de serie del volumen es: 4236-FEC0
+
+ Directorio de C:\Users\sergi\Documents\FIB\programacion 2 FIB\Proyecto\PRO2-Practica\Code
+
+19/12/2016  03:26 p. m.    <DIR>          .
+19/12/2016  03:26 p. m.    <DIR>          ..
+19/12/2016  02:50 p. m.    <DIR>          backup_161216
+19/12/2016  02:50 p. m.    <DIR>          backup_191216
+19/12/2016  03:26 p. m.                 0 clases.txt
+19/12/2016  02:50 p. m.             1.901 Environment.cc
+19/12/2016  02:50 p. m.             7.468 Environment.hh
+19/12/2016  02:50 p. m.             5.878 Expression.cc
+19/12/2016  02:50 p. m.            12.393 Expression.hh
+19/12/2016  02:50 p. m.             5.069 FunctionsIO.cc
+19/12/2016  02:50 p. m.             1.470 FunctionsIO.hh
+19/12/2016  02:50 p. m.             1.826 Input.cc
+19/12/2016  02:50 p. m.             1.348 Input.hh
+19/12/2016  02:50 p. m.             1.923 Makefile
+19/12/2016  02:50 p. m.             1.478 OperationSpace.cc
+19/12/2016  03:13 p. m.             4.274 OperationSpace.hh
+19/12/2016  02:50 p. m.             4.690 PrimitiveOperationSpace.cc
+19/12/2016  02:50 p. m.             5.388 PrimitiveOperationSpace.hh
+19/12/2016  02:50 p. m.               813 program.cc
+19/12/2016  02:50 p. m.           147.784 program.exe
+19/12/2016  02:50 p. m.    <DIR>          testgames
+19/12/2016  02:50 p. m.               532 tg
+19/12/2016  02:50 p. m.             1.132 VariableSpace.cc
+19/12/2016  02:50 p. m.             3.598 VariableSpace.hh
+              19 archivos        208.965 bytes
+               5 dirs  33.083.039.744 bytes libres
