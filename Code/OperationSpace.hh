@@ -12,7 +12,7 @@
 using namespace std;
 
 /** @class OperationSpace
-    @brief Representa un espacio de operaciones definidas por el usuario en forma de mapa de variables
+    @brief Espacio de almacenamiento de operaciones definidas por el usuario
 */
 
 class OperationSpace {
@@ -25,9 +25,9 @@ private:
 
 	//________ATRIBUTOS
 
-	/** @brief Atributo de expresion
+	/** @brief Atributo de definición de expresión
 
-		Atributo que contiene el número de parametros, parametros y expresión de una operación definida por el usuario.
+		Atributo que contiene el número de parámetros, los parámetros y la expresión de una operación definida por el usuario
 	*/
     struct definition {
     	int n_parameters;
@@ -35,18 +35,18 @@ private:
         string exp;
     };
     
-    /** @brief Atributo de OperationSpace
+    /** @brief Mapa de operaciones definidas por el usuario
 		
-		Mapa de operaciones definidas por el usuario con 'key' nombre de operación y 'valor' la expresión definida para esta operación.
+		Atributo que almacena las operaciones definidas por el usuario con su identificador como clave
     */
     map<string, definition> opMap;
 
-    /** @brief Método privado que cuenta la cantidad de parametros de una operación definida por el usuario
+    /** @brief Método privado de cálculo de número de parámetros
 
-    	\pre 	<em>Cierto</em>
-    	\post	Devuelve la cantidad de parametros contenidos en la variable 'parameters'
+    	\pre <em>Cierto</em>
+    	\post Devuelve el número de parámetros contenidos en la variable 'parameters'
     */
-    static int countVars(string parameters);
+    static int count_vars(string parameters);
 
 public:
 
@@ -56,7 +56,7 @@ public:
 
 		Se ejecuta automáticamente al declarar un nuevo espacio de operaciones
 		\pre <em>Cierto</em>
-		\post Crea un objeto con mapa de operaciones 'opMap' vacío
+		\post Crea un objeto vacío
 	*/
 	OperationSpace();
 
@@ -74,54 +74,54 @@ public:
 
 	/** @brief Modificadora por establecimiento de operación
 
-		\pre 'key' es un string no vacío; 'key' no corresponde al nombre de ninguna de las operaciones primitivas; el mapa de operaciones 'opMap' del parámetro implícito no contiene ninguna operación con clave 'key'
-		\post Se añade al mapa de operaciones 'opMap' del parámetro implícito la operacion con clave 'key', parámetros 'parameters' y expresión 'exp'
+		\pre 'key' es un string no vacío; 'key' no corresponde al nombre de ninguna de las operaciones primitivas ni al nombre de ninguna de las variables definidas por el usuario
+		\post Se añade al parámetro implícito la operacion con nombre 'key', parámetros 'parameters' y expresión 'exp', o se actualizan sus parámetros a 'parameters' y su expresión a 'exp' si ya existía previamente
 	*/
 	void set(string key, string parameters, string exp);
 
 	//_______ CONSULTORES
 
-	/** @brief Consultora de mapa vacío
+	/** @brief Consultora de parámetro implícito vacío
 
     	\pre <em>Cierto</em>
-    	\post Devuelve cierto si el mapa de operaciones 'opMap' está vacío
+    	\post Devuelve cierto si el parámetro implícito está vacío
     */
 	bool empty() const;
 
     /** @brief Consultora de existencia de operación
 
     	\pre 'key' es un string no vacío
-    	\post Devuelve cierto si la operación con clave 'key' existe en el mapa de operaciones 'opMap' del parámetro implícito; en otro caso, devuelve falso
+    	\post Devuelve cierto si la operación con nombre 'key' existe en el parámetro implícito; en otro caso, devuelve falso
     */
     bool exists(string key) const;
 
     /** @brief Consultora de recuperación de operación
 
-    	\pre 'key' es un string no vacío; El parámetro implícito contiene una operación con valor 'key'
-    	\post Devuelve los parámetros y la expresión, respectivamente, de la operación representada por el valor 'key'
+    	\pre 'key' es un string no vacío; el parámetro implícito contiene una operación con valor 'key'
+    	\post Devuelve los parámetros y la expresión, respectivamente contenidos en forma de pair, de la operación de nombre 'key'
     */
     pair<string, string> get(string key);
 
     /** @brief Consultora de número de parámetros
 
-    	\pre 'key' es un string no vacío; El parámetro implícito contiene una operación con valor 'key'
-    	\post Devuelve el número de parámetros de la operación representada por el valor 'key'
+    	\pre 'key' es un string no vacío; el parámetro implícito contiene una operación de nombre'key'
+    	\post Devuelve el número de parámetros de la operación de nombre 'key'
     */
     int num_pars(string key) ;
 
 	//_______ I/O
 
-	/** @brief Operación de escritura de todo el espacio de operaciones
+	/** @brief Operación de escritura del espacio de operaciones definidas por el usuario
 
-		\pre Existen operaciones definidas previamente por el usuario en OperationSpace.
-		\post Se han escrito las operaciones definidas por el usuario, por el canal estándar de salida
+		\pre <em>Cierto</em>
+		\post Se han escrito las operaciones definidas por el usuario por el canal estándar de salida
 	*/
 	void write() const;
 
-	/** @brief Operación de escritura de una operación concreta
+	/** @brief Operación de escritura de operación definida por el usuario
 
-		\pre 'key' es un string no vacío; El parámetro implícito contiene una	operación con valor 'key'
-		\post Se ha escrito el contenido de la operación con valor 'key' por el canal estándar de salida
+		\pre 'key' es un string no vacío; el parámetro implícito contiene una operación de nombre 'key'
+		\post Se ha escrito el contenido de la operación de nombre 'key' por el canal estándar de salida
 	*/
 	void write_op(string key);
 

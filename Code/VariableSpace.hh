@@ -105,8 +105,8 @@ public:
 
 	/** @brief Operación de escritura del espacio de variables definidas por el usuario
 
-		\pre El parámetro implícito no está vacío
-		\post Se ha escrito el contenido delparámetro implícito por el canal estándar de salida
+		\pre <em>Cierto</em>
+		\post Se ha escrito el contenido del parámetro implícito por el canal estándar de salida
 	*/
 	void write() const;
 

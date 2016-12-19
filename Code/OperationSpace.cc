@@ -6,8 +6,11 @@ using namespace std;
 
 //_______ MÉTODOS PRIVADOS
 
-int OperationSpace::countVars(string parameters) {
+int OperationSpace::count_vars(string parameters) {
 	int c = not parameters.empty();
+	/* INVARIANTE
+		c es el número de parámetros que hay contenidos en el string 'parameters' en el rango [0...i]
+	*/
 	for(int i = 1; i < parameters.size(); ++i) {
 		if(parameters[i] == ' ') {
 			++c;
@@ -30,7 +33,7 @@ OperationSpace::~OperationSpace() {
 
 void OperationSpace::set(string key, string parameters, string exp) {
 	definition aux;
-	aux.n_parameters = countVars(parameters);
+	aux.n_parameters = count_vars(parameters);
 	aux.parameters = parameters;
 	aux.exp = exp;
 	opMap[key] = aux;
@@ -60,6 +63,9 @@ int OperationSpace::num_pars(string key) {
 void OperationSpace::write() const {
 	cout << "Operacions:" << endl;
 	map<string, definition>::const_iterator c_it = opMap.begin();
+	/* INVARIANTE
+		opMap.begin() <= c_it < opMap.end()
+	*/
 	while(c_it != opMap.end()) {
 		cout << c_it -> first << " #" << c_it -> second.n_parameters << endl;
 		++c_it;
