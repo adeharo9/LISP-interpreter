@@ -172,15 +172,6 @@ void Expression::swap_list(Expression& inExp) {
 	lExp.swap(inExp.lExp);
 }
 
-void Expression::move_list(Expression& inExp) {
-	if(this != &inExp) {
-		rm_exp_list_excep(lExp, inExp);
-		lExp = inExp.lExp;
-		inExp.lExp.clear();
-		inExp.clear();
-	}
-}
-
 void Expression::set_undefined() {
 	if(type != 0) {
 		type = 0;
@@ -265,15 +256,6 @@ int Expression::get_value() const {
 
 string Expression::get_op() const {
 	return op;
-}
-
-void Expression::whatis() const {
-		cout << "Expression status" << endl;
-		cout << "undefined: " << (type == 0) << endl;
-		cout << "empty: " << (type == 1) << endl;
-		cout << "val: " << (type == 2) << endl;
-		cout << "op: " << (type == 3) << endl;
-		cout << "list: " << (type == 4) << endl;
 }
 
 //_______ ITERADORES
