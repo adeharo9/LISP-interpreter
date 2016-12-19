@@ -23,14 +23,29 @@ private:
 		Las operaciones no son revisadas al introducirse en el mapa de operaciones
 	*/
 
+	//________ATRIBUTOS
+
+	/** @brief Atributo de expresion
+
+		Atributo que contiene el número de parametros, parametros y expresión de una operación definida por el usuario.
+	*/
     struct definition {
     	int n_parameters;
         string parameters;
         string exp;
     };
     
+    /** @brief Atributo de OperationSpace
+		
+		Mapa de operaciones definidas por el usuario con 'key' nombre de operación y 'valor' la expresión definida para esta operación.
+    */
     map<string, definition> opMap;
 
+    /** @brief Método privado que cuenta la cantidad de parametros de una operación definida por el usuario
+
+    	\pre 	<em>Cierto</em>
+    	\post	Devuelve la cantidad de parametros contenidos en la variable 'parameters'
+    */
     static int countVars(string parameters);
 
 public:
@@ -82,15 +97,15 @@ public:
 
     /** @brief Consultora de recuperación de operación
 
-    	\pre 'key' es un string no vacío; el mapa de operaciones 'opMap' del parámetro implícito contiene una operación con clave 'key'
-    	\post Devuelve los parámetros y la expresión, respectivamente, en forma de pair, de la operación representada por la clave 'key'
+    	\pre 'key' es un string no vacío; El parámetro implícito contiene una operación con valor 'key'
+    	\post Devuelve los parámetros y la expresión, respectivamente, de la operación representada por el valor 'key'
     */
     pair<string, string> get(string key);
 
     /** @brief Consultora de número de parámetros
 
-    	\pre 'key' es un string no vacío; el mapa de operaciones 'opMap' del parámetro implícito contiene una operación con clave 'key'
-    	\post Devuelve el número de parámetros de la operación representada por la clave 'key'
+    	\pre 'key' es un string no vacío; El parámetro implícito contiene una operación con valor 'key'
+    	\post Devuelve el número de parámetros de la operación representada por el valor 'key'
     */
     int num_pars(string key) ;
 
@@ -98,15 +113,15 @@ public:
 
 	/** @brief Operación de escritura de todo el espacio de operaciones
 
-		\pre El mapa de operaciones 'opMap' del parámetro implícito no está vacío
-		\post Se ha escrito el contenido del mapa de operaciones 'opMap' del parámetro implícito por el canal estándar de salida
+		\pre Existen operaciones definidas previamente por el usuario en OperationSpace.
+		\post Se han escrito las operaciones definidas por el usuario, por el canal estándar de salida
 	*/
 	void write() const;
 
 	/** @brief Operación de escritura de una operación concreta
 
-		\pre 'key' es un string no vacío; el mapa de operaciones 'opMap' del parámetro implícito contiene una	operación con clave 'key'
-		\post Se ha escrito el contenido de la operación con clave 'key' por el canal estándar de salida
+		\pre 'key' es un string no vacío; El parámetro implícito contiene una	operación con valor 'key'
+		\post Se ha escrito el contenido de la operación con valor 'key' por el canal estándar de salida
 	*/
 	void write_op(string key);
 
