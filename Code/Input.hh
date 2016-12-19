@@ -19,6 +19,10 @@ class Input {
 
 private:
 
+	/* INVARIANTE
+		p >= 0
+	*/
+
 	/** @brief Contador de paréntesis
 		Representa la cantidad de paréntesis que se encuentran abiertos en un momento determinado de la lectura de entrada
 	*/
@@ -105,21 +109,21 @@ public:
 	/** @brief Siguiente expresión
 
 		\pre <em>Cierto</em>
-		\post 
+		\post Procesa toda la entrada correspondiente a una expresión y prepara la entrada para leer lo que hay después de la misma; devuelve la expresión que acaba de procesar como un string
 	*/
 	string nextExpression();
 
-	/** @brief Fin de buffer
+	/** @brief Fin de expresión
 
-		\pre 
-		\post 
+		\pre <em>Cierto</em>
+		\post Ignora toda entrada situada antes del final de la expresión y prepara la entrada para leer lo que hay después de la misma
 	*/
 	void endOfExpression();
 
-	/** @brief Fin de buffer
+	/** @brief Contador de expresiones
 
-		\pre 
-		\post 
+		\pre <em>Cierto</em>
+		\post Devuelve el número de expresiones que hay contenidas en el buffer de entrada
 	*/
 	int countExpressions();
 
@@ -127,22 +131,22 @@ public:
 
 	/** @brief Consultora de cantidad de paréntesis abiertos
 
-		\pre 
-		\post 
+		\pre <em>Cierto</em>
+		\post Devuelve la cantidad de paréntesis que se encuentran abiertos en un momento determinado de la lectura de entrada 
 	*/
 	int get_p() const;
 
 	/** @brief Consultora de buffer
 
-		\pre 
-		\post 
+		\pre <em>Cierto</em>
+		\post Devuelve el contenido del buffer de entrada
 	*/
 	string get_buff() const;
 
 	/** @brief Cosultora de texto de tratamiento inmediato
 
-		\pre 
-		\post 
+		\pre <em>Cierto</em>
+		\post Devuelve el contenido del texto de tratamiento inmediato
 	*/
 	string get_str() const;
 
