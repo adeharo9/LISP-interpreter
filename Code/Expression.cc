@@ -16,11 +16,17 @@ list<Expression*> Expression::cp_exp_list(const list<Expression*>& lExp) {
 	list<Expression*> aux;
 	Expression* pAux;
 	const_iter c_it = lExp.begin();
+	/* INVARIANTE
+		c_it es un iterador a un elemento de la lista de expresiones del parámetro implícito comprendido entre lExp.begin() y lExp.end()
+	*/
 	while(c_it != lExp.end()){
 		pAux = new Expression;
 		pAux -> type = (*c_it) -> type;
 		pAux -> val = (*c_it) -> val;
 		pAux -> op = (*c_it) -> op;
+		/* HI
+			cp_exp_list devuelve una lista de punteros que apuntan a una copia en memoria de los objetos apuntados por la lista pasada como parámetro
+		*/
 		pAux -> lExp = cp_exp_list((*c_it) -> lExp);
 		aux.insert(aux.end(), pAux);
 		++c_it;
@@ -111,6 +117,13 @@ bool Expression::operator == (const Expression& inExp) const {
 		if(lExp.size() == inExp.lExp.size()) {
 			const_iter c_it1 = lExp.begin();
 			const_iter c_it2 = inExp.lExp.begin();
+			/* INVARIANTE
+				c_it1 es un iterador a un elemento de la lista de expresiones del parámetro implícito comprendido entre lExp.begin() y lExp.end()
+				c_it2 es un iterador a un elemento de la lista de expresiones de 'inExp' comprendido entre inExp.lExp.begin() y inExp.lExp.end()
+			*/
+			/* HI
+				*(*c_it1) == *(*c_it2) devuelve 'true' si ambas expresiones son iguales y 'false' en otro caso
+			*/
 			while(c_it1 != lExp.end() and (*(*c_it1) == *(*c_it2))) {
 				++c_it1;
 				++c_it2;
@@ -133,10 +146,17 @@ bool Expression::operator < (const Expression& inExp) const {
 	else if(type == 4 and inExp.type == 4) {
 		const_iter c_it1 = lExp.begin();
 		const_iter c_it2 = inExp.lExp.begin();
+		/* INVARIANTE
+			c_it1 es un iterador a un elemento de la lista de expresiones del parámetro implícito comprendido entre lExp.begin() y lExp.end()
+			c_it2 es un iterador a un elemento de la lista de expresiones de 'inExp' comprendido entre inExp.lExp.begin() y inExp.lExp.end()
+		*/
 		while(c_it1 != lExp.end() and c_it2 != inExp.lExp.end() and (*(*c_it1) == *(*c_it2))) {
 			++c_it1;
 			++c_it2;
 		}
+		/* HI
+			*(*c_it1) < *(*c_it2)) devuelve 'true' si la expresión de la izquierda del operador es lexicográficamente menor estricta que la de la derecha del operador
+		*/
 		return (c_it1 == lExp.end() and c_it2 != inExp.lExp.end()) or (c_it1 != lExp.end() and c_it2!= inExp.lExp.end() and *(*c_it1) < *(*c_it2));
 	}
 	else {
@@ -296,6 +316,9 @@ void Expression::write() const {
 			const_iter c_it = lExp.begin();
 			cout << (*c_it) -> val;
 			++c_it;
+			/* INVARIANTE
+				c_it es un iterador a un elemento de la lista de expresiones del parámetro implícito comprendido entre lExp.begin() y lExp.end()
+			*/
 			while(c_it != lExp.end()) {
 				cout << " " << (*c_it) -> val;
 				++c_it;
