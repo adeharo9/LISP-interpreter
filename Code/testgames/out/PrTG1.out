@@ -1,0 +1,84 @@
+diff #2
+* #2
+/ #2
+true 1
+false 0
+xor #2
+nor #2
+nand #2
+++ #1
+-- #1
+% #2
+^ #2
+! #1
+abs #1
+count #1
+> #2
+<= #2
+>= #2
+== #2
+!= #2
+max #2
+min #2
+length #1
+last #1
+real #2
+ceil #1
+floor #1
+fibonacci #1
+1
+2808
+25
+1
+1
+0
+2
+-1
+1
+512
+479001600
+9435
+4
+1
+0
+1
+0
+1
+47568
+34
+7
+2
+(4 5)
+(5 0)
+(4 0)
+10946
+Variables:
+false 0
+true 1
+Operacions:
+! #1
+!= #2
+% #2
+* #2
+++ #1
+-- #1
+/ #2
+<= #2
+== #2
+> #2
+>= #2
+^ #2
+abs #1
+ceil #1
+count #1
+diff #2
+fibonacci #1
+floor #1
+last #1
+length #1
+max #2
+min #2
+nand #2
+nor #2
+real #2
+xor #2

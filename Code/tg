@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [[ -n "$1" ]]; then
+	if [[ -n "$2" ]]; then
+		if [[ -n "$3" ]]; then
+			printf "Usage: ./tg in_file [out_file] \n"
+			printf "	in_file --> Input test game file\n"
+			printf "	out_file --> Output test game file (optional)\n"
+		else
+			./program.exe < ./testgames/in/$1 > ./testgames/out/$2
+		fi
+	else
+		./program.exe < ./testgames/in/$1
+	fi
+else
+	printf "Usage: ./tg in_file [out_file] \n"
+	printf "	in_file --> Input test game file\n"
+	printf "	out_file --> Output test game file (optional)\n"
+fi
