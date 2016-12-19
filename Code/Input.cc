@@ -85,14 +85,14 @@ void Input::previous() {
 
 string Input::nextExpression() {
 	int aux = p;
-	string str = next();
+	string auxStr = next();
 	/* INVARIANTE
-		'str' es la porción de entrada leída desde la condición inicial p = aux hasta el estado actual de p
+		'auxStr' es la porción de entrada leída desde la condición inicial p = aux hasta el estado actual de p
 	*/
 	while(p > aux) {
-		str += ' ' + next();
+		auxStr += ' ' + next();
 	}
-	return str;
+	return auxStr;
 }
 
 void Input::endOfExpression() {
@@ -102,6 +102,25 @@ void Input::endOfExpression() {
 	while(p > 0) {
 		next();
 	}
+}
+
+int Input::countExpressions() {
+	int c = 0;
+	int aux = p;
+	next();
+	while(str != ")") {
+		if(str != "(") {
+			++c;
+		}
+		else {
+			do {
+				next();
+			} while(p > aux);
+			++c;
+		}
+		next();
+	}
+	return c;
 }
 
 //_______ CONSULTORES

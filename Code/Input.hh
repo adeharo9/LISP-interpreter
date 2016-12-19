@@ -81,8 +81,8 @@ public:
 
 	/** @brief Operación de introducción de buffer
 
-		\pre 
-		\post 
+		\pre <em>Cierto</em>
+		\post El buffer del parámetro implícito pasa a ser 'buff'
 	*/
 	void operator << (string buff);
 
@@ -90,21 +90,21 @@ public:
 
 	/** @brief Siguiente elemento a tratar
 
-		\pre 
-		\post 
+		\pre <em>Cierto</em>
+		\post Se ha actualizado el texto de tratamiento inmediato, así como el buffer de entrada y el contador de paréntesis
 	*/
 	string& next();
 
 	/** @brief Anterior elemento a tratar 
 
-		\pre 
-		\post 
+		\pre <em>Cierto</em>
+		\post El buffer de entrada pasa a contener el texto de tratamiento inmediato a su inicio, y el contador de paréntesis se ha actualizado convenientemente; el texto de tratamiento inmediato pasa a estar vacío
 	*/
 	void previous();
 
 	/** @brief Siguiente expresión
 
-		\pre 
+		\pre <em>Cierto</em>
 		\post 
 	*/
 	string nextExpression();
@@ -115,6 +115,13 @@ public:
 		\post 
 	*/
 	void endOfExpression();
+
+	/** @brief Fin de buffer
+
+		\pre 
+		\post 
+	*/
+	int countExpressions();
 
 //_______ CONSULTORES
 

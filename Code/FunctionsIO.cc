@@ -23,10 +23,6 @@ bool is_num(string str) {
 	return not str.empty() and i == str.size() and str[i-1] != '-';
 }
 
-bool is_valid(Environment& env, string str) {
-	return str == "(" or str == ")" or is_num(str) or env.exists(str);
-}
-
 void createLocalVarSpace(Environment& env, Expression& exp, string parameters) {
 	Input in;
 	in << parameters;
@@ -89,47 +85,22 @@ void readList(Environment& env, Expression& exp, Input& in) {
 	}
 }
 
-bool check(Environment& env, Input& in) {
-	while(is_valid(env, ++in) and in.get_p() > 0);
-	return is_valid(env, in.get_str()) and in.get_p() == 0;
-}
-
 void readIf(Environment& env, Expression& exp, Input& in) {
 	string str;
 	Expression* pExp = new Expression;
 	readExpression(env, *pExp, in);
 	exp.insert(exp.end(), pExp);
-	if(pExp -> is_bool() and ++in != ")"){
+	if(pExp -> is_bool()){
 		int b = pExp -> get_value();
 		if(b == 0) {
-			--in;
-			string aux = in.nextExpression();
-			Input auxIn;
-			auxIn << aux;
-			if(not check(env, auxIn)) {
-				exp.set_undefined();
-			}
-			else {
-				++in;
-			}
+			in.nextExpression();
 		}
-		if(in.get_p() > 0 and not exp.undefined()) {
+		if(in.get_p() > 0) {
+			++in;
 			pExp = new Expression;
 			readExpression(env, *pExp, in);
 			exp.insert(exp.end(), pExp);
-			if(pExp -> undefined() or (b == 1 and ++in == ")")) {
-				exp.set_undefined();
-			}
-			else if(b == 1) {
-				--in;
-				string aux = in.nextExpression();
-				Input auxIn;
-				auxIn << aux;
-				if(not check(env, auxIn)) {
-					exp.set_undefined();
-				}
-			}
-			if(not exp.undefined() and  ++in != ")") {
+			if(pExp -> undefined() or  (2 - b + in.countExpressions() != 2)) {
 				exp.set_undefined();
 			}
 		}
