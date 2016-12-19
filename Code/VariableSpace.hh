@@ -14,7 +14,7 @@
 using namespace std;
 
 /** @class VariableSpace
-    @brief Representa un espacio de variables definidas por el usuario en forma de mapa de variables
+    @brief Espacio de almacenamiento de variables definidas por el usuario
 */
 
 class VariableSpace {
@@ -22,10 +22,15 @@ class VariableSpace {
 private:
 
     /* INVARIANTE
-    	Todas las expresiones que intervienen en operaciones de adición o de modificación de una variable se evalúan previamente a la ejecución de dichas operaciones
+    	No hay variables indefinidas
+    	Toda variable se guarda como expresión representativa o bien de un valor entero o biend e una lista de enteros
 
     */
 
+	/** @brief Mapa de variables definidas por el usuario
+	
+		Atributo que almacena las variables definidas por el usuario con su identificador como clave
+	*/
     map<string, Expression> varMap;
 
 public:
@@ -36,7 +41,7 @@ public:
 
 		Se ejecuta automáticamente al declarar un nuevo espacio de variables
 		\pre <em>Cierto</em>
-		\post Crea un objeto con mapa de variables 'varMap' vacío
+		\post Crea un objeto vacío
 	*/
 	VariableSpace();
 
@@ -59,17 +64,17 @@ public:
 
 	//_______ MODIFICADORES
 
-	/** @brief Modificadora por eliminación de contenido de mapa
+	/** @brief Modificadora por eliminación de contenido
 
 		\pre <em>Cierto</em>
-		\post Elimina el contenido del mapa 'varMap'
+		\post Elimina el contenido del parámetro implícito, que pasa a estar vacío
 	*/
 	void clear();
 
 	/** @brief Modificadora por establecimiento de variable
 
-		\pre 'key' es un string no vacío; el mapa de variables 'varMap' del parámetro implícito no contiene ninguna variable con clave 'key'
-		\post Se añade al mapa de variables 'varMap' del parámetro implícito la variable con clave 'key' y expresión 'exp'
+		\pre 'key' es un string no vacío; 'key' no corresponde al nombre de ninguna de las operaciones primitivas predefinidas ni al nombre de ninguna de las operaciones definidas por el usuario; 'exp' no es una expresión indefinida
+		\post Se añade al parámetro implícito la variable con nombre 'key' y expresión 'exp', o se actualiza su expresión a 'exp' si ya existía previamente
 	*/
 	void set(string key, const Expression& exp);
 
@@ -85,14 +90,14 @@ public:
     /** @brief Consultora de existencia de variable
 
     	\pre 'key' es un string no vacío
-    	\post Devuelve cierto si la variable con clave 'key' existe en el mapa de variables 'varMap' del parámetro implícito; en otro caso, devuelve falso
+    	\post Devuelve cierto si la variable con nombre 'key' existe en el mapa de variables 'varMap' del parámetro implícito; en otro caso, devuelve falso
     */
     bool exists(string key) const;
 
     /** @brief Consultora de recuperación de variable
 
-    	\pre 'key' es un string no vacío; el mapa de variables 'varMap' del parámetro implícito contiene una variable con clave 'key'
-    	\post Devuelve la expresión representada por la variable de clave 'key'
+    	\pre 'key' es un string no vacío; el mapa de variables 'varMap' del parámetro implícito contiene una variable con nombre 'key'
+    	\post Devuelve la expresión representada por la variable de nombre 'key'
     */
     Expression& get(string key) ;
 
@@ -107,8 +112,8 @@ public:
 
 	/** @brief Operación de escritura de una variable concreta
 
-		\pre 'key' es un string no vacío; el mapa de variables 'varMap' del parámetro implícito contiene una variable con clave 'key'
-		\post Se ha escrito el contenido de la variable con clave 'key' por el canal estándar de salida; en caso que el resultado de evaluar la expresión sea indefinido, se escribe "indefinido"
+		\pre 'key' es un string no vacío; el mapa de variables 'varMap' del parámetro implícito contiene una variable con nombre 'key'
+		\post Se ha escrito el contenido de la variable con nombre 'key' por el canal estándar de salida; en caso que el resultado de evaluar la expresión sea indefinido, se escribe "indefinido"
 	*/
 	void write_var(string key);
 

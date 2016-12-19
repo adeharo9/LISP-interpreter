@@ -13,7 +13,7 @@
 using namespace std;
 
 /** @class Environment
-    @brief Representa un entorno de ejecución con todas las operaciones primitivas predefinidas, así como con todas las variables y operaciones definidas por el usuario
+    @brief Representa un entorno de ejecución con todas las operaciones primitivas predefinidas, las variables definidas por el usuario y las operaciones definidas por el usuario
 */
 
 class Environment {
@@ -22,7 +22,8 @@ private:
 
 	/* INVARIANTE
 		El entorno contiene las operaciones primitivas, las variables y las operaciones definidas por el usuario
-		Las operaciones primitivas no son modificables
+		El espacio de operaciones primitivas es de tamaño fijo
+		El espacio de operaciones primitivas no puede modificarse
 	*/
 
 	typedef void (*primitiveOperation)(Expression&);
@@ -78,14 +79,14 @@ public:
 
 	/** @brief Modificadora por establecimiento de variable
 
-		\pre 'key' es un string no vacío
+		\pre 'key' es un string no vacío; 'key' no corresponde al nombre de ninguna de las operaciones primitivas predefinidas ni al nombre de ninguna de las operaciones definidas por el usuario; 'exp' no es una expresión indefinida
 		\post Se añade al espacio de variables del parámetro implícito la variable con nombre 'key' y expresión 'exp', o se actualiza su expresión a 'exp' si ya existía previamente
 	*/
 	void set_var(string key, const Expression& exp);
 
 	/** @brief Modificadora por establecimiento de operación
 
-		\pre 'key' es un string no vacío; 'key' no corresponde al nombre de ninguna de las operaciones primitivas predefinidas
+		\pre 'key' es un string no vacío; 'key' no corresponde al nombre de ninguna de las operaciones primitivas predefinidas ni al nombre de ninguna de las variables definidas por el usuario
 		\post Se añade al espacio de operaciones del parámetro implícito la operación con nombre 'key', parámetros 'parameters' y expresión 'exp', o se actualizan sus parámetros a 'parameters' y su expresión a 'exp' si ya existía previamente
 	*/
 	void set_op(string key, string parameters, string exp);
@@ -134,14 +135,14 @@ public:
     */
 	bool exists_op(string key) const;
 
-	/** @brief Consultora de recuperación de operación primitiva
+	/** @brief Consultora de operación primitiva
 
     	\pre 'key' es un string no vacío; el espacio de operaciones primitivas del parámetro implícito contiene una operación primitiva con nombre 'key'
     	\post Devuelve la operación primitiva de nombre 'key'
     */
 	primitiveOperation get_prim(string key);
 
-	/** @brief Consultora de recuperación de variable
+	/** @brief Consultora de variable
 
     	\pre 'key' es un string no vacío; el espacio de variables del parámetro implícito contiene una variable con nombre 'key'
     	\post Devuelve un alias de la expresión representada por la variable de nombre 'key'
@@ -167,14 +168,14 @@ public:
 	/** @brief Operación de escritura del entorno de variables y operaciones definidas por el usuario
 
 		\pre <em>Cierto</em>
-		\post Se ha escrito el contenido del espacio de variables y del espacio de operaciones por el canal estándar de salida, si lo tenían; en el caso del contenido del espacio de variables, si el resultado de evaluar la expresión de alguna de las variables es indefinido, se escribe "indefinido"
+		\post Se ha escrito el contenido del espacio de variables y del espacio de operaciones por el canal estándar de salida, si lo tenían
 	*/
 	void write() const;
 
 	/** @brief Operación de escritura de variable definida por el usuario
 
 		\pre 'key' es un string no vacío; el espacio de variables del parámetro implícito contiene una variable de nombre 'key'
-		\post Se ha escrito el contenido de la variable de nombre 'key' por el canal estándar de salida; en caso que el resultado de evaluar la expresión sea indefinido, se escribe "indefinido"
+		\post Se ha escrito el contenido de la variable de nombre 'key' por el canal estándar de salida
 	*/
 	void write_var(string key);
 
