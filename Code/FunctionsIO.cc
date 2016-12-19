@@ -9,10 +9,13 @@ using namespace std;
 
 typedef list<Expression*>::const_iterator const_iter;
 
+
 bool is_num(string str) {
+/* Se devuelve true si str es un nùmero y falso en el caso contrario */
 	int i = 0;
 	if(not str.empty() and (str[0] == '-' or (str[0] >= '0' and str[i] <= '9'))) {
 			++i;
+			/* INVARIANTE: 0 <= i < str.size()  */
 		while(i < str.size() and str[i] >= '0' and str[i] <= '9') {
 			++i;
 		}
