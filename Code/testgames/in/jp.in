@@ -1,0 +1,5 @@
+
+(define arerectangulo (a b) (* a b))
+(arearectangulo 2 4)
+(define areatrapecio (h a b) (* (/ h 2) (+ a b)))
+(areatrapecio 4 2 6)
