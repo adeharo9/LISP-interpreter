@@ -19,7 +19,7 @@ class OperationSpace {
 
 private:
 
-	/* INVARIANTE
+	/* INV
 		Las operaciones no son revisadas al introducirse en el mapa de operaciones
 	*/
 

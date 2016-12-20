@@ -23,7 +23,7 @@ private:
 	typedef list<Expression*>::iterator iter;
 	typedef list<Expression*>::const_iterator const_iter;
 
-	/* INVARIANTE
+	/* INV
 		Una expresión indefinida no está vacía;
 		Una expresión vacía no está indefinida;
 	*/

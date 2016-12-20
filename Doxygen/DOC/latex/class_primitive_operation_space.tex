@@ -1,0 +1,635 @@
+\hypertarget{class_primitive_operation_space}{}\section{Referencia de la Clase Primitive\+Operation\+Space}
+\label{class_primitive_operation_space}\index{Primitive\+Operation\+Space@{Primitive\+Operation\+Space}}
+
+
+Espacio de almacenamiento de las operaciones primitivas predefinidas.  
+
+
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_primitive_operation_space_a8213986669f4d655d23c73313d982b46}{Primitive\+Operation\+Space} ()
+\begin{DoxyCompactList}\small\item\em Constructora por defecto. \end{DoxyCompactList}\item 
+\hyperlink{class_primitive_operation_space_a76e59fa7a125f95689faa84d59f2e0d1}{$\sim$\+Primitive\+Operation\+Space} ()
+\begin{DoxyCompactList}\small\item\em Destructora por defecto. \end{DoxyCompactList}\item 
+bool \hyperlink{class_primitive_operation_space_ada17e99cdecb0f8113dfcdf11f4d9e38}{exists} (string key) const 
+\begin{DoxyCompactList}\small\item\em Consultora de existencia de operación primitiva. \end{DoxyCompactList}\item 
+\hyperlink{class_primitive_operation_space_a09c5a4b643964f8e61f797460dc6e765}{primitive\+Operation} \hyperlink{class_primitive_operation_space_abac38eedfb2f0acc93822a88fe2501ef}{get} (string key)
+\begin{DoxyCompactList}\small\item\em Consultora de recuperación de operación primitiva. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Tipos privados}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \hyperlink{class_primitive_operation_space_a09c5a4b643964f8e61f797460dc6e765}{primitive\+Operation}) (\hyperlink{class_expression}{Expression} \&)
+\end{DoxyCompactItemize}
+\subsection*{Métodos privados estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_primitive_operation_space_aa30a58f2003a097535af96ea40b03429}{sum} (\hyperlink{class_expression}{Expression} \&exp)
+\begin{DoxyCompactList}\small\item\em Operación de suma. \end{DoxyCompactList}\item 
+static void \hyperlink{class_primitive_operation_space_a2ac4306bae8330f3eb73f5ef8926dfda}{neg} (\hyperlink{class_expression}{Expression} \&exp)
+\begin{DoxyCompactList}\small\item\em Operación de cambio de signo. \end{DoxyCompactList}\item 
+static void \hyperlink{class_primitive_operation_space_a4d80dbbbc29a79c286df7c8d7f351111}{cons} (\hyperlink{class_expression}{Expression} \&exp)
+\begin{DoxyCompactList}\small\item\em Operación de empalme de elemento en lista. \end{DoxyCompactList}\item 
+static void \hyperlink{class_primitive_operation_space_a97c2b5092e2465c7deb1aff6ceccc7de}{head} (\hyperlink{class_expression}{Expression} \&exp)
+\begin{DoxyCompactList}\small\item\em Operación de separación de primer elemento de lista. \end{DoxyCompactList}\item 
+static void \hyperlink{class_primitive_operation_space_a08ecc4d0207c93ab245f05732e0024c3}{tail} (\hyperlink{class_expression}{Expression} \&exp)
+\begin{DoxyCompactList}\small\item\em Operación de eliminación de primer elemento de lista. \end{DoxyCompactList}\item 
+static void \hyperlink{class_primitive_operation_space_a0a18ec45c82366aea7d1a39ec3b6bb57}{equal} (\hyperlink{class_expression}{Expression} \&exp)
+\begin{DoxyCompactList}\small\item\em Operación de comparación de igualdad. \end{DoxyCompactList}\item 
+static void \hyperlink{class_primitive_operation_space_aa5b70cdd115a646d48f686fd49cdedb1}{less} (\hyperlink{class_expression}{Expression} \&exp)
+\begin{DoxyCompactList}\small\item\em Operación de comparación de inferioridad lexicográfica exclusiva. \end{DoxyCompactList}\item 
+static void \hyperlink{class_primitive_operation_space_afcb171950067a1a6638b01c916900c78}{bool\+\_\+not} (\hyperlink{class_expression}{Expression} \&exp)
+\begin{DoxyCompactList}\small\item\em Operación booleana N\+OT. \end{DoxyCompactList}\item 
+static void \hyperlink{class_primitive_operation_space_a741c40c2ced4d13a87b4ee5c849abdfd}{bool\+\_\+and} (\hyperlink{class_expression}{Expression} \&exp)
+\begin{DoxyCompactList}\small\item\em Operación booleana A\+ND. \end{DoxyCompactList}\item 
+static void \hyperlink{class_primitive_operation_space_abb131ec0899228bc3fe2ed54d5c0ebc9}{bool\+\_\+or} (\hyperlink{class_expression}{Expression} \&exp)
+\begin{DoxyCompactList}\small\item\em Operación booleana OR. \end{DoxyCompactList}\item 
+static void \hyperlink{class_primitive_operation_space_abbb7fc1afddfa5c5041ac8adfa4a2d55}{cond\+\_\+if} (\hyperlink{class_expression}{Expression} \&exp)
+\begin{DoxyCompactList}\small\item\em Operación condicional. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+map$<$ string, \hyperlink{class_primitive_operation_space_a09c5a4b643964f8e61f797460dc6e765}{primitive\+Operation} $>$ \hyperlink{class_primitive_operation_space_afd359615001ed1e9b44b9618287834ec}{prim\+Op\+Map}
+\begin{DoxyCompactList}\small\item\em Mapa de operaciones primitivas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Espacio de almacenamiento de las operaciones primitivas predefinidas. 
+
+Definición en la línea 20 del archivo Primitive\+Operation\+Space.\+hh.
+
+
+
+\subsection{Documentación de los \textquotesingle{}Typedef\textquotesingle{} miembros de la clase}
+\index{Primitive\+Operation\+Space@{Primitive\+Operation\+Space}!primitive\+Operation@{primitive\+Operation}}
+\index{primitive\+Operation@{primitive\+Operation}!Primitive\+Operation\+Space@{Primitive\+Operation\+Space}}
+\subsubsection[{\texorpdfstring{primitive\+Operation}{primitiveOperation}}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ Primitive\+Operation\+Space\+::primitive\+Operation) ({\bf Expression} \&)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_primitive_operation_space_a09c5a4b643964f8e61f797460dc6e765}{}\label{class_primitive_operation_space_a09c5a4b643964f8e61f797460dc6e765}
+
+
+Definición en la línea 29 del archivo Primitive\+Operation\+Space.\+hh.
+
+
+
+\subsection{Documentación del constructor y destructor}
+\index{Primitive\+Operation\+Space@{Primitive\+Operation\+Space}!Primitive\+Operation\+Space@{Primitive\+Operation\+Space}}
+\index{Primitive\+Operation\+Space@{Primitive\+Operation\+Space}!Primitive\+Operation\+Space@{Primitive\+Operation\+Space}}
+\subsubsection[{\texorpdfstring{Primitive\+Operation\+Space()}{PrimitiveOperationSpace()}}]{\setlength{\rightskip}{0pt plus 5cm}Primitive\+Operation\+Space\+::\+Primitive\+Operation\+Space (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_primitive_operation_space_a8213986669f4d655d23c73313d982b46}{}\label{class_primitive_operation_space_a8213986669f4d655d23c73313d982b46}
+
+
+Constructora por defecto. 
+
+Se ejecuta automáticamente al declarar un nuevo espacio de operaciones primitivas predefinidas \begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Crea un objeto inicializado con las operaciones primitivas predefinidas 
+\end{DoxyPostcond}
+
+
+Definición en la línea 188 del archivo Primitive\+Operation\+Space.\+cc.
+
+
+\begin{DoxyCode}
+189 \{
+190   \hyperlink{class_primitive_operation_space_afd359615001ed1e9b44b9618287834ec}{primOpMap}[\textcolor{stringliteral}{"+"}] = &\hyperlink{class_primitive_operation_space_aa30a58f2003a097535af96ea40b03429}{sum};
+191   \hyperlink{class_primitive_operation_space_afd359615001ed1e9b44b9618287834ec}{primOpMap}[\textcolor{stringliteral}{"-"}] = &\hyperlink{class_primitive_operation_space_a2ac4306bae8330f3eb73f5ef8926dfda}{neg};
+192   \hyperlink{class_primitive_operation_space_afd359615001ed1e9b44b9618287834ec}{primOpMap}[\textcolor{stringliteral}{"cons"}] = &\hyperlink{class_primitive_operation_space_a4d80dbbbc29a79c286df7c8d7f351111}{cons};
+193   \hyperlink{class_primitive_operation_space_afd359615001ed1e9b44b9618287834ec}{primOpMap}[\textcolor{stringliteral}{"head"}] = &\hyperlink{class_primitive_operation_space_a97c2b5092e2465c7deb1aff6ceccc7de}{head};
+194   \hyperlink{class_primitive_operation_space_afd359615001ed1e9b44b9618287834ec}{primOpMap}[\textcolor{stringliteral}{"tail"}] = &\hyperlink{class_primitive_operation_space_a08ecc4d0207c93ab245f05732e0024c3}{tail};
+195   \hyperlink{class_primitive_operation_space_afd359615001ed1e9b44b9618287834ec}{primOpMap}[\textcolor{stringliteral}{"="}] = &\hyperlink{class_primitive_operation_space_a0a18ec45c82366aea7d1a39ec3b6bb57}{equal};
+196   \hyperlink{class_primitive_operation_space_afd359615001ed1e9b44b9618287834ec}{primOpMap}[\textcolor{stringliteral}{"<"}] = &\hyperlink{class_primitive_operation_space_aa5b70cdd115a646d48f686fd49cdedb1}{less};
+197   \hyperlink{class_primitive_operation_space_afd359615001ed1e9b44b9618287834ec}{primOpMap}[\textcolor{stringliteral}{"not"}] = &\hyperlink{class_primitive_operation_space_afcb171950067a1a6638b01c916900c78}{bool\_not};
+198   \hyperlink{class_primitive_operation_space_afd359615001ed1e9b44b9618287834ec}{primOpMap}[\textcolor{stringliteral}{"and"}] = &\hyperlink{class_primitive_operation_space_a741c40c2ced4d13a87b4ee5c849abdfd}{bool\_and};
+199   \hyperlink{class_primitive_operation_space_afd359615001ed1e9b44b9618287834ec}{primOpMap}[\textcolor{stringliteral}{"or"}] = &\hyperlink{class_primitive_operation_space_abb131ec0899228bc3fe2ed54d5c0ebc9}{bool\_or};
+200   \hyperlink{class_primitive_operation_space_afd359615001ed1e9b44b9618287834ec}{primOpMap}[\textcolor{stringliteral}{"if"}] = &\hyperlink{class_primitive_operation_space_abbb7fc1afddfa5c5041ac8adfa4a2d55}{cond\_if};
+201 \}
+\end{DoxyCode}
+\index{Primitive\+Operation\+Space@{Primitive\+Operation\+Space}!````~Primitive\+Operation\+Space@{$\sim$\+Primitive\+Operation\+Space}}
+\index{````~Primitive\+Operation\+Space@{$\sim$\+Primitive\+Operation\+Space}!Primitive\+Operation\+Space@{Primitive\+Operation\+Space}}
+\subsubsection[{\texorpdfstring{$\sim$\+Primitive\+Operation\+Space()}{~PrimitiveOperationSpace()}}]{\setlength{\rightskip}{0pt plus 5cm}Primitive\+Operation\+Space\+::$\sim$\+Primitive\+Operation\+Space (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_primitive_operation_space_a76e59fa7a125f95689faa84d59f2e0d1}{}\label{class_primitive_operation_space_a76e59fa7a125f95689faa84d59f2e0d1}
+
+
+Destructora por defecto. 
+
+Se ejecuta automáticamente al salir de un ámbito de visibilidad \begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad 
+\end{DoxyPostcond}
+
+
+Definición en la línea 203 del archivo Primitive\+Operation\+Space.\+cc.
+
+
+\begin{DoxyCode}
+204 \{
+205 \}
+\end{DoxyCode}
+
+
+\subsection{Documentación de las funciones miembro}
+\index{Primitive\+Operation\+Space@{Primitive\+Operation\+Space}!sum@{sum}}
+\index{sum@{sum}!Primitive\+Operation\+Space@{Primitive\+Operation\+Space}}
+\subsubsection[{\texorpdfstring{sum(\+Expression \&exp)}{sum(Expression &exp)}}]{\setlength{\rightskip}{0pt plus 5cm}void Primitive\+Operation\+Space\+::sum (
+\begin{DoxyParamCaption}
+\item[{{\bf Expression} \&}]{exp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{class_primitive_operation_space_aa30a58f2003a097535af96ea40b03429}{}\label{class_primitive_operation_space_aa30a58f2003a097535af96ea40b03429}
+
+
+Operación de suma. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}exp\textquotesingle{} = \textquotesingle{}E\+XP\textquotesingle{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Si \textquotesingle{}E\+XP\textquotesingle{} era una lista con dos punteros a dos expresiones enteras, \textquotesingle{}exp\textquotesingle{} pasa a contener el valor de la suma de las dos expresiones enteras; en otro caso, \textquotesingle{}exp\textquotesingle{} pasa a ser indefinido 
+\end{DoxyPostcond}
+
+
+Definición en la línea 12 del archivo Primitive\+Operation\+Space.\+cc.
+
+
+\begin{DoxyCode}
+13 \{
+14   \textcolor{keywordflow}{if}(exp.\hyperlink{class_expression_a422fb496720b177eaed37a9694613384}{is\_op}() and exp.\hyperlink{class_expression_a0e8980139631cf7bc9fd3bca9d8caddc}{size}() == 2) \{
+15     \textcolor{keywordflow}{if}((*exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) -> is\_value() and (*exp.\hyperlink{class_expression_ae53f7febf676d564d6393bf2762fc08e}{second}()) -> is\_value()) \{
+16       exp.\hyperlink{class_expression_a307683cc3735bf81d823931aab2d64e0}{set\_value}(((*exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) -> get\_value()) + ((*exp.
+      \hyperlink{class_expression_ae53f7febf676d564d6393bf2762fc08e}{second}()) -> get\_value()));
+17     \}
+18     \textcolor{keywordflow}{else} \{
+19       exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+20     \}
+21   \}
+22   \textcolor{keywordflow}{else} \{
+23     exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+24   \}
+25 \}
+\end{DoxyCode}
+\index{Primitive\+Operation\+Space@{Primitive\+Operation\+Space}!neg@{neg}}
+\index{neg@{neg}!Primitive\+Operation\+Space@{Primitive\+Operation\+Space}}
+\subsubsection[{\texorpdfstring{neg(\+Expression \&exp)}{neg(Expression &exp)}}]{\setlength{\rightskip}{0pt plus 5cm}void Primitive\+Operation\+Space\+::neg (
+\begin{DoxyParamCaption}
+\item[{{\bf Expression} \&}]{exp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{class_primitive_operation_space_a2ac4306bae8330f3eb73f5ef8926dfda}{}\label{class_primitive_operation_space_a2ac4306bae8330f3eb73f5ef8926dfda}
+
+
+Operación de cambio de signo. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}exp\textquotesingle{} = \textquotesingle{}E\+XP\textquotesingle{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Si \textquotesingle{}E\+XP\textquotesingle{} era una lista con un puntero a una expresión entera, \textquotesingle{}exp\textquotesingle{} pasa a contener el valor de la expresión entera cambiado de signo; en otro caso, \textquotesingle{}exp\textquotesingle{} pasa a ser indefinido 
+\end{DoxyPostcond}
+
+
+Definición en la línea 27 del archivo Primitive\+Operation\+Space.\+cc.
+
+
+\begin{DoxyCode}
+28 \{
+29   \textcolor{keywordflow}{if}(exp.\hyperlink{class_expression_a422fb496720b177eaed37a9694613384}{is\_op}() and exp.\hyperlink{class_expression_a0e8980139631cf7bc9fd3bca9d8caddc}{size}() == 1) \{
+30     \textcolor{keywordflow}{if}((*exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) -> is\_value()) \{
+31       exp.\hyperlink{class_expression_a307683cc3735bf81d823931aab2d64e0}{set\_value}(-1 * ((*exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) -> get\_value()));
+32     \}
+33     \textcolor{keywordflow}{else} \{
+34       exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+35     \}
+36   \}
+37   \textcolor{keywordflow}{else} \{
+38     exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+39   \}
+40 \}
+\end{DoxyCode}
+\index{Primitive\+Operation\+Space@{Primitive\+Operation\+Space}!cons@{cons}}
+\index{cons@{cons}!Primitive\+Operation\+Space@{Primitive\+Operation\+Space}}
+\subsubsection[{\texorpdfstring{cons(\+Expression \&exp)}{cons(Expression &exp)}}]{\setlength{\rightskip}{0pt plus 5cm}void Primitive\+Operation\+Space\+::cons (
+\begin{DoxyParamCaption}
+\item[{{\bf Expression} \&}]{exp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{class_primitive_operation_space_a4d80dbbbc29a79c286df7c8d7f351111}{}\label{class_primitive_operation_space_a4d80dbbbc29a79c286df7c8d7f351111}
+
+
+Operación de empalme de elemento en lista. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}exp\textquotesingle{} = \textquotesingle{}E\+XP\textquotesingle{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Si \textquotesingle{}E\+XP\textquotesingle{} era una lista con un puntero a una expresión entera y un puntero a una expresión lista de expresiones enteras, \textquotesingle{}exp\textquotesingle{} pasa a tener una lista con la expresión entera como cabeza de la lista; en otro caso, \textquotesingle{}exp\textquotesingle{} pasa a ser indefinido 
+\end{DoxyPostcond}
+
+
+Definición en la línea 42 del archivo Primitive\+Operation\+Space.\+cc.
+
+
+\begin{DoxyCode}
+43 \{
+44   \textcolor{keywordflow}{if}(exp.\hyperlink{class_expression_a422fb496720b177eaed37a9694613384}{is\_op}() and exp.\hyperlink{class_expression_a0e8980139631cf7bc9fd3bca9d8caddc}{size}() == 2) \{
+45     \textcolor{keywordflow}{if}((*exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) -> is\_value() and (*exp.\hyperlink{class_expression_ae53f7febf676d564d6393bf2762fc08e}{second}()) -> is\_list()) \{
+46       list<Expression*> aux;
+47       *(*exp.\hyperlink{class_expression_ae53f7febf676d564d6393bf2762fc08e}{second}()) >> aux;
+48       exp.\hyperlink{class_expression_a3fcf4ce4c5efde7795a6b3b004abf0ad}{erase}(exp.\hyperlink{class_expression_ae53f7febf676d564d6393bf2762fc08e}{second}());
+49       exp.\hyperlink{class_expression_afcd885fc3562809ede2796b722bb4854}{splice}(exp.\hyperlink{class_expression_af5229aaf6bbb7200db55f220f315192e}{end}(), aux);
+50       exp.\hyperlink{class_expression_a66db516be4fa87d58df4806938676508}{set\_list}();
+51     \}
+52     \textcolor{keywordflow}{else} \{
+53       exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+54     \}
+55   \}
+56   \textcolor{keywordflow}{else} \{
+57     exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+58   \}
+59 \}
+\end{DoxyCode}
+\index{Primitive\+Operation\+Space@{Primitive\+Operation\+Space}!head@{head}}
+\index{head@{head}!Primitive\+Operation\+Space@{Primitive\+Operation\+Space}}
+\subsubsection[{\texorpdfstring{head(\+Expression \&exp)}{head(Expression &exp)}}]{\setlength{\rightskip}{0pt plus 5cm}void Primitive\+Operation\+Space\+::head (
+\begin{DoxyParamCaption}
+\item[{{\bf Expression} \&}]{exp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{class_primitive_operation_space_a97c2b5092e2465c7deb1aff6ceccc7de}{}\label{class_primitive_operation_space_a97c2b5092e2465c7deb1aff6ceccc7de}
+
+
+Operación de separación de primer elemento de lista. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}exp\textquotesingle{} = \textquotesingle{}E\+XP\textquotesingle{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Si \textquotesingle{}E\+XP\textquotesingle{} era una lista no vacía de punteros a expresiones enteras, \textquotesingle{}exp\textquotesingle{} pasa a ser el valor apuntado por el primer puntero de la lista; en otro caso, \textquotesingle{}exp\textquotesingle{} pasa a ser indefinido 
+\end{DoxyPostcond}
+
+
+Definición en la línea 61 del archivo Primitive\+Operation\+Space.\+cc.
+
+
+\begin{DoxyCode}
+62 \{
+63   \textcolor{keywordflow}{if}(exp.\hyperlink{class_expression_a422fb496720b177eaed37a9694613384}{is\_op}() and exp.\hyperlink{class_expression_a0e8980139631cf7bc9fd3bca9d8caddc}{size}() == 1) \{
+64     \textcolor{keywordflow}{if}((*exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) -> is\_list() and not (*exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) -> is\_empty\_list()) \{
+65       exp << *(*((*exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) -> begin()));
+66     \}
+67     \textcolor{keywordflow}{else} \{
+68       exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+69     \}
+70   \}
+71   \textcolor{keywordflow}{else} \{
+72     exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+73   \}
+74 \}
+\end{DoxyCode}
+\index{Primitive\+Operation\+Space@{Primitive\+Operation\+Space}!tail@{tail}}
+\index{tail@{tail}!Primitive\+Operation\+Space@{Primitive\+Operation\+Space}}
+\subsubsection[{\texorpdfstring{tail(\+Expression \&exp)}{tail(Expression &exp)}}]{\setlength{\rightskip}{0pt plus 5cm}void Primitive\+Operation\+Space\+::tail (
+\begin{DoxyParamCaption}
+\item[{{\bf Expression} \&}]{exp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{class_primitive_operation_space_a08ecc4d0207c93ab245f05732e0024c3}{}\label{class_primitive_operation_space_a08ecc4d0207c93ab245f05732e0024c3}
+
+
+Operación de eliminación de primer elemento de lista. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}exp\textquotesingle{} = \textquotesingle{}E\+XP\textquotesingle{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Si \textquotesingle{}E\+XP\textquotesingle{} era una lista no vacía de punteros a enteros, \textquotesingle{}exp\textquotesingle{} pasa a tener la misma lista sin el primer elemento 
+\end{DoxyPostcond}
+
+
+Definición en la línea 76 del archivo Primitive\+Operation\+Space.\+cc.
+
+
+\begin{DoxyCode}
+77 \{
+78   \textcolor{keywordflow}{if}(exp.\hyperlink{class_expression_a422fb496720b177eaed37a9694613384}{is\_op}() and exp.\hyperlink{class_expression_a0e8980139631cf7bc9fd3bca9d8caddc}{size}() == 1) \{
+79     \textcolor{keywordflow}{if}((*exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) -> is\_list() and not (*exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) -> is\_empty\_list()) \{
+80       \textcolor{keywordflow}{if}((*exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) -> erase((*exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) -> begin()) != (*exp.
+      \hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) -> end()) \{
+81         exp << *(*exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}());
+82       \}
+83       \textcolor{keywordflow}{else} \{
+84         exp.\hyperlink{class_expression_a1e0ff9e6ef7b9b96466300509decab24}{set\_empty\_list}();
+85       \}
+86     \}
+87     \textcolor{keywordflow}{else} \{
+88       exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+89     \}
+90   \}
+91   \textcolor{keywordflow}{else} \{
+92     exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+93   \}
+94 \}
+\end{DoxyCode}
+\index{Primitive\+Operation\+Space@{Primitive\+Operation\+Space}!equal@{equal}}
+\index{equal@{equal}!Primitive\+Operation\+Space@{Primitive\+Operation\+Space}}
+\subsubsection[{\texorpdfstring{equal(\+Expression \&exp)}{equal(Expression &exp)}}]{\setlength{\rightskip}{0pt plus 5cm}void Primitive\+Operation\+Space\+::equal (
+\begin{DoxyParamCaption}
+\item[{{\bf Expression} \&}]{exp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{class_primitive_operation_space_a0a18ec45c82366aea7d1a39ec3b6bb57}{}\label{class_primitive_operation_space_a0a18ec45c82366aea7d1a39ec3b6bb57}
+
+
+Operación de comparación de igualdad. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}exp\textquotesingle{} = \textquotesingle{}E\+XP\textquotesingle{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Si \textquotesingle{}E\+XP\textquotesingle{} era una lista con dos punteros a dos expresiones evaluables del mismo tipo, \textquotesingle{}exp\textquotesingle{} pasa a tener valor 1 si ambas expresiones eran iguales, y 0 si no lo eran; en otro caso, \textquotesingle{}exp\textquotesingle{} pasa a ser indefinido 
+\end{DoxyPostcond}
+
+
+Definición en la línea 96 del archivo Primitive\+Operation\+Space.\+cc.
+
+
+\begin{DoxyCode}
+97 \{
+98   \textcolor{keywordflow}{if}(exp.\hyperlink{class_expression_a422fb496720b177eaed37a9694613384}{is\_op}() and exp.\hyperlink{class_expression_a0e8980139631cf7bc9fd3bca9d8caddc}{size}() == 2) \{
+99     \textcolor{keywordflow}{if}(((*exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) -> is\_value() and (*exp.\hyperlink{class_expression_ae53f7febf676d564d6393bf2762fc08e}{second}()) -> is\_value()) or ((*exp.
+      \hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) -> is\_list() and (*exp.\hyperlink{class_expression_ae53f7febf676d564d6393bf2762fc08e}{second}()) -> is\_list()))\{
+100       exp.\hyperlink{class_expression_a307683cc3735bf81d823931aab2d64e0}{set\_value}(*(*exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) == *(*exp.\hyperlink{class_expression_ae53f7febf676d564d6393bf2762fc08e}{second}()));
+101     \}
+102     \textcolor{keywordflow}{else} \{
+103       exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+104     \}
+105   \}
+106   \textcolor{keywordflow}{else} \{
+107     exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+108   \}
+109 \}
+\end{DoxyCode}
+\index{Primitive\+Operation\+Space@{Primitive\+Operation\+Space}!less@{less}}
+\index{less@{less}!Primitive\+Operation\+Space@{Primitive\+Operation\+Space}}
+\subsubsection[{\texorpdfstring{less(\+Expression \&exp)}{less(Expression &exp)}}]{\setlength{\rightskip}{0pt plus 5cm}void Primitive\+Operation\+Space\+::less (
+\begin{DoxyParamCaption}
+\item[{{\bf Expression} \&}]{exp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{class_primitive_operation_space_aa5b70cdd115a646d48f686fd49cdedb1}{}\label{class_primitive_operation_space_aa5b70cdd115a646d48f686fd49cdedb1}
+
+
+Operación de comparación de inferioridad lexicográfica exclusiva. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}exp\textquotesingle{} = \textquotesingle{}E\+XP\textquotesingle{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Si \textquotesingle{}E\+XP\textquotesingle{} era una lista con dos punteros a dos expresiones evaluables del mismo tipo, \textquotesingle{}exp\textquotesingle{} pasa a tener valor 1 si la primera expresión era lexicográficamente menor que la segunda, y 0 si no lo era; en otro caso, \textquotesingle{}exp\textquotesingle{} pasa a ser indefinido 
+\end{DoxyPostcond}
+
+
+Definición en la línea 111 del archivo Primitive\+Operation\+Space.\+cc.
+
+
+\begin{DoxyCode}
+112 \{
+113   \textcolor{keywordflow}{if}(exp.\hyperlink{class_expression_a422fb496720b177eaed37a9694613384}{is\_op}() and exp.\hyperlink{class_expression_a0e8980139631cf7bc9fd3bca9d8caddc}{size}() == 2) \{
+114     \textcolor{keywordflow}{if}(((*exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) -> is\_value() and (*exp.\hyperlink{class_expression_ae53f7febf676d564d6393bf2762fc08e}{second}()) -> is\_value()) or ((*exp.
+      \hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) -> is\_list() and (*exp.\hyperlink{class_expression_ae53f7febf676d564d6393bf2762fc08e}{second}()) -> is\_list()))\{
+115       exp.\hyperlink{class_expression_a307683cc3735bf81d823931aab2d64e0}{set\_value}(*(*exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) < *(*exp.\hyperlink{class_expression_ae53f7febf676d564d6393bf2762fc08e}{second}()));
+116     \}
+117     \textcolor{keywordflow}{else} \{
+118       exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+119     \}
+120   \}
+121   \textcolor{keywordflow}{else} \{
+122     exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+123   \}
+124 \}
+\end{DoxyCode}
+\index{Primitive\+Operation\+Space@{Primitive\+Operation\+Space}!bool\+\_\+not@{bool\+\_\+not}}
+\index{bool\+\_\+not@{bool\+\_\+not}!Primitive\+Operation\+Space@{Primitive\+Operation\+Space}}
+\subsubsection[{\texorpdfstring{bool\+\_\+not(\+Expression \&exp)}{bool_not(Expression &exp)}}]{\setlength{\rightskip}{0pt plus 5cm}void Primitive\+Operation\+Space\+::bool\+\_\+not (
+\begin{DoxyParamCaption}
+\item[{{\bf Expression} \&}]{exp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{class_primitive_operation_space_afcb171950067a1a6638b01c916900c78}{}\label{class_primitive_operation_space_afcb171950067a1a6638b01c916900c78}
+
+
+Operación booleana N\+OT. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}exp\textquotesingle{} = \textquotesingle{}E\+XP\textquotesingle{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Si \textquotesingle{}E\+XP\textquotesingle{} era un booleano, \textquotesingle{}exp\textquotesingle{} pasa a tener el valor de \textquotesingle{}exp\textquotesingle{} negado; en otro caso, \textquotesingle{}exp\textquotesingle{} pasa a ser indefinido 
+\end{DoxyPostcond}
+
+
+Definición en la línea 126 del archivo Primitive\+Operation\+Space.\+cc.
+
+
+\begin{DoxyCode}
+127 \{
+128   \textcolor{keywordflow}{if}(exp.\hyperlink{class_expression_a422fb496720b177eaed37a9694613384}{is\_op}() and exp.\hyperlink{class_expression_a0e8980139631cf7bc9fd3bca9d8caddc}{size}() == 1) \{
+129     \textcolor{keywordflow}{if}((*exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) -> is\_bool()) \{
+130       exp.\hyperlink{class_expression_a307683cc3735bf81d823931aab2d64e0}{set\_value}((*exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) -> get\_value() == 0);
+131     \}
+132     \textcolor{keywordflow}{else} \{
+133       exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+134     \}
+135   \}
+136   \textcolor{keywordflow}{else} \{
+137     exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+138   \}
+139 \}
+\end{DoxyCode}
+\index{Primitive\+Operation\+Space@{Primitive\+Operation\+Space}!bool\+\_\+and@{bool\+\_\+and}}
+\index{bool\+\_\+and@{bool\+\_\+and}!Primitive\+Operation\+Space@{Primitive\+Operation\+Space}}
+\subsubsection[{\texorpdfstring{bool\+\_\+and(\+Expression \&exp)}{bool_and(Expression &exp)}}]{\setlength{\rightskip}{0pt plus 5cm}void Primitive\+Operation\+Space\+::bool\+\_\+and (
+\begin{DoxyParamCaption}
+\item[{{\bf Expression} \&}]{exp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{class_primitive_operation_space_a741c40c2ced4d13a87b4ee5c849abdfd}{}\label{class_primitive_operation_space_a741c40c2ced4d13a87b4ee5c849abdfd}
+
+
+Operación booleana A\+ND. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}exp\textquotesingle{} = \textquotesingle{}E\+XP\textquotesingle{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Si \textquotesingle{}E\+XP\textquotesingle{} era una lista con dos punteros a dos booleanos, \textquotesingle{}exp\textquotesingle{} pasa a tener valor 1 si ambos valores eran 1, y 0 si no lo eran; en otro caso, \textquotesingle{}exp\textquotesingle{} pasa a ser indefinido 
+\end{DoxyPostcond}
+
+
+Definición en la línea 141 del archivo Primitive\+Operation\+Space.\+cc.
+
+
+\begin{DoxyCode}
+142 \{
+143   \textcolor{keywordflow}{if}(exp.\hyperlink{class_expression_a422fb496720b177eaed37a9694613384}{is\_op}() and exp.\hyperlink{class_expression_a0e8980139631cf7bc9fd3bca9d8caddc}{size}() == 2) \{
+144     \textcolor{keywordflow}{if}((*exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) -> is\_bool() and (*exp.\hyperlink{class_expression_ae53f7febf676d564d6393bf2762fc08e}{second}()) -> is\_bool()) \{
+145       exp.\hyperlink{class_expression_a307683cc3735bf81d823931aab2d64e0}{set\_value}(((*exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) -> get\_value() == 1) and ((*exp.
+      \hyperlink{class_expression_ae53f7febf676d564d6393bf2762fc08e}{second}()) -> get\_value() == 1));
+146     \}
+147     \textcolor{keywordflow}{else} \{
+148       exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+149     \}
+150   \}
+151   \textcolor{keywordflow}{else} \{
+152     exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+153   \}
+154 \}
+\end{DoxyCode}
+\index{Primitive\+Operation\+Space@{Primitive\+Operation\+Space}!bool\+\_\+or@{bool\+\_\+or}}
+\index{bool\+\_\+or@{bool\+\_\+or}!Primitive\+Operation\+Space@{Primitive\+Operation\+Space}}
+\subsubsection[{\texorpdfstring{bool\+\_\+or(\+Expression \&exp)}{bool_or(Expression &exp)}}]{\setlength{\rightskip}{0pt plus 5cm}void Primitive\+Operation\+Space\+::bool\+\_\+or (
+\begin{DoxyParamCaption}
+\item[{{\bf Expression} \&}]{exp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{class_primitive_operation_space_abb131ec0899228bc3fe2ed54d5c0ebc9}{}\label{class_primitive_operation_space_abb131ec0899228bc3fe2ed54d5c0ebc9}
+
+
+Operación booleana OR. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}exp\textquotesingle{} = \textquotesingle{}E\+XP\textquotesingle{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Si \textquotesingle{}E\+XP\textquotesingle{} era una lista con dos punteros a dos booleanos, \textquotesingle{}exp\textquotesingle{} pasa a ser 0 si ambos valores eran 0, y 1 si no lo eran; en otro caso, \textquotesingle{}exp\textquotesingle{} pasa a ser indefinido 
+\end{DoxyPostcond}
+
+
+Definición en la línea 156 del archivo Primitive\+Operation\+Space.\+cc.
+
+
+\begin{DoxyCode}
+157 \{
+158   \textcolor{keywordflow}{if}(exp.\hyperlink{class_expression_a422fb496720b177eaed37a9694613384}{is\_op}() and exp.\hyperlink{class_expression_a0e8980139631cf7bc9fd3bca9d8caddc}{size}() == 2) \{
+159     \textcolor{keywordflow}{if}((*exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) -> is\_bool() and (*exp.\hyperlink{class_expression_ae53f7febf676d564d6393bf2762fc08e}{second}()) -> is\_bool()) \{
+160       exp.\hyperlink{class_expression_a307683cc3735bf81d823931aab2d64e0}{set\_value}(((*exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) -> get\_value() == 1) or ((*exp.
+      \hyperlink{class_expression_ae53f7febf676d564d6393bf2762fc08e}{second}()) -> get\_value() == 1));
+161     \}
+162     \textcolor{keywordflow}{else} \{
+163       exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+164     \}
+165   \}
+166   \textcolor{keywordflow}{else} \{
+167     exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+168   \}
+169 \}
+\end{DoxyCode}
+\index{Primitive\+Operation\+Space@{Primitive\+Operation\+Space}!cond\+\_\+if@{cond\+\_\+if}}
+\index{cond\+\_\+if@{cond\+\_\+if}!Primitive\+Operation\+Space@{Primitive\+Operation\+Space}}
+\subsubsection[{\texorpdfstring{cond\+\_\+if(\+Expression \&exp)}{cond_if(Expression &exp)}}]{\setlength{\rightskip}{0pt plus 5cm}void Primitive\+Operation\+Space\+::cond\+\_\+if (
+\begin{DoxyParamCaption}
+\item[{{\bf Expression} \&}]{exp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{class_primitive_operation_space_abbb7fc1afddfa5c5041ac8adfa4a2d55}{}\label{class_primitive_operation_space_abbb7fc1afddfa5c5041ac8adfa4a2d55}
+
+
+Operación condicional. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}exp\textquotesingle{} = \textquotesingle{}E\+XP\textquotesingle{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Si \textquotesingle{}E\+XP\textquotesingle{} era una lista con un valor booleano y una expresión, \textquotesingle{}exp\textquotesingle{} pasa a ser igual a dicha expresión; en otro caso, \textquotesingle{}exp\textquotesingle{} es indefinido 
+\end{DoxyPostcond}
+
+
+Definición en la línea 171 del archivo Primitive\+Operation\+Space.\+cc.
+
+
+\begin{DoxyCode}
+172 \{
+173   \textcolor{keywordflow}{if}(exp.\hyperlink{class_expression_a422fb496720b177eaed37a9694613384}{is\_op}() and exp.\hyperlink{class_expression_a0e8980139631cf7bc9fd3bca9d8caddc}{size}() == 2) \{
+174     \textcolor{keywordflow}{if}((*exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}()) -> is\_bool()) \{
+175       exp << *(*exp.\hyperlink{class_expression_ae53f7febf676d564d6393bf2762fc08e}{second}());
+176     \}
+177     \textcolor{keywordflow}{else} \{
+178       exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+179     \}
+180   \}
+181   \textcolor{keywordflow}{else} \{
+182     exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+183   \}
+184 \}
+\end{DoxyCode}
+\index{Primitive\+Operation\+Space@{Primitive\+Operation\+Space}!exists@{exists}}
+\index{exists@{exists}!Primitive\+Operation\+Space@{Primitive\+Operation\+Space}}
+\subsubsection[{\texorpdfstring{exists(string key) const }{exists(string key) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Primitive\+Operation\+Space\+::exists (
+\begin{DoxyParamCaption}
+\item[{string}]{key}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_primitive_operation_space_ada17e99cdecb0f8113dfcdf11f4d9e38}{}\label{class_primitive_operation_space_ada17e99cdecb0f8113dfcdf11f4d9e38}
+
+
+Consultora de existencia de operación primitiva. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}key\textquotesingle{} es un string no vacío 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve cierto si la operación primitiva con nombre \textquotesingle{}key\textquotesingle{} existe entre las operaciones primitivas del parámetro implícito; en otro caso, devuelve falso 
+\end{DoxyPostcond}
+
+
+Definición en la línea 209 del archivo Primitive\+Operation\+Space.\+cc.
+
+
+\begin{DoxyCode}
+210 \{
+211   \textcolor{keywordflow}{return} \hyperlink{class_primitive_operation_space_afd359615001ed1e9b44b9618287834ec}{primOpMap}.find(key) != \hyperlink{class_primitive_operation_space_afd359615001ed1e9b44b9618287834ec}{primOpMap}.end();
+212 \}
+\end{DoxyCode}
+\index{Primitive\+Operation\+Space@{Primitive\+Operation\+Space}!get@{get}}
+\index{get@{get}!Primitive\+Operation\+Space@{Primitive\+Operation\+Space}}
+\subsubsection[{\texorpdfstring{get(string key)}{get(string key)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf primitive\+Operation} Primitive\+Operation\+Space\+::get (
+\begin{DoxyParamCaption}
+\item[{string}]{key}
+\end{DoxyParamCaption}
+)}\hypertarget{class_primitive_operation_space_abac38eedfb2f0acc93822a88fe2501ef}{}\label{class_primitive_operation_space_abac38eedfb2f0acc93822a88fe2501ef}
+
+
+Consultora de recuperación de operación primitiva. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}key\textquotesingle{} es un string no vacío; el parámetro implícito contiene una operación primitiva con nombre \textquotesingle{}key\textquotesingle{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve la operación primitiva de nombre \textquotesingle{}key\textquotesingle{} 
+\end{DoxyPostcond}
+
+
+Definición en la línea 214 del archivo Primitive\+Operation\+Space.\+cc.
+
+
+\begin{DoxyCode}
+215 \{
+216   \textcolor{keywordflow}{return} \hyperlink{class_primitive_operation_space_afd359615001ed1e9b44b9618287834ec}{primOpMap}[key];
+217 \}
+\end{DoxyCode}
+
+
+\subsection{Documentación de los datos miembro}
+\index{Primitive\+Operation\+Space@{Primitive\+Operation\+Space}!prim\+Op\+Map@{prim\+Op\+Map}}
+\index{prim\+Op\+Map@{prim\+Op\+Map}!Primitive\+Operation\+Space@{Primitive\+Operation\+Space}}
+\subsubsection[{\texorpdfstring{prim\+Op\+Map}{primOpMap}}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string, {\bf primitive\+Operation}$>$ Primitive\+Operation\+Space\+::prim\+Op\+Map\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_primitive_operation_space_afd359615001ed1e9b44b9618287834ec}{}\label{class_primitive_operation_space_afd359615001ed1e9b44b9618287834ec}
+
+
+Mapa de operaciones primitivas. 
+
+Atributo que almacena las operaciones primitivas predefinidas con su identificador como clave 
+
+Definición en la línea 35 del archivo Primitive\+Operation\+Space.\+hh.
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_primitive_operation_space_8hh}{Primitive\+Operation\+Space.\+hh}\item 
+\hyperlink{_primitive_operation_space_8cc}{Primitive\+Operation\+Space.\+cc}\end{DoxyCompactItemize}

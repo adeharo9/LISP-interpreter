@@ -21,7 +21,7 @@ class PrimitiveOperationSpace {
 
 private:
 
-	/* INVARIANTE
+	/* INV
 		El espacio de operaciones primitivas no puede modificarse una vez ha sido creado
 	*/
 

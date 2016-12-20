@@ -3,7 +3,7 @@
  
 	Este programa constituye una calculadora de expresiones aritméticas usando un lenguaje de tipo LISP
 
-	Se introducen las clases <em>Expression</em>, <em>Environment</em>, <em>PrimitiveOperationSpace</em>, <em>VariableSpace</em>, <em>OperationSpace</em>
+	Se introducen las clases <em>Input</em>, <em>Expression</em>, <em>Environment</em>, <em>PrimitiveOperationSpace</em>, <em>VariableSpace</em>, <em>OperationSpace</em>
 */
 
 /** @file program.cc
@@ -23,9 +23,14 @@ using namespace std;
 /** @brief Programa principal para la calculadora de expresiones aritméticas
 */
 
-int main() {
+int main()
+{
 	Environment env;
 	Expression exp;
+	/* INV
+		'exp' es una expresión vacía al inicio de cada iteración
+		El resultado correspondiente de 'exp' se ha imprimido al final de cada iteración
+	*/
 	while(read(env, exp)) {
 		exp.clear();
 	}

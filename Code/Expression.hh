@@ -20,7 +20,7 @@ class Expression {
 
 private:
 
-	/* INVARIANTE
+	/* INV
 
 		Una expresión puede ser indefinida, vacía, un entero, una operación a ser evaluada o una lista de expresiones
 
@@ -48,7 +48,6 @@ private:
 			lExp.size() != 0
 
 		Las expresiones apuntadas por los elementos de 'lExp' no tienen ningún otro puntero asociado aparte del contenido en la lista 'lExp'
-
 	*/
 
 	//_______ ATRIBUTOS

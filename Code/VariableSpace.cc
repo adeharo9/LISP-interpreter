@@ -7,49 +7,58 @@ using namespace std;
 
 //_______ CONSTRUCTORES
 
-VariableSpace::VariableSpace() {
+VariableSpace::VariableSpace()
+{
 }
 
-VariableSpace::VariableSpace(const VariableSpace& varSpace) {
+VariableSpace::VariableSpace(const VariableSpace& varSpace)
+{
 	varMap = varSpace.varMap;
 }
 
 //_______ DESTRUCTORES
 
-VariableSpace::~VariableSpace() {
+VariableSpace::~VariableSpace()
+{
 }
 
 //_______ MODIFICADORES
 
-void VariableSpace::clear() {
+void VariableSpace::clear()
+{
 	varMap.clear();
 }
 
-void VariableSpace::set(string key, const Expression& exp) {
+void VariableSpace::set(string key, const Expression& exp)
+{
 	varMap[key] = exp;
 }
 
 //_______ CONSULTORES
 
-bool VariableSpace::empty() const {
+bool VariableSpace::empty() const
+{
 	return varMap.empty();
 }
 
-bool VariableSpace::exists(string key) const {
+bool VariableSpace::exists(string key) const
+{
 	return varMap.find(key) != varMap.end();
 }
 
-Expression& VariableSpace::get(string key) {
+Expression& VariableSpace::get(string key)
+{
 	return varMap[key];
 }
 
 //_______ I/O
 
-void VariableSpace::write() const {
+void VariableSpace::write() const
+{
 	cout << "Variables:" << endl;
 	map<string, Expression>::const_iterator c_it = varMap.begin();
-	/* INVARIANTE
-		varMap.begin() <= c_it < varMap.end()
+	/* INV
+		c_it es un iterador a un elemento del mapa de variables definidas por el usuario del parámetro implícito comprendido entre varMap.begin() y varMap.end()
 	*/
 	while(c_it != varMap.end()) {
 		cout << c_it -> first << " ";
@@ -58,7 +67,8 @@ void VariableSpace::write() const {
 	}
 }
 
-void VariableSpace::write_var(string key) {
+void VariableSpace::write_var(string key)
+{
 	cout << key << " ";
 	varMap[key].write();
 }

@@ -21,7 +21,7 @@ class VariableSpace {
 
 private:
 
-    /* INVARIANTE
+    /* INV
     	No hay variables indefinidas
     	Toda variable se guarda como expresión representativa o bien de un valor entero o biend e una lista de enteros
 

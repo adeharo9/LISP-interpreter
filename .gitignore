@@ -45,3 +45,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.cc
+Code/FunctionsIO.hh
+*.hh
+Code/Expression.cc
+*.cc

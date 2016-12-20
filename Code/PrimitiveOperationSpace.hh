@@ -21,7 +21,7 @@ class PrimitiveOperationSpace {
 
 private:
 
-	/* INVARIANTE
+	/* INV
 		El tamaño del espacio de operaciones primitivas es fijo
 		El espacio de operaciones primitivas no puede modificarse
 	*/
