@@ -1,6 +1,0 @@
-<map id="Environment.hh" name="Environment.hh">
-<area shape="rect" id="node2" href="$_expression_8hh.html" title="Especificación de la clase Expression. " alt="" coords="63,155,168,181"/>
-<area shape="rect" id="node4" href="$_primitive_operation_space_8hh.html" title="Especificación de la clase PrimitiveOperationSpace. " alt="" coords="23,80,207,107"/>
-<area shape="rect" id="node6" href="$_variable_space_8hh.html" title="Especificación de la clase VariableSpace. " alt="" coords="232,80,356,107"/>
-<area shape="rect" id="node7" href="$_operation_space_8hh.html" title="Especificación de la clase OperationSpace. " alt="" coords="381,80,514,107"/>
-</map>
