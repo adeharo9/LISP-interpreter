@@ -1,9 +1,12 @@
 indefinit
 indefinit
 indefinit
+indefinit
 0
 indefinit
 1
+indefinit
+-4
 ()
 x 10
 y 20
@@ -37,9 +40,6 @@ abs #1
 0
 345
 4
-362797056
-count #1
-4
 l (123 453 65 7 7 112 21 34 4 1 23 3213 23 4 54 56 7 67 453441 23 233 45 6 5 43 2 45 67 8 876 543 2 3 45 67 89 87 654 32)
 length #1
 indefinit
@@ -49,9 +49,14 @@ last #1
 32
 supertail #1
 (233 45 6 5 43 2 45 67 8 876 543 2 3 45 67 89 87 654 32)
-indefinit
+362797056
+count #1
+4
 fibonacci #1
 17711
+(15 10)
+z #1
+-10
 indefinit
 Variables:
 ax 15
@@ -71,4 +76,4 @@ fibonacci #1
 last #1
 length #1
 supertail #1
-z #0
+z #1
