@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>PRO2 - Práctica QT16-17 - Calculadora de expresiones aritméticas: Fichero Fuente Environment.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">PRO2 - Práctica QT16-17 - Calculadora de expresiones aritméticas
+   &#160;<span id="projectnumber">Versión 4.0 20-dic-2016</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.11 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="globals.html"><span>Miembros&#160;de&#160;los&#160;ficheros</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Environment.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_environment_8hh.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef ENVIRONMENT_HH</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define ENVIRONMENT_HH</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_expression_8hh.html">Expression.hh</a>&quot;</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_primitive_operation_space_8hh.html">PrimitiveOperationSpace.hh</a>&quot;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_variable_space_8hh.html">VariableSpace.hh</a>&quot;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_operation_space_8hh.html">OperationSpace.hh</a>&quot;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_environment.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_environment.html">Environment</a> {</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">/* INVARIANTE</span></div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">        El entorno contiene las operaciones primitivas, las variables y las operaciones definidas por el usuario</span></div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">        El espacio de operaciones primitivas es de tamaño fijo</span></div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">        El espacio de operaciones primitivas no puede modificarse</span></div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">    */</span></div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_environment.html#a3d2dfb3b9d5843e64fd24e5a2008029d">   29</a></span>&#160;    <span class="keyword">typedef</span> void (*primitiveOperation)(<a class="code" href="class_expression.html">Expression</a>&amp;);</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">//_______ ATRIBUTOS</span></div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_environment.html#a7855273ad2d19ab036495980841e20a4">   37</a></span>&#160;    <a class="code" href="class_primitive_operation_space.html">PrimitiveOperationSpace</a> <a class="code" href="class_environment.html#a7855273ad2d19ab036495980841e20a4">primOpSpace</a>;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div><div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_environment.html#aedf0507f98713f9eb6c152d93c346aa4">   42</a></span>&#160;    <a class="code" href="class_variable_space.html">VariableSpace</a> <a class="code" href="class_environment.html#aedf0507f98713f9eb6c152d93c346aa4">varSpace</a>;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div><div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_environment.html#a7ab0af9a002f7df22966678a0dd0c366">   47</a></span>&#160;    <a class="code" href="class_operation_space.html">OperationSpace</a> <a class="code" href="class_environment.html#a7ab0af9a002f7df22966678a0dd0c366">opSpace</a>;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">//_______ CONSTRUCTORES</span></div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="class_environment.html">Environment</a>();</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="class_environment.html">Environment</a>(<span class="keyword">const</span> <a class="code" href="class_environment.html">Environment</a>&amp; env);</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment">//_______ DESTRUCTORES</span></div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    ~<a class="code" href="class_environment.html">Environment</a>();</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">//_______ MODIFICADORES</span></div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> set_var(<span class="keywordtype">string</span> key, <span class="keyword">const</span> <a class="code" href="class_expression.html">Expression</a>&amp; exp);</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">void</span> set_op(<span class="keywordtype">string</span> key, <span class="keywordtype">string</span> parameters, <span class="keywordtype">string</span> exp);</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">void</span> erase_varspace();</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">//_______ CONSULTORES</span></div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">bool</span> is_primitive(<span class="keywordtype">string</span> key) <span class="keyword">const</span>;</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">bool</span> is_op(<span class="keywordtype">string</span> key) <span class="keyword">const</span>;</div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">bool</span> exists(<span class="keywordtype">string</span> key) <span class="keyword">const</span>;</div><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div><div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">bool</span> exists_var(<span class="keywordtype">string</span> key) <span class="keyword">const</span>;</div><div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordtype">bool</span> exists_op(<span class="keywordtype">string</span> key) <span class="keyword">const</span>;</div><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div><div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    primitiveOperation get_prim(<span class="keywordtype">string</span> key);</div><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div><div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <a class="code" href="class_expression.html">Expression</a>&amp; get_var(<span class="keywordtype">string</span> key);</div><div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div><div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    pair&lt;string, string&gt; get_op(<span class="keywordtype">string</span> key);</div><div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div><div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keywordtype">int</span> num_pars_op(<span class="keywordtype">string</span> key);</div><div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div><div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="comment">//_______ I/O</span></div><div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div><div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordtype">void</span> write() <span class="keyword">const</span>;</div><div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div><div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordtype">void</span> write_var(<span class="keywordtype">string</span> key);</div><div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div><div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keywordtype">void</span> write_op(<span class="keywordtype">string</span> key);</div><div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div><div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;};</div><div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div><div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="class_expression_html"><div class="ttname"><a href="class_expression.html">Expression</a></div><div class="ttdoc">Representa una expresión mediante el resultado de evaluarla, ya sea expresión entera, lista de expresiones enteras o indefinida. </div><div class="ttdef"><b>Definition:</b> <a href="_expression_8hh_source.html#l00019">Expression.hh:19</a></div></div>
+<div class="ttc" id="class_environment_html_a7855273ad2d19ab036495980841e20a4"><div class="ttname"><a href="class_environment.html#a7855273ad2d19ab036495980841e20a4">Environment::primOpSpace</a></div><div class="ttdeci">PrimitiveOperationSpace primOpSpace</div><div class="ttdoc">Espacio de operaciones primitivas Atributo que almacena las operaciones primitivas predefinidas...</div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00037">Environment.hh:37</a></div></div>
+<div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
+<div class="ttc" id="class_variable_space_html"><div class="ttname"><a href="class_variable_space.html">VariableSpace</a></div><div class="ttdoc">Espacio de almacenamiento de variables definidas por el usuario. </div><div class="ttdef"><b>Definition:</b> <a href="_variable_space_8hh_source.html#l00020">VariableSpace.hh:20</a></div></div>
+<div class="ttc" id="class_environment_html"><div class="ttname"><a href="class_environment.html">Environment</a></div><div class="ttdoc">Representa un entorno de ejecución con todas las operaciones primitivas predefinidas, las variables definidas por el usuario y las operaciones definidas por el usuario. </div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00019">Environment.hh:19</a></div></div>
+<div class="ttc" id="_primitive_operation_space_8hh_html"><div class="ttname"><a href="_primitive_operation_space_8hh.html">PrimitiveOperationSpace.hh</a></div><div class="ttdoc">Especificación de la clase PrimitiveOperationSpace. </div></div>
+<div class="ttc" id="class_environment_html_a7ab0af9a002f7df22966678a0dd0c366"><div class="ttname"><a href="class_environment.html#a7ab0af9a002f7df22966678a0dd0c366">Environment::opSpace</a></div><div class="ttdeci">OperationSpace opSpace</div><div class="ttdoc">Espacio de operaciones definidas por el usuario Atributo que almacena las operaciones definidas por e...</div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00047">Environment.hh:47</a></div></div>
+<div class="ttc" id="class_operation_space_html"><div class="ttname"><a href="class_operation_space.html">OperationSpace</a></div><div class="ttdoc">Espacio de almacenamiento de operaciones definidas por el usuario. </div><div class="ttdef"><b>Definition:</b> <a href="_operation_space_8hh_source.html#l00018">OperationSpace.hh:18</a></div></div>
+<div class="ttc" id="class_environment_html_aedf0507f98713f9eb6c152d93c346aa4"><div class="ttname"><a href="class_environment.html#aedf0507f98713f9eb6c152d93c346aa4">Environment::varSpace</a></div><div class="ttdeci">VariableSpace varSpace</div><div class="ttdoc">Espacio de variables definidas por el usuario Atributo que almacena las variables definidas por el us...</div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00042">Environment.hh:42</a></div></div>
+<div class="ttc" id="_operation_space_8hh_html"><div class="ttname"><a href="_operation_space_8hh.html">OperationSpace.hh</a></div><div class="ttdoc">Especificación de la clase OperationSpace. </div></div>
+<div class="ttc" id="_expression_8hh_html"><div class="ttname"><a href="_expression_8hh.html">Expression.hh</a></div><div class="ttdoc">Especificación de la clase Expression. </div></div>
+<div class="ttc" id="class_primitive_operation_space_html"><div class="ttname"><a href="class_primitive_operation_space.html">PrimitiveOperationSpace</a></div><div class="ttdoc">Espacio de almacenamiento de las operaciones primitivas predefinidas. </div><div class="ttdef"><b>Definition:</b> <a href="_primitive_operation_space_8hh_source.html#l00020">PrimitiveOperationSpace.hh:20</a></div></div>
+<div class="ttc" id="_variable_space_8hh_html"><div class="ttname"><a href="_variable_space_8hh.html">VariableSpace.hh</a></div><div class="ttdoc">Especificación de la clase VariableSpace. </div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.11
+</small></address>
+</body>
+</html>

@@ -1,0 +1,238 @@
+\hypertarget{class_variable_space}{}\section{Referencia de la Clase Variable\+Space}
+\label{class_variable_space}\index{Variable\+Space@{Variable\+Space}}
+
+
+Espacio de almacenamiento de variables definidas por el usuario.  
+
+
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_variable_space_aa5cc75308d063873297bc15dbb3df9b0}{Variable\+Space} ()
+\begin{DoxyCompactList}\small\item\em Constructora por defecto. \end{DoxyCompactList}\item 
+\hyperlink{class_variable_space_a61593b2566ddf90eb391bfad68c1caf0}{Variable\+Space} (const \hyperlink{class_variable_space}{Variable\+Space} \&var\+Space)
+\begin{DoxyCompactList}\small\item\em Constructora por copia. \end{DoxyCompactList}\item 
+\hyperlink{class_variable_space_aa84c24cfe3aff34d73704b52e3860210}{$\sim$\+Variable\+Space} ()
+\begin{DoxyCompactList}\small\item\em Destructora por defecto. \end{DoxyCompactList}\item 
+void \hyperlink{class_variable_space_a8fa500a305d3931fa4bbfb3f53eea771}{clear} ()
+\begin{DoxyCompactList}\small\item\em Modificadora por eliminación de contenido. \end{DoxyCompactList}\item 
+void \hyperlink{class_variable_space_a8283cea5dc219241f0e680137aa038ca}{set} (string key, const \hyperlink{class_expression}{Expression} \&exp)
+\begin{DoxyCompactList}\small\item\em Modificadora por establecimiento de variable. \end{DoxyCompactList}\item 
+bool \hyperlink{class_variable_space_afe850fa6a1dd65e8dffda97d70b7bd93}{empty} () const 
+\begin{DoxyCompactList}\small\item\em Consultora de parámetro implícito vacío. \end{DoxyCompactList}\item 
+bool \hyperlink{class_variable_space_abb2147dc634abb8256c9c35b7a170b03}{exists} (string key) const 
+\begin{DoxyCompactList}\small\item\em Consultora de existencia de variable. \end{DoxyCompactList}\item 
+\hyperlink{class_expression}{Expression} \& \hyperlink{class_variable_space_ad849868abb2870711230f7784e30816c}{get} (string key)
+\begin{DoxyCompactList}\small\item\em Consultora de recuperación de variable. \end{DoxyCompactList}\item 
+void \hyperlink{class_variable_space_a98f9eac695830e33d68341515bfd0b4f}{write} () const 
+\begin{DoxyCompactList}\small\item\em Operación de escritura del espacio de variables definidas por el usuario. \end{DoxyCompactList}\item 
+void \hyperlink{class_variable_space_a15b32633f6bf18d04323ea9f55f40b24}{write\+\_\+var} (string key)
+\begin{DoxyCompactList}\small\item\em Operación de escritura de variable definida por el usuario. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+map$<$ string, \hyperlink{class_expression}{Expression} $>$ \hyperlink{class_variable_space_a5af4ff4cfb476da8de2ffd88e511dd01}{var\+Map}
+\begin{DoxyCompactList}\small\item\em Mapa de variables definidas por el usuario. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Espacio de almacenamiento de variables definidas por el usuario. 
+
+Definición en la línea 20 del archivo Variable\+Space.\+hh.
+
+
+
+\subsection{Documentación del constructor y destructor}
+\index{Variable\+Space@{Variable\+Space}!Variable\+Space@{Variable\+Space}}
+\index{Variable\+Space@{Variable\+Space}!Variable\+Space@{Variable\+Space}}
+\subsubsection[{\texorpdfstring{Variable\+Space()}{VariableSpace()}}]{\setlength{\rightskip}{0pt plus 5cm}Variable\+Space\+::\+Variable\+Space (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_variable_space_aa5cc75308d063873297bc15dbb3df9b0}{}\label{class_variable_space_aa5cc75308d063873297bc15dbb3df9b0}
+
+
+Constructora por defecto. 
+
+Se ejecuta automáticamente al declarar un nuevo espacio de variables \begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Crea un objeto vacío 
+\end{DoxyPostcond}
+\index{Variable\+Space@{Variable\+Space}!Variable\+Space@{Variable\+Space}}
+\index{Variable\+Space@{Variable\+Space}!Variable\+Space@{Variable\+Space}}
+\subsubsection[{\texorpdfstring{Variable\+Space(const Variable\+Space \&var\+Space)}{VariableSpace(const VariableSpace &varSpace)}}]{\setlength{\rightskip}{0pt plus 5cm}Variable\+Space\+::\+Variable\+Space (
+\begin{DoxyParamCaption}
+\item[{const {\bf Variable\+Space} \&}]{var\+Space}
+\end{DoxyParamCaption}
+)}\hypertarget{class_variable_space_a61593b2566ddf90eb391bfad68c1caf0}{}\label{class_variable_space_a61593b2566ddf90eb391bfad68c1caf0}
+
+
+Constructora por copia. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Crea un objeto copia de \textquotesingle{}var\+Space\textquotesingle{} 
+\end{DoxyPostcond}
+\index{Variable\+Space@{Variable\+Space}!````~Variable\+Space@{$\sim$\+Variable\+Space}}
+\index{````~Variable\+Space@{$\sim$\+Variable\+Space}!Variable\+Space@{Variable\+Space}}
+\subsubsection[{\texorpdfstring{$\sim$\+Variable\+Space()}{~VariableSpace()}}]{\setlength{\rightskip}{0pt plus 5cm}Variable\+Space\+::$\sim$\+Variable\+Space (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_variable_space_aa84c24cfe3aff34d73704b52e3860210}{}\label{class_variable_space_aa84c24cfe3aff34d73704b52e3860210}
+
+
+Destructora por defecto. 
+
+Se ejecuta automáticamente al salir de un ámbito de visibilidad \begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad 
+\end{DoxyPostcond}
+
+
+\subsection{Documentación de las funciones miembro}
+\index{Variable\+Space@{Variable\+Space}!clear@{clear}}
+\index{clear@{clear}!Variable\+Space@{Variable\+Space}}
+\subsubsection[{\texorpdfstring{clear()}{clear()}}]{\setlength{\rightskip}{0pt plus 5cm}void Variable\+Space\+::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_variable_space_a8fa500a305d3931fa4bbfb3f53eea771}{}\label{class_variable_space_a8fa500a305d3931fa4bbfb3f53eea771}
+
+
+Modificadora por eliminación de contenido. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Elimina el contenido del parámetro implícito, que pasa a estar vacío 
+\end{DoxyPostcond}
+\index{Variable\+Space@{Variable\+Space}!set@{set}}
+\index{set@{set}!Variable\+Space@{Variable\+Space}}
+\subsubsection[{\texorpdfstring{set(string key, const Expression \&exp)}{set(string key, const Expression &exp)}}]{\setlength{\rightskip}{0pt plus 5cm}void Variable\+Space\+::set (
+\begin{DoxyParamCaption}
+\item[{string}]{key, }
+\item[{const {\bf Expression} \&}]{exp}
+\end{DoxyParamCaption}
+)}\hypertarget{class_variable_space_a8283cea5dc219241f0e680137aa038ca}{}\label{class_variable_space_a8283cea5dc219241f0e680137aa038ca}
+
+
+Modificadora por establecimiento de variable. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}key\textquotesingle{} es un string no vacío; \textquotesingle{}key\textquotesingle{} no corresponde al nombre de ninguna de las operaciones primitivas predefinidas ni al nombre de ninguna de las operaciones definidas por el usuario; \textquotesingle{}exp\textquotesingle{} no es una expresión indefinida 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se añade al parámetro implícito la variable con nombre \textquotesingle{}key\textquotesingle{} y expresión \textquotesingle{}exp\textquotesingle{}, o se actualiza su expresión a \textquotesingle{}exp\textquotesingle{} si ya existía previamente 
+\end{DoxyPostcond}
+\index{Variable\+Space@{Variable\+Space}!empty@{empty}}
+\index{empty@{empty}!Variable\+Space@{Variable\+Space}}
+\subsubsection[{\texorpdfstring{empty() const }{empty() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Variable\+Space\+::empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_variable_space_afe850fa6a1dd65e8dffda97d70b7bd93}{}\label{class_variable_space_afe850fa6a1dd65e8dffda97d70b7bd93}
+
+
+Consultora de parámetro implícito vacío. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve cierto si el parámetro implícito está vacío 
+\end{DoxyPostcond}
+\index{Variable\+Space@{Variable\+Space}!exists@{exists}}
+\index{exists@{exists}!Variable\+Space@{Variable\+Space}}
+\subsubsection[{\texorpdfstring{exists(string key) const }{exists(string key) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Variable\+Space\+::exists (
+\begin{DoxyParamCaption}
+\item[{string}]{key}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_variable_space_abb2147dc634abb8256c9c35b7a170b03}{}\label{class_variable_space_abb2147dc634abb8256c9c35b7a170b03}
+
+
+Consultora de existencia de variable. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}key\textquotesingle{} es un string no vacío 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve cierto si la variable con nombre \textquotesingle{}key\textquotesingle{} existe en el parámetro implícito; en otro caso, devuelve falso 
+\end{DoxyPostcond}
+\index{Variable\+Space@{Variable\+Space}!get@{get}}
+\index{get@{get}!Variable\+Space@{Variable\+Space}}
+\subsubsection[{\texorpdfstring{get(string key)}{get(string key)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Expression}\& Variable\+Space\+::get (
+\begin{DoxyParamCaption}
+\item[{string}]{key}
+\end{DoxyParamCaption}
+)}\hypertarget{class_variable_space_ad849868abb2870711230f7784e30816c}{}\label{class_variable_space_ad849868abb2870711230f7784e30816c}
+
+
+Consultora de recuperación de variable. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}key\textquotesingle{} es un string no vacío; el parámetro implícito contiene una variable con nombre \textquotesingle{}key\textquotesingle{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve la expresión representada por la variable de nombre \textquotesingle{}key\textquotesingle{} 
+\end{DoxyPostcond}
+\index{Variable\+Space@{Variable\+Space}!write@{write}}
+\index{write@{write}!Variable\+Space@{Variable\+Space}}
+\subsubsection[{\texorpdfstring{write() const }{write() const }}]{\setlength{\rightskip}{0pt plus 5cm}void Variable\+Space\+::write (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_variable_space_a98f9eac695830e33d68341515bfd0b4f}{}\label{class_variable_space_a98f9eac695830e33d68341515bfd0b4f}
+
+
+Operación de escritura del espacio de variables definidas por el usuario. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se ha escrito el contenido del parámetro implícito por el canal estándar de salida 
+\end{DoxyPostcond}
+\index{Variable\+Space@{Variable\+Space}!write\+\_\+var@{write\+\_\+var}}
+\index{write\+\_\+var@{write\+\_\+var}!Variable\+Space@{Variable\+Space}}
+\subsubsection[{\texorpdfstring{write\+\_\+var(string key)}{write_var(string key)}}]{\setlength{\rightskip}{0pt plus 5cm}void Variable\+Space\+::write\+\_\+var (
+\begin{DoxyParamCaption}
+\item[{string}]{key}
+\end{DoxyParamCaption}
+)}\hypertarget{class_variable_space_a15b32633f6bf18d04323ea9f55f40b24}{}\label{class_variable_space_a15b32633f6bf18d04323ea9f55f40b24}
+
+
+Operación de escritura de variable definida por el usuario. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}key\textquotesingle{} es un string no vacío; el parámetro implícito contiene una variable con nombre \textquotesingle{}key\textquotesingle{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se ha escrito el contenido de la variable con nombre \textquotesingle{}key\textquotesingle{} por el canal estándar de salida 
+\end{DoxyPostcond}
+
+
+\subsection{Documentación de los datos miembro}
+\index{Variable\+Space@{Variable\+Space}!var\+Map@{var\+Map}}
+\index{var\+Map@{var\+Map}!Variable\+Space@{Variable\+Space}}
+\subsubsection[{\texorpdfstring{var\+Map}{varMap}}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string, {\bf Expression}$>$ Variable\+Space\+::var\+Map\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_variable_space_a5af4ff4cfb476da8de2ffd88e511dd01}{}\label{class_variable_space_a5af4ff4cfb476da8de2ffd88e511dd01}
+
+
+Mapa de variables definidas por el usuario. 
+
+Atributo que almacena las variables definidas por el usuario con su identificador como clave 
+
+Definición en la línea 34 del archivo Variable\+Space.\+hh.
+
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_variable_space_8hh}{Variable\+Space.\+hh}\end{DoxyCompactItemize}
