@@ -1,16 +1,37 @@
+((()))
+(()())
+(- (-0))
+(- (- 0))
+(- (-1))
+(- (- 1))
+
+(tail (tail (tail (tail (tail (tail (tail (tail (tail (tail (tail (tail (tail (tail (tail (tail (tail (tail (tail (tail (1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20)))))))))))))))))))))
+
 (define x 10)
 (define y 20)
+
 
 (define diff (x y) (+ x (- y)))
 (define * (x y) (if (= x 0) 0 (+ y (* (diff x 1) y))))
 
+(define z () x)
+z
+(define z () 15)
+z
+(z)
+
+(+ 1 z)
+(+ 1 (z))
+(+ head (z))
+((z))
+
 (diff 943953745 8283748)
 (* 1000 1000)
-(% 543532233234 7)
+(% 543533333234 7)
 
 (define % (x y) (diff x (* y (/ x y))))
 
-(% 242441 85)
+(% 32423 85)
 
 (define / (x y) (if (< y x) (+ 1 (/ (diff x y) y)) (if (= x y) 1 0)))
 
@@ -19,15 +40,18 @@
 (define ^ (x y) (if (= y 0) 1 (* x (^ x (diff y 1)))))
 (define ! (x) (if (= x 1) 1 (* x (! (diff x 1)))))
 
-(^ 2 45)
+(^ 2 8)
 (! 8)
 (! 12)
+(! 12 3)
 
 (define abs (x) (if (< x 0) (- x) x))
 
 (abs -0)
 (abs -345)
 (abs (- -4))
+
+(abs (- (^ 6 11)))
 
 (define count (x) (if (= x 0) 0 (+ 1 (count (/ x 10)))))
 
@@ -43,4 +67,15 @@
 (define last (l) (if (= () (tail l)) (head l) (last (tail l))))
 
 (last l)
+
+(define supertail (l) (tail (tail (tail (tail (tail (tail (tail (tail (tail (tail (tail (tail (tail (tail (tail (tail (tail (tail (tail (tail l)))))))))))))))))))))
+
+(supertail l)
+r
+(define fibonacci (a) (if (< a 2) 1 (+ (fibonacci (diff a 1)) (fibonacci (diff a 2)))))
+
+(fibonacci 21)
+
+(fibonacci 3468324 2)
+
 ****
