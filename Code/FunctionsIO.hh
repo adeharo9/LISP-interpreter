@@ -17,10 +17,10 @@ using namespace std;
 */
 bool is_num(string str);
 
-/** @brief Operación para identificar si los datos introducidos por el canal estandar de entrada son validos
+/** @brief Operación para identificar si los datos introducidos por el canal estandar de entrada son validos.
 
-	\pre 'env' es un entorno con variable primitivas previamente inicializadas, str es un string no vacio
-	\post Devuelve true si str es un parentesis, número, operación definida, variable definida o una primitva. Falso en cualquier otro caso.
+	\pre 'env' es un entorno con variable primitivas previamente inicializadas.
+	\post Devuelve true si str es un caracter valido: parentesis, número, operación definida, variable definida o una operación primitiva. Falso en cualquier otro caso.
 */
 
 bool is_valid(Environment& env, string str);
@@ -28,19 +28,15 @@ bool is_valid(Environment& env, string str);
 /** @brief Crea un espacio de variables local
 
 	\pre 'env' es un entorno con variable primitivas previamente inicializadas, exp una expresion no vacia y parameters los paremtros a definir
-	\post
+	\post Se crea un environment con los mismos atributos que el original a exepción del espacio de variables, estas quedan inicializada con los parametros de la expresion definida.
 */
 void createLocalVarSpace(Environment& env, Expression& exp, string parameters);
-/** @brief Operación de separación de strings
-
-	\pre <em>Cierto</em>
-	\post 'str' es un string contenido entre espacios o paréntesis en la entrada que se ha leído
-*/
 
 /** @brief Evalua la expresion exp y retorna su valor en exp
 
+// -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	\pre 'env' es un entorno con variable primitivas previamente inicializadas; 'exp' es una expresión a evaluar.
-	\post Se evalua la expresion 'exp' y se retorna en la misma variable el valor resultante, el cual puede ser: una lista de expresiones, un valor o indefinido.
+	\post Se evalua la expresion 'exp' y se retorna en la misma exp el valor resultante, el cual puede ser: una lista de expresiones, un valor o indefinido.
 */
 void evaluate(Environment& env, Expression& exp);
 

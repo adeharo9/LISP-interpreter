@@ -24,6 +24,7 @@ bool is_num(string str) {
 }
 
 bool is_valid(Environment& env, string str) {
+	/* Comprueba que str es un caracter valido, parentesis, numero, variable u operación que exista en el environment de no ser así retorna falso */ 
 	return str == "(" or str == ")" or is_num(str) or env.exists(str);
 }
 
@@ -36,9 +37,10 @@ void createLocalVarSpace(Environment& env, Expression& exp, string parameters) {
 }
 
 void evaluate(Environment& env, Expression& exp) {
-	if(exp.is_op()){
-		if(env.is_primitive(exp.get_op())) {
-			env.get_prim(exp.get_op())(exp);
+	/* Evalua exp */
+	if(exp.is_op()){ 
+		if(env.is_primitive(exp.get_op())) { 
+			env.get_prim(exp.get_op())(exp); 
 		}
 		else if(env.exists_op(exp.get_op())) {
 			string parameters = env.get_op(exp.get_op()).first;
@@ -174,7 +176,7 @@ void defineVar(Environment& env, string key, Input& in) {
 
 void defineOp(Environment& env, string key, string parameters, Input& in) {
 	--in;
-	//string exp = ;
+	
 	env.set_op(key, parameters, in.nextExpression());
 	env.write_op(key);
 }
