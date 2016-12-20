@@ -6,39 +6,49 @@ using namespace std;
 
 //_______ CONSTRUCTORES
 
-Input::Input() {
+Input::Input()
+{
 	p = 0;
 }
 
 //_______ DESTRUCTORES
 
-Input::~Input() {
+Input::~Input()
+{
 }
 
 //_______ OPERADORES
 
-string& Input::operator ++ () {
+string& Input::operator ++ ()
+{
 	return next();
 }
 
-void Input::operator --() {
+void Input::operator --()
+{
 	previous();
 }
 
-string& Input::operator >> (string& str) {
+string& Input::operator >> (string& str)
+{
 	str = next();
 	return str;
 }
 
-void Input::operator << (string buff) {
+void Input::operator << (string buff)
+{
 	this -> buff = buff;
 }
 
 //_______ MODIFICADORES
 
-string& Input::next() {
+string& Input::next()
+{
 	if(buff.empty()) {
 		cin >> buff;
+		/* HI
+			next() procesa el siguiente elemento de entrada, colocando la parte que debe ser tratada inmediatamente en 'str' y dejando el resto para su tratamiento posterior en 'buff', manteniendo el contador de paréntesis correctamente actualizado
+		*/
 		next();
 	}
 	else if(buff[0] == '(') {
@@ -46,7 +56,7 @@ string& Input::next() {
 		buff.erase(0,1);
 		++p;
 	}
-	else if(buff[0] == ')'){
+	else if(buff[0] == ')') {
 		str = buff[0];
 		buff.erase(0,1);
 		--p;
@@ -60,6 +70,10 @@ string& Input::next() {
 	}
 	else {
 		str.clear();
+		/* INV
+			'str' contiene una cadena de caracteres que va aumentando por su final
+			'buff' contiene una cadena de caracteres que se va reduciendo por su inicio
+		*/
 		while(not buff.empty() and buff[0] != '(' and buff[0] != ')' and buff[0] != ' ') {
 			str+=buff[0];
 			buff.erase(0,1);
@@ -68,7 +82,8 @@ string& Input::next() {
 	return str;
 }
 
-void Input::previous() {
+void Input::previous()
+{
 	if(str == "(") {
 		--p;
 	}
@@ -79,33 +94,45 @@ void Input::previous() {
 	str.clear();
 }
 
-string Input::nextExpression() {
+string Input::nextExpression()
+{
 	int aux = p;
-	string str = next();
+	string auxStr = next();
+	/* INV
+		'auxStr' es la porción de entrada leída desde la condición inicial p = aux hasta el estado actual de 'p'
+	*/
 	while(p > aux) {
-		str += ' ' + next();
+		auxStr += ' ' + next();
 	}
-	/*do {
-		str += next() + ' ';
-	} while(p > aux);*/
-	return str;
+	return auxStr;
 }
 
-void Input::endOfExpression() {
+void Input::endOfExpression()
+{
+	/* INV
+		'p' es el número de paréntesis abiertos que quedan por cerrar en el momento de la lectura de entrada mediante el método next()
+	*/
 	while(p > 0) {
 		next();
 	}
 }
 
-int Input::countExpressions() {
+int Input::countExpressions()
+{
 	int c = 0;
 	int aux = p;
 	next();
+	/* INV
+		'c' es la cantidad de expresiones que hay contenidas en la entrada desde p = aux hasta la iteración actual
+	*/
 	while(str != ")") {
 		if(str != "(") {
 			++c;
 		}
 		else {
+			/* INV
+				'p' es el número de paréntesis abiertos que quedan por cerrar en el momento de la lectura de entrada mediante el método next()
+			*/
 			do {
 				next();
 			} while(p > aux);
@@ -118,14 +145,17 @@ int Input::countExpressions() {
 
 //_______ CONSULTORES
 
-int Input::get_p() const {
+int Input::get_p() const
+{
 	return p;
 }
 
-string Input::get_buff() const {
+string Input::get_buff() const
+{
 	return buff;
 }
 
-string Input::get_str() const {
+string Input::get_str() const
+{
 	return str;
 }

@@ -13,7 +13,7 @@
 using namespace std;
 
 /** @class Expression
-    @brief Representa una expresión, evaluable o no, mediante el resultado de evaluarla
+    @brief Representa una expresión mediante el resultado de evaluarla, ya sea expresión entera, lista de expresiones enteras o indefinida
 */
 
 class Expression {
@@ -52,25 +52,25 @@ private:
 
 	//_______ ATRIBUTOS
 
-	/** @brief Atributo de tipo de expresión
+	/** @brief Tipo de expresión
 
 		Atributo que codifica el tipo de expresión según la correspondencia: 0 -> indefinido; 1 -> vacío; 2 -> valor; 3 -> operación a ser evaluada; 4 ->lista de expresiones
 	*/
 	unsigned char type;
 
-	/** @brief Atributo de valor
+	/** @brief Valor de expresión
 
 		Atributo que contiene el valor entero de una expresión atómica o resultado de una operación que se evalua a un entero
 	*/
 	int val;
 
-	/** @brief Atributo de operador
+	/** @brief Operador
 
 		Atributo que contiene el operador de una operación a ser evaluada
 	*/
 	string op;
 
-	/** @brief Atributo de lista de expresiones
+	/** @brief Lista de expresiones
 
 		Atributo que contiene una lista de punteros a expresiones en caso que la expresión sea una operación (miembros de la operación) o una lista de expresiones
 	*/
@@ -134,21 +134,21 @@ public:
 	/** @brief Operación de asignación por copia
 
 		\pre <em>Cierto</em>
-		\post El parámetro implícito pasa a ser una copia de 'inExp'. Retorna un alias al parámetro implícito
+		\post El parámetro implícito pasa a ser una copia de 'inExp'; retorna el parámetro implícito
 	*/
 	Expression& operator = (const Expression& inExp);
 
 	/** @brief Operación de asignación por transferencia
 
 		\pre <em>Cierto</em>
-		\post El parámetro implícito pasa a tener todos los elementos de 'inExp' mediante transferencia (sin reubicación de datos en memoria); 'inExp' pasa a dejar de existir en memoria. Retorna un alias al parámetro implícito
+		\post El parámetro implícito pasa a tener todos los elementos de 'inExp' mediante transferencia (sin reubicación de datos en memoria); 'inExp' pasa a dejar de existir en memoria; retorna el parámetro implícito
 	*/
 	Expression& operator << (Expression& inExp);
 
 	/** @brief Operación de asignación de lista de expresiones por transferencia
 
 		\pre <em>Cierto</em>
-		\post El parámetro implícito pasa a tener la lista de expresiones de 'lExpression' mediante transferencia (sin reubicación de datos en memoria); 'lExpression' pasa a estar vacía. Retorna un alias al parámetro implícito
+		\post El parámetro implícito pasa a tener la lista de expresiones de 'lExpression' mediante transferencia (sin reubicación de datos en memoria); 'lExpression' pasa a estar vacía; retorna el parámetro implícito
 	*/
 	Expression& operator << (list<Expression*>& lExpression);
 
@@ -191,7 +191,7 @@ public:
 
 	/** @brief Operación de borrado de elemetos de lista
 
-		\pre la lista de expresiones del parámetro implícito no es una lista vacía
+		\pre La lista de expresiones del parámetro implícito no es una lista vacía; 'it' es un iterador a la lista de expresiones del parámetro implícito
 		\post Se borra el elemento apuntado por el iterador 'it' de la lista de expresiones del parámetro implícito; devuelve un iterador al elemento siguiente al borrado
 	*/
 	list<Expression*>::iterator erase(list<Expression*>::iterator it);
@@ -227,21 +227,21 @@ public:
 	/** @brief Modificadora de operador
 
 		\pre <em>Cierto</em>
-		\post El parámetro implícito pasa a tener operador 'op' y pasa a ser una operación, si aun no lo era; la lista de expresiones del parámetro implícito es una lista vacía a la espera de ser inicializada mediante algún otro método
+		\post El parámetro implícito pasa a tener operador 'op' y pasa a ser una operación, si aun no lo era; la lista de expresiones del parámetro implícito es una lista vacía a la espera de ser inicializada
 	*/
 	void set_op(string op);
 
 	/** @brief Modificadora de lista
 
 		\pre <em>Cierto</em>
-		\post El parámetro implícito pasa a ser una lista, si aun no lo era
+		\post El parámetro implícito pasa a ser una lista de expresiones o una lista vacía de expresionesS, si aun no lo era
 	*/
 	void set_list();
 
 	/** @brief Modificadora de lista vacía
 
 		\pre <em>Cierto</em>
-		\post El parámetro implícito pasa a ser una lista vacía, si aun no lo era
+		\post El parámetro implícito pasa a ser una lista vacía, si aun no lo era; la lista de expresiones del parámetro implícito pasa a estar vacía
 	*/
 	void set_empty_list();
 
@@ -285,7 +285,7 @@ public:
 	/** @brief Consultora de tipo de expresión lista
 
 		\pre <em>Cierto</em>
-		\post Devuelve cierto si el parámetro implícito es una lista de expresiones o una lista vacía; en otro caso, devuelve falso
+		\post Devuelve cierto si el parámetro implícito es una lista de expresiones o una lista vacía de expresiones; en otro caso, devuelve falso
 	*/
 	bool is_list() const;
 

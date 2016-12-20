@@ -10,12 +10,14 @@ using namespace std;
 typedef list<Expression*>::const_iterator const_iter;
 
 
-bool is_num(string str) {
-/* Se devuelve true si str es un nùmero y falso en el caso contrario */
+bool is_num(string str)
+{
 	int i = 0;
 	if(not str.empty() and (str[0] == '-' or (str[0] >= '0' and str[i] <= '9'))) {
 			++i;
-			/* INVARIANTE: 0 <= i < str.size()  */
+		/* INV
+			0 <= i < str.size()
+		*/
 		while(i < str.size() and str[i] >= '0' and str[i] <= '9') {
 			++i;
 		}
@@ -23,24 +25,23 @@ bool is_num(string str) {
 	return not str.empty() and i == str.size() and str[i-1] != '-';
 }
 
-bool is_valid(Environment& env, string str) {
-	/* Comprueba que str es un caracter valido, parentesis, numero, variable u operación que exista en el environment de no ser así retorna falso */ 
-	return str == "(" or str == ")" or is_num(str) or env.exists(str);
-}
-
-void createLocalVarSpace(Environment& env, Expression& exp, string parameters) {
+void createLocalVarSpace(Environment& env, Expression& exp, string parameters)
+{
 	Input in;
 	in << parameters;
+	/* INV
+		c_it es un iterador a un elemento de la lista de expresiones de 'exp' comprendido entre exp.begin() y exp.end()
+	*/
 	for(const_iter c_it = exp.begin(); c_it != exp.end(); ++c_it) {
 		env.set_var(++in, *(*c_it));
 	}
 }
 
-void evaluate(Environment& env, Expression& exp) {
-	/* Evalua exp */
-	if(exp.is_op()){ 
-		if(env.is_primitive(exp.get_op())) { 
-			env.get_prim(exp.get_op())(exp); 
+void evaluate(Environment& env, Expression& exp)
+{
+	if(exp.is_op()){
+		if(env.is_primitive(exp.get_op())) {
+			env.get_prim(exp.get_op())(exp);
 		}
 		else if(env.exists_op(exp.get_op())) {
 			string parameters = env.get_op(exp.get_op()).first;
@@ -62,6 +63,9 @@ void evaluate(Environment& env, Expression& exp) {
 	}
 	else if(exp.is_list()) {
 		const_iter c_it = exp.begin();
+		/* INV
+			c_it es un iterador a un elemento de la lista de expresiones de 'exp' comprendido entre exp.begin() y exp.end()
+		*/
 		while(c_it != exp.end() and (*c_it) -> is_value()) {
 			++c_it;
 		}
@@ -71,9 +75,13 @@ void evaluate(Environment& env, Expression& exp) {
 	}
 }
 
-void readList(Environment& env, Expression& exp, Input& in) {
+void readList(Environment& env, Expression& exp, Input& in)
+{
 	if(in.get_str() != ")") {
 		Expression* pExp;
+		/* INV
+			'pExp' es un puntero a una expresión a ser insertada al final de la lista de expresiones de 'exp'
+		*/
 		do {
 			pExp = new Expression;
 			readExpression(env, *pExp, in);
@@ -91,47 +99,23 @@ void readList(Environment& env, Expression& exp, Input& in) {
 	}
 }
 
-bool check(Environment& env, Input& in) {
-	while(is_valid(env, ++in) and in.get_p() > 0);
-	return is_valid(env, in.get_str()) and in.get_p() == 0;
-}
-
-void readIf(Environment& env, Expression& exp, Input& in) {
+void readIf(Environment& env, Expression& exp, Input& in)
+{
 	string str;
 	Expression* pExp = new Expression;
 	readExpression(env, *pExp, in);
 	exp.insert(exp.end(), pExp);
-	if(pExp -> is_bool() and ++in != ")"){
+	if(pExp -> is_bool()){
 		int b = pExp -> get_value();
 		if(b == 0) {
-			--in;
-			string aux = in.nextExpression();
-			Input auxIn;
-			auxIn << aux;
-			if(not check(env, auxIn)) {
-				exp.set_undefined();
-			}
-			else {
-				++in;
-			}
+			in.nextExpression();
 		}
-		if(in.get_p() > 0 and not exp.undefined()) {
+		if(in.get_p() > 0) {
+			++in;
 			pExp = new Expression;
 			readExpression(env, *pExp, in);
 			exp.insert(exp.end(), pExp);
-			if(pExp -> undefined() or (b == 1 and ++in == ")")) {
-				exp.set_undefined();
-			}
-			else if(b == 1) {
-				--in;
-				string aux = in.nextExpression();
-				Input auxIn;
-				auxIn << aux;
-				if(not check(env, auxIn)) {
-					exp.set_undefined();
-				}
-			}
-			if(not exp.undefined() and  ++in != ")") {
+			if(pExp -> undefined() or  (2 - b + in.countExpressions() != 2)) {
 				exp.set_undefined();
 			}
 		}
@@ -144,7 +128,8 @@ void readIf(Environment& env, Expression& exp, Input& in) {
 	}
 }
 
-void readOp(Environment& env, Expression& exp, Input& in) {
+void readOp(Environment& env, Expression& exp, Input& in)
+{
 	exp.set_op(in.get_str());
 	++in;
 	if(exp.get_op() == "if") {
@@ -162,7 +147,8 @@ void readOp(Environment& env, Expression& exp, Input& in) {
 	}
 }
 
-void defineVar(Environment& env, string key, Input& in) {
+void defineVar(Environment& env, string key, Input& in)
+{
 	Expression exp;
 	readExpression(env, exp, in);
 	if(not exp.undefined()) {
@@ -174,14 +160,15 @@ void defineVar(Environment& env, string key, Input& in) {
 	}
 }
 
-void defineOp(Environment& env, string key, string parameters, Input& in) {
+void defineOp(Environment& env, string key, string parameters, Input& in)
+{
 	--in;
-	
 	env.set_op(key, parameters, in.nextExpression());
 	env.write_op(key);
 }
 
-void define(Environment& env, Input& in) {
+void define(Environment& env, Input& in)
+{
 	string key = ++in;
 	string aux = in.nextExpression();
 	++in;
@@ -202,7 +189,8 @@ void define(Environment& env, Input& in) {
 	}
 }
 
-bool readExpression(Environment& env, Expression& exp, Input& in) {
+bool readExpression(Environment& env, Expression& exp, Input& in)
+{
 	string str = in.get_str();
 	if(str == "(") {
 		in >> str;
@@ -229,7 +217,8 @@ bool readExpression(Environment& env, Expression& exp, Input& in) {
 	return str != "define";
 }
 
-bool read(Environment& env, Expression& exp){
+bool read(Environment& env, Expression& exp)
+{
 	Input in;
 	string str = ++in;
 	if(str != "****" and readExpression(env, exp, in)){
