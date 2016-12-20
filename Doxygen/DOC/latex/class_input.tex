@@ -77,13 +77,13 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 9 del archivo Input.\+cc.
+Definición en la línea 16 del archivo Input.\+cc.
 
 
 \begin{DoxyCode}
-10 \{
-11   \hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p} = 0;
-12 \}
+17 \{
+18   \hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p} = 0;
+19 \}
 \end{DoxyCode}
 \index{Input@{Input}!````~Input@{$\sim$\+Input}}
 \index{````~Input@{$\sim$\+Input}!Input@{Input}}
@@ -107,12 +107,12 @@ Lineal
 \end{DoxyParagraph}
 
 
-Definición en la línea 16 del archivo Input.\+cc.
+Definición en la línea 23 del archivo Input.\+cc.
 
 
 \begin{DoxyCode}
-17 \{
-18 \}
+24 \{
+25 \}
 \end{DoxyCode}
 
 
@@ -139,13 +139,13 @@ Generalmente lineal, aunque constante en algunos casos
 \end{DoxyParagraph}
 
 
-Definición en la línea 22 del archivo Input.\+cc.
+Definición en la línea 29 del archivo Input.\+cc.
 
 
 \begin{DoxyCode}
-23 \{
-24   \textcolor{keywordflow}{return} \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
-25 \}
+30 \{
+31   \textcolor{keywordflow}{return} \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
+32 \}
 \end{DoxyCode}
 \index{Input@{Input}!operator-\/-\/@{operator-\/-\/}}
 \index{operator-\/-\/@{operator-\/-\/}!Input@{Input}}
@@ -169,13 +169,13 @@ Lineal respecto al tamaño del texto a tratar de forma inmediata
 \end{DoxyParagraph}
 
 
-Definición en la línea 27 del archivo Input.\+cc.
+Definición en la línea 34 del archivo Input.\+cc.
 
 
 \begin{DoxyCode}
-28 \{
-29   \hyperlink{class_input_a8bf471815e7a4ef6f6083598bc1fe236}{previous}();
-30 \}
+35 \{
+36   \hyperlink{class_input_a8bf471815e7a4ef6f6083598bc1fe236}{previous}();
+37 \}
 \end{DoxyCode}
 \index{Input@{Input}!operator$>$$>$@{operator$>$$>$}}
 \index{operator$>$$>$@{operator$>$$>$}!Input@{Input}}
@@ -199,14 +199,14 @@ Lineal respecto al tamaño del texto a tratar de forma inmediata
 \end{DoxyParagraph}
 
 
-Definición en la línea 32 del archivo Input.\+cc.
+Definición en la línea 39 del archivo Input.\+cc.
 
 
 \begin{DoxyCode}
-33 \{
-34   \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str} = \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
-35   \textcolor{keywordflow}{return} \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str};
-36 \}
+40 \{
+41   \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str} = \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
+42   \textcolor{keywordflow}{return} \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str};
+43 \}
 \end{DoxyCode}
 \index{Input@{Input}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!Input@{Input}}
@@ -230,13 +230,13 @@ Lineal respecto al tamaño de \textquotesingle{}buff\textquotesingle{}
 \end{DoxyParagraph}
 
 
-Definición en la línea 38 del archivo Input.\+cc.
+Definición en la línea 45 del archivo Input.\+cc.
 
 
 \begin{DoxyCode}
-39 \{
-40   \textcolor{keyword}{this} -> \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff} = \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff};
-41 \}
+46 \{
+47   \textcolor{keyword}{this} -> \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff} = \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff};
+48 \}
 \end{DoxyCode}
 \index{Input@{Input}!next@{next}}
 \index{next@{next}!Input@{Input}}
@@ -260,51 +260,51 @@ Generalmente lineal, aunque constante en algunos casos
 \end{DoxyParagraph}
 
 
-Definición en la línea 45 del archivo Input.\+cc.
+Definición en la línea 52 del archivo Input.\+cc.
 
 
 \begin{DoxyCode}
-46 \{
-47   \textcolor{keywordflow}{if}(\hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}.empty()) \{
-48     cin >> \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff};
-49     \textcolor{comment}{/* HI}
-50 \textcolor{comment}{      next() procesa el siguiente elemento de entrada, colocando la parte que debe ser tratada
+53 \{
+54   \textcolor{keywordflow}{if}(\hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}.empty()) \{
+55     cin >> \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff};
+56     \textcolor{comment}{/* HI}
+57 \textcolor{comment}{      next() procesa el siguiente elemento de entrada, colocando la parte que debe ser tratada
        inmediatamente en 'str' y dejando el resto para su tratamiento posterior en 'buff', manteniendo el contador de
        paréntesis correctamente actualizado}
-51 \textcolor{comment}{    */}
-52     \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
-53   \}
-54   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0] == \textcolor{charliteral}{'('}) \{
-55     \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str} = \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0];
-56     \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}.erase(0,1);
-57     ++\hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p};
-58   \}
-59   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0] == \textcolor{charliteral}{')'}) \{
-60     \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str} = \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0];
-61     \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}.erase(0,1);
-62     --\hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p};
-63   \}
-64   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0] == \textcolor{charliteral}{' '}) \{
-65     \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}.erase(0,1);
-66     \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
-67   \}
-68   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff} == \textcolor{stringliteral}{"****"}) \{
-69     \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}.swap(\hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str});
+58 \textcolor{comment}{    */}
+59     \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
+60   \}
+61   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0] == \textcolor{charliteral}{'('}) \{
+62     \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str} = \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0];
+63     \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}.erase(0,1);
+64     ++\hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p};
+65   \}
+66   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0] == \textcolor{charliteral}{')'}) \{
+67     \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str} = \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0];
+68     \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}.erase(0,1);
+69     --\hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p};
 70   \}
-71   \textcolor{keywordflow}{else} \{
-72     \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str}.clear();
-73     \textcolor{comment}{/* INV}
-74 \textcolor{comment}{      'str' contiene una cadena de caracteres que va aumentando por su final}
-75 \textcolor{comment}{      'buff' contiene una cadena de caracteres que se va reduciendo por su inicio}
-76 \textcolor{comment}{    */}
-77     \textcolor{keywordflow}{while}(not \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}.empty() and \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0] != \textcolor{charliteral}{'('} and \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0] != \textcolor{charliteral}{')'} and 
+71   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0] == \textcolor{charliteral}{' '}) \{
+72     \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}.erase(0,1);
+73     \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
+74   \}
+75   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff} == \textcolor{stringliteral}{"****"}) \{
+76     \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}.swap(\hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str});
+77   \}
+78   \textcolor{keywordflow}{else} \{
+79     \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str}.clear();
+80     \textcolor{comment}{/* INV}
+81 \textcolor{comment}{      'str' contiene una cadena de caracteres que va aumentando por su final}
+82 \textcolor{comment}{      'buff' contiene una cadena de caracteres que se va reduciendo por su inicio}
+83 \textcolor{comment}{    */}
+84     \textcolor{keywordflow}{while}(not \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}.empty() and \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0] != \textcolor{charliteral}{'('} and \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0] != \textcolor{charliteral}{')'} and 
       \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0] != \textcolor{charliteral}{' '}) \{
-78       \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str}+=\hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0];
-79       \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}.erase(0,1);
-80     \}
-81   \}
-82   \textcolor{keywordflow}{return} \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str};
-83 \}
+85       \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str}+=\hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0];
+86       \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}.erase(0,1);
+87     \}
+88   \}
+89   \textcolor{keywordflow}{return} \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str};
+90 \}
 \end{DoxyCode}
 \index{Input@{Input}!previous@{previous}}
 \index{previous@{previous}!Input@{Input}}
@@ -328,20 +328,20 @@ Lineal respecto al tamaño del texto a tratar de forma inmediata
 \end{DoxyParagraph}
 
 
-Definición en la línea 85 del archivo Input.\+cc.
+Definición en la línea 92 del archivo Input.\+cc.
 
 
 \begin{DoxyCode}
-86 \{
-87   \textcolor{keywordflow}{if}(\hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str} == \textcolor{stringliteral}{"("}) \{
-88     --\hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p};
-89   \}
-90   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str} == \textcolor{stringliteral}{")"}) \{
-91     ++\hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p};
-92   \}
-93   \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff} = \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str} + \textcolor{charliteral}{' '} + \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff};
-94   \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str}.clear();
-95 \}
+93 \{
+94   \textcolor{keywordflow}{if}(\hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str} == \textcolor{stringliteral}{"("}) \{
+95     --\hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p};
+96   \}
+97   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str} == \textcolor{stringliteral}{")"}) \{
+98     ++\hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p};
+99   \}
+100   \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff} = \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str} + \textcolor{charliteral}{' '} + \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff};
+101   \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str}.clear();
+102 \}
 \end{DoxyCode}
 \index{Input@{Input}!next\+Expression@{next\+Expression}}
 \index{next\+Expression@{next\+Expression}!Input@{Input}}
@@ -365,22 +365,22 @@ Cuadrático
 \end{DoxyParagraph}
 
 
-Definición en la línea 97 del archivo Input.\+cc.
+Definición en la línea 104 del archivo Input.\+cc.
 
 
 \begin{DoxyCode}
-98 \{
-99   \textcolor{keywordtype}{int} aux = \hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p};
-100   \textcolor{keywordtype}{string} auxStr = \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
-101   \textcolor{comment}{/* INV}
-102 \textcolor{comment}{    'auxStr' es la porción de entrada leída desde la condición inicial p = aux hasta el estado actual de
+105 \{
+106   \textcolor{keywordtype}{int} aux = \hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p};
+107   \textcolor{keywordtype}{string} auxStr = \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
+108   \textcolor{comment}{/* INV}
+109 \textcolor{comment}{    'auxStr' es la porción de entrada leída desde la condición inicial p = aux hasta el estado actual de
        'p'}
-103 \textcolor{comment}{  */}
-104   \textcolor{keywordflow}{while}(\hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p} > aux) \{
-105     auxStr += \textcolor{charliteral}{' '} + \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
-106   \}
-107   \textcolor{keywordflow}{return} auxStr;
-108 \}
+110 \textcolor{comment}{  */}
+111   \textcolor{keywordflow}{while}(\hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p} > aux) \{
+112     auxStr += \textcolor{charliteral}{' '} + \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
+113   \}
+114   \textcolor{keywordflow}{return} auxStr;
+115 \}
 \end{DoxyCode}
 \index{Input@{Input}!end\+Of\+Expression@{end\+Of\+Expression}}
 \index{end\+Of\+Expression@{end\+Of\+Expression}!Input@{Input}}
@@ -404,19 +404,19 @@ Cuadrático
 \end{DoxyParagraph}
 
 
-Definición en la línea 110 del archivo Input.\+cc.
+Definición en la línea 117 del archivo Input.\+cc.
 
 
 \begin{DoxyCode}
-111 \{
-112   \textcolor{comment}{/* INV}
-113 \textcolor{comment}{    'p' es el número de paréntesis abiertos que quedan por cerrar en el momento de la lectura de entrada
+118 \{
+119   \textcolor{comment}{/* INV}
+120 \textcolor{comment}{    'p' es el número de paréntesis abiertos que quedan por cerrar en el momento de la lectura de entrada
        mediante el método next()}
-114 \textcolor{comment}{  */}
-115   \textcolor{keywordflow}{while}(\hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p} > 0) \{
-116     \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
-117   \}
-118 \}
+121 \textcolor{comment}{  */}
+122   \textcolor{keywordflow}{while}(\hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p} > 0) \{
+123     \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
+124   \}
+125 \}
 \end{DoxyCode}
 \index{Input@{Input}!count\+Expressions@{count\+Expressions}}
 \index{count\+Expressions@{count\+Expressions}!Input@{Input}}
@@ -440,36 +440,36 @@ Exponencial de orden 3
 \end{DoxyParagraph}
 
 
-Definición en la línea 120 del archivo Input.\+cc.
+Definición en la línea 127 del archivo Input.\+cc.
 
 
 \begin{DoxyCode}
-121 \{
-122   \textcolor{keywordtype}{int} c = 0;
-123   \textcolor{keywordtype}{int} aux = \hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p};
-124   \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
-125   \textcolor{comment}{/* INV}
-126 \textcolor{comment}{    'c' es la cantidad de expresiones que hay contenidas en la entrada desde p = aux hasta la iteración
+128 \{
+129   \textcolor{keywordtype}{int} c = 0;
+130   \textcolor{keywordtype}{int} aux = \hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p};
+131   \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
+132   \textcolor{comment}{/* INV}
+133 \textcolor{comment}{    'c' es la cantidad de expresiones que hay contenidas en la entrada desde p = aux hasta la iteración
        actual}
-127 \textcolor{comment}{  */}
-128   \textcolor{keywordflow}{while}(\hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str} != \textcolor{stringliteral}{")"}) \{
-129     \textcolor{keywordflow}{if}(\hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str} != \textcolor{stringliteral}{"("}) \{
-130       ++c;
-131     \}
-132     \textcolor{keywordflow}{else} \{
-133       \textcolor{comment}{/* INV}
-134 \textcolor{comment}{        'p' es el número de paréntesis abiertos que quedan por cerrar en el momento de la lectura de
+134 \textcolor{comment}{  */}
+135   \textcolor{keywordflow}{while}(\hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str} != \textcolor{stringliteral}{")"}) \{
+136     \textcolor{keywordflow}{if}(\hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str} != \textcolor{stringliteral}{"("}) \{
+137       ++c;
+138     \}
+139     \textcolor{keywordflow}{else} \{
+140       \textcolor{comment}{/* INV}
+141 \textcolor{comment}{        'p' es el número de paréntesis abiertos que quedan por cerrar en el momento de la lectura de
        entrada mediante el método next()}
-135 \textcolor{comment}{      */}
-136       \textcolor{keywordflow}{do} \{
-137         \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
-138       \} \textcolor{keywordflow}{while}(\hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p} > aux);
-139       ++c;
-140     \}
-141     \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
-142   \}
-143   \textcolor{keywordflow}{return} c;
-144 \}
+142 \textcolor{comment}{      */}
+143       \textcolor{keywordflow}{do} \{
+144         \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
+145       \} \textcolor{keywordflow}{while}(\hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p} > aux);
+146       ++c;
+147     \}
+148     \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
+149   \}
+150   \textcolor{keywordflow}{return} c;
+151 \}
 \end{DoxyCode}
 \index{Input@{Input}!get\+\_\+p@{get\+\_\+p}}
 \index{get\+\_\+p@{get\+\_\+p}!Input@{Input}}
@@ -493,13 +493,13 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 148 del archivo Input.\+cc.
+Definición en la línea 155 del archivo Input.\+cc.
 
 
 \begin{DoxyCode}
-149 \{
-150   \textcolor{keywordflow}{return} \hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p};
-151 \}
+156 \{
+157   \textcolor{keywordflow}{return} \hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p};
+158 \}
 \end{DoxyCode}
 \index{Input@{Input}!get\+\_\+buff@{get\+\_\+buff}}
 \index{get\+\_\+buff@{get\+\_\+buff}!Input@{Input}}
@@ -523,13 +523,13 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 153 del archivo Input.\+cc.
+Definición en la línea 160 del archivo Input.\+cc.
 
 
 \begin{DoxyCode}
-154 \{
-155   \textcolor{keywordflow}{return} \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff};
-156 \}
+161 \{
+162   \textcolor{keywordflow}{return} \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff};
+163 \}
 \end{DoxyCode}
 \index{Input@{Input}!get\+\_\+str@{get\+\_\+str}}
 \index{get\+\_\+str@{get\+\_\+str}!Input@{Input}}
@@ -553,13 +553,13 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 158 del archivo Input.\+cc.
+Definición en la línea 165 del archivo Input.\+cc.
 
 
 \begin{DoxyCode}
-159 \{
-160   \textcolor{keywordflow}{return} \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str};
-161 \}
+166 \{
+167   \textcolor{keywordflow}{return} \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str};
+168 \}
 \end{DoxyCode}
 
 

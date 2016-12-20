@@ -1,5 +1,12 @@
+/** @file FunctionIO.cc
+    @brief Implementación del módulo de operaciones de entrada/salida
+*/
+
+#ifndef NO_DIAGRAM
 #include <iostream>
 #include <string>
+#endif
+
 #include "FunctionsIO.hh"
 #include "Input.hh"
 #include "Environment.hh"

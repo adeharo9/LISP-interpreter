@@ -1,5 +1,12 @@
+/** @file OperationSpace.cc
+    @brief Implementación de la clase OperationSpace
+*/
+
+#ifndef NO_DIAGRAM
 #include <iostream>
 #include <map>
+#endif
+
 #include "OperationSpace.hh"
 
 using namespace std;

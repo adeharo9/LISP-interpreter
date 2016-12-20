@@ -1,6 +1,13 @@
+/** @file Expression.cc
+    @brief Implementación de la clase Expression
+*/
+
+#ifndef NO_DIAGRAM
 #include <iostream>
 #include <list>
 #include <cstddef>
+#endif
+
 #include "Expression.hh"
 
 using namespace std;

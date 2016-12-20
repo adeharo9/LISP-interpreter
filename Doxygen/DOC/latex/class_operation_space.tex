@@ -73,12 +73,12 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 25 del archivo Operation\+Space.\+cc.
+Definición en la línea 32 del archivo Operation\+Space.\+cc.
 
 
 \begin{DoxyCode}
-26 \{
-27 \}
+33 \{
+34 \}
 \end{DoxyCode}
 \index{Operation\+Space@{Operation\+Space}!````~Operation\+Space@{$\sim$\+Operation\+Space}}
 \index{````~Operation\+Space@{$\sim$\+Operation\+Space}!Operation\+Space@{Operation\+Space}}
@@ -102,12 +102,12 @@ Lineal respecto al tamaño del parámetro implícito
 \end{DoxyParagraph}
 
 
-Definición en la línea 31 del archivo Operation\+Space.\+cc.
+Definición en la línea 38 del archivo Operation\+Space.\+cc.
 
 
 \begin{DoxyCode}
-32 \{
-33 \}
+39 \{
+40 \}
 \end{DoxyCode}
 
 
@@ -134,23 +134,23 @@ Lineal respecto al tamaño de \textquotesingle{}parameters\textquotesingle{}
 \end{DoxyParagraph}
 
 
-Definición en la línea 9 del archivo Operation\+Space.\+cc.
+Definición en la línea 16 del archivo Operation\+Space.\+cc.
 
 
 \begin{DoxyCode}
-10 \{
-11   \textcolor{keywordtype}{int} c = not parameters.empty();
-12   \textcolor{comment}{/* INV}
-13 \textcolor{comment}{    c es el número de parámetros que hay contenidos en el string 'parameters' en el rango de posiciones
+17 \{
+18   \textcolor{keywordtype}{int} c = not parameters.empty();
+19   \textcolor{comment}{/* INV}
+20 \textcolor{comment}{    c es el número de parámetros que hay contenidos en el string 'parameters' en el rango de posiciones
        [0...i]}
-14 \textcolor{comment}{  */}
-15   \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 1; i < parameters.size(); ++i) \{
-16     \textcolor{keywordflow}{if}(parameters[i] == \textcolor{charliteral}{' '}) \{
-17       ++c;
-18     \}
-19   \}
-20   \textcolor{keywordflow}{return} c;
-21 \}
+21 \textcolor{comment}{  */}
+22   \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 1; i < parameters.size(); ++i) \{
+23     \textcolor{keywordflow}{if}(parameters[i] == \textcolor{charliteral}{' '}) \{
+24       ++c;
+25     \}
+26   \}
+27   \textcolor{keywordflow}{return} c;
+28 \}
 \end{DoxyCode}
 \index{Operation\+Space@{Operation\+Space}!set@{set}}
 \index{set@{set}!Operation\+Space@{Operation\+Space}}
@@ -176,17 +176,17 @@ Lineal respecto al tamaño de \textquotesingle{}parameters\textquotesingle{}
 \end{DoxyParagraph}
 
 
-Definición en la línea 37 del archivo Operation\+Space.\+cc.
+Definición en la línea 44 del archivo Operation\+Space.\+cc.
 
 
 \begin{DoxyCode}
-38 \{
-39   definition aux;
-40   aux.n\_parameters = \hyperlink{class_operation_space_acec5b48678e494c0be7df4cc3bcc0768}{count\_vars}(parameters);
-41   aux.parameters = parameters;
-42   aux.exp = exp;
-43   \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}[key] = aux;
-44 \}
+45 \{
+46   definition aux;
+47   aux.n\_parameters = \hyperlink{class_operation_space_acec5b48678e494c0be7df4cc3bcc0768}{count\_vars}(parameters);
+48   aux.parameters = parameters;
+49   aux.exp = exp;
+50   \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}[key] = aux;
+51 \}
 \end{DoxyCode}
 \index{Operation\+Space@{Operation\+Space}!empty@{empty}}
 \index{empty@{empty}!Operation\+Space@{Operation\+Space}}
@@ -210,13 +210,13 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 48 del archivo Operation\+Space.\+cc.
+Definición en la línea 55 del archivo Operation\+Space.\+cc.
 
 
 \begin{DoxyCode}
-49 \{
-50   \textcolor{keywordflow}{return} \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}.empty();
-51 \}
+56 \{
+57   \textcolor{keywordflow}{return} \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}.empty();
+58 \}
 \end{DoxyCode}
 \index{Operation\+Space@{Operation\+Space}!exists@{exists}}
 \index{exists@{exists}!Operation\+Space@{Operation\+Space}}
@@ -240,13 +240,13 @@ Logarítmico respecto al tamaño del parámetro implícito respecto al tamaño d
 \end{DoxyParagraph}
 
 
-Definición en la línea 53 del archivo Operation\+Space.\+cc.
+Definición en la línea 60 del archivo Operation\+Space.\+cc.
 
 
 \begin{DoxyCode}
-54 \{
-55   \textcolor{keywordflow}{return} \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}.find(key) != \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}.end();
-56 \}
+61 \{
+62   \textcolor{keywordflow}{return} \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}.find(key) != \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}.end();
+63 \}
 \end{DoxyCode}
 \index{Operation\+Space@{Operation\+Space}!get@{get}}
 \index{get@{get}!Operation\+Space@{Operation\+Space}}
@@ -270,14 +270,14 @@ Logarítmico respecto al tamaño del parámetro implícito
 \end{DoxyParagraph}
 
 
-Definición en la línea 58 del archivo Operation\+Space.\+cc.
+Definición en la línea 65 del archivo Operation\+Space.\+cc.
 
 
 \begin{DoxyCode}
-59 \{
-60   definition aux = \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}[key];
-61   \textcolor{keywordflow}{return} make\_pair(aux.parameters, aux.exp);
-62 \}
+66 \{
+67   definition aux = \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}[key];
+68   \textcolor{keywordflow}{return} make\_pair(aux.parameters, aux.exp);
+69 \}
 \end{DoxyCode}
 \index{Operation\+Space@{Operation\+Space}!num\+\_\+pars@{num\+\_\+pars}}
 \index{num\+\_\+pars@{num\+\_\+pars}!Operation\+Space@{Operation\+Space}}
@@ -301,13 +301,13 @@ Logarítmico respecto al tamaño del parámetro implícito
 \end{DoxyParagraph}
 
 
-Definición en la línea 64 del archivo Operation\+Space.\+cc.
+Definición en la línea 71 del archivo Operation\+Space.\+cc.
 
 
 \begin{DoxyCode}
-65 \{
-66   \textcolor{keywordflow}{return} \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}[key].n\_parameters;
-67 \}
+72 \{
+73   \textcolor{keywordflow}{return} \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}[key].n\_parameters;
+74 \}
 \end{DoxyCode}
 \index{Operation\+Space@{Operation\+Space}!write@{write}}
 \index{write@{write}!Operation\+Space@{Operation\+Space}}
@@ -331,22 +331,22 @@ Lineal respecto al tamaño del parámetro implícito
 \end{DoxyParagraph}
 
 
-Definición en la línea 71 del archivo Operation\+Space.\+cc.
+Definición en la línea 78 del archivo Operation\+Space.\+cc.
 
 
 \begin{DoxyCode}
-72 \{
-73   cout << \textcolor{stringliteral}{"Operacions:"} << endl;
-74   map<string, definition>::const\_iterator c\_it = \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}.begin();
-75   \textcolor{comment}{/* INV}
-76 \textcolor{comment}{    c\_it es un iterador a un elemento del mapa de operaciones definidas por el usuario del parámetro
+79 \{
+80   cout << \textcolor{stringliteral}{"Operacions:"} << endl;
+81   map<string, definition>::const\_iterator c\_it = \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}.begin();
+82   \textcolor{comment}{/* INV}
+83 \textcolor{comment}{    c\_it es un iterador a un elemento del mapa de operaciones definidas por el usuario del parámetro
        implícito comprendido entre opMap.begin() y opMap.end()}
-77 \textcolor{comment}{  */}
-78   \textcolor{keywordflow}{while}(c\_it != \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}.end()) \{
-79     cout << c\_it -> first << \textcolor{stringliteral}{" #"} << c\_it -> second.n\_parameters << endl;
-80     ++c\_it;
-81   \}
-82 \}
+84 \textcolor{comment}{  */}
+85   \textcolor{keywordflow}{while}(c\_it != \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}.end()) \{
+86     cout << c\_it -> first << \textcolor{stringliteral}{" #"} << c\_it -> second.n\_parameters << endl;
+87     ++c\_it;
+88   \}
+89 \}
 \end{DoxyCode}
 \index{Operation\+Space@{Operation\+Space}!write\+\_\+op@{write\+\_\+op}}
 \index{write\+\_\+op@{write\+\_\+op}!Operation\+Space@{Operation\+Space}}
@@ -370,13 +370,13 @@ Logarítmico respecto al tamaño del parámetro implícito
 \end{DoxyParagraph}
 
 
-Definición en la línea 84 del archivo Operation\+Space.\+cc.
+Definición en la línea 91 del archivo Operation\+Space.\+cc.
 
 
 \begin{DoxyCode}
-85 \{
-86   cout << key << \textcolor{stringliteral}{" #"} << \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}[key].n\_parameters << endl;
-87 \}\end{DoxyCode}
+92 \{
+93   cout << key << \textcolor{stringliteral}{" #"} << \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}[key].n\_parameters << endl;
+94 \}\end{DoxyCode}
 
 
 \subsection{Documentación de los datos miembro}

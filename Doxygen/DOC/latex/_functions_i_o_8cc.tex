@@ -46,7 +46,7 @@ bool \hyperlink{_functions_i_o_8cc_a10264ecdb3196a71243b69fd4f98c229}{read} (\hy
 \subsubsection[{\texorpdfstring{const\+\_\+iter}{const_iter}}]{\setlength{\rightskip}{0pt plus 5cm}typedef list$<${\bf Expression}$\ast$$>$\+::const\+\_\+iterator {\bf const\+\_\+iter}}\hypertarget{_functions_i_o_8cc_a6ff59711533978050143f1bfb54c33b1}{}\label{_functions_i_o_8cc_a6ff59711533978050143f1bfb54c33b1}
 
 
-Definición en la línea 10 del archivo Functions\+I\+O.\+cc.
+Definición en la línea 17 del archivo Functions\+I\+O.\+cc.
 
 
 
@@ -73,23 +73,23 @@ Lineal respecto al tamaño de \textquotesingle{}str\textquotesingle{}
 \end{DoxyParagraph}
 
 
-Definición en la línea 13 del archivo Functions\+I\+O.\+cc.
+Definición en la línea 20 del archivo Functions\+I\+O.\+cc.
 
 
 \begin{DoxyCode}
-14 \{
-15   \textcolor{keywordtype}{int} i = 0;
-16   \textcolor{keywordflow}{if}(not str.empty() and (str[0] == \textcolor{charliteral}{'-'} or (str[0] >= \textcolor{charliteral}{'0'} and str[i] <= \textcolor{charliteral}{'9'}))) \{
-17       ++i;
-18     \textcolor{comment}{/* INV}
-19 \textcolor{comment}{      0 <= i < str.size()}
-20 \textcolor{comment}{    */}
-21     \textcolor{keywordflow}{while}(i < str.size() and str[i] >= \textcolor{charliteral}{'0'} and str[i] <= \textcolor{charliteral}{'9'}) \{
-22       ++i;
-23     \}
-24   \}
-25   \textcolor{keywordflow}{return} not str.empty() and i == str.size() and str[i-1] != \textcolor{charliteral}{'-'};
-26 \}
+21 \{
+22   \textcolor{keywordtype}{int} i = 0;
+23   \textcolor{keywordflow}{if}(not str.empty() and (str[0] == \textcolor{charliteral}{'-'} or (str[0] >= \textcolor{charliteral}{'0'} and str[i] <= \textcolor{charliteral}{'9'}))) \{
+24       ++i;
+25     \textcolor{comment}{/* INV}
+26 \textcolor{comment}{      0 <= i < str.size()}
+27 \textcolor{comment}{    */}
+28     \textcolor{keywordflow}{while}(i < str.size() and str[i] >= \textcolor{charliteral}{'0'} and str[i] <= \textcolor{charliteral}{'9'}) \{
+29       ++i;
+30     \}
+31   \}
+32   \textcolor{keywordflow}{return} not str.empty() and i == str.size() and str[i-1] != \textcolor{charliteral}{'-'};
+33 \}
 \end{DoxyCode}
 \index{Functions\+I\+O.\+cc@{Functions\+I\+O.\+cc}!create\+Local\+Var\+Space@{create\+Local\+Var\+Space}}
 \index{create\+Local\+Var\+Space@{create\+Local\+Var\+Space}!Functions\+I\+O.\+cc@{Functions\+I\+O.\+cc}}
@@ -115,21 +115,21 @@ Lineal con respecto al tamaño de \textquotesingle{}parameters\textquotesingle{}
 \end{DoxyParagraph}
 
 
-Definición en la línea 28 del archivo Functions\+I\+O.\+cc.
+Definición en la línea 35 del archivo Functions\+I\+O.\+cc.
 
 
 \begin{DoxyCode}
-29 \{
-30   \hyperlink{class_input}{Input} in;
-31   in << parameters;
-32   \textcolor{comment}{/* INV}
-33 \textcolor{comment}{    c\_it es un iterador a un elemento de la lista de expresiones de 'exp' comprendido entre exp.begin() y
+36 \{
+37   \hyperlink{class_input}{Input} in;
+38   in << parameters;
+39   \textcolor{comment}{/* INV}
+40 \textcolor{comment}{    c\_it es un iterador a un elemento de la lista de expresiones de 'exp' comprendido entre exp.begin() y
        exp.end()}
-34 \textcolor{comment}{  */}
-35   \textcolor{keywordflow}{for}(\hyperlink{_expression_8cc_a6ff59711533978050143f1bfb54c33b1}{const\_iter} c\_it = exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}(); c\_it != exp.\hyperlink{class_expression_af5229aaf6bbb7200db55f220f315192e}{end}(); ++c\_it) \{
-36     env.\hyperlink{class_environment_a6555e2858047d34b19261518e2ec47ce}{set\_var}(++in, *(*c\_it));
-37   \}
-38 \}
+41 \textcolor{comment}{  */}
+42   \textcolor{keywordflow}{for}(\hyperlink{_expression_8cc_a6ff59711533978050143f1bfb54c33b1}{const\_iter} c\_it = exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}(); c\_it != exp.\hyperlink{class_expression_af5229aaf6bbb7200db55f220f315192e}{end}(); ++c\_it) \{
+43     env.\hyperlink{class_environment_a6555e2858047d34b19261518e2ec47ce}{set\_var}(++in, *(*c\_it));
+44   \}
+45 \}
 \end{DoxyCode}
 \index{Functions\+I\+O.\+cc@{Functions\+I\+O.\+cc}!evaluate@{evaluate}}
 \index{evaluate@{evaluate}!Functions\+I\+O.\+cc@{Functions\+I\+O.\+cc}}
@@ -154,47 +154,47 @@ Lineal o logarítmico en función del valor de \textquotesingle{}exp\textquotesi
 \end{DoxyParagraph}
 
 
-Definición en la línea 40 del archivo Functions\+I\+O.\+cc.
+Definición en la línea 47 del archivo Functions\+I\+O.\+cc.
 
 
 \begin{DoxyCode}
-41 \{
-42   \textcolor{keywordflow}{if}(exp.\hyperlink{class_expression_a422fb496720b177eaed37a9694613384}{is\_op}())\{
-43     \textcolor{keywordflow}{if}(env.\hyperlink{class_environment_a8949b818539cc0caae637f61f8271640}{is\_primitive}(exp.\hyperlink{class_expression_a9216cba5bbd3ffa8c3a625a66b91b36f}{get\_op}())) \{
-44       env.\hyperlink{class_environment_a15eff205405da84c7466ac8f1ea6a54c}{get\_prim}(exp.\hyperlink{class_expression_a9216cba5bbd3ffa8c3a625a66b91b36f}{get\_op}())(exp);
-45     \}
-46     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(env.\hyperlink{class_environment_a323ca63fc26be47fa45d14dd783761e1}{exists\_op}(exp.\hyperlink{class_expression_a9216cba5bbd3ffa8c3a625a66b91b36f}{get\_op}())) \{
-47       \textcolor{keywordtype}{string} parameters = env.\hyperlink{class_environment_a4d1630588a2868e2a3ae3868087dedf2}{get\_op}(exp.\hyperlink{class_expression_a9216cba5bbd3ffa8c3a625a66b91b36f}{get\_op}()).first;
-48       \textcolor{keywordtype}{string} express = env.\hyperlink{class_environment_a4d1630588a2868e2a3ae3868087dedf2}{get\_op}(exp.\hyperlink{class_expression_a9216cba5bbd3ffa8c3a625a66b91b36f}{get\_op}()).second;
-49       \hyperlink{class_environment}{Environment} lEnv(env);
-50       lEnv.erase\_varspace();
-51       \textcolor{keywordflow}{if}(exp.\hyperlink{class_expression_a0e8980139631cf7bc9fd3bca9d8caddc}{size}() == env.\hyperlink{class_environment_a22ef2de52498e9f0a7491c85e2148f83}{num\_pars\_op}(exp.\hyperlink{class_expression_a9216cba5bbd3ffa8c3a625a66b91b36f}{get\_op}()))\{
-52         \hyperlink{_functions_i_o_8cc_a77ed86fa2fad279d440800e10d0f4a9a}{createLocalVarSpace}(lEnv, exp, parameters);
-53         \hyperlink{class_input}{Input} in;
-54         in << express;
-55         ++in;
-56         exp.\hyperlink{class_expression_ab2e0ccb0146cccd559c39f8913f9585e}{clear}();
-57         \hyperlink{_functions_i_o_8cc_a0c2a0ba0f4fe2dfe26ec14053ce4d408}{readExpression}(lEnv, exp, in);
-58       \}
-59       \textcolor{keywordflow}{else} \{
-60         exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
-61       \}
-62     \}
-63   \}
-64   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(exp.\hyperlink{class_expression_ae835c069faf7d6821fe6037e384f02c0}{is\_list}()) \{
-65     \hyperlink{_expression_8cc_a6ff59711533978050143f1bfb54c33b1}{const\_iter} c\_it = exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}();
-66     \textcolor{comment}{/* INV}
-67 \textcolor{comment}{      c\_it es un iterador a un elemento de la lista de expresiones de 'exp' comprendido entre exp.begin() y
+48 \{
+49   \textcolor{keywordflow}{if}(exp.\hyperlink{class_expression_a422fb496720b177eaed37a9694613384}{is\_op}())\{
+50     \textcolor{keywordflow}{if}(env.\hyperlink{class_environment_a8949b818539cc0caae637f61f8271640}{is\_primitive}(exp.\hyperlink{class_expression_a9216cba5bbd3ffa8c3a625a66b91b36f}{get\_op}())) \{
+51       env.\hyperlink{class_environment_a15eff205405da84c7466ac8f1ea6a54c}{get\_prim}(exp.\hyperlink{class_expression_a9216cba5bbd3ffa8c3a625a66b91b36f}{get\_op}())(exp);
+52     \}
+53     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(env.\hyperlink{class_environment_a323ca63fc26be47fa45d14dd783761e1}{exists\_op}(exp.\hyperlink{class_expression_a9216cba5bbd3ffa8c3a625a66b91b36f}{get\_op}())) \{
+54       \textcolor{keywordtype}{string} parameters = env.\hyperlink{class_environment_a4d1630588a2868e2a3ae3868087dedf2}{get\_op}(exp.\hyperlink{class_expression_a9216cba5bbd3ffa8c3a625a66b91b36f}{get\_op}()).first;
+55       \textcolor{keywordtype}{string} express = env.\hyperlink{class_environment_a4d1630588a2868e2a3ae3868087dedf2}{get\_op}(exp.\hyperlink{class_expression_a9216cba5bbd3ffa8c3a625a66b91b36f}{get\_op}()).second;
+56       \hyperlink{class_environment}{Environment} lEnv(env);
+57       lEnv.erase\_varspace();
+58       \textcolor{keywordflow}{if}(exp.\hyperlink{class_expression_a0e8980139631cf7bc9fd3bca9d8caddc}{size}() == env.\hyperlink{class_environment_a22ef2de52498e9f0a7491c85e2148f83}{num\_pars\_op}(exp.\hyperlink{class_expression_a9216cba5bbd3ffa8c3a625a66b91b36f}{get\_op}()))\{
+59         \hyperlink{_functions_i_o_8cc_a77ed86fa2fad279d440800e10d0f4a9a}{createLocalVarSpace}(lEnv, exp, parameters);
+60         \hyperlink{class_input}{Input} in;
+61         in << express;
+62         ++in;
+63         exp.\hyperlink{class_expression_ab2e0ccb0146cccd559c39f8913f9585e}{clear}();
+64         \hyperlink{_functions_i_o_8cc_a0c2a0ba0f4fe2dfe26ec14053ce4d408}{readExpression}(lEnv, exp, in);
+65       \}
+66       \textcolor{keywordflow}{else} \{
+67         exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+68       \}
+69     \}
+70   \}
+71   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(exp.\hyperlink{class_expression_ae835c069faf7d6821fe6037e384f02c0}{is\_list}()) \{
+72     \hyperlink{_expression_8cc_a6ff59711533978050143f1bfb54c33b1}{const\_iter} c\_it = exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}();
+73     \textcolor{comment}{/* INV}
+74 \textcolor{comment}{      c\_it es un iterador a un elemento de la lista de expresiones de 'exp' comprendido entre exp.begin() y
        exp.end()}
-68 \textcolor{comment}{    */}
-69     \textcolor{keywordflow}{while}(c\_it != exp.\hyperlink{class_expression_af5229aaf6bbb7200db55f220f315192e}{end}() and (*c\_it) -> is\_value()) \{
-70       ++c\_it;
-71     \}
-72     \textcolor{keywordflow}{if}(c\_it != exp.\hyperlink{class_expression_af5229aaf6bbb7200db55f220f315192e}{end}()) \{
-73       exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
-74     \}
-75   \}
-76 \}
+75 \textcolor{comment}{    */}
+76     \textcolor{keywordflow}{while}(c\_it != exp.\hyperlink{class_expression_af5229aaf6bbb7200db55f220f315192e}{end}() and (*c\_it) -> is\_value()) \{
+77       ++c\_it;
+78     \}
+79     \textcolor{keywordflow}{if}(c\_it != exp.\hyperlink{class_expression_af5229aaf6bbb7200db55f220f315192e}{end}()) \{
+80       exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+81     \}
+82   \}
+83 \}
 \end{DoxyCode}
 \index{Functions\+I\+O.\+cc@{Functions\+I\+O.\+cc}!read\+List@{read\+List}}
 \index{read\+List@{read\+List}!Functions\+I\+O.\+cc@{Functions\+I\+O.\+cc}}
@@ -220,32 +220,32 @@ Lineal
 \end{DoxyParagraph}
 
 
-Definición en la línea 78 del archivo Functions\+I\+O.\+cc.
+Definición en la línea 85 del archivo Functions\+I\+O.\+cc.
 
 
 \begin{DoxyCode}
-79 \{
-80   \textcolor{keywordflow}{if}(in.\hyperlink{class_input_a1e3e0c2189a88504d8c5e440de162e77}{get\_str}() != \textcolor{stringliteral}{")"}) \{
-81     \hyperlink{class_expression}{Expression}* pExp;
-82     \textcolor{comment}{/* INV}
-83 \textcolor{comment}{      'pExp' es un puntero a una expresión a ser insertada al final de la lista de expresiones de 'exp'}
-84 \textcolor{comment}{    */}
-85     \textcolor{keywordflow}{do} \{
-86       pExp = \textcolor{keyword}{new} \hyperlink{class_expression}{Expression};
-87       \hyperlink{_functions_i_o_8cc_a0c2a0ba0f4fe2dfe26ec14053ce4d408}{readExpression}(env, *pExp, in);
-88       exp.\hyperlink{class_expression_a2f087974bb5cee7d0ea06838f5d68ba8}{insert}(exp.\hyperlink{class_expression_af5229aaf6bbb7200db55f220f315192e}{end}(), pExp);
-89     \} \textcolor{keywordflow}{while}(++in != \textcolor{stringliteral}{")"} and not pExp -> undefined());
-90     \textcolor{keywordflow}{if}(pExp -> undefined()) \{
-91       exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
-92     \}
-93     \textcolor{keywordflow}{else} \{
-94       exp.\hyperlink{class_expression_a66db516be4fa87d58df4806938676508}{set\_list}();
-95     \}
-96   \}
-97   \textcolor{keywordflow}{else} \{
-98     exp.\hyperlink{class_expression_a1e0ff9e6ef7b9b96466300509decab24}{set\_empty\_list}();
-99   \}
-100 \}
+86 \{
+87   \textcolor{keywordflow}{if}(in.\hyperlink{class_input_a1e3e0c2189a88504d8c5e440de162e77}{get\_str}() != \textcolor{stringliteral}{")"}) \{
+88     \hyperlink{class_expression}{Expression}* pExp;
+89     \textcolor{comment}{/* INV}
+90 \textcolor{comment}{      'pExp' es un puntero a una expresión a ser insertada al final de la lista de expresiones de 'exp'}
+91 \textcolor{comment}{    */}
+92     \textcolor{keywordflow}{do} \{
+93       pExp = \textcolor{keyword}{new} \hyperlink{class_expression}{Expression};
+94       \hyperlink{_functions_i_o_8cc_a0c2a0ba0f4fe2dfe26ec14053ce4d408}{readExpression}(env, *pExp, in);
+95       exp.\hyperlink{class_expression_a2f087974bb5cee7d0ea06838f5d68ba8}{insert}(exp.\hyperlink{class_expression_af5229aaf6bbb7200db55f220f315192e}{end}(), pExp);
+96     \} \textcolor{keywordflow}{while}(++in != \textcolor{stringliteral}{")"} and not pExp -> undefined());
+97     \textcolor{keywordflow}{if}(pExp -> undefined()) \{
+98       exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+99     \}
+100     \textcolor{keywordflow}{else} \{
+101       exp.\hyperlink{class_expression_a66db516be4fa87d58df4806938676508}{set\_list}();
+102     \}
+103   \}
+104   \textcolor{keywordflow}{else} \{
+105     exp.\hyperlink{class_expression_a1e0ff9e6ef7b9b96466300509decab24}{set\_empty\_list}();
+106   \}
+107 \}
 \end{DoxyCode}
 \index{Functions\+I\+O.\+cc@{Functions\+I\+O.\+cc}!read\+If@{read\+If}}
 \index{read\+If@{read\+If}!Functions\+I\+O.\+cc@{Functions\+I\+O.\+cc}}
@@ -271,37 +271,37 @@ Lineal
 \end{DoxyParagraph}
 
 
-Definición en la línea 102 del archivo Functions\+I\+O.\+cc.
+Definición en la línea 109 del archivo Functions\+I\+O.\+cc.
 
 
 \begin{DoxyCode}
-103 \{
-104   \textcolor{keywordtype}{string} str;
-105   \hyperlink{class_expression}{Expression}* pExp = \textcolor{keyword}{new} \hyperlink{class_expression}{Expression};
-106   \hyperlink{_functions_i_o_8cc_a0c2a0ba0f4fe2dfe26ec14053ce4d408}{readExpression}(env, *pExp, in);
-107   exp.\hyperlink{class_expression_a2f087974bb5cee7d0ea06838f5d68ba8}{insert}(exp.\hyperlink{class_expression_af5229aaf6bbb7200db55f220f315192e}{end}(), pExp);
-108   \textcolor{keywordflow}{if}(pExp -> is\_bool())\{
-109     \textcolor{keywordtype}{int} b = pExp -> get\_value();
-110     \textcolor{keywordflow}{if}(b == 0) \{
-111       in.\hyperlink{class_input_a1c8a389a2bccdcc8c6206c2fbdd6a9f8}{nextExpression}();
-112     \}
-113     \textcolor{keywordflow}{if}(in.\hyperlink{class_input_a61a5b6e5b3e5d7b3022cf93ee5320a1e}{get\_p}() > 0) \{
-114       ++in;
-115       pExp = \textcolor{keyword}{new} \hyperlink{class_expression}{Expression};
-116       \hyperlink{_functions_i_o_8cc_a0c2a0ba0f4fe2dfe26ec14053ce4d408}{readExpression}(env, *pExp, in);
-117       exp.\hyperlink{class_expression_a2f087974bb5cee7d0ea06838f5d68ba8}{insert}(exp.\hyperlink{class_expression_af5229aaf6bbb7200db55f220f315192e}{end}(), pExp);
-118       \textcolor{keywordflow}{if}(pExp -> undefined() or  (2 - b + in.\hyperlink{class_input_ac9f1e2e25646ce602cf9ff83dcc563fe}{countExpressions}() != 2)) \{
-119         exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
-120       \}
-121     \}
-122     \textcolor{keywordflow}{else} \{
-123       exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
-124     \}
-125   \}
-126   \textcolor{keywordflow}{else} \{
-127     exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
-128   \}
-129 \}
+110 \{
+111   \textcolor{keywordtype}{string} str;
+112   \hyperlink{class_expression}{Expression}* pExp = \textcolor{keyword}{new} \hyperlink{class_expression}{Expression};
+113   \hyperlink{_functions_i_o_8cc_a0c2a0ba0f4fe2dfe26ec14053ce4d408}{readExpression}(env, *pExp, in);
+114   exp.\hyperlink{class_expression_a2f087974bb5cee7d0ea06838f5d68ba8}{insert}(exp.\hyperlink{class_expression_af5229aaf6bbb7200db55f220f315192e}{end}(), pExp);
+115   \textcolor{keywordflow}{if}(pExp -> is\_bool())\{
+116     \textcolor{keywordtype}{int} b = pExp -> get\_value();
+117     \textcolor{keywordflow}{if}(b == 0) \{
+118       in.\hyperlink{class_input_a1c8a389a2bccdcc8c6206c2fbdd6a9f8}{nextExpression}();
+119     \}
+120     \textcolor{keywordflow}{if}(in.\hyperlink{class_input_a61a5b6e5b3e5d7b3022cf93ee5320a1e}{get\_p}() > 0) \{
+121       ++in;
+122       pExp = \textcolor{keyword}{new} \hyperlink{class_expression}{Expression};
+123       \hyperlink{_functions_i_o_8cc_a0c2a0ba0f4fe2dfe26ec14053ce4d408}{readExpression}(env, *pExp, in);
+124       exp.\hyperlink{class_expression_a2f087974bb5cee7d0ea06838f5d68ba8}{insert}(exp.\hyperlink{class_expression_af5229aaf6bbb7200db55f220f315192e}{end}(), pExp);
+125       \textcolor{keywordflow}{if}(pExp -> undefined() or  (2 - b + in.\hyperlink{class_input_ac9f1e2e25646ce602cf9ff83dcc563fe}{countExpressions}() != 2)) \{
+126         exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+127       \}
+128     \}
+129     \textcolor{keywordflow}{else} \{
+130       exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+131     \}
+132   \}
+133   \textcolor{keywordflow}{else} \{
+134     exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+135   \}
+136 \}
 \end{DoxyCode}
 \index{Functions\+I\+O.\+cc@{Functions\+I\+O.\+cc}!read\+Op@{read\+Op}}
 \index{read\+Op@{read\+Op}!Functions\+I\+O.\+cc@{Functions\+I\+O.\+cc}}
@@ -327,27 +327,27 @@ Lineal
 \end{DoxyParagraph}
 
 
-Definición en la línea 131 del archivo Functions\+I\+O.\+cc.
+Definición en la línea 138 del archivo Functions\+I\+O.\+cc.
 
 
 \begin{DoxyCode}
-132 \{
-133   exp.\hyperlink{class_expression_adffd3a10200510c64055e550e9eebb1f}{set\_op}(in.\hyperlink{class_input_a1e3e0c2189a88504d8c5e440de162e77}{get\_str}());
-134   ++in;
-135   \textcolor{keywordflow}{if}(exp.\hyperlink{class_expression_a9216cba5bbd3ffa8c3a625a66b91b36f}{get\_op}() == \textcolor{stringliteral}{"if"}) \{
-136     \hyperlink{_functions_i_o_8cc_ae5d92549027ba3619eca48a15b567682}{readIf}(env, exp, in);
-137   \}
-138   \textcolor{keywordflow}{else} \{
-139     \hyperlink{class_expression}{Expression} aux;
-140     \hyperlink{_functions_i_o_8cc_aa35945b371ae9ece372fe0a7c8e97aee}{readList}(env, aux, in);
-141     \textcolor{keywordflow}{if}(aux.\hyperlink{class_expression_a97f9b6fc78a7ef17dd9595e53a9b6239}{undefined}()) \{
-142       exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
-143     \}
-144     \textcolor{keywordflow}{else} \{
-145       exp.\hyperlink{class_expression_a1668a7770489da5f57801254c35557ee}{swap\_list}(aux);
-146     \}
-147   \}
-148 \}
+139 \{
+140   exp.\hyperlink{class_expression_adffd3a10200510c64055e550e9eebb1f}{set\_op}(in.\hyperlink{class_input_a1e3e0c2189a88504d8c5e440de162e77}{get\_str}());
+141   ++in;
+142   \textcolor{keywordflow}{if}(exp.\hyperlink{class_expression_a9216cba5bbd3ffa8c3a625a66b91b36f}{get\_op}() == \textcolor{stringliteral}{"if"}) \{
+143     \hyperlink{_functions_i_o_8cc_ae5d92549027ba3619eca48a15b567682}{readIf}(env, exp, in);
+144   \}
+145   \textcolor{keywordflow}{else} \{
+146     \hyperlink{class_expression}{Expression} aux;
+147     \hyperlink{_functions_i_o_8cc_aa35945b371ae9ece372fe0a7c8e97aee}{readList}(env, aux, in);
+148     \textcolor{keywordflow}{if}(aux.\hyperlink{class_expression_a97f9b6fc78a7ef17dd9595e53a9b6239}{undefined}()) \{
+149       exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+150     \}
+151     \textcolor{keywordflow}{else} \{
+152       exp.\hyperlink{class_expression_a1668a7770489da5f57801254c35557ee}{swap\_list}(aux);
+153     \}
+154   \}
+155 \}
 \end{DoxyCode}
 \index{Functions\+I\+O.\+cc@{Functions\+I\+O.\+cc}!define\+Var@{define\+Var}}
 \index{define\+Var@{define\+Var}!Functions\+I\+O.\+cc@{Functions\+I\+O.\+cc}}
@@ -373,21 +373,21 @@ Lineal
 \end{DoxyParagraph}
 
 
-Definición en la línea 150 del archivo Functions\+I\+O.\+cc.
+Definición en la línea 157 del archivo Functions\+I\+O.\+cc.
 
 
 \begin{DoxyCode}
-151 \{
-152   \hyperlink{class_expression}{Expression} exp;
-153   \hyperlink{_functions_i_o_8cc_a0c2a0ba0f4fe2dfe26ec14053ce4d408}{readExpression}(env, exp, in);
-154   \textcolor{keywordflow}{if}(not exp.\hyperlink{class_expression_a97f9b6fc78a7ef17dd9595e53a9b6239}{undefined}()) \{
-155     env.\hyperlink{class_environment_a6555e2858047d34b19261518e2ec47ce}{set\_var}(key, exp);
-156     env.\hyperlink{class_environment_a2fda411113f72e6e86176b8f00fcc9d7}{write\_var}(key);
-157   \}
-158   \textcolor{keywordflow}{else} \{
-159     cout << key << \textcolor{stringliteral}{" "} << \textcolor{stringliteral}{"indefinit"} << endl;
-160   \}
-161 \}
+158 \{
+159   \hyperlink{class_expression}{Expression} exp;
+160   \hyperlink{_functions_i_o_8cc_a0c2a0ba0f4fe2dfe26ec14053ce4d408}{readExpression}(env, exp, in);
+161   \textcolor{keywordflow}{if}(not exp.\hyperlink{class_expression_a97f9b6fc78a7ef17dd9595e53a9b6239}{undefined}()) \{
+162     env.\hyperlink{class_environment_a6555e2858047d34b19261518e2ec47ce}{set\_var}(key, exp);
+163     env.\hyperlink{class_environment_a2fda411113f72e6e86176b8f00fcc9d7}{write\_var}(key);
+164   \}
+165   \textcolor{keywordflow}{else} \{
+166     cout << key << \textcolor{stringliteral}{" "} << \textcolor{stringliteral}{"indefinit"} << endl;
+167   \}
+168 \}
 \end{DoxyCode}
 \index{Functions\+I\+O.\+cc@{Functions\+I\+O.\+cc}!define\+Op@{define\+Op}}
 \index{define\+Op@{define\+Op}!Functions\+I\+O.\+cc@{Functions\+I\+O.\+cc}}
@@ -414,15 +414,15 @@ Logaritmico
 \end{DoxyParagraph}
 
 
-Definición en la línea 163 del archivo Functions\+I\+O.\+cc.
+Definición en la línea 170 del archivo Functions\+I\+O.\+cc.
 
 
 \begin{DoxyCode}
-164 \{
-165   --in;
-166   env.\hyperlink{class_environment_abcfe3cc83f17d704cc51efb2e6a4c3b8}{set\_op}(key, parameters, in.\hyperlink{class_input_a1c8a389a2bccdcc8c6206c2fbdd6a9f8}{nextExpression}());
-167   env.\hyperlink{class_environment_a6f449052df64c7f8bf44428835dc3d7b}{write\_op}(key);
-168 \}
+171 \{
+172   --in;
+173   env.\hyperlink{class_environment_abcfe3cc83f17d704cc51efb2e6a4c3b8}{set\_op}(key, parameters, in.\hyperlink{class_input_a1c8a389a2bccdcc8c6206c2fbdd6a9f8}{nextExpression}());
+174   env.\hyperlink{class_environment_a6f449052df64c7f8bf44428835dc3d7b}{write\_op}(key);
+175 \}
 \end{DoxyCode}
 \index{Functions\+I\+O.\+cc@{Functions\+I\+O.\+cc}!define@{define}}
 \index{define@{define}!Functions\+I\+O.\+cc@{Functions\+I\+O.\+cc}}
@@ -447,30 +447,30 @@ Logarítmico
 \end{DoxyParagraph}
 
 
-Definición en la línea 170 del archivo Functions\+I\+O.\+cc.
+Definición en la línea 177 del archivo Functions\+I\+O.\+cc.
 
 
 \begin{DoxyCode}
-171 \{
-172   \textcolor{keywordtype}{string} key = ++in;
-173   \textcolor{keywordtype}{string} aux = in.\hyperlink{class_input_a1c8a389a2bccdcc8c6206c2fbdd6a9f8}{nextExpression}();
-174   ++in;
-175   \textcolor{keywordflow}{if}(in.\hyperlink{class_input_a61a5b6e5b3e5d7b3022cf93ee5320a1e}{get\_p}() == 0) \{
-176     in << aux;
-177     ++in;
-178     \hyperlink{_functions_i_o_8cc_a2b0504402167c389ef8c7de12d41149b}{defineVar}(env, key, in);
-179   \}
-180   \textcolor{keywordflow}{else}\{
-181     \textcolor{keywordflow}{if}(aux.size() < 4) \{
-182       aux.clear();
-183     \}
-184     \textcolor{keywordflow}{else} \{
-185       aux.erase(0, 2);
-186       aux.erase(aux.size()-2, 2);
-187     \}
-188     \hyperlink{_functions_i_o_8cc_a39e6424c2643bf6ddf2e5ff8a8c342e9}{defineOp}(env, key, aux, in);
-189   \}
-190 \}
+178 \{
+179   \textcolor{keywordtype}{string} key = ++in;
+180   \textcolor{keywordtype}{string} aux = in.\hyperlink{class_input_a1c8a389a2bccdcc8c6206c2fbdd6a9f8}{nextExpression}();
+181   ++in;
+182   \textcolor{keywordflow}{if}(in.\hyperlink{class_input_a61a5b6e5b3e5d7b3022cf93ee5320a1e}{get\_p}() == 0) \{
+183     in << aux;
+184     ++in;
+185     \hyperlink{_functions_i_o_8cc_a2b0504402167c389ef8c7de12d41149b}{defineVar}(env, key, in);
+186   \}
+187   \textcolor{keywordflow}{else}\{
+188     \textcolor{keywordflow}{if}(aux.size() < 4) \{
+189       aux.clear();
+190     \}
+191     \textcolor{keywordflow}{else} \{
+192       aux.erase(0, 2);
+193       aux.erase(aux.size()-2, 2);
+194     \}
+195     \hyperlink{_functions_i_o_8cc_a39e6424c2643bf6ddf2e5ff8a8c342e9}{defineOp}(env, key, aux, in);
+196   \}
+197 \}
 \end{DoxyCode}
 \index{Functions\+I\+O.\+cc@{Functions\+I\+O.\+cc}!read\+Expression@{read\+Expression}}
 \index{read\+Expression@{read\+Expression}!Functions\+I\+O.\+cc@{Functions\+I\+O.\+cc}}
@@ -496,36 +496,36 @@ Lineal
 \end{DoxyParagraph}
 
 
-Definición en la línea 192 del archivo Functions\+I\+O.\+cc.
+Definición en la línea 199 del archivo Functions\+I\+O.\+cc.
 
 
 \begin{DoxyCode}
-193 \{
-194   \textcolor{keywordtype}{string} str = in.\hyperlink{class_input_a1e3e0c2189a88504d8c5e440de162e77}{get\_str}();
-195   \textcolor{keywordflow}{if}(str == \textcolor{stringliteral}{"("}) \{
-196     in >> str;
-197     \textcolor{keywordflow}{if}(env.\hyperlink{class_environment_a18ebd27038386a636917cbb2bc1583df}{is\_op}(str)) \{
-198       \hyperlink{_functions_i_o_8cc_acb31c57a06915fe17eee64989f500f0d}{readOp}(env, exp, in);
-199     \}
-200     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(str == \textcolor{stringliteral}{"define"}) \{
-201       \hyperlink{_functions_i_o_8cc_a65f523a256e113ca2711c3972157df26}{define}(env, in);
-202     \}
-203     \textcolor{keywordflow}{else} \{
-204       \hyperlink{_functions_i_o_8cc_aa35945b371ae9ece372fe0a7c8e97aee}{readList}(env, exp, in);
-205     \}
-206   \}
-207   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{_functions_i_o_8cc_ae6062008fb1c70242c967349d6ee0f9b}{is\_num}(str))\{
-208     exp.\hyperlink{class_expression_a307683cc3735bf81d823931aab2d64e0}{set\_value}(stoi(str));
-209   \}
-210   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(env.\hyperlink{class_environment_ace3eae39aed1b747a18ab27e45dc96b7}{exists\_var}(str)) \{
-211     exp = env.\hyperlink{class_environment_a3f717bc3f94f76cfb8bc7ff139ffe89b}{get\_var}(str);
-212   \}
-213   \textcolor{keywordflow}{else} \{
-214     exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
-215   \}
-216   \hyperlink{_functions_i_o_8cc_ad4d84fbc6c7e89fb6c14869a204e0913}{evaluate}(env, exp);
-217   \textcolor{keywordflow}{return} str != \textcolor{stringliteral}{"define"};
-218 \}
+200 \{
+201   \textcolor{keywordtype}{string} str = in.\hyperlink{class_input_a1e3e0c2189a88504d8c5e440de162e77}{get\_str}();
+202   \textcolor{keywordflow}{if}(str == \textcolor{stringliteral}{"("}) \{
+203     in >> str;
+204     \textcolor{keywordflow}{if}(env.\hyperlink{class_environment_a18ebd27038386a636917cbb2bc1583df}{is\_op}(str)) \{
+205       \hyperlink{_functions_i_o_8cc_acb31c57a06915fe17eee64989f500f0d}{readOp}(env, exp, in);
+206     \}
+207     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(str == \textcolor{stringliteral}{"define"}) \{
+208       \hyperlink{_functions_i_o_8cc_a65f523a256e113ca2711c3972157df26}{define}(env, in);
+209     \}
+210     \textcolor{keywordflow}{else} \{
+211       \hyperlink{_functions_i_o_8cc_aa35945b371ae9ece372fe0a7c8e97aee}{readList}(env, exp, in);
+212     \}
+213   \}
+214   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{_functions_i_o_8cc_ae6062008fb1c70242c967349d6ee0f9b}{is\_num}(str))\{
+215     exp.\hyperlink{class_expression_a307683cc3735bf81d823931aab2d64e0}{set\_value}(stoi(str));
+216   \}
+217   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(env.\hyperlink{class_environment_ace3eae39aed1b747a18ab27e45dc96b7}{exists\_var}(str)) \{
+218     exp = env.\hyperlink{class_environment_a3f717bc3f94f76cfb8bc7ff139ffe89b}{get\_var}(str);
+219   \}
+220   \textcolor{keywordflow}{else} \{
+221     exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+222   \}
+223   \hyperlink{_functions_i_o_8cc_ad4d84fbc6c7e89fb6c14869a204e0913}{evaluate}(env, exp);
+224   \textcolor{keywordflow}{return} str != \textcolor{stringliteral}{"define"};
+225 \}
 \end{DoxyCode}
 \index{Functions\+I\+O.\+cc@{Functions\+I\+O.\+cc}!read@{read}}
 \index{read@{read}!Functions\+I\+O.\+cc@{Functions\+I\+O.\+cc}}
@@ -550,17 +550,17 @@ Lineal
 \end{DoxyParagraph}
 
 
-Definición en la línea 220 del archivo Functions\+I\+O.\+cc.
+Definición en la línea 227 del archivo Functions\+I\+O.\+cc.
 
 
 \begin{DoxyCode}
-221 \{
-222   \hyperlink{class_input}{Input} in;
-223   \textcolor{keywordtype}{string} str = ++in;
-224   \textcolor{keywordflow}{if}(str != \textcolor{stringliteral}{"****"} and \hyperlink{_functions_i_o_8cc_a0c2a0ba0f4fe2dfe26ec14053ce4d408}{readExpression}(env, exp, in))\{
-225     exp.\hyperlink{class_expression_a6d5d0fa496e3713c332c9f1edc269de5}{write}();
-226   \}
-227   in.\hyperlink{class_input_a326f5a9c81353747b9f525bb32dbc8df}{endOfExpression}();
-228   \textcolor{keywordflow}{return} str != \textcolor{stringliteral}{"****"};
-229 \}
+228 \{
+229   \hyperlink{class_input}{Input} in;
+230   \textcolor{keywordtype}{string} str = ++in;
+231   \textcolor{keywordflow}{if}(str != \textcolor{stringliteral}{"****"} and \hyperlink{_functions_i_o_8cc_a0c2a0ba0f4fe2dfe26ec14053ce4d408}{readExpression}(env, exp, in))\{
+232     exp.\hyperlink{class_expression_a6d5d0fa496e3713c332c9f1edc269de5}{write}();
+233   \}
+234   in.\hyperlink{class_input_a326f5a9c81353747b9f525bb32dbc8df}{endOfExpression}();
+235   \textcolor{keywordflow}{return} str != \textcolor{stringliteral}{"****"};
+236 \}
 \end{DoxyCode}

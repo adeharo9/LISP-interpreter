@@ -1,3 +1,7 @@
+/** @file Environment.cc
+    @brief Implementación de la clase Environment
+*/
+
 #include "Environment.hh"
 #include "Expression.hh"
 #include "PrimitiveOperationSpace.hh"

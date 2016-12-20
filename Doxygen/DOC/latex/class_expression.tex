@@ -132,13 +132,13 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 57 del archivo Expression.\+cc.
+Definición en la línea 64 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-58 \{
-59   \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} = 1;
-60 \}
+65 \{
+66   \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} = 1;
+67 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!Expression@{Expression}}
 \index{Expression@{Expression}!Expression@{Expression}}
@@ -162,16 +162,16 @@ Lineal respecto al tamaño de \textquotesingle{}in\+Exp\textquotesingle{}
 \end{DoxyParagraph}
 
 
-Definición en la línea 62 del archivo Expression.\+cc.
+Definición en la línea 69 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-63 \{
-64   \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} = inExp.\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type};
-65   \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val} = inExp.\hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val};
-66   \hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op} = inExp.\hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op};
-67   \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp} = \hyperlink{class_expression_a0d7df919d94bc861a5fe5be4be2dc836}{cp\_exp\_list}(inExp.\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
-68 \}
+70 \{
+71   \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} = inExp.\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type};
+72   \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val} = inExp.\hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val};
+73   \hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op} = inExp.\hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op};
+74   \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp} = \hyperlink{class_expression_a0d7df919d94bc861a5fe5be4be2dc836}{cp\_exp\_list}(inExp.\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
+75 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!````~Expression@{$\sim$\+Expression}}
 \index{````~Expression@{$\sim$\+Expression}!Expression@{Expression}}
@@ -195,13 +195,13 @@ Lineal respecto al tamaño de la lista de expresiones del parámetro implícito
 \end{DoxyParagraph}
 
 
-Definición en la línea 72 del archivo Expression.\+cc.
+Definición en la línea 79 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-73 \{
-74   \hyperlink{class_expression_ae80247fcce0b4d61f7b0227d5e176dce}{rm\_exp\_list}(\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
-75 \}
+80 \{
+81   \hyperlink{class_expression_ae80247fcce0b4d61f7b0227d5e176dce}{rm\_exp\_list}(\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
+82 \}
 \end{DoxyCode}
 
 
@@ -228,33 +228,33 @@ Lineal respecto al tamaño de \textquotesingle{}l\+Exp\textquotesingle{}
 \end{DoxyParagraph}
 
 
-Definición en la línea 15 del archivo Expression.\+cc.
+Definición en la línea 22 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-16 \{
-17   list<Expression*> aux;
-18   \hyperlink{class_expression}{Expression}* pAux;
-19   \hyperlink{_expression_8cc_a6ff59711533978050143f1bfb54c33b1}{const\_iter} c\_it = \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.begin();
-20   \textcolor{comment}{/* INV}
-21 \textcolor{comment}{    c\_it es un iterador a un elemento de la lista de expresiones del parámetro implícito comprendido entre
+23 \{
+24   list<Expression*> aux;
+25   \hyperlink{class_expression}{Expression}* pAux;
+26   \hyperlink{_expression_8cc_a6ff59711533978050143f1bfb54c33b1}{const\_iter} c\_it = \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.begin();
+27   \textcolor{comment}{/* INV}
+28 \textcolor{comment}{    c\_it es un iterador a un elemento de la lista de expresiones del parámetro implícito comprendido entre
        lExp.begin() y lExp.end()}
-22 \textcolor{comment}{  */}
-23   \textcolor{keywordflow}{while}(c\_it != \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.end())\{
-24     pAux = \textcolor{keyword}{new} \hyperlink{class_expression_afcf87716bf0abfe8d414c92529e1564a}{Expression};
-25     pAux -> \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} = (*c\_it) -> \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type};
-26     pAux -> \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val} = (*c\_it) -> \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val};
-27     pAux -> \hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op} = (*c\_it) -> \hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op};
-28     \textcolor{comment}{/* HI}
-29 \textcolor{comment}{      cp\_exp\_list devuelve una lista de punteros que apuntan a una copia en memoria de los objetos
+29 \textcolor{comment}{  */}
+30   \textcolor{keywordflow}{while}(c\_it != \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.end())\{
+31     pAux = \textcolor{keyword}{new} \hyperlink{class_expression_afcf87716bf0abfe8d414c92529e1564a}{Expression};
+32     pAux -> \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} = (*c\_it) -> \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type};
+33     pAux -> \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val} = (*c\_it) -> \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val};
+34     pAux -> \hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op} = (*c\_it) -> \hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op};
+35     \textcolor{comment}{/* HI}
+36 \textcolor{comment}{      cp\_exp\_list devuelve una lista de punteros que apuntan a una copia en memoria de los objetos
        apuntados por la lista pasada como parámetro}
-30 \textcolor{comment}{    */}
-31     pAux -> \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp} = \hyperlink{class_expression_a0d7df919d94bc861a5fe5be4be2dc836}{cp\_exp\_list}((*c\_it) -> \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
-32     aux.insert(aux.end(), pAux);
-33     ++c\_it;
-34   \}
-35   \textcolor{keywordflow}{return} aux;
-36 \}
+37 \textcolor{comment}{    */}
+38     pAux -> \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp} = \hyperlink{class_expression_a0d7df919d94bc861a5fe5be4be2dc836}{cp\_exp\_list}((*c\_it) -> \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
+39     aux.insert(aux.end(), pAux);
+40     ++c\_it;
+41   \}
+42   \textcolor{keywordflow}{return} aux;
+43 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!rm\+\_\+exp\+\_\+list@{rm\+\_\+exp\+\_\+list}}
 \index{rm\+\_\+exp\+\_\+list@{rm\+\_\+exp\+\_\+list}!Expression@{Expression}}
@@ -278,18 +278,18 @@ Lineal respecto al tamaño de \textquotesingle{}l\+Exp\textquotesingle{}
 \end{DoxyParagraph}
 
 
-Definición en la línea 38 del archivo Expression.\+cc.
+Definición en la línea 45 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-39 \{
-40   \textcolor{keywordflow}{for} (\hyperlink{_expression_8cc_a1d50eb14ec5470381cccafb7dcd8b687}{iter} it = \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.begin(); it != \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.end(); ++it) \{
-41     \textcolor{keywordflow}{if}(*it != \hyperlink{_expression_8cc_a67b562dac02b0d19c41323121556d04b}{rm\_excep})\{
-42       \textcolor{keyword}{delete} *it;
-43     \}
-44   \}
-45   \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.clear();
-46 \}
+46 \{
+47   \textcolor{keywordflow}{for} (\hyperlink{_expression_8cc_a1d50eb14ec5470381cccafb7dcd8b687}{iter} it = \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.begin(); it != \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.end(); ++it) \{
+48     \textcolor{keywordflow}{if}(*it != \hyperlink{_expression_8cc_a67b562dac02b0d19c41323121556d04b}{rm\_excep})\{
+49       \textcolor{keyword}{delete} *it;
+50     \}
+51   \}
+52   \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.clear();
+53 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!rm\+\_\+exp\+\_\+list\+\_\+excep@{rm\+\_\+exp\+\_\+list\+\_\+excep}}
 \index{rm\+\_\+exp\+\_\+list\+\_\+excep@{rm\+\_\+exp\+\_\+list\+\_\+excep}!Expression@{Expression}}
@@ -314,15 +314,15 @@ Lineal respecto al tamaño de \textquotesingle{}l\+Exp\textquotesingle{}
 \end{DoxyParagraph}
 
 
-Definición en la línea 48 del archivo Expression.\+cc.
+Definición en la línea 55 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-49 \{
-50     \hyperlink{_expression_8cc_a67b562dac02b0d19c41323121556d04b}{rm\_excep} = &inExp;
-51     \hyperlink{class_expression_ae80247fcce0b4d61f7b0227d5e176dce}{rm\_exp\_list}(\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
-52     \hyperlink{_expression_8cc_a67b562dac02b0d19c41323121556d04b}{rm\_excep} = NULL;
-53 \}
+56 \{
+57     \hyperlink{_expression_8cc_a67b562dac02b0d19c41323121556d04b}{rm\_excep} = &inExp;
+58     \hyperlink{class_expression_ae80247fcce0b4d61f7b0227d5e176dce}{rm\_exp\_list}(\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
+59     \hyperlink{_expression_8cc_a67b562dac02b0d19c41323121556d04b}{rm\_excep} = NULL;
+60 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!operator=@{operator=}}
 \index{operator=@{operator=}!Expression@{Expression}}
@@ -346,21 +346,21 @@ Lineal respecto al tamaño de \textquotesingle{}in\+Exp\textquotesingle{}
 \end{DoxyParagraph}
 
 
-Definición en la línea 79 del archivo Expression.\+cc.
+Definición en la línea 86 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-80 \{
-81   \textcolor{keywordflow}{if}(\textcolor{keyword}{this} != &inExp) \{
-82     \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} = inExp.\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type};
-83     \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val} = inExp.\hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val};
-84     \hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op} = inExp.\hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op};
-85     list<Expression*> aux = \hyperlink{class_expression_a0d7df919d94bc861a5fe5be4be2dc836}{cp\_exp\_list}(inExp.\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
-86     \hyperlink{class_expression_ae80247fcce0b4d61f7b0227d5e176dce}{rm\_exp\_list}(\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
-87     \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp} = aux;
-88   \}
-89   \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
-90 \}
+87 \{
+88   \textcolor{keywordflow}{if}(\textcolor{keyword}{this} != &inExp) \{
+89     \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} = inExp.\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type};
+90     \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val} = inExp.\hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val};
+91     \hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op} = inExp.\hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op};
+92     list<Expression*> aux = \hyperlink{class_expression_a0d7df919d94bc861a5fe5be4be2dc836}{cp\_exp\_list}(inExp.\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
+93     \hyperlink{class_expression_ae80247fcce0b4d61f7b0227d5e176dce}{rm\_exp\_list}(\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
+94     \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp} = aux;
+95   \}
+96   \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+97 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!Expression@{Expression}}
@@ -384,23 +384,23 @@ Lineal respecto al tamaño de \textquotesingle{}in\+Exp\textquotesingle{}
 \end{DoxyParagraph}
 
 
-Definición en la línea 92 del archivo Expression.\+cc.
+Definición en la línea 99 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-93 \{
-94   \textcolor{keywordflow}{if}(\textcolor{keyword}{this} != &inExp)\{
-95     \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} = inExp.\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type};
-96     \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val} = inExp.\hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val};
-97     \hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op} = inExp.\hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op};
-98     \hyperlink{class_expression_af84a5a0c390b2cd9f481ed6e0a894d60}{rm\_exp\_list\_excep}(\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}, inExp);
-99     \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp} = inExp.\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp};
-100     inExp.\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.clear();
-101     inExp.\hyperlink{class_expression_ab2e0ccb0146cccd559c39f8913f9585e}{clear}();
-102     \textcolor{keyword}{delete} &inExp;
-103   \}
-104   \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
-105 \}
+100 \{
+101   \textcolor{keywordflow}{if}(\textcolor{keyword}{this} != &inExp)\{
+102     \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} = inExp.\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type};
+103     \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val} = inExp.\hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val};
+104     \hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op} = inExp.\hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op};
+105     \hyperlink{class_expression_af84a5a0c390b2cd9f481ed6e0a894d60}{rm\_exp\_list\_excep}(\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}, inExp);
+106     \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp} = inExp.\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp};
+107     inExp.\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.clear();
+108     inExp.\hyperlink{class_expression_ab2e0ccb0146cccd559c39f8913f9585e}{clear}();
+109     \textcolor{keyword}{delete} &inExp;
+110   \}
+111   \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+112 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!Expression@{Expression}}
@@ -424,16 +424,16 @@ Lineal respecto al tamaño de \textquotesingle{}l\+Expression\textquotesingle{}
 \end{DoxyParagraph}
 
 
-Definición en la línea 107 del archivo Expression.\+cc.
+Definición en la línea 114 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-108 \{
-109   \hyperlink{class_expression_ae80247fcce0b4d61f7b0227d5e176dce}{rm\_exp\_list}(\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
-110   \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp} = lExpression;
-111   lExpression.clear();
-112   \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
-113 \}
+115 \{
+116   \hyperlink{class_expression_ae80247fcce0b4d61f7b0227d5e176dce}{rm\_exp\_list}(\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
+117   \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp} = lExpression;
+118   lExpression.clear();
+119   \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+120 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!operator$>$$>$@{operator$>$$>$}}
 \index{operator$>$$>$@{operator$>$$>$}!Expression@{Expression}}
@@ -457,15 +457,15 @@ Lineal respecto al tamaño de \textquotesingle{}l\+Expression\textquotesingle{}
 \end{DoxyParagraph}
 
 
-Definición en la línea 115 del archivo Expression.\+cc.
+Definición en la línea 122 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-116 \{
-117   \hyperlink{class_expression_ae80247fcce0b4d61f7b0227d5e176dce}{rm\_exp\_list}(lExpression);
-118   lExpression = \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp};
-119   \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.clear();
-120 \}
+123 \{
+124   \hyperlink{class_expression_ae80247fcce0b4d61f7b0227d5e176dce}{rm\_exp\_list}(lExpression);
+125   lExpression = \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp};
+126   \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.clear();
+127 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!operator==@{operator==}}
 \index{operator==@{operator==}!Expression@{Expression}}
@@ -489,41 +489,41 @@ Lineal respecto al tamaño de \textquotesingle{}in\+Exp\textquotesingle{}
 \end{DoxyParagraph}
 
 
-Definición en la línea 122 del archivo Expression.\+cc.
+Definición en la línea 129 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-123 \{
-124   \textcolor{keywordflow}{if}(\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 2 and inExp.\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 2) \{
-125     \textcolor{keywordflow}{return} \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val} == inExp.\hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val};
-126   \}
-127   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 4 and inExp.\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 4) \{
-128     \textcolor{keywordflow}{if}(\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.size() == inExp.\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.size()) \{
-129       \hyperlink{_expression_8cc_a6ff59711533978050143f1bfb54c33b1}{const\_iter} c\_it1 = \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.begin();
-130       \hyperlink{_expression_8cc_a6ff59711533978050143f1bfb54c33b1}{const\_iter} c\_it2 = inExp.\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.begin();
-131       \textcolor{comment}{/* INV}
-132 \textcolor{comment}{        c\_it1 es un iterador a un elemento de la lista de expresiones del parámetro implícito comprendido
+130 \{
+131   \textcolor{keywordflow}{if}(\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 2 and inExp.\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 2) \{
+132     \textcolor{keywordflow}{return} \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val} == inExp.\hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val};
+133   \}
+134   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 4 and inExp.\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 4) \{
+135     \textcolor{keywordflow}{if}(\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.size() == inExp.\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.size()) \{
+136       \hyperlink{_expression_8cc_a6ff59711533978050143f1bfb54c33b1}{const\_iter} c\_it1 = \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.begin();
+137       \hyperlink{_expression_8cc_a6ff59711533978050143f1bfb54c33b1}{const\_iter} c\_it2 = inExp.\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.begin();
+138       \textcolor{comment}{/* INV}
+139 \textcolor{comment}{        c\_it1 es un iterador a un elemento de la lista de expresiones del parámetro implícito comprendido
        entre lExp.begin() y lExp.end()}
-133 \textcolor{comment}{        c\_it2 es un iterador a un elemento de la lista de expresiones de 'inExp' comprendido entre
+140 \textcolor{comment}{        c\_it2 es un iterador a un elemento de la lista de expresiones de 'inExp' comprendido entre
        inExp.lExp.begin() y inExp.lExp.end()}
-134 \textcolor{comment}{      */}
-135       \textcolor{comment}{/* HI}
-136 \textcolor{comment}{        *(*c\_it1) == *(*c\_it2) devuelve 'true' si ambas expresiones son iguales y 'false' en otro caso}
-137 \textcolor{comment}{      */}
-138       \textcolor{keywordflow}{while}(c\_it1 != \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.end() and (*(*c\_it1) == *(*c\_it2))) \{
-139         ++c\_it1;
-140         ++c\_it2;
-141       \}
-142       \textcolor{keywordflow}{return} c\_it1 == \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.end();
-143     \}
-144     \textcolor{keywordflow}{else} \{
-145       \textcolor{keywordflow}{return} \textcolor{keyword}{false};
-146     \}
-147   \}
-148   \textcolor{keywordflow}{else} \{
-149     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
-150   \}
-151 \}
+141 \textcolor{comment}{      */}
+142       \textcolor{comment}{/* HI}
+143 \textcolor{comment}{        *(*c\_it1) == *(*c\_it2) devuelve 'true' si ambas expresiones son iguales y 'false' en otro caso}
+144 \textcolor{comment}{      */}
+145       \textcolor{keywordflow}{while}(c\_it1 != \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.end() and (*(*c\_it1) == *(*c\_it2))) \{
+146         ++c\_it1;
+147         ++c\_it2;
+148       \}
+149       \textcolor{keywordflow}{return} c\_it1 == \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.end();
+150     \}
+151     \textcolor{keywordflow}{else} \{
+152       \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+153     \}
+154   \}
+155   \textcolor{keywordflow}{else} \{
+156     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+157   \}
+158 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!operator$<$@{operator$<$}}
 \index{operator$<$@{operator$<$}!Expression@{Expression}}
@@ -547,38 +547,38 @@ Lineal respecto al tamaño de \textquotesingle{}in\+Exp\textquotesingle{}
 \end{DoxyParagraph}
 
 
-Definición en la línea 153 del archivo Expression.\+cc.
+Definición en la línea 160 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-154 \{
-155   \textcolor{keywordflow}{if}(\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 2 and inExp.\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 2) \{
-156     \textcolor{keywordflow}{return} \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val} < inExp.\hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val};
-157   \}
-158   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 4 and inExp.\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 4) \{
-159     \hyperlink{_expression_8cc_a6ff59711533978050143f1bfb54c33b1}{const\_iter} c\_it1 = \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.begin();
-160     \hyperlink{_expression_8cc_a6ff59711533978050143f1bfb54c33b1}{const\_iter} c\_it2 = inExp.\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.begin();
-161     \textcolor{comment}{/* INV}
-162 \textcolor{comment}{      c\_it1 es un iterador a un elemento de la lista de expresiones del parámetro implícito comprendido
+161 \{
+162   \textcolor{keywordflow}{if}(\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 2 and inExp.\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 2) \{
+163     \textcolor{keywordflow}{return} \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val} < inExp.\hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val};
+164   \}
+165   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 4 and inExp.\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 4) \{
+166     \hyperlink{_expression_8cc_a6ff59711533978050143f1bfb54c33b1}{const\_iter} c\_it1 = \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.begin();
+167     \hyperlink{_expression_8cc_a6ff59711533978050143f1bfb54c33b1}{const\_iter} c\_it2 = inExp.\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.begin();
+168     \textcolor{comment}{/* INV}
+169 \textcolor{comment}{      c\_it1 es un iterador a un elemento de la lista de expresiones del parámetro implícito comprendido
        entre lExp.begin() y lExp.end()}
-163 \textcolor{comment}{      c\_it2 es un iterador a un elemento de la lista de expresiones de 'inExp' comprendido entre
+170 \textcolor{comment}{      c\_it2 es un iterador a un elemento de la lista de expresiones de 'inExp' comprendido entre
        inExp.lExp.begin() y inExp.lExp.end()}
-164 \textcolor{comment}{    */}
-165     \textcolor{keywordflow}{while}(c\_it1 != \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.end() and c\_it2 != inExp.\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.end() and (*(*c\_it1) == *(*c\_it2))) \{
-166       ++c\_it1;
-167       ++c\_it2;
-168     \}
-169     \textcolor{comment}{/* HI}
-170 \textcolor{comment}{      *(*c\_it1) < *(*c\_it2)) devuelve 'true' si la expresión de la izquierda del operador es
-       lexicográficamente menor estricta que la de la derecha del operador}
 171 \textcolor{comment}{    */}
-172     \textcolor{keywordflow}{return} (c\_it1 == \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.end() and c\_it2 != inExp.\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.end()) or (c\_it1 != 
+172     \textcolor{keywordflow}{while}(c\_it1 != \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.end() and c\_it2 != inExp.\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.end() and (*(*c\_it1) == *(*c\_it2))) \{
+173       ++c\_it1;
+174       ++c\_it2;
+175     \}
+176     \textcolor{comment}{/* HI}
+177 \textcolor{comment}{      *(*c\_it1) < *(*c\_it2)) devuelve 'true' si la expresión de la izquierda del operador es
+       lexicográficamente menor estricta que la de la derecha del operador}
+178 \textcolor{comment}{    */}
+179     \textcolor{keywordflow}{return} (c\_it1 == \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.end() and c\_it2 != inExp.\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.end()) or (c\_it1 != 
       \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.end() and c\_it2!= inExp.\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.end() and *(*c\_it1) < *(*c\_it2));
-173   \}
-174   \textcolor{keywordflow}{else} \{
-175     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
-176   \}
-177 \}
+180   \}
+181   \textcolor{keywordflow}{else} \{
+182     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+183   \}
+184 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!clear@{clear}}
 \index{clear@{clear}!Expression@{Expression}}
@@ -602,18 +602,18 @@ Lineal respecto al tamaño del parámetro implícito
 \end{DoxyParagraph}
 
 
-Definición en la línea 181 del archivo Expression.\+cc.
+Definición en la línea 188 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-182 \{
-183   \textcolor{keywordflow}{if}(\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} != 1) \{
-184     \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} = 1;
-185     \hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op}.clear();
-186     \hyperlink{class_expression_ae80247fcce0b4d61f7b0227d5e176dce}{rm\_exp\_list}(\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
-187     \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.clear();
-188   \}
-189 \}
+189 \{
+190   \textcolor{keywordflow}{if}(\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} != 1) \{
+191     \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} = 1;
+192     \hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op}.clear();
+193     \hyperlink{class_expression_ae80247fcce0b4d61f7b0227d5e176dce}{rm\_exp\_list}(\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
+194     \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.clear();
+195   \}
+196 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!insert@{insert}}
 \index{insert@{insert}!Expression@{Expression}}
@@ -638,13 +638,13 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 191 del archivo Expression.\+cc.
+Definición en la línea 198 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-192 \{
-193   \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.insert(it, pExp);
-194 \}
+199 \{
+200   \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.insert(it, pExp);
+201 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!erase@{erase}}
 \index{erase@{erase}!Expression@{Expression}}
@@ -668,14 +668,14 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 196 del archivo Expression.\+cc.
+Definición en la línea 203 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-197 \{
-198   \textcolor{keyword}{delete} *it;
-199   \textcolor{keywordflow}{return} \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.erase(it);
-200 \}
+204 \{
+205   \textcolor{keyword}{delete} *it;
+206   \textcolor{keywordflow}{return} \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.erase(it);
+207 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!splice@{splice}}
 \index{splice@{splice}!Expression@{Expression}}
@@ -700,13 +700,13 @@ Lineal respecto al tamaño de \textquotesingle{}l\+Expression\textquotesingle{}
 \end{DoxyParagraph}
 
 
-Definición en la línea 202 del archivo Expression.\+cc.
+Definición en la línea 209 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-203 \{
-204   \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.splice(it, lExpression);
-205 \}
+210 \{
+211   \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.splice(it, lExpression);
+212 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!swap\+\_\+list@{swap\+\_\+list}}
 \index{swap\+\_\+list@{swap\+\_\+list}!Expression@{Expression}}
@@ -730,13 +730,13 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 207 del archivo Expression.\+cc.
+Definición en la línea 214 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-208 \{
-209   \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.swap(inExp.\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
-210 \}
+215 \{
+216   \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.swap(inExp.\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
+217 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!set\+\_\+undefined@{set\+\_\+undefined}}
 \index{set\+\_\+undefined@{set\+\_\+undefined}!Expression@{Expression}}
@@ -760,18 +760,18 @@ Lineal respecto al tamaño del parámetro implícito
 \end{DoxyParagraph}
 
 
-Definición en la línea 212 del archivo Expression.\+cc.
+Definición en la línea 219 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-213 \{
-214   \textcolor{keywordflow}{if}(\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} != 0) \{
-215     \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} = 0;
-216     \hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op}.clear();
-217     \hyperlink{class_expression_ae80247fcce0b4d61f7b0227d5e176dce}{rm\_exp\_list}(\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
-218     \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.clear();
-219   \}
-220 \}
+220 \{
+221   \textcolor{keywordflow}{if}(\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} != 0) \{
+222     \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} = 0;
+223     \hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op}.clear();
+224     \hyperlink{class_expression_ae80247fcce0b4d61f7b0227d5e176dce}{rm\_exp\_list}(\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
+225     \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.clear();
+226   \}
+227 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!set\+\_\+value@{set\+\_\+value}}
 \index{set\+\_\+value@{set\+\_\+value}!Expression@{Expression}}
@@ -795,19 +795,19 @@ Lineal respecto al tamaño del parámetro implícito
 \end{DoxyParagraph}
 
 
-Definición en la línea 222 del archivo Expression.\+cc.
+Definición en la línea 229 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-223 \{
-224   \textcolor{keywordflow}{if}(\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} != 2) \{
-225     \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} = 2;
-226     \hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op}.clear();
-227     \hyperlink{class_expression_ae80247fcce0b4d61f7b0227d5e176dce}{rm\_exp\_list}(\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
-228     \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.clear();
-229   \}
-230   \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val} = value;
-231 \}
+230 \{
+231   \textcolor{keywordflow}{if}(\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} != 2) \{
+232     \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} = 2;
+233     \hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op}.clear();
+234     \hyperlink{class_expression_ae80247fcce0b4d61f7b0227d5e176dce}{rm\_exp\_list}(\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
+235     \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.clear();
+236   \}
+237   \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val} = value;
+238 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!set\+\_\+op@{set\+\_\+op}}
 \index{set\+\_\+op@{set\+\_\+op}!Expression@{Expression}}
@@ -831,18 +831,18 @@ Lineal respecto al tamaño del parámetro implícito
 \end{DoxyParagraph}
 
 
-Definición en la línea 233 del archivo Expression.\+cc.
+Definición en la línea 240 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-234 \{
-235   \textcolor{keywordflow}{if}(\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} != 3) \{
-236     \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} = 3;
-237   \}
-238   \hyperlink{class_expression_ae80247fcce0b4d61f7b0227d5e176dce}{rm\_exp\_list}(\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
-239   \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.clear();
-240   \hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op} = inOperator;
-241 \}
+241 \{
+242   \textcolor{keywordflow}{if}(\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} != 3) \{
+243     \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} = 3;
+244   \}
+245   \hyperlink{class_expression_ae80247fcce0b4d61f7b0227d5e176dce}{rm\_exp\_list}(\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
+246   \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.clear();
+247   \hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op} = inOperator;
+248 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!set\+\_\+list@{set\+\_\+list}}
 \index{set\+\_\+list@{set\+\_\+list}!Expression@{Expression}}
@@ -866,16 +866,16 @@ Lineal
 \end{DoxyParagraph}
 
 
-Definición en la línea 243 del archivo Expression.\+cc.
+Definición en la línea 250 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-244 \{
-245   \textcolor{keywordflow}{if}(\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} != 4) \{
-246     \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} = 4;
-247     \hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op}.clear();
-248   \}
-249 \}
+251 \{
+252   \textcolor{keywordflow}{if}(\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} != 4) \{
+253     \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} = 4;
+254     \hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op}.clear();
+255   \}
+256 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!set\+\_\+empty\+\_\+list@{set\+\_\+empty\+\_\+list}}
 \index{set\+\_\+empty\+\_\+list@{set\+\_\+empty\+\_\+list}!Expression@{Expression}}
@@ -899,18 +899,18 @@ Lineal respecto al tamaño del parámetro implícito
 \end{DoxyParagraph}
 
 
-Definición en la línea 251 del archivo Expression.\+cc.
+Definición en la línea 258 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-252 \{
-253   \textcolor{keywordflow}{if}(\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} != 4 or not \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.empty()) \{
-254     \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} = 4;
-255     \hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op}.clear();
-256     \hyperlink{class_expression_ae80247fcce0b4d61f7b0227d5e176dce}{rm\_exp\_list}(\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
-257     \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.clear();
-258   \}
-259 \}
+259 \{
+260   \textcolor{keywordflow}{if}(\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} != 4 or not \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.empty()) \{
+261     \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} = 4;
+262     \hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op}.clear();
+263     \hyperlink{class_expression_ae80247fcce0b4d61f7b0227d5e176dce}{rm\_exp\_list}(\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp});
+264     \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.clear();
+265   \}
+266 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!size@{size}}
 \index{size@{size}!Expression@{Expression}}
@@ -934,13 +934,13 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 263 del archivo Expression.\+cc.
+Definición en la línea 270 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-264 \{
-265   \textcolor{keywordflow}{return} \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.size();
-266 \}
+271 \{
+272   \textcolor{keywordflow}{return} \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.size();
+273 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!undefined@{undefined}}
 \index{undefined@{undefined}!Expression@{Expression}}
@@ -964,13 +964,13 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 268 del archivo Expression.\+cc.
+Definición en la línea 275 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-269 \{
-270   \textcolor{keywordflow}{return} \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 0;
-271 \}
+276 \{
+277   \textcolor{keywordflow}{return} \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 0;
+278 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!empty@{empty}}
 \index{empty@{empty}!Expression@{Expression}}
@@ -994,13 +994,13 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 273 del archivo Expression.\+cc.
+Definición en la línea 280 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-274 \{
-275   \textcolor{keywordflow}{return} \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 1;
-276 \}
+281 \{
+282   \textcolor{keywordflow}{return} \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 1;
+283 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!is\+\_\+value@{is\+\_\+value}}
 \index{is\+\_\+value@{is\+\_\+value}!Expression@{Expression}}
@@ -1024,13 +1024,13 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 278 del archivo Expression.\+cc.
+Definición en la línea 285 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-279 \{
-280   \textcolor{keywordflow}{return} \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 2;
-281 \}
+286 \{
+287   \textcolor{keywordflow}{return} \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 2;
+288 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!is\+\_\+op@{is\+\_\+op}}
 \index{is\+\_\+op@{is\+\_\+op}!Expression@{Expression}}
@@ -1054,13 +1054,13 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 283 del archivo Expression.\+cc.
+Definición en la línea 290 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-284 \{
-285   \textcolor{keywordflow}{return} \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 3;
-286 \}
+291 \{
+292   \textcolor{keywordflow}{return} \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 3;
+293 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!is\+\_\+list@{is\+\_\+list}}
 \index{is\+\_\+list@{is\+\_\+list}!Expression@{Expression}}
@@ -1084,13 +1084,13 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 288 del archivo Expression.\+cc.
+Definición en la línea 295 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-289 \{
-290   \textcolor{keywordflow}{return} \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 4;
-291 \}
+296 \{
+297   \textcolor{keywordflow}{return} \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 4;
+298 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!is\+\_\+empty\+\_\+list@{is\+\_\+empty\+\_\+list}}
 \index{is\+\_\+empty\+\_\+list@{is\+\_\+empty\+\_\+list}!Expression@{Expression}}
@@ -1114,13 +1114,13 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 293 del archivo Expression.\+cc.
+Definición en la línea 300 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-294 \{
-295   \textcolor{keywordflow}{return} \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 4 and \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.empty();
-296 \}
+301 \{
+302   \textcolor{keywordflow}{return} \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 4 and \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.empty();
+303 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!is\+\_\+bool@{is\+\_\+bool}}
 \index{is\+\_\+bool@{is\+\_\+bool}!Expression@{Expression}}
@@ -1144,13 +1144,13 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 298 del archivo Expression.\+cc.
+Definición en la línea 305 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-299 \{
-300   \textcolor{keywordflow}{return} \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 2 and (\hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val} == 0 or \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val} == 1);
-301 \}
+306 \{
+307   \textcolor{keywordflow}{return} \hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 2 and (\hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val} == 0 or \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val} == 1);
+308 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!get\+\_\+value@{get\+\_\+value}}
 \index{get\+\_\+value@{get\+\_\+value}!Expression@{Expression}}
@@ -1174,13 +1174,13 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 303 del archivo Expression.\+cc.
+Definición en la línea 310 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-304 \{
-305   \textcolor{keywordflow}{return} \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val};
-306 \}
+311 \{
+312   \textcolor{keywordflow}{return} \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val};
+313 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!get\+\_\+op@{get\+\_\+op}}
 \index{get\+\_\+op@{get\+\_\+op}!Expression@{Expression}}
@@ -1204,13 +1204,13 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 308 del archivo Expression.\+cc.
+Definición en la línea 315 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-309 \{
-310   \textcolor{keywordflow}{return} \hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op};
-311 \}
+316 \{
+317   \textcolor{keywordflow}{return} \hyperlink{class_expression_a30856695b46075ada151f6f6cdfb9fa8}{op};
+318 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!begin@{begin}}
 \index{begin@{begin}!Expression@{Expression}}
@@ -1234,13 +1234,13 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 315 del archivo Expression.\+cc.
+Definición en la línea 322 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-316 \{
-317   \textcolor{keywordflow}{return} \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.begin();
-318 \}
+323 \{
+324   \textcolor{keywordflow}{return} \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.begin();
+325 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!begin@{begin}}
 \index{begin@{begin}!Expression@{Expression}}
@@ -1264,13 +1264,13 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 320 del archivo Expression.\+cc.
+Definición en la línea 327 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-321 \{
-322   \textcolor{keywordflow}{return} \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.begin();
-323 \}
+328 \{
+329   \textcolor{keywordflow}{return} \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.begin();
+330 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!second@{second}}
 \index{second@{second}!Expression@{Expression}}
@@ -1294,13 +1294,13 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 325 del archivo Expression.\+cc.
+Definición en la línea 332 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-326 \{
-327   \textcolor{keywordflow}{return} ++\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.begin();
-328 \}
+333 \{
+334   \textcolor{keywordflow}{return} ++\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.begin();
+335 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!second@{second}}
 \index{second@{second}!Expression@{Expression}}
@@ -1324,13 +1324,13 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 330 del archivo Expression.\+cc.
+Definición en la línea 337 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-331 \{
-332   \textcolor{keywordflow}{return} ++\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.begin();
-333 \}
+338 \{
+339   \textcolor{keywordflow}{return} ++\hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.begin();
+340 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!end@{end}}
 \index{end@{end}!Expression@{Expression}}
@@ -1354,13 +1354,13 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 335 del archivo Expression.\+cc.
+Definición en la línea 342 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-336 \{
-337   \textcolor{keywordflow}{return} \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.end();
-338 \}
+343 \{
+344   \textcolor{keywordflow}{return} \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.end();
+345 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!end@{end}}
 \index{end@{end}!Expression@{Expression}}
@@ -1384,13 +1384,13 @@ Constante
 \end{DoxyParagraph}
 
 
-Definición en la línea 340 del archivo Expression.\+cc.
+Definición en la línea 347 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-341 \{
-342   \textcolor{keywordflow}{return} \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.end();
-343 \}
+348 \{
+349   \textcolor{keywordflow}{return} \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.end();
+350 \}
 \end{DoxyCode}
 \index{Expression@{Expression}!write@{write}}
 \index{write@{write}!Expression@{Expression}}
@@ -1414,35 +1414,35 @@ Lineal respecto al tamaño del parámetro implícito
 \end{DoxyParagraph}
 
 
-Definición en la línea 347 del archivo Expression.\+cc.
+Definición en la línea 354 del archivo Expression.\+cc.
 
 
 \begin{DoxyCode}
-348 \{
-349   \textcolor{keywordflow}{if}(\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 2) \{
-350     cout << \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val} << endl;
-351   \}
-352   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 4) \{
-353     cout << \textcolor{stringliteral}{"("};
-354     \textcolor{keywordflow}{if}(not \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.empty()) \{
-355       \hyperlink{_expression_8cc_a6ff59711533978050143f1bfb54c33b1}{const\_iter} c\_it = \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.begin();
-356       cout << (*c\_it) -> \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val};
-357       ++c\_it;
-358       \textcolor{comment}{/* INV}
-359 \textcolor{comment}{        c\_it es un iterador a un elemento de la lista de expresiones del parámetro implícito comprendido
+355 \{
+356   \textcolor{keywordflow}{if}(\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 2) \{
+357     cout << \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val} << endl;
+358   \}
+359   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_expression_a2c094b93c4863b1f851ea2136aae9612}{type} == 4) \{
+360     cout << \textcolor{stringliteral}{"("};
+361     \textcolor{keywordflow}{if}(not \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.empty()) \{
+362       \hyperlink{_expression_8cc_a6ff59711533978050143f1bfb54c33b1}{const\_iter} c\_it = \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.begin();
+363       cout << (*c\_it) -> \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val};
+364       ++c\_it;
+365       \textcolor{comment}{/* INV}
+366 \textcolor{comment}{        c\_it es un iterador a un elemento de la lista de expresiones del parámetro implícito comprendido
        entre lExp.begin() y lExp.end()}
-360 \textcolor{comment}{      */}
-361       \textcolor{keywordflow}{while}(c\_it != \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.end()) \{
-362         cout << \textcolor{stringliteral}{" "} << (*c\_it) -> \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val};
-363         ++c\_it;
-364       \}
-365     \}
-366     cout << \textcolor{stringliteral}{")"} << endl;
-367   \}
-368   \textcolor{keywordflow}{else} \{
-369     cout << \textcolor{stringliteral}{"indefinit"} << endl;
-370   \}
-371 \}
+367 \textcolor{comment}{      */}
+368       \textcolor{keywordflow}{while}(c\_it != \hyperlink{class_expression_afb4f4617291f7e182cbf2252151b122a}{lExp}.end()) \{
+369         cout << \textcolor{stringliteral}{" "} << (*c\_it) -> \hyperlink{class_expression_a9c15b529b5d59e6bffb3855e384c04aa}{val};
+370         ++c\_it;
+371       \}
+372     \}
+373     cout << \textcolor{stringliteral}{")"} << endl;
+374   \}
+375   \textcolor{keywordflow}{else} \{
+376     cout << \textcolor{stringliteral}{"indefinit"} << endl;
+377   \}
+378 \}
 \end{DoxyCode}
 
 

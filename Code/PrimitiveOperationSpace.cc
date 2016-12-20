@@ -1,5 +1,12 @@
+/** @file PrimitiveOperationSpace.cc
+    @brief Implementación de la clase PrimitiveOperationSpace
+*/
+
+#ifndef NO_DIAGRAM
 #include <map>
 #include <list>
+#endif
+
 #include "PrimitiveOperationSpace.hh"
 #include "Expression.hh"
 

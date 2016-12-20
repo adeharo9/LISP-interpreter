@@ -1,5 +1,12 @@
+/** @file VariableSpace.cc
+    @brief Implementación de la clase VariableSpace
+*/
+
+#ifndef NO_DIAGRAM
 #include <iostream>
 #include <map>
+#endif
+
 #include "VariableSpace.hh"
 #include "Expression.hh"
 

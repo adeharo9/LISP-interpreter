@@ -1,5 +1,12 @@
+/** @file Input.cc
+    @brief Implementación de la clase Input
+*/
+
+#ifndef NO_DIAGRAM
 #include <iostream>
 #include <string>
+#endif
+
 #include "Input.hh"
 
 using namespace std;
