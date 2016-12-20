@@ -158,7 +158,7 @@ Constructora por copia.
 Crea un objeto copia de \textquotesingle{}in\+Exp\textquotesingle{} 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal respecto al tamaño de in\+Exp 
+Lineal respecto al tamaño de \textquotesingle{}in\+Exp\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -191,7 +191,7 @@ Se ejecuta automáticamente al salir de un ámbito de visibilidad \begin{DoxyPre
 Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal respecto al tamaño de l\+Exp 
+Lineal respecto al tamaño de la lista de expresiones del parámetro implícito 
 \end{DoxyParagraph}
 
 
@@ -224,7 +224,7 @@ Método privado de copia de lista de expresiones.
 Devuelve una lista de punteros que apuntan a una copia en memoria de los objetos apuntados por \textquotesingle{}l\+Exp\textquotesingle{}, es decir, devuelve una lista conteniendo una copia del contenido de la lista \textquotesingle{}l\+Exp\textquotesingle{} 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal respecto al tamaño de l\+Exp 
+Lineal respecto al tamaño de \textquotesingle{}l\+Exp\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -274,7 +274,7 @@ Método privado de borrado de lista de expresiones.
 Elimina todos los elementos apuntados por la lista \textquotesingle{}l\+Exp\textquotesingle{} y libera la memoria ocupada por ellos 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal respecto al tamaño de l\+Exp 
+Lineal respecto al tamaño de \textquotesingle{}l\+Exp\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -310,7 +310,7 @@ Método privado de borrado de lista de expresiones con excepción.
 Elimina todos los elementos apuntados por la lista \textquotesingle{}l\+Expression\textquotesingle{} a excepción del elemento \textquotesingle{}in\+Exp\textquotesingle{} y todos los que dependen de él (si forma parte de \textquotesingle{}l\+Exp\textquotesingle{} o de alguno de los elementos apuntados por los elementos de \textquotesingle{}l\+Exp\textquotesingle{}), y libera la memoria ocupada por ellos 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal respecto al tamaño de l\+Exp 
+Lineal respecto al tamaño de \textquotesingle{}l\+Exp\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -342,7 +342,7 @@ Operación de asignación por copia.
 El parámetro implícito pasa a ser una copia de \textquotesingle{}in\+Exp\textquotesingle{}; retorna el parámetro implícito 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal respecto al tamaño de in\+Exp 
+Lineal respecto al tamaño de \textquotesingle{}in\+Exp\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -380,7 +380,7 @@ Operación de asignación por transferencia.
 El parámetro implícito pasa a tener todos los elementos de \textquotesingle{}in\+Exp\textquotesingle{} mediante transferencia (sin reubicación de datos en memoria); \textquotesingle{}in\+Exp\textquotesingle{} pasa a dejar de existir en memoria; retorna el parámetro implícito 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal respecto al tamaño de in\+Exp 
+Lineal respecto al tamaño de \textquotesingle{}in\+Exp\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -420,7 +420,7 @@ Operación de asignación de lista de expresiones por transferencia.
 El parámetro implícito pasa a tener la lista de expresiones de \textquotesingle{}l\+Expression\textquotesingle{} mediante transferencia (sin reubicación de datos en memoria); \textquotesingle{}l\+Expression\textquotesingle{} pasa a estar vacía; retorna el parámetro implícito 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal respecto al tamaño de l\+Expression 
+Lineal respecto al tamaño de \textquotesingle{}l\+Expression\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -453,7 +453,7 @@ Operación de asignación de lista de expresiones por transferencia.
 La lista \textquotesingle{}l\+Expression\textquotesingle{} pasa a tener la lista de expresiones del parámetro implícito mediante transferencia (sin reubicación de datos en memoria); la lista del parámetro implícito pasa a estar vacía 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal respecto al tamaño de l\+Expression 
+Lineal respecto al tamaño de \textquotesingle{}l\+Expression\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -485,7 +485,7 @@ Operación de comparación de igualdad.
 Si el parámetro implícito y \textquotesingle{}in\+Exp\textquotesingle{} son valores, devuelve cierto si son iguales; si ambos son listas de expresiones, devuelve cierto si los elementos de las respectivas posiciones de ambas listas son iguales; en otro caso, devuelve falso 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal respecto al tamaño de in\+Exp 
+Lineal respecto al tamaño de \textquotesingle{}in\+Exp\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -543,7 +543,7 @@ Operación de comparación lexicográfica de inferioridad exclusiva.
 Devuelve cierto si el parámetro implícito es lexicográficamente menor exclusivo que \textquotesingle{}in\+Exp\textquotesingle{} 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal respecto al tamaño de in\+Exp 
+Lineal respecto al tamaño de \textquotesingle{}in\+Exp\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -598,7 +598,7 @@ Operación de vaciado de expresión.
 El parámetro implícito pasa a estar vacío 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal respecto al tamaño del parametro implicito 
+Lineal respecto al tamaño del parámetro implícito 
 \end{DoxyParagraph}
 
 
@@ -634,7 +634,7 @@ Operación de inserción de elemetos de lista.
 Se inserta el puntero \textquotesingle{}p\+Exp\textquotesingle{} en la posición precedente al iterador \textquotesingle{}it\textquotesingle{} en la lista de expresiones del parámetro implícito 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal respecto al número de elementos a insertar 
+Constante 
 \end{DoxyParagraph}
 
 
@@ -664,7 +664,7 @@ La lista de expresiones del parámetro implícito no es una lista vacía; \textq
 Se borra el elemento apuntado por el iterador \textquotesingle{}it\textquotesingle{} de la lista de expresiones del parámetro implícito; devuelve un iterador al elemento siguiente al borrado 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal respecto al número de elementos a borrar 
+Constante 
 \end{DoxyParagraph}
 
 
@@ -696,7 +696,7 @@ Operación de empalmado de listas.
 la lista de expresiones del parámetro implícito pasa a tener los elementos de \textquotesingle{}l\+Expression\textquotesingle{} antes del elemento apuntado por \textquotesingle{}it\textquotesingle{} 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Constante para (1) y (2) siguiendo a lineal para (3) o más 
+Lineal respecto al tamaño de \textquotesingle{}l\+Expression\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -756,7 +756,7 @@ Modificadora a expresión indefinida.
 El parámetro implícito pasa a ser indefinido, si aun no lo era 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal respecto al tamaño del parametro implicito 
+Lineal respecto al tamaño del parámetro implícito 
 \end{DoxyParagraph}
 
 
@@ -791,7 +791,7 @@ Modificadora de valor por asignación.
 El parámetro implícito pasa a tener valor \textquotesingle{}value\textquotesingle{} y pasa a ser un valor, si aun no lo era 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal respecto al tamaño del parametro implicito 
+Lineal respecto al tamaño del parámetro implícito 
 \end{DoxyParagraph}
 
 
@@ -827,7 +827,7 @@ Modificadora de operador.
 El parámetro implícito pasa a tener operador \textquotesingle{}op\textquotesingle{} y pasa a ser una operación, si aun no lo era; la lista de expresiones del parámetro implícito es una lista vacía a la espera de ser inicializada 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal respecto al tamaño del parametro implicito 
+Lineal respecto al tamaño del parámetro implícito 
 \end{DoxyParagraph}
 
 
@@ -895,7 +895,7 @@ Modificadora de lista vacía.
 El parámetro implícito pasa a ser una lista vacía, si aun no lo era; la lista de expresiones del parámetro implícito pasa a estar vacía 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal 
+Lineal respecto al tamaño del parámetro implícito 
 \end{DoxyParagraph}
 
 
@@ -1410,7 +1410,7 @@ Operación de escritura de expresión.
 Escribe el valor de la expresión o la lista de valores de la lista de expresiones representada/s por el parámetro implícito por el canal estandar de salida; en caso que el parámetro implícito no represente ninguno de los tipos permitidos, escribe \char`\"{}indefinit\char`\"{} 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal respecto al tamaño del parametro implicito 
+Lineal respecto al tamaño del parámetro implícito 
 \end{DoxyParagraph}
 
 

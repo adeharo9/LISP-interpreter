@@ -89,7 +89,7 @@ Se ejecuta automáticamente al declarar un nuevo espacio de operaciones primitiv
 Crea un objeto inicializado con las operaciones primitivas predefinidas 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Logaritmico 
+Constante 
 \end{DoxyParagraph}
 
 
@@ -129,7 +129,7 @@ Se ejecuta automáticamente al salir de un ámbito de visibilidad \begin{DoxyPre
 Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal 
+Constante 
 \end{DoxyParagraph}
 
 
@@ -161,7 +161,7 @@ Operación de suma.
 Si \textquotesingle{}E\+XP\textquotesingle{} era una lista con dos punteros a dos expresiones enteras, \textquotesingle{}exp\textquotesingle{} pasa a contener el valor de la suma de las dos expresiones enteras; en otro caso, \textquotesingle{}exp\textquotesingle{} pasa a ser indefinido 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal 
+Lineal con el tamaño de la lista de expresiones de \textquotesingle{}exp\textquotesingle{} con el tamaño de la lista de expresiones de \textquotesingle{}exp\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -202,7 +202,7 @@ Operación de cambio de signo.
 Si \textquotesingle{}E\+XP\textquotesingle{} era una lista con un puntero a una expresión entera, \textquotesingle{}exp\textquotesingle{} pasa a contener el valor de la expresión entera cambiado de signo; en otro caso, \textquotesingle{}exp\textquotesingle{} pasa a ser indefinido 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal 
+Lineal con el tamaño de la lista de expresiones de \textquotesingle{}exp\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -242,7 +242,7 @@ Operación de empalme de elemento en lista.
 Si \textquotesingle{}E\+XP\textquotesingle{} era una lista con un puntero a una expresión entera y un puntero a una expresión lista de expresiones enteras, \textquotesingle{}exp\textquotesingle{} pasa a tener una lista con la expresión entera como cabeza de la lista; en otro caso, \textquotesingle{}exp\textquotesingle{} pasa a ser indefinido 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal 
+Lineal con el tamaño de la lista de expresiones de \textquotesingle{}exp\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -286,7 +286,7 @@ Operación de separación de primer elemento de lista.
 Si \textquotesingle{}E\+XP\textquotesingle{} era una lista no vacía de punteros a expresiones enteras, \textquotesingle{}exp\textquotesingle{} pasa a ser el valor apuntado por el primer puntero de la lista; en otro caso, \textquotesingle{}exp\textquotesingle{} pasa a ser indefinido 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal 
+Lineal con el tamaño de la lista de expresiones de \textquotesingle{}exp\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -326,7 +326,7 @@ Operación de eliminación de primer elemento de lista.
 Si \textquotesingle{}E\+XP\textquotesingle{} era una lista no vacía de punteros a enteros, \textquotesingle{}exp\textquotesingle{} pasa a tener la misma lista sin el primer elemento 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal 
+Lineal con el tamaño de la lista de expresiones de \textquotesingle{}exp\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -372,7 +372,7 @@ Operación de comparación de igualdad.
 Si \textquotesingle{}E\+XP\textquotesingle{} era una lista con dos punteros a dos expresiones evaluables del mismo tipo, \textquotesingle{}exp\textquotesingle{} pasa a tener valor 1 si ambas expresiones eran iguales, y 0 si no lo eran; en otro caso, \textquotesingle{}exp\textquotesingle{} pasa a ser indefinido 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal 
+Lineal con el tamaño de la lista de expresiones de \textquotesingle{}exp\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -413,7 +413,7 @@ Operación de comparación de inferioridad lexicográfica exclusiva.
 Si \textquotesingle{}E\+XP\textquotesingle{} era una lista con dos punteros a dos expresiones evaluables del mismo tipo, \textquotesingle{}exp\textquotesingle{} pasa a tener valor 1 si la primera expresión era lexicográficamente menor que la segunda, y 0 si no lo era; en otro caso, \textquotesingle{}exp\textquotesingle{} pasa a ser indefinido 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal 
+Lineal con el tamaño de la lista de expresiones de \textquotesingle{}exp\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -454,7 +454,7 @@ Operación booleana N\+OT.
 Si \textquotesingle{}E\+XP\textquotesingle{} era un booleano, \textquotesingle{}exp\textquotesingle{} pasa a tener el valor de \textquotesingle{}exp\textquotesingle{} negado; en otro caso, \textquotesingle{}exp\textquotesingle{} pasa a ser indefinido 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal 
+Lineal con el tamaño de la lista de expresiones de \textquotesingle{}exp\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -494,7 +494,7 @@ Operación booleana A\+ND.
 Si \textquotesingle{}E\+XP\textquotesingle{} era una lista con dos punteros a dos booleanos, \textquotesingle{}exp\textquotesingle{} pasa a tener valor 1 si ambos valores eran 1, y 0 si no lo eran; en otro caso, \textquotesingle{}exp\textquotesingle{} pasa a ser indefinido 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal 
+Lineal con el tamaño de la lista de expresiones de \textquotesingle{}exp\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -535,7 +535,7 @@ Operación booleana OR.
 Si \textquotesingle{}E\+XP\textquotesingle{} era una lista con dos punteros a dos booleanos, \textquotesingle{}exp\textquotesingle{} pasa a ser 0 si ambos valores eran 0, y 1 si no lo eran; en otro caso, \textquotesingle{}exp\textquotesingle{} pasa a ser indefinido 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal 
+Lineal con el tamaño de la lista de expresiones de \textquotesingle{}exp\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -576,7 +576,7 @@ Operación condicional.
 Si \textquotesingle{}E\+XP\textquotesingle{} era una lista con un valor booleano y una expresión, \textquotesingle{}exp\textquotesingle{} pasa a ser igual a dicha expresión; en otro caso, \textquotesingle{}exp\textquotesingle{} es indefinido 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal 
+Lineal con el tamaño de la lista de expresiones de \textquotesingle{}exp\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -616,7 +616,7 @@ Consultora de existencia de operación primitiva.
 Devuelve cierto si la operación primitiva con nombre \textquotesingle{}key\textquotesingle{} existe entre las operaciones primitivas del parámetro implícito; en otro caso, devuelve falso 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Logaritmico 
+Logarítmico respecto al tamaño del espacio de operaciones primitivas 
 \end{DoxyParagraph}
 
 
@@ -646,7 +646,7 @@ Consultora de recuperación de operación primitiva.
 Devuelve la operación primitiva de nombre \textquotesingle{}key\textquotesingle{} 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Logaritmico 
+Logarítmico respecto al tamaño del espacio de operaciones primitivas 
 \end{DoxyParagraph}
 
 

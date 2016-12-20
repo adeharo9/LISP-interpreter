@@ -103,7 +103,7 @@ Se ejecuta automáticamente al salir de un ámbito de visibilidad \begin{DoxyPre
 Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Constante 
+Lineal 
 \end{DoxyParagraph}
 
 
@@ -135,7 +135,7 @@ Operación de siguiente elemento a tratar.
 Se ha actualizado el texto de tratamiento inmediato, así como el buffer de entrada y el contador de paréntesis 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Constante 
+Generalmente lineal, aunque constante en algunos casos 
 \end{DoxyParagraph}
 
 
@@ -165,7 +165,7 @@ Operación de anterior elemento a tratar.
 El buffer de entrada pasa a contener el texto de tratamiento inmediato a su inicio, y el contador de paréntesis se ha actualizado convenientemente; el texto de tratamiento inmediato pasa a estar vacío 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Constante 
+Lineal respecto al tamaño del texto a tratar de forma inmediata 
 \end{DoxyParagraph}
 
 
@@ -195,7 +195,7 @@ Operación de siguiente elemento a tratar con asignación.
 Se ha actualizado el texto de tratamiento inmediato, así como el buffer de entrada y el contador de paréntesis; \textquotesingle{}str\textquotesingle{} es igual al texto de tratamiento inmediato 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Constante 
+Lineal respecto al tamaño del texto a tratar de forma inmediata 
 \end{DoxyParagraph}
 
 
@@ -226,7 +226,7 @@ Operación de introducción de buffer.
 El buffer del parámetro implícito pasa a ser \textquotesingle{}buff\textquotesingle{} 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Constante 
+Lineal respecto al tamaño de \textquotesingle{}buff\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -256,7 +256,7 @@ Siguiente elemento a tratar.
 Se ha actualizado el texto de tratamiento inmediato, así como el buffer de entrada y el contador de paréntesis 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Puede ser ineal o constante dependiendo del caso 
+Generalmente lineal, aunque constante en algunos casos 
 \end{DoxyParagraph}
 
 
@@ -324,7 +324,7 @@ Anterior elemento a tratar.
 El buffer de entrada pasa a contener el texto de tratamiento inmediato a su inicio, y el contador de paréntesis se ha actualizado convenientemente; el texto de tratamiento inmediato pasa a estar vacío 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Constante 
+Lineal respecto al tamaño del texto a tratar de forma inmediata 
 \end{DoxyParagraph}
 
 
@@ -361,7 +361,7 @@ Siguiente expresión.
 Procesa toda la entrada correspondiente a una expresión y prepara la entrada para leer lo que hay después de la misma; devuelve la expresión que acaba de procesar como un string 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal 
+Cuadrático 
 \end{DoxyParagraph}
 
 
@@ -400,7 +400,7 @@ Fin de expresión.
 Ignora toda entrada situada antes del final de la expresión y prepara la entrada para leer lo que hay después de la misma 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Cuadratica 
+Cuadrático 
 \end{DoxyParagraph}
 
 

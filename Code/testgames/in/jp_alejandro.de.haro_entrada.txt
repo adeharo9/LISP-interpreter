@@ -125,40 +125,40 @@ z
 
 ****
 
-Los comentarios a continuación hacen referencia a cada línea del juego de pruebas
+Los comentarios a continuación hacen referencia a cada línea del juego de pruebas.
 
-Las instrucciones de las líneas 1 a 7 ponen a prueba algunos casos simples pero representativos del tratamiento de expresiones parentizadas y con signos negativos. Pone a prueba la capacidad del algoritmo de parsing para tratar los paréntesis y diferenciar los signos negativos de la operación
+Las instrucciones de las líneas 1 a 7 ponen a prueba algunos casos simples pero representativos del tratamiento de expresiones parentizadas y con signos negativos. Pone a prueba la capacidad del algoritmo de parsing para tratar los paréntesis y diferenciar los signos negativos de la operación.
 
-La instrucción de las líneas 11 a 49 pone a prueba el algoritmo de parsing con lo que respecta a tratamiento de saltos de línea. También pone a prueba la capacidad del programa para procesar expresiones que contienen expresiones a niveles profundos
+La instrucción de las líneas 11 a 49 pone a prueba el algoritmo de parsing con lo que respecta a tratamiento de saltos de línea. También pone a prueba la capacidad del programa para procesar expresiones que contienen expresiones a niveles profundos.
 
-Las definiciones de las líneas 51 y 52 sirven tan sólo como cebo para las definiciones de operaciones posteriores, ya que aunque los parámetros de las operaciones se han definido con el mismo nombre que estas variables, en ningún momento se debería poder acceder a ellas
+Las definiciones de las líneas 51 y 52 sirven tan sólo como cebo para las definiciones de operaciones posteriores, ya que aunque los parámetros de las operaciones se han definido con el mismo nombre que estas variables, en ningún momento se debería poder acceder a ellas.
 
-La operación de la línea 56 permitirá poner a prueba más adelante las capacidades de recursividad (y por lo tanto la eficiencia tanto en tiempo como de uso de memoria) del programa
+La operación de la línea 56 permitirá poner a prueba más adelante las capacidades de recursividad (y por lo tanto la eficiencia tanto en tiempo como de uso de memoria) del programa.
 
-La definición de la línea 58 es un caso especial, ya que es una operación que no tiene ningún argumento y cuya expresión es una constate, por lo que a todos los efectos es una variable. Sin embargo, el programa debe tratarla como operación de forma correcta, de forma que en este caso debería guardarse pero su valor debería ser siempre indefinido, ya que en su definición se accede a una variable que no es parámetro
+La definición de la línea 58 es un caso especial, ya que es una operación que no tiene ningún argumento y cuya expresión es una constate, por lo que a todos los efectos es una variable. Sin embargo, el programa debe tratarla como operación de forma correcta, de forma que en este caso debería guardarse pero su valor debería ser siempre indefinido, ya que en su definición se accede a una variable que no es parámetro.
 
-La instrucción de la línea 59 permite probar que efectivamente no se ha accedido a la variable x en la definción de la operación
+La instrucción de la línea 59 permite probar que efectivamente no se ha accedido a la variable x en la definción de la operación.
 
-La línea 60 permite poner a prueba  el caso de la línea 58, pero en este caso la operación debería siempre evaluarse a un número entero
+La línea 60 permite poner a prueba  el caso de la línea 58, pero en este caso la operación debería siempre evaluarse a un número entero.
 
-La línea 61 permite comprobar que, a pesar de actuar como una variable, no se ha almacenado el contenido de la operación z como tal
+La línea 61 permite comprobar que, a pesar de actuar como una variable, no se ha almacenado el contenido de la operación z como tal.
 
-Mediante la llamada de la línea 62 a la operación z, se debería obtener su valor (un entero, aunque la parentización de la operación pueda despistar)
+Mediante la llamada de la línea 62 a la operación z, se debería obtener su valor (un entero, aunque la parentización de la operación pueda despistar).
 
-En la línea 63 se ponen a prueba dos puntos: el primero, la capacidad de acceder a una operación definida por el usuario al crear una variable; el segundo, la capacidad de almacenar correctamente el valor de la variable, ya que a pesar de la parentización, la operación devuelve un entero y el resultado de la definición debería ser entero, no lista
+En la línea 63 se ponen a prueba dos puntos: el primero, la capacidad de acceder a una operación definida por el usuario al crear una variable; el segundo, la capacidad de almacenar correctamente el valor de la variable, ya que a pesar de la parentización, la operación devuelve un entero y el resultado de la definición debería ser entero, no lista.
 
-Las líneas 65 a 69 ponen a prueba la capacidad de utilizar de forma correcta el resultado del caso especial de la operación z, probando que el parser no malinterpreta los paréntesis a la hora de leer la operación
+Las líneas 65 a 69 ponen a prueba la capacidad de utilizar de forma correcta el resultado del caso especial de la operación z, probando que el parser no malinterpreta los paréntesis a la hora de leer la operación.
 
-Las líneas 71 a 73 tienen como único objetivo el probar la eficiencia temporal y de utilización de memoria del programa, utilizando operaciones recursivas con grandes valores que generan un gran número de llamadas a la propia operación
+Las líneas 71 a 73 tienen como único objetivo el probar la eficiencia temporal y de utilización de memoria del programa, utilizando operaciones recursivas con grandes valores que generan un gran número de llamadas a la propia operación.
 
-Con la definición y la llamada de las líneas 75, 77, 79 y 81 se pretende probar la capacidad de almacenar una operación definida por el usuario que tenga una llamada a una operación que aun no esté definida (por lo que debería evaluarse a indefinido) y después definir esa operación faltante (por lo que debería evaluarse correctamente)
+Con la definición y la llamada de las líneas 75, 77, 79 y 81 se pretende probar la capacidad de almacenar una operación definida por el usuario que tenga una llamada a una operación que aun no esté definida (por lo que debería evaluarse a indefinido) y después definir esa operación faltante (por lo que debería evaluarse correctamente).
 
-Las líneas 86 a 89 pretenden de nuevo poner a prueba la capacidad de recursividad del programa mediante una gran cantidad de llamadas a operaciones, así como la consistencia del código para realizar bien las operaciones
+Las líneas 86 a 89 pretenden de nuevo poner a prueba la capacidad de recursividad del programa mediante una gran cantidad de llamadas a operaciones, así como la consistencia del código para realizar bien las operaciones.
 
-Las líneas 93 a 97 tienen el fin de poner a prueba la utilización de signos negativos y operaciones de negación en distintos ámbitos de forma correcta
+Las líneas 93 a 97 tienen el fin de poner a prueba la utilización de signos negativos y operaciones de negación en distintos ámbitos de forma correcta.
 
-De la línea 97 hasta la 110, se pone a prueba la capacidad del programa de tratar con listas, operaciones definidas por el usuario que utilizan listas y llamadas recursivas a operaciones que tratan y devuelven listas
+De la línea 97 hasta la 110, se pone a prueba la capacidad del programa de tratar con listas, operaciones definidas por el usuario que utilizan listas y llamadas recursivas a operaciones que tratan y devuelven listas.
 
-Las instrucciones de las líneas 112 a 121 tienen como único objetivo el probar la eficiencia en la utilización de recursos mediante llamadas a funciones con parámetros que originan resultados de gran tamaño
+Las instrucciones de las líneas 112 a 121 tienen como único objetivo el probar la eficiencia en la utilización de recursos mediante llamadas a funciones con parámetros que originan resultados de gran tamaño.
 
-Por último, las líneas 122 a 124 pretenden probar la capacidad de redefinir operaciones definidas por el usuario, además de probar el correcto tratamiento de listas de expresiones resultado de operaciones, así como del uso de variables existentes
+Por último, las líneas 122 a 124 pretenden probar la capacidad de redefinir operaciones definidas por el usuario, además de probar el correcto tratamiento de listas de expresiones resultado de operaciones, así como del uso de variables existentes.

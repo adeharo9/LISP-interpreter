@@ -98,7 +98,7 @@ Se ejecuta automáticamente al salir de un ámbito de visibilidad \begin{DoxyPre
 Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal 
+Lineal respecto al tamaño del parámetro implícito 
 \end{DoxyParagraph}
 
 
@@ -130,7 +130,7 @@ Método privado de cálculo de número de parámetros.
 Devuelve el número de parámetros contenidos en la variable \textquotesingle{}parameters\textquotesingle{} 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal con respecto al tamaño de parameters 
+Lineal respecto al tamaño de \textquotesingle{}parameters\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -172,7 +172,7 @@ Modificadora por establecimiento de operación.
 Se añade al parámetro implícito la operacion con nombre \textquotesingle{}key\textquotesingle{}, parámetros \textquotesingle{}parameters\textquotesingle{} y expresión \textquotesingle{}exp\textquotesingle{}, o se actualizan sus parámetros a \textquotesingle{}parameters\textquotesingle{} y su expresión a \textquotesingle{}exp\textquotesingle{} si ya existía previamente 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Logaritmica 
+Lineal respecto al tamaño de \textquotesingle{}parameters\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -236,7 +236,7 @@ Consultora de existencia de operación.
 Devuelve cierto si la operación con nombre \textquotesingle{}key\textquotesingle{} existe en el parámetro implícito; en otro caso, devuelve falso 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Logaritmico 
+Logarítmico respecto al tamaño del parámetro implícito respecto al tamaño del parámetro implícito 
 \end{DoxyParagraph}
 
 
@@ -266,7 +266,7 @@ Consultora de recuperación de operación.
 Devuelve los parámetros y la expresión, respectivamente contenidos en forma de pair, de la operación de nombre \textquotesingle{}key\textquotesingle{} 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Logaritmico 
+Logarítmico respecto al tamaño del parámetro implícito 
 \end{DoxyParagraph}
 
 
@@ -297,7 +297,7 @@ Consultora de número de parámetros.
 Devuelve el número de parámetros de la operación de nombre \textquotesingle{}key\textquotesingle{} 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Logaritmico 
+Logarítmico respecto al tamaño del parámetro implícito 
 \end{DoxyParagraph}
 
 
@@ -327,7 +327,7 @@ Operación de escritura del espacio de operaciones definidas por el usuario.
 Se han escrito las operaciones definidas por el usuario por el canal estándar de salida 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal 
+Lineal respecto al tamaño del parámetro implícito 
 \end{DoxyParagraph}
 
 
@@ -366,7 +366,7 @@ Operación de escritura de operación definida por el usuario.
 Se ha escrito el contenido de la operación de nombre \textquotesingle{}key\textquotesingle{} por el canal estándar de salida 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Logaritmico 
+Logarítmico respecto al tamaño del parámetro implícito 
 \end{DoxyParagraph}
 
 

@@ -69,7 +69,7 @@ Operación para identificar un número en una cadena de strings.
 Devuelve cierto si la variable \textquotesingle{}str\textquotesingle{} es un número, falso en caso contrario 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Lineal 
+Lineal respecto al tamaño de \textquotesingle{}str\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -111,7 +111,7 @@ Crea un espacio de variables local.
 Crea un espacio de variables inicializado con \textquotesingle{}parameters\textquotesingle{} como nombres de variables y los valores leídos en \textquotesingle{}exp\textquotesingle{} como los valores de dichas variables 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Logaritmico 
+Lineal con respecto al tamaño de \textquotesingle{}parameters\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -150,7 +150,7 @@ Operación de evaluación de expresión.
 Se evalua la expresion \textquotesingle{}exp\textquotesingle{} y se retorna en la misma variable el valor resultante, el cual puede ser un valor, una lista de expresiones o indefinido. 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Dependiendo del caso puede ser logaritmico o lineal 
+Lineal o logarítmico en función del valor de \textquotesingle{}exp\textquotesingle{} 
 \end{DoxyParagraph}
 
 
@@ -443,7 +443,7 @@ Operación de definición.
 Se ha creado una varible u operación definidas por el usuario en el espacio dentro del entorno del programa correspondiente, o se ha mostrado \textquotesingle{}indefinido\textquotesingle{} en el caso de una variable cuya evaluación sea \textquotesingle{}indefinido\textquotesingle{} 
 \end{DoxyPostcond}
 \begin{DoxyParagraph}{Coste}
-Dpendiendo del caso puede ser lineal o logaritmico 
+Logarítmico 
 \end{DoxyParagraph}
 
 
