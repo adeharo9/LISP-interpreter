@@ -50,7 +50,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post Crea un objeto copia de 'varSpace'
-		\coste Logaritmico
+		\coste Logarítmico respecto al tamaño de 'varSpace'
 	*/
 	VariableSpace(const VariableSpace& varSpace);
 	
@@ -61,7 +61,7 @@ public:
 		Se ejecuta automáticamente al salir de un ámbito de visibilidad
 		\pre <em>Cierto</em>
 		\post Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad
-		\coste Lineal
+		\coste Lineal respecto al tamaño del parámetro implícito
 	*/
 	~VariableSpace();
 
@@ -71,7 +71,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post Elimina el contenido del parámetro implícito, que pasa a estar vacío
-		\coste Lineal
+		\coste Lineal respecto al tamaño del parámetro implícito
 	*/
 	void clear();
 
@@ -79,7 +79,7 @@ public:
 
 		\pre 'key' es un string no vacío; 'key' no corresponde al nombre de ninguna de las operaciones primitivas predefinidas ni al nombre de ninguna de las operaciones definidas por el usuario; 'exp' no es una expresión indefinida
 		\post Se añade al parámetro implícito la variable con nombre 'key' y expresión 'exp', o se actualiza su expresión a 'exp' si ya existía previamente
-		\coste Logaritmico
+		\coste Logarítmico respecto al tamaño del parámetro implícito
 	*/
 	void set(string key, const Expression& exp);
 
@@ -97,7 +97,7 @@ public:
 
     	\pre 'key' es un string no vacío
     	\post Devuelve cierto si la variable con nombre 'key' existe en el parámetro implícito; en otro caso, devuelve falso
-    	\coste Logaritmico
+    	\coste Logarítmico respecto al tamaño del parámetro implícito
     */
     bool exists(string key) const;
 
@@ -105,7 +105,7 @@ public:
 
     	\pre 'key' es un string no vacío; el parámetro implícito contiene una variable con nombre 'key'
     	\post Devuelve la expresión representada por la variable de nombre 'key'
-    	\coste Logaritmico
+    	\coste Logarítmico respecto al tamaño del parámetro implícito
     */
     Expression& get(string key) ;
 
@@ -115,7 +115,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post Se ha escrito el contenido del parámetro implícito por el canal estándar de salida
-		\coste Lineal con respecto al tamaño del parametro implicito
+		\coste Lineal respecto al tamaño del parámetro implícito
 	*/
 	void write() const;
 
@@ -123,7 +123,7 @@ public:
 
 		\pre 'key' es un string no vacío; el parámetro implícito contiene una variable con nombre 'key'
 		\post Se ha escrito el contenido de la variable con nombre 'key' por el canal estándar de salida
-		\coste Logaritmico
+		\coste Logarítmico respecto al tamaño del parámetro implícito
 	*/
 	void write_var(string key);
 

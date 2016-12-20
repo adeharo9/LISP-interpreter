@@ -74,7 +74,7 @@ public:
 		Se ejecuta automáticamente al salir de un ámbito de visibilidad
 		\pre <em>Cierto</em>
 		\post Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad
-		\coste Lineal respecto al tamaño del parámetro implícito
+		\coste Lineal respecto al tamaño de los espacios del parámetro implícito
 	*/
 	~Environment();
 

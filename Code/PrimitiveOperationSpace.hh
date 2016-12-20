@@ -40,7 +40,7 @@ private:
 
 		\pre 'exp' = 'EXP'
 		\post Si 'EXP' era una lista con dos punteros a dos expresiones enteras, 'exp' pasa a contener el valor de la suma de las dos expresiones enteras; en otro caso, 'exp' pasa a ser indefinido
-		\coste Lineal
+		\coste Lineal con el tamaño de la lista de expresiones de 'exp' con el tamaño de la lista de expresiones de 'exp'
 	*/
 	static void sum(Expression& exp);
 
@@ -48,7 +48,7 @@ private:
 
 		\pre 'exp' = 'EXP'
 		\post Si 'EXP' era una lista con un puntero a una expresión entera, 'exp' pasa a contener el valor de la expresión entera cambiado de signo; en otro caso, 'exp' pasa a ser indefinido
-		\coste Lineal
+		\coste Lineal con el tamaño de la lista de expresiones de 'exp'
 	*/
 	static void neg(Expression& exp);
 
@@ -56,7 +56,7 @@ private:
 
 		\pre 'exp' = 'EXP'
 		\post Si 'EXP' era una lista con un puntero a una expresión entera y un puntero a una expresión lista de expresiones enteras, 'exp' pasa a tener una lista con la expresión entera como cabeza de la lista; en otro caso, 'exp' pasa a ser indefinido
-		\coste Lineal
+		\coste Lineal con el tamaño de la lista de expresiones de 'exp'
 	*/
 	static void cons(Expression& exp);
 
@@ -64,7 +64,7 @@ private:
 
 		\pre 'exp' = 'EXP'
 		\post Si 'EXP' era una lista no vacía de punteros a expresiones enteras, 'exp' pasa a ser el valor apuntado por el primer puntero de la lista; en otro caso, 'exp' pasa a ser indefinido
-		\coste Lineal
+		\coste Lineal con el tamaño de la lista de expresiones de 'exp'
 	*/
 	static void head(Expression& exp);
 
@@ -72,7 +72,7 @@ private:
 
 		\pre 'exp' = 'EXP'
 		\post Si 'EXP' era una lista no vacía de punteros a enteros, 'exp' pasa a tener la misma lista sin el primer elemento
-		\coste Lineal
+		\coste Lineal con el tamaño de la lista de expresiones de 'exp'
 	*/
 	static void tail(Expression& exp);
 
@@ -80,7 +80,7 @@ private:
 
 		\pre 'exp' = 'EXP'
 		\post Si 'EXP' era una lista con dos punteros a dos expresiones evaluables del mismo tipo, 'exp' pasa a tener valor 1 si ambas expresiones eran iguales, y 0 si no lo eran; en otro caso, 'exp' pasa a ser indefinido
-		\coste Lineal
+		\coste Lineal con el tamaño de la lista de expresiones de 'exp'
 	*/
 	static void equal(Expression& exp);
 
@@ -88,7 +88,7 @@ private:
 
 		\pre 'exp' = 'EXP'
 		\post Si 'EXP' era una lista con dos punteros a dos expresiones evaluables del mismo tipo, 'exp' pasa a tener valor 1 si la primera expresión era lexicográficamente menor que la segunda, y 0 si no lo era; en otro caso, 'exp' pasa a ser indefinido
-		\coste Lineal
+		\coste Lineal con el tamaño de la lista de expresiones de 'exp'
 	*/
 	static void less(Expression& exp);
 
@@ -96,7 +96,7 @@ private:
 
 		\pre 'exp' = 'EXP'
 		\post Si 'EXP' era un booleano, 'exp' pasa a tener el valor de 'exp' negado; en otro caso, 'exp' pasa a ser indefinido
-		\coste Lineal
+		\coste Lineal con el tamaño de la lista de expresiones de 'exp'
 	*/
 	static void bool_not(Expression& exp);
 
@@ -104,7 +104,7 @@ private:
 
 		\pre 'exp' = 'EXP'
 		\post Si 'EXP' era una lista con dos punteros a dos booleanos, 'exp' pasa a tener valor 1 si ambos valores eran 1, y 0 si no lo eran; en otro caso, 'exp' pasa a ser indefinido
-		\coste Lineal
+		\coste Lineal con el tamaño de la lista de expresiones de 'exp'
 	*/
 	static void bool_and(Expression& exp);
 
@@ -112,7 +112,7 @@ private:
 
 		\pre 'exp' = 'EXP'
 		\post Si 'EXP' era una lista con dos punteros a dos booleanos, 'exp' pasa a ser 0 si ambos valores eran 0, y 1 si no lo eran; en otro caso, 'exp' pasa a ser indefinido
-		\coste Lineal
+		\coste Lineal con el tamaño de la lista de expresiones de 'exp'
 	*/
 	static void bool_or(Expression& exp);
 
@@ -120,7 +120,7 @@ private:
 
 		\pre 'exp' = 'EXP'
 		\post Si 'EXP' era una lista con un valor booleano y una expresión, 'exp' pasa a ser igual a dicha expresión; en otro caso, 'exp' es indefinido
-		\coste Lineal
+		\coste Lineal con el tamaño de la lista de expresiones de 'exp'
 	*/
 	static void cond_if(Expression& exp);
 
@@ -133,7 +133,7 @@ public:
 		Se ejecuta automáticamente al declarar un nuevo espacio de operaciones primitivas predefinidas
 		\pre <em>Cierto</em>
 		\post Crea un objeto inicializado con las operaciones primitivas predefinidas
-		\coste Logaritmico
+		\coste Constante
 	*/
 	PrimitiveOperationSpace();
 
@@ -144,7 +144,7 @@ public:
 		Se ejecuta automáticamente al salir de un ámbito de visibilidad
 		\pre <em>Cierto</em>
 		\post Libera los recursos locales del parámetro implícito al salir  de un ámbito de visibilidad
-		\coste Lineal
+		\coste Constante
 	*/
 	~PrimitiveOperationSpace();
 
@@ -154,7 +154,7 @@ public:
 
     	\pre 'key' es un string no vacío
     	\post Devuelve cierto si la operación primitiva con nombre 'key' existe entre las operaciones primitivas del parámetro implícito; en otro caso, devuelve falso
-    	\coste Logaritmico
+    	\coste Logarítmico respecto al tamaño del espacio de operaciones primitivas
     */
 	bool exists(string key) const;
 
@@ -162,7 +162,7 @@ public:
 
     	\pre 'key' es un string no vacío; el parámetro implícito contiene una operación primitiva con nombre 'key'
     	\post Devuelve la operación primitiva de nombre 'key'
-    	\coste Logaritmico
+    	\coste Logarítmico respecto al tamaño del espacio de operaciones primitivas
     */
 	primitiveOperation get(string key);
 

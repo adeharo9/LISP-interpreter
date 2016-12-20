@@ -68,6 +68,9 @@ Operación para identificar un número en una cadena de strings.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si la variable \textquotesingle{}str\textquotesingle{} es un número, falso en caso contrario 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal 
+\end{DoxyParagraph}
 
 
 Definición en la línea 13 del archivo Functions\+I\+O.\+cc.
@@ -107,6 +110,9 @@ Crea un espacio de variables local.
 \begin{DoxyPostcond}{Postcondición}
 Crea un espacio de variables inicializado con \textquotesingle{}parameters\textquotesingle{} como nombres de variables y los valores leídos en \textquotesingle{}exp\textquotesingle{} como los valores de dichas variables 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logaritmico 
+\end{DoxyParagraph}
 
 
 Definición en la línea 28 del archivo Functions\+I\+O.\+cc.
@@ -143,6 +149,9 @@ Operación de evaluación de expresión.
 \begin{DoxyPostcond}{Postcondición}
 Se evalua la expresion \textquotesingle{}exp\textquotesingle{} y se retorna en la misma variable el valor resultante, el cual puede ser un valor, una lista de expresiones o indefinido. 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Dependiendo del caso puede ser logaritmico o lineal 
+\end{DoxyParagraph}
 
 
 Definición en la línea 40 del archivo Functions\+I\+O.\+cc.
@@ -206,6 +215,9 @@ Operación de lectura de lista de expresiones.
 \begin{DoxyPostcond}{Postcondición}
 Se crea una lista de expresiones en \textquotesingle{}exp\textquotesingle{}; si alguno de los valores a añadir es indefinidos, se modifica el valor de la expresión a indefinido 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal 
+\end{DoxyParagraph}
 
 
 Definición en la línea 78 del archivo Functions\+I\+O.\+cc.
@@ -254,6 +266,9 @@ Operación de lectura de operación \textquotesingle{}if\textquotesingle{}.
 \begin{DoxyPostcond}{Postcondición}
 \textquotesingle{}exp\textquotesingle{} pasa a contener el operador \textquotesingle{}if\textquotesingle{} y los parámetros que esta operación necesita (un booleano y otro elemento que varía en función del estado de booleano). En caso que alguno de los parámetros sea indefinido, \textquotesingle{}exp\textquotesingle{} pasa a ser indefinido 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal 
+\end{DoxyParagraph}
 
 
 Definición en la línea 102 del archivo Functions\+I\+O.\+cc.
@@ -307,6 +322,9 @@ Operación de lectura de operación.
 \begin{DoxyPostcond}{Postcondición}
 La expresión \textquotesingle{}exp\textquotesingle{} pasa a ser una expresión a ser evaluada en forma de operación, primitiva o no 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal 
+\end{DoxyParagraph}
 
 
 Definición en la línea 131 del archivo Functions\+I\+O.\+cc.
@@ -350,6 +368,9 @@ Operación de definición de variable.
 \begin{DoxyPostcond}{Postcondición}
 Se define una nueva variable con nombre \textquotesingle{}key\textquotesingle{} y valor extraído de la entrada mediante \textquotesingle{}in\textquotesingle{}, o se modifica una variable ya existente; dicha variable se añade al espacio de variables definidas por el usuario si su evaluación no es indefinido y no existía previamente; en caso que existiera, si su evaluación no es indefinido, se actualiza su valor; en otro caso, su valor en el espacio de variables (si existía) no se ve modificado y se imprime indefinido por el canal estándar de salida 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal 
+\end{DoxyParagraph}
 
 
 Definición en la línea 150 del archivo Functions\+I\+O.\+cc.
@@ -388,6 +409,9 @@ Operación de definición de operación.
 \begin{DoxyPostcond}{Postcondición}
 Se define una nueva operación con nombre \textquotesingle{}key\textquotesingle{}, parametros \textquotesingle{}parameters\textquotesingle{} y como valor la cadena introducida por el canal estandar de entrada mediante \textquotesingle{}in\textquotesingle{}; esta nueva operación se añade al espacio de operaciones definidas por el usuario sin que su expresión sea evaluada previamente 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logaritmico 
+\end{DoxyParagraph}
 
 
 Definición en la línea 163 del archivo Functions\+I\+O.\+cc.
@@ -418,6 +442,9 @@ Operación de definición.
 \begin{DoxyPostcond}{Postcondición}
 Se ha creado una varible u operación definidas por el usuario en el espacio dentro del entorno del programa correspondiente, o se ha mostrado \textquotesingle{}indefinido\textquotesingle{} en el caso de una variable cuya evaluación sea \textquotesingle{}indefinido\textquotesingle{} 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Dpendiendo del caso puede ser lineal o logaritmico 
+\end{DoxyParagraph}
 
 
 Definición en la línea 170 del archivo Functions\+I\+O.\+cc.
@@ -464,6 +491,9 @@ Inmersión de operación de lectura de expresiones.
 \begin{DoxyPostcond}{Postcondición}
 Se han leído los datos del canal estándar de entrada correspondientes a una expresión simple (que forma o puede formar parte de otra expresión mayor) y se han asignado a \textquotesingle{}env\textquotesingle{} si eran una definición de una variable u operación o a \textquotesingle{}exp\textquotesingle{} si representaban una expresión evaluable 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal 
+\end{DoxyParagraph}
 
 
 Definición en la línea 192 del archivo Functions\+I\+O.\+cc.
@@ -515,6 +545,9 @@ Operación de lectura de expresiones.
 \begin{DoxyPostcond}{Postcondición}
 Los datos del canal estándar de entrada correspondientes una expresión completa han sido leídos y se han asignado a \textquotesingle{}env\textquotesingle{} si eran una definición de una variable o operación o a \textquotesingle{}exp\textquotesingle{} si representaban una expresión evaluable 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal 
+\end{DoxyParagraph}
 
 
 Definición en la línea 220 del archivo Functions\+I\+O.\+cc.

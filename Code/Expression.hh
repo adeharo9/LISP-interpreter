@@ -82,7 +82,7 @@ private:
 
 		\pre <em>Cierto</em>
 		\post Devuelve una lista de punteros que apuntan a una copia en memoria de los objetos apuntados por 'lExp', es decir, devuelve una lista conteniendo una copia del contenido de la lista 'lExp'
-		\coste Lineal respecto al tamaño de lExp
+		\coste Lineal respecto al tamaño de 'lExp'
 
 	*/
 	static list<Expression*> cp_exp_list(const list<Expression*>& lExp);
@@ -91,7 +91,7 @@ private:
 
 		\pre <em>Cierto</em>
 		\post Elimina todos los elementos apuntados por la lista 'lExp' y libera la memoria ocupada por ellos
-		\coste Lineal respecto al tamaño de lExp
+		\coste Lineal respecto al tamaño de 'lExp'
 	*/
 	static void rm_exp_list(list<Expression*>& lExp);
 
@@ -99,7 +99,7 @@ private:
 
 		\pre <em>Cierto</em>
 		\post Elimina todos los elementos apuntados por la lista 'lExpression' a excepción del elemento 'inExp' y todos los que dependen de él (si forma parte de 'lExp' o de alguno de los elementos apuntados por los elementos de 'lExp'), y libera la memoria ocupada por ellos
-		\coste Lineal respecto al tamaño de lExp
+		\coste Lineal respecto al tamaño de 'lExp'
 	*/
 	static void rm_exp_list_excep(list<Expression*>& lExp, Expression& inExp);
 
@@ -120,7 +120,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post Crea un objeto copia de 'inExp'
-		\coste Lineal respecto al tamaño de inExp
+		\coste Lineal respecto al tamaño de 'inExp'
 	*/
 	Expression(const Expression& inExp);
 
@@ -131,7 +131,7 @@ public:
 		Se ejecuta automáticamente al salir de un ámbito de visibilidad
 		\pre <em>Cierto</em>
 		\post Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad
-		\coste Lineal respecto al tamaño de lExp
+		\coste Lineal respecto al tamaño de la lista de expresiones del parámetro implícito
 	*/
 	~Expression();
 
@@ -141,7 +141,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post El parámetro implícito pasa a ser una copia de 'inExp'; retorna el parámetro implícito
-		\coste Lineal respecto al tamaño de inExp
+		\coste Lineal respecto al tamaño de 'inExp'
 	*/
 	Expression& operator = (const Expression& inExp);
 
@@ -149,7 +149,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post El parámetro implícito pasa a tener todos los elementos de 'inExp' mediante transferencia (sin reubicación de datos en memoria); 'inExp' pasa a dejar de existir en memoria; retorna el parámetro implícito
-		\coste Lineal respecto al tamaño de inExp
+		\coste Lineal respecto al tamaño de 'inExp'
 	*/
 	Expression& operator << (Expression& inExp);
 
@@ -157,7 +157,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post El parámetro implícito pasa a tener la lista de expresiones de 'lExpression' mediante transferencia (sin reubicación de datos en memoria); 'lExpression' pasa a estar vacía; retorna el parámetro implícito
-		\coste Lineal respecto al tamaño de lExpression
+		\coste Lineal respecto al tamaño de 'lExpression'
 	*/
 	Expression& operator << (list<Expression*>& lExpression);
 
@@ -165,7 +165,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post La lista 'lExpression' pasa a tener la lista de expresiones del parámetro implícito mediante transferencia (sin reubicación de datos en memoria); la lista del parámetro implícito pasa a estar vacía
-		\coste Lineal respecto al tamaño de lExpression
+		\coste Lineal respecto al tamaño de 'lExpression'
 	*/
 	void operator >> (list<Expression*>& lExpression);
 
@@ -173,7 +173,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post Si el parámetro implícito y 'inExp' son valores, devuelve cierto si son iguales; si ambos son listas de expresiones, devuelve cierto si los elementos de las respectivas posiciones de ambas listas son iguales; en otro caso, devuelve falso
-		\coste Lineal respecto al tamaño de inExp
+		\coste Lineal respecto al tamaño de 'inExp'
 	*/
 	bool operator == (const Expression& inExp) const;
 
@@ -181,7 +181,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post Devuelve cierto si el parámetro implícito es lexicográficamente menor exclusivo que 'inExp'
-		\coste Lineal respecto al tamaño de inExp
+		\coste Lineal respecto al tamaño de 'inExp'
 	*/
 	bool operator < (const Expression& inExp) const;
 
@@ -191,7 +191,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post El parámetro implícito pasa a estar vacío
-		\coste Lineal respecto al tamaño del parametro implicito
+		\coste Lineal respecto al tamaño del parámetro implícito
 	*/
 	void clear();
 
@@ -199,7 +199,7 @@ public:
 
 		\pre 'it' es un iterador a la lista de expresiones del parámetro implícito; 'pExp' es un puntero a una expresión existente en memoria
 		\post Se inserta el puntero 'pExp' en la posición precedente al iterador 'it' en la lista de expresiones del parámetro implícito
-		\coste Lineal respecto al número de elementos a insertar
+		\coste Constante
 	*/
 	void insert(list<Expression*>::iterator it, Expression* pExp);
 
@@ -207,7 +207,7 @@ public:
 
 		\pre La lista de expresiones del parámetro implícito no es una lista vacía; 'it' es un iterador a la lista de expresiones del parámetro implícito
 		\post Se borra el elemento apuntado por el iterador 'it' de la lista de expresiones del parámetro implícito; devuelve un iterador al elemento siguiente al borrado
-		\coste Lineal respecto al número de elementos a borrar
+		\coste Constante
 	*/
 	list<Expression*>::iterator erase(list<Expression*>::iterator it);
 
@@ -215,7 +215,7 @@ public:
 
 		\pre 'it' es un iterador a la lista de expresiones del parámetro implícito
 		\post la lista de expresiones del parámetro implícito pasa a tener los elementos de 'lExpression' antes del elemento apuntado por 'it'
-		\coste Constante para (1) y (2) siguiendo a lineal para (3) o más
+		\coste Lineal respecto al tamaño de 'lExpression'
 	*/
 	void splice(list<Expression*>::iterator it, list<Expression*> lExpression);
 
@@ -231,7 +231,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post El parámetro implícito pasa a ser indefinido, si aun no lo era
-		\coste Lineal respecto al tamaño del parametro implicito
+		\coste Lineal respecto al tamaño del parámetro implícito
 	*/
 	void set_undefined();
 
@@ -239,7 +239,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post El parámetro implícito pasa a tener valor 'value' y pasa a ser un valor, si aun no lo era
-		\coste Lineal respecto al tamaño del parametro implicito
+		\coste Lineal respecto al tamaño del parámetro implícito
 	*/
 	void set_value(int value);
 
@@ -247,7 +247,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post El parámetro implícito pasa a tener operador 'op' y pasa a ser una operación, si aun no lo era; la lista de expresiones del parámetro implícito es una lista vacía a la espera de ser inicializada
-		\coste Lineal respecto al tamaño del parametro implicito
+		\coste Lineal respecto al tamaño del parámetro implícito
 	*/
 	void set_op(string op);
 
@@ -263,7 +263,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post El parámetro implícito pasa a ser una lista vacía, si aun no lo era; la lista de expresiones del parámetro implícito pasa a estar vacía
-		\coste Lineal
+		\coste Lineal respecto al tamaño del parámetro implícito
 	*/
 	void set_empty_list();
 
@@ -406,7 +406,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post Escribe el valor de la expresión o la lista de valores de la lista de expresiones representada/s por el parámetro implícito por el canal estandar de salida; en caso que el parámetro implícito no represente ninguno de los tipos permitidos, escribe "indefinit"
-		\coste Lineal respecto al tamaño del parametro implicito
+		\coste Lineal respecto al tamaño del parámetro implícito
 	*/
 	void write() const;
 

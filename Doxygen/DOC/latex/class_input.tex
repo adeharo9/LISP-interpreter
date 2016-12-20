@@ -72,6 +72,9 @@ Se ejecuta automáticamente al declarar un nuevo espacio de variables \begin{Dox
 \begin{DoxyPostcond}{Postcondición}
 Crea un objeto vacío 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 9 del archivo Input.\+cc.
@@ -99,6 +102,9 @@ Se ejecuta automáticamente al salir de un ámbito de visibilidad \begin{DoxyPre
 \begin{DoxyPostcond}{Postcondición}
 Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 16 del archivo Input.\+cc.
@@ -128,6 +134,9 @@ Operación de siguiente elemento a tratar.
 \begin{DoxyPostcond}{Postcondición}
 Se ha actualizado el texto de tratamiento inmediato, así como el buffer de entrada y el contador de paréntesis 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 22 del archivo Input.\+cc.
@@ -155,6 +164,9 @@ Operación de anterior elemento a tratar.
 \begin{DoxyPostcond}{Postcondición}
 El buffer de entrada pasa a contener el texto de tratamiento inmediato a su inicio, y el contador de paréntesis se ha actualizado convenientemente; el texto de tratamiento inmediato pasa a estar vacío 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 27 del archivo Input.\+cc.
@@ -182,6 +194,9 @@ Operación de siguiente elemento a tratar con asignación.
 \begin{DoxyPostcond}{Postcondición}
 Se ha actualizado el texto de tratamiento inmediato, así como el buffer de entrada y el contador de paréntesis; \textquotesingle{}str\textquotesingle{} es igual al texto de tratamiento inmediato 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 32 del archivo Input.\+cc.
@@ -210,6 +225,9 @@ Operación de introducción de buffer.
 \begin{DoxyPostcond}{Postcondición}
 El buffer del parámetro implícito pasa a ser \textquotesingle{}buff\textquotesingle{} 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 38 del archivo Input.\+cc.
@@ -237,6 +255,9 @@ Siguiente elemento a tratar.
 \begin{DoxyPostcond}{Postcondición}
 Se ha actualizado el texto de tratamiento inmediato, así como el buffer de entrada y el contador de paréntesis 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Puede ser ineal o constante dependiendo del caso 
+\end{DoxyParagraph}
 
 
 Definición en la línea 45 del archivo Input.\+cc.
@@ -302,6 +323,9 @@ Anterior elemento a tratar.
 \begin{DoxyPostcond}{Postcondición}
 El buffer de entrada pasa a contener el texto de tratamiento inmediato a su inicio, y el contador de paréntesis se ha actualizado convenientemente; el texto de tratamiento inmediato pasa a estar vacío 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 85 del archivo Input.\+cc.
@@ -336,6 +360,9 @@ Siguiente expresión.
 \begin{DoxyPostcond}{Postcondición}
 Procesa toda la entrada correspondiente a una expresión y prepara la entrada para leer lo que hay después de la misma; devuelve la expresión que acaba de procesar como un string 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal 
+\end{DoxyParagraph}
 
 
 Definición en la línea 97 del archivo Input.\+cc.
@@ -372,6 +399,9 @@ Fin de expresión.
 \begin{DoxyPostcond}{Postcondición}
 Ignora toda entrada situada antes del final de la expresión y prepara la entrada para leer lo que hay después de la misma 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Cuadratica 
+\end{DoxyParagraph}
 
 
 Definición en la línea 110 del archivo Input.\+cc.
@@ -405,6 +435,9 @@ Contador de expresiones.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve el número de expresiones que hay contenidas en el buffer de entrada 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Exponencial de orden 3 
+\end{DoxyParagraph}
 
 
 Definición en la línea 120 del archivo Input.\+cc.
@@ -455,6 +488,9 @@ Consultora de cantidad de paréntesis abiertos.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve la cantidad de paréntesis que se encuentran abiertos en un momento determinado de la lectura de entrada 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 148 del archivo Input.\+cc.
@@ -482,6 +518,9 @@ Consultora de buffer de entrada.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve el contenido del buffer de entrada 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 153 del archivo Input.\+cc.
@@ -509,6 +548,9 @@ Cosultora de texto de tratamiento inmediato.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve el contenido del texto de tratamiento inmediato 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 158 del archivo Input.\+cc.

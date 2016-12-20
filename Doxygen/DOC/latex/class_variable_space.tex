@@ -60,6 +60,9 @@ Se ejecuta automáticamente al declarar un nuevo espacio de variables \begin{Dox
 \begin{DoxyPostcond}{Postcondición}
 Crea un objeto vacío 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 10 del archivo Variable\+Space.\+cc.
@@ -86,6 +89,9 @@ Constructora por copia.
 \begin{DoxyPostcond}{Postcondición}
 Crea un objeto copia de \textquotesingle{}var\+Space\textquotesingle{} 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logaritmico 
+\end{DoxyParagraph}
 
 
 Definición en la línea 14 del archivo Variable\+Space.\+cc.
@@ -113,6 +119,9 @@ Se ejecuta automáticamente al salir de un ámbito de visibilidad \begin{DoxyPre
 \begin{DoxyPostcond}{Postcondición}
 Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal 
+\end{DoxyParagraph}
 
 
 Definición en la línea 21 del archivo Variable\+Space.\+cc.
@@ -142,6 +151,9 @@ Modificadora por eliminación de contenido.
 \begin{DoxyPostcond}{Postcondición}
 Elimina el contenido del parámetro implícito, que pasa a estar vacío 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal 
+\end{DoxyParagraph}
 
 
 Definición en la línea 27 del archivo Variable\+Space.\+cc.
@@ -170,6 +182,9 @@ Modificadora por establecimiento de variable.
 \begin{DoxyPostcond}{Postcondición}
 Se añade al parámetro implícito la variable con nombre \textquotesingle{}key\textquotesingle{} y expresión \textquotesingle{}exp\textquotesingle{}, o se actualiza su expresión a \textquotesingle{}exp\textquotesingle{} si ya existía previamente 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logaritmico 
+\end{DoxyParagraph}
 
 
 Definición en la línea 32 del archivo Variable\+Space.\+cc.
@@ -197,6 +212,9 @@ Consultora de parámetro implícito vacío.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si el parámetro implícito está vacío 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 39 del archivo Variable\+Space.\+cc.
@@ -224,6 +242,9 @@ Consultora de existencia de variable.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si la variable con nombre \textquotesingle{}key\textquotesingle{} existe en el parámetro implícito; en otro caso, devuelve falso 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logaritmico 
+\end{DoxyParagraph}
 
 
 Definición en la línea 44 del archivo Variable\+Space.\+cc.
@@ -251,6 +272,9 @@ Consultora de recuperación de variable.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve la expresión representada por la variable de nombre \textquotesingle{}key\textquotesingle{} 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logaritmico 
+\end{DoxyParagraph}
 
 
 Definición en la línea 49 del archivo Variable\+Space.\+cc.
@@ -278,6 +302,9 @@ Operación de escritura del espacio de variables definidas por el usuario.
 \begin{DoxyPostcond}{Postcondición}
 Se ha escrito el contenido del parámetro implícito por el canal estándar de salida 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal con respecto al tamaño del parametro implicito 
+\end{DoxyParagraph}
 
 
 Definición en la línea 56 del archivo Variable\+Space.\+cc.
@@ -315,6 +342,9 @@ Operación de escritura de variable definida por el usuario.
 \begin{DoxyPostcond}{Postcondición}
 Se ha escrito el contenido de la variable con nombre \textquotesingle{}key\textquotesingle{} por el canal estándar de salida 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logaritmico 
+\end{DoxyParagraph}
 
 
 Definición en la línea 70 del archivo Variable\+Space.\+cc.

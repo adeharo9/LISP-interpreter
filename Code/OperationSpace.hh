@@ -45,7 +45,7 @@ private:
 
     	\pre <em>Cierto</em>
     	\post Devuelve el número de parámetros contenidos en la variable 'parameters'
-    	\coste Lineal con respecto al tamaño de parameters
+    	\coste Lineal respecto al tamaño de 'parameters'
     */
     static int count_vars(string parameters);
 
@@ -69,7 +69,7 @@ public:
 		Se ejecuta automáticamente al salir de un ámbito de visibilidad
 		\pre <em>Cierto</em>
 		\post Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad
-		\coste Lineal
+		\coste Lineal respecto al tamaño del parámetro implícito
 	*/
 	~OperationSpace();
 
@@ -79,7 +79,7 @@ public:
 
 		\pre 'key' es un string no vacío; 'key' no corresponde al nombre de ninguna de las operaciones primitivas ni al nombre de ninguna de las variables definidas por el usuario
 		\post Se añade al parámetro implícito la operacion con nombre 'key', parámetros 'parameters' y expresión 'exp', o se actualizan sus parámetros a 'parameters' y su expresión a 'exp' si ya existía previamente
-		\coste Logaritmica
+		\coste Lineal respecto al tamaño de 'parameters'
 	*/
 	void set(string key, string parameters, string exp);
 
@@ -97,7 +97,7 @@ public:
 
     	\pre 'key' es un string no vacío
     	\post Devuelve cierto si la operación con nombre 'key' existe en el parámetro implícito; en otro caso, devuelve falso
-    	\coste Logaritmico
+    	\coste Logarítmico respecto al tamaño del parámetro implícito respecto al tamaño del parámetro implícito
     */
     bool exists(string key) const;
 
@@ -105,7 +105,7 @@ public:
 
     	\pre 'key' es un string no vacío; el parámetro implícito contiene una operación con valor 'key'
     	\post Devuelve los parámetros y la expresión, respectivamente contenidos en forma de pair, de la operación de nombre 'key'
-    	\coste Logaritmico
+    	\coste Logarítmico respecto al tamaño del parámetro implícito
     */
     pair<string, string> get(string key);
 
@@ -113,7 +113,7 @@ public:
 
     	\pre 'key' es un string no vacío; el parámetro implícito contiene una operación de nombre'key'
     	\post Devuelve el número de parámetros de la operación de nombre 'key'
-    	\coste Logaritmico
+    	\coste Logarítmico respecto al tamaño del parámetro implícito
     */
     int num_pars(string key) ;
 
@@ -123,7 +123,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post Se han escrito las operaciones definidas por el usuario por el canal estándar de salida
-		\coste Lineal
+		\coste Lineal respecto al tamaño del parámetro implícito
 	*/
 	void write() const;
 
@@ -131,7 +131,7 @@ public:
 
 		\pre 'key' es un string no vacío; el parámetro implícito contiene una operación de nombre 'key'
 		\post Se ha escrito el contenido de la operación de nombre 'key' por el canal estándar de salida
-		\coste Logaritmico
+		\coste Logarítmico respecto al tamaño del parámetro implícito
 	*/
 	void write_op(string key);
 

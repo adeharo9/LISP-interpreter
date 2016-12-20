@@ -153,6 +153,7 @@ Atributos privados</h2></td></tr>
 <p>Constructora por defecto. </p>
 <p>Se ejecuta automáticamente al declarar un nuevo espacio de variables </p><dl class="section pre"><dt>Precondición</dt><dd><em>Cierto</em> </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Crea un objeto vacío </dd></dl>
+<dl class="section user"><dt>Coste</dt><dd>Constante </dd></dl>
 
 <p>Definición en la línea <a class="el" href="_variable_space_8cc_source.html#l00010">10</a> del archivo <a class="el" href="_variable_space_8cc_source.html">VariableSpace.cc</a>.</p>
 <div class="fragment"><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div></div><!-- fragment -->
@@ -175,6 +176,7 @@ Atributos privados</h2></td></tr>
 <p>Constructora por copia. </p>
 <dl class="section pre"><dt>Precondición</dt><dd><em>Cierto</em> </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Crea un objeto copia de 'varSpace' </dd></dl>
+<dl class="section user"><dt>Coste</dt><dd>Logaritmico </dd></dl>
 
 <p>Definición en la línea <a class="el" href="_variable_space_8cc_source.html#l00014">14</a> del archivo <a class="el" href="_variable_space_8cc_source.html">VariableSpace.cc</a>.</p>
 <div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <a class="code" href="class_variable_space.html#a5af4ff4cfb476da8de2ffd88e511dd01">varMap</a> = varSpace.<a class="code" href="class_variable_space.html#a5af4ff4cfb476da8de2ffd88e511dd01">varMap</a>;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div><div class="ttc" id="class_variable_space_html_a5af4ff4cfb476da8de2ffd88e511dd01"><div class="ttname"><a href="class_variable_space.html#a5af4ff4cfb476da8de2ffd88e511dd01">VariableSpace::varMap</a></div><div class="ttdeci">map&lt; string, Expression &gt; varMap</div><div class="ttdoc">Mapa de variables definidas por el usuario. </div><div class="ttdef"><b>Definition:</b> <a href="_variable_space_8hh_source.html#l00034">VariableSpace.hh:34</a></div></div>
@@ -197,6 +199,7 @@ Atributos privados</h2></td></tr>
 <p>Destructora por defecto. </p>
 <p>Se ejecuta automáticamente al salir de un ámbito de visibilidad </p><dl class="section pre"><dt>Precondición</dt><dd><em>Cierto</em> </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad </dd></dl>
+<dl class="section user"><dt>Coste</dt><dd>Lineal </dd></dl>
 
 <p>Definición en la línea <a class="el" href="_variable_space_8cc_source.html#l00021">21</a> del archivo <a class="el" href="_variable_space_8cc_source.html">VariableSpace.cc</a>.</p>
 <div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div></div><!-- fragment -->
@@ -219,6 +222,7 @@ Atributos privados</h2></td></tr>
 <p>Modificadora por eliminación de contenido. </p>
 <dl class="section pre"><dt>Precondición</dt><dd><em>Cierto</em> </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Elimina el contenido del parámetro implícito, que pasa a estar vacío </dd></dl>
+<dl class="section user"><dt>Coste</dt><dd>Lineal </dd></dl>
 
 <p>Definición en la línea <a class="el" href="_variable_space_8cc_source.html#l00027">27</a> del archivo <a class="el" href="_variable_space_8cc_source.html">VariableSpace.cc</a>.</p>
 <div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <a class="code" href="class_variable_space.html#a5af4ff4cfb476da8de2ffd88e511dd01">varMap</a>.clear();</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div><div class="ttc" id="class_variable_space_html_a5af4ff4cfb476da8de2ffd88e511dd01"><div class="ttname"><a href="class_variable_space.html#a5af4ff4cfb476da8de2ffd88e511dd01">VariableSpace::varMap</a></div><div class="ttdeci">map&lt; string, Expression &gt; varMap</div><div class="ttdoc">Mapa de variables definidas por el usuario. </div><div class="ttdef"><b>Definition:</b> <a href="_variable_space_8hh_source.html#l00034">VariableSpace.hh:34</a></div></div>
@@ -252,6 +256,7 @@ Atributos privados</h2></td></tr>
 <p>Modificadora por establecimiento de variable. </p>
 <dl class="section pre"><dt>Precondición</dt><dd>'key' es un string no vacío; 'key' no corresponde al nombre de ninguna de las operaciones primitivas predefinidas ni al nombre de ninguna de las operaciones definidas por el usuario; 'exp' no es una expresión indefinida </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Se añade al parámetro implícito la variable con nombre 'key' y expresión 'exp', o se actualiza su expresión a 'exp' si ya existía previamente </dd></dl>
+<dl class="section user"><dt>Coste</dt><dd>Logaritmico </dd></dl>
 
 <p>Definición en la línea <a class="el" href="_variable_space_8cc_source.html#l00032">32</a> del archivo <a class="el" href="_variable_space_8cc_source.html">VariableSpace.cc</a>.</p>
 <div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <a class="code" href="class_variable_space.html#a5af4ff4cfb476da8de2ffd88e511dd01">varMap</a>[key] = exp;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div><div class="ttc" id="class_variable_space_html_a5af4ff4cfb476da8de2ffd88e511dd01"><div class="ttname"><a href="class_variable_space.html#a5af4ff4cfb476da8de2ffd88e511dd01">VariableSpace::varMap</a></div><div class="ttdeci">map&lt; string, Expression &gt; varMap</div><div class="ttdoc">Mapa de variables definidas por el usuario. </div><div class="ttdef"><b>Definition:</b> <a href="_variable_space_8hh_source.html#l00034">VariableSpace.hh:34</a></div></div>
@@ -274,6 +279,7 @@ Atributos privados</h2></td></tr>
 <p>Consultora de parámetro implícito vacío. </p>
 <dl class="section pre"><dt>Precondición</dt><dd><em>Cierto</em> </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Devuelve cierto si el parámetro implícito está vacío </dd></dl>
+<dl class="section user"><dt>Coste</dt><dd>Constante </dd></dl>
 
 <p>Definición en la línea <a class="el" href="_variable_space_8cc_source.html#l00039">39</a> del archivo <a class="el" href="_variable_space_8cc_source.html">VariableSpace.cc</a>.</p>
 <div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="class_variable_space.html#a5af4ff4cfb476da8de2ffd88e511dd01">varMap</a>.empty();</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div><div class="ttc" id="class_variable_space_html_a5af4ff4cfb476da8de2ffd88e511dd01"><div class="ttname"><a href="class_variable_space.html#a5af4ff4cfb476da8de2ffd88e511dd01">VariableSpace::varMap</a></div><div class="ttdeci">map&lt; string, Expression &gt; varMap</div><div class="ttdoc">Mapa de variables definidas por el usuario. </div><div class="ttdef"><b>Definition:</b> <a href="_variable_space_8hh_source.html#l00034">VariableSpace.hh:34</a></div></div>
@@ -297,6 +303,7 @@ Atributos privados</h2></td></tr>
 <p>Consultora de existencia de variable. </p>
 <dl class="section pre"><dt>Precondición</dt><dd>'key' es un string no vacío </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Devuelve cierto si la variable con nombre 'key' existe en el parámetro implícito; en otro caso, devuelve falso </dd></dl>
+<dl class="section user"><dt>Coste</dt><dd>Logaritmico </dd></dl>
 
 <p>Definición en la línea <a class="el" href="_variable_space_8cc_source.html#l00044">44</a> del archivo <a class="el" href="_variable_space_8cc_source.html">VariableSpace.cc</a>.</p>
 <div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="class_variable_space.html#a5af4ff4cfb476da8de2ffd88e511dd01">varMap</a>.find(key) != <a class="code" href="class_variable_space.html#a5af4ff4cfb476da8de2ffd88e511dd01">varMap</a>.end();</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div><div class="ttc" id="class_variable_space_html_a5af4ff4cfb476da8de2ffd88e511dd01"><div class="ttname"><a href="class_variable_space.html#a5af4ff4cfb476da8de2ffd88e511dd01">VariableSpace::varMap</a></div><div class="ttdeci">map&lt; string, Expression &gt; varMap</div><div class="ttdoc">Mapa de variables definidas por el usuario. </div><div class="ttdef"><b>Definition:</b> <a href="_variable_space_8hh_source.html#l00034">VariableSpace.hh:34</a></div></div>
@@ -320,6 +327,7 @@ Atributos privados</h2></td></tr>
 <p>Consultora de recuperación de variable. </p>
 <dl class="section pre"><dt>Precondición</dt><dd>'key' es un string no vacío; el parámetro implícito contiene una variable con nombre 'key' </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Devuelve la expresión representada por la variable de nombre 'key' </dd></dl>
+<dl class="section user"><dt>Coste</dt><dd>Logaritmico </dd></dl>
 
 <p>Definición en la línea <a class="el" href="_variable_space_8cc_source.html#l00049">49</a> del archivo <a class="el" href="_variable_space_8cc_source.html">VariableSpace.cc</a>.</p>
 <div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="class_variable_space.html#a5af4ff4cfb476da8de2ffd88e511dd01">varMap</a>[key];</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div><div class="ttc" id="class_variable_space_html_a5af4ff4cfb476da8de2ffd88e511dd01"><div class="ttname"><a href="class_variable_space.html#a5af4ff4cfb476da8de2ffd88e511dd01">VariableSpace::varMap</a></div><div class="ttdeci">map&lt; string, Expression &gt; varMap</div><div class="ttdoc">Mapa de variables definidas por el usuario. </div><div class="ttdef"><b>Definition:</b> <a href="_variable_space_8hh_source.html#l00034">VariableSpace.hh:34</a></div></div>
@@ -342,6 +350,7 @@ Atributos privados</h2></td></tr>
 <p>Operación de escritura del espacio de variables definidas por el usuario. </p>
 <dl class="section pre"><dt>Precondición</dt><dd><em>Cierto</em> </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Se ha escrito el contenido del parámetro implícito por el canal estándar de salida </dd></dl>
+<dl class="section user"><dt>Coste</dt><dd>Lineal con respecto al tamaño del parametro implicito </dd></dl>
 
 <p>Definición en la línea <a class="el" href="_variable_space_8cc_source.html#l00056">56</a> del archivo <a class="el" href="_variable_space_8cc_source.html">VariableSpace.cc</a>.</p>
 <div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  cout &lt;&lt; <span class="stringliteral">&quot;Variables:&quot;</span> &lt;&lt; endl;</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  map&lt;string, Expression&gt;::const_iterator c_it = <a class="code" href="class_variable_space.html#a5af4ff4cfb476da8de2ffd88e511dd01">varMap</a>.begin();</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="comment">/* INV</span></div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">    c_it es un iterador a un elemento del mapa de variables definidas por el usuario del parámetro implícito comprendido entre varMap.begin() y varMap.end()</span></div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">  */</span></div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordflow">while</span>(c_it != <a class="code" href="class_variable_space.html#a5af4ff4cfb476da8de2ffd88e511dd01">varMap</a>.end()) {</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    cout &lt;&lt; c_it -&gt; first &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    c_it -&gt; second.write();</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    ++c_it;</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  }</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div><div class="ttc" id="class_variable_space_html_a5af4ff4cfb476da8de2ffd88e511dd01"><div class="ttname"><a href="class_variable_space.html#a5af4ff4cfb476da8de2ffd88e511dd01">VariableSpace::varMap</a></div><div class="ttdeci">map&lt; string, Expression &gt; varMap</div><div class="ttdoc">Mapa de variables definidas por el usuario. </div><div class="ttdef"><b>Definition:</b> <a href="_variable_space_8hh_source.html#l00034">VariableSpace.hh:34</a></div></div>
@@ -365,6 +374,7 @@ Atributos privados</h2></td></tr>
 <p>Operación de escritura de variable definida por el usuario. </p>
 <dl class="section pre"><dt>Precondición</dt><dd>'key' es un string no vacío; el parámetro implícito contiene una variable con nombre 'key' </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Se ha escrito el contenido de la variable con nombre 'key' por el canal estándar de salida </dd></dl>
+<dl class="section user"><dt>Coste</dt><dd>Logaritmico </dd></dl>
 
 <p>Definición en la línea <a class="el" href="_variable_space_8cc_source.html#l00070">70</a> del archivo <a class="el" href="_variable_space_8cc_source.html">VariableSpace.cc</a>.</p>
 <div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  cout &lt;&lt; key &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <a class="code" href="class_variable_space.html#a5af4ff4cfb476da8de2ffd88e511dd01">varMap</a>[key].write();</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div><div class="ttc" id="class_variable_space_html_a5af4ff4cfb476da8de2ffd88e511dd01"><div class="ttname"><a href="class_variable_space.html#a5af4ff4cfb476da8de2ffd88e511dd01">VariableSpace::varMap</a></div><div class="ttdeci">map&lt; string, Expression &gt; varMap</div><div class="ttdoc">Mapa de variables definidas por el usuario. </div><div class="ttdef"><b>Definition:</b> <a href="_variable_space_8hh_source.html#l00034">VariableSpace.hh:34</a></div></div>

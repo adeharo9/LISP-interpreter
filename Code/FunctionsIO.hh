@@ -12,7 +12,7 @@ using namespace std;
 
 	\pre <em>Cierto</em>
 	\post Devuelve cierto si la variable 'str' es un número, falso en caso contrario
-	\coste Lineal
+	\coste Lineal respecto al tamaño de 'str'
 */
 bool is_num(string str);
 
@@ -20,7 +20,7 @@ bool is_num(string str);
 
 	\pre 'env' es un entorno con operaciones primitivas previamente inicializadas, 'exp' una expresion no vacía y 'parameters' los paremtros a definir
 	\post Crea un espacio de variables inicializado con 'parameters' como nombres de variables y los valores leídos en 'exp' como los valores de dichas variables
-	\coste Logaritmico
+	\coste Lineal con respecto al tamaño de 'parameters'
 */
 void createLocalVarSpace(Environment& env, Expression& exp, string parameters);
 
@@ -28,7 +28,7 @@ void createLocalVarSpace(Environment& env, Expression& exp, string parameters);
 
 	\pre 'env' es un entorno con operaciones primitivas previamente inicializadas; 'exp' es una expresión a evaluar
 	\post Se evalua la expresion 'exp' y se retorna en la misma variable el valor resultante, el cual puede ser un valor, una lista de expresiones o indefinido.
-	\coste Dependiendo del caso puede ser logaritmico o lineal
+	\coste Lineal o logarítmico en función del valor de 'exp'
 */
 void evaluate(Environment& env, Expression& exp);
 
@@ -76,7 +76,7 @@ void defineOp(Environment& env, string key, string parameters, Input& in);
 
 	\pre 'env' es un entorno con operaciones primitivas previamente inicializadas; 'in' contiene una cadena con la declaración de la definición
 	\post Se ha creado una varible u operación definidas por el usuario en el espacio dentro del entorno del programa correspondiente, o se ha mostrado 'indefinido' en el caso de una variable cuya evaluación sea 'indefinido'
-	\coste Dpendiendo del caso puede ser lineal o logaritmico
+	\coste Logarítmico
 */
 void define(Environment& env, Input& in);
 

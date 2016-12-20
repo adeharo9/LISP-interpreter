@@ -68,6 +68,9 @@ Se ejecuta automáticamente al declarar un nuevo espacio de operaciones \begin{D
 \begin{DoxyPostcond}{Postcondición}
 Crea un objeto vacío 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 25 del archivo Operation\+Space.\+cc.
@@ -94,6 +97,9 @@ Se ejecuta automáticamente al salir de un ámbito de visibilidad \begin{DoxyPre
 \begin{DoxyPostcond}{Postcondición}
 Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal 
+\end{DoxyParagraph}
 
 
 Definición en la línea 31 del archivo Operation\+Space.\+cc.
@@ -123,6 +129,9 @@ Método privado de cálculo de número de parámetros.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve el número de parámetros contenidos en la variable \textquotesingle{}parameters\textquotesingle{} 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal con respecto al tamaño de parameters 
+\end{DoxyParagraph}
 
 
 Definición en la línea 9 del archivo Operation\+Space.\+cc.
@@ -162,6 +171,9 @@ Modificadora por establecimiento de operación.
 \begin{DoxyPostcond}{Postcondición}
 Se añade al parámetro implícito la operacion con nombre \textquotesingle{}key\textquotesingle{}, parámetros \textquotesingle{}parameters\textquotesingle{} y expresión \textquotesingle{}exp\textquotesingle{}, o se actualizan sus parámetros a \textquotesingle{}parameters\textquotesingle{} y su expresión a \textquotesingle{}exp\textquotesingle{} si ya existía previamente 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logaritmica 
+\end{DoxyParagraph}
 
 
 Definición en la línea 37 del archivo Operation\+Space.\+cc.
@@ -193,6 +205,9 @@ Consultora de parámetro implícito vacío.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si el parámetro implícito está vacío 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 48 del archivo Operation\+Space.\+cc.
@@ -220,6 +235,9 @@ Consultora de existencia de operación.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si la operación con nombre \textquotesingle{}key\textquotesingle{} existe en el parámetro implícito; en otro caso, devuelve falso 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logaritmico 
+\end{DoxyParagraph}
 
 
 Definición en la línea 53 del archivo Operation\+Space.\+cc.
@@ -247,6 +265,9 @@ Consultora de recuperación de operación.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve los parámetros y la expresión, respectivamente contenidos en forma de pair, de la operación de nombre \textquotesingle{}key\textquotesingle{} 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logaritmico 
+\end{DoxyParagraph}
 
 
 Definición en la línea 58 del archivo Operation\+Space.\+cc.
@@ -275,6 +296,9 @@ Consultora de número de parámetros.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve el número de parámetros de la operación de nombre \textquotesingle{}key\textquotesingle{} 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logaritmico 
+\end{DoxyParagraph}
 
 
 Definición en la línea 64 del archivo Operation\+Space.\+cc.
@@ -302,6 +326,9 @@ Operación de escritura del espacio de operaciones definidas por el usuario.
 \begin{DoxyPostcond}{Postcondición}
 Se han escrito las operaciones definidas por el usuario por el canal estándar de salida 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal 
+\end{DoxyParagraph}
 
 
 Definición en la línea 71 del archivo Operation\+Space.\+cc.
@@ -338,6 +365,9 @@ Operación de escritura de operación definida por el usuario.
 \begin{DoxyPostcond}{Postcondición}
 Se ha escrito el contenido de la operación de nombre \textquotesingle{}key\textquotesingle{} por el canal estándar de salida 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logaritmico 
+\end{DoxyParagraph}
 
 
 Definición en la línea 84 del archivo Operation\+Space.\+cc.

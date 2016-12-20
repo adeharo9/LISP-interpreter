@@ -127,6 +127,9 @@ Se ejecuta automáticamente al declarar una nueva expresión \begin{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
 Crea un objeto vacío 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 57 del archivo Expression.\+cc.
@@ -154,6 +157,9 @@ Constructora por copia.
 \begin{DoxyPostcond}{Postcondición}
 Crea un objeto copia de \textquotesingle{}in\+Exp\textquotesingle{} 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal respecto al tamaño de in\+Exp 
+\end{DoxyParagraph}
 
 
 Definición en la línea 62 del archivo Expression.\+cc.
@@ -184,6 +190,9 @@ Se ejecuta automáticamente al salir de un ámbito de visibilidad \begin{DoxyPre
 \begin{DoxyPostcond}{Postcondición}
 Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal respecto al tamaño de l\+Exp 
+\end{DoxyParagraph}
 
 
 Definición en la línea 72 del archivo Expression.\+cc.
@@ -214,6 +223,9 @@ Método privado de copia de lista de expresiones.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve una lista de punteros que apuntan a una copia en memoria de los objetos apuntados por \textquotesingle{}l\+Exp\textquotesingle{}, es decir, devuelve una lista conteniendo una copia del contenido de la lista \textquotesingle{}l\+Exp\textquotesingle{} 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal respecto al tamaño de l\+Exp 
+\end{DoxyParagraph}
 
 
 Definición en la línea 15 del archivo Expression.\+cc.
@@ -261,6 +273,9 @@ Método privado de borrado de lista de expresiones.
 \begin{DoxyPostcond}{Postcondición}
 Elimina todos los elementos apuntados por la lista \textquotesingle{}l\+Exp\textquotesingle{} y libera la memoria ocupada por ellos 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal respecto al tamaño de l\+Exp 
+\end{DoxyParagraph}
 
 
 Definición en la línea 38 del archivo Expression.\+cc.
@@ -294,6 +309,9 @@ Método privado de borrado de lista de expresiones con excepción.
 \begin{DoxyPostcond}{Postcondición}
 Elimina todos los elementos apuntados por la lista \textquotesingle{}l\+Expression\textquotesingle{} a excepción del elemento \textquotesingle{}in\+Exp\textquotesingle{} y todos los que dependen de él (si forma parte de \textquotesingle{}l\+Exp\textquotesingle{} o de alguno de los elementos apuntados por los elementos de \textquotesingle{}l\+Exp\textquotesingle{}), y libera la memoria ocupada por ellos 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal respecto al tamaño de l\+Exp 
+\end{DoxyParagraph}
 
 
 Definición en la línea 48 del archivo Expression.\+cc.
@@ -323,6 +341,9 @@ Operación de asignación por copia.
 \begin{DoxyPostcond}{Postcondición}
 El parámetro implícito pasa a ser una copia de \textquotesingle{}in\+Exp\textquotesingle{}; retorna el parámetro implícito 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal respecto al tamaño de in\+Exp 
+\end{DoxyParagraph}
 
 
 Definición en la línea 79 del archivo Expression.\+cc.
@@ -358,6 +379,9 @@ Operación de asignación por transferencia.
 \begin{DoxyPostcond}{Postcondición}
 El parámetro implícito pasa a tener todos los elementos de \textquotesingle{}in\+Exp\textquotesingle{} mediante transferencia (sin reubicación de datos en memoria); \textquotesingle{}in\+Exp\textquotesingle{} pasa a dejar de existir en memoria; retorna el parámetro implícito 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal respecto al tamaño de in\+Exp 
+\end{DoxyParagraph}
 
 
 Definición en la línea 92 del archivo Expression.\+cc.
@@ -395,6 +419,9 @@ Operación de asignación de lista de expresiones por transferencia.
 \begin{DoxyPostcond}{Postcondición}
 El parámetro implícito pasa a tener la lista de expresiones de \textquotesingle{}l\+Expression\textquotesingle{} mediante transferencia (sin reubicación de datos en memoria); \textquotesingle{}l\+Expression\textquotesingle{} pasa a estar vacía; retorna el parámetro implícito 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal respecto al tamaño de l\+Expression 
+\end{DoxyParagraph}
 
 
 Definición en la línea 107 del archivo Expression.\+cc.
@@ -425,6 +452,9 @@ Operación de asignación de lista de expresiones por transferencia.
 \begin{DoxyPostcond}{Postcondición}
 La lista \textquotesingle{}l\+Expression\textquotesingle{} pasa a tener la lista de expresiones del parámetro implícito mediante transferencia (sin reubicación de datos en memoria); la lista del parámetro implícito pasa a estar vacía 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal respecto al tamaño de l\+Expression 
+\end{DoxyParagraph}
 
 
 Definición en la línea 115 del archivo Expression.\+cc.
@@ -454,6 +484,9 @@ Operación de comparación de igualdad.
 \begin{DoxyPostcond}{Postcondición}
 Si el parámetro implícito y \textquotesingle{}in\+Exp\textquotesingle{} son valores, devuelve cierto si son iguales; si ambos son listas de expresiones, devuelve cierto si los elementos de las respectivas posiciones de ambas listas son iguales; en otro caso, devuelve falso 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal respecto al tamaño de in\+Exp 
+\end{DoxyParagraph}
 
 
 Definición en la línea 122 del archivo Expression.\+cc.
@@ -509,6 +542,9 @@ Operación de comparación lexicográfica de inferioridad exclusiva.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si el parámetro implícito es lexicográficamente menor exclusivo que \textquotesingle{}in\+Exp\textquotesingle{} 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal respecto al tamaño de in\+Exp 
+\end{DoxyParagraph}
 
 
 Definición en la línea 153 del archivo Expression.\+cc.
@@ -561,6 +597,9 @@ Operación de vaciado de expresión.
 \begin{DoxyPostcond}{Postcondición}
 El parámetro implícito pasa a estar vacío 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal respecto al tamaño del parametro implicito 
+\end{DoxyParagraph}
 
 
 Definición en la línea 181 del archivo Expression.\+cc.
@@ -594,6 +633,9 @@ Operación de inserción de elemetos de lista.
 \begin{DoxyPostcond}{Postcondición}
 Se inserta el puntero \textquotesingle{}p\+Exp\textquotesingle{} en la posición precedente al iterador \textquotesingle{}it\textquotesingle{} en la lista de expresiones del parámetro implícito 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal respecto al número de elementos a insertar 
+\end{DoxyParagraph}
 
 
 Definición en la línea 191 del archivo Expression.\+cc.
@@ -621,6 +663,9 @@ La lista de expresiones del parámetro implícito no es una lista vacía; \textq
 \begin{DoxyPostcond}{Postcondición}
 Se borra el elemento apuntado por el iterador \textquotesingle{}it\textquotesingle{} de la lista de expresiones del parámetro implícito; devuelve un iterador al elemento siguiente al borrado 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal respecto al número de elementos a borrar 
+\end{DoxyParagraph}
 
 
 Definición en la línea 196 del archivo Expression.\+cc.
@@ -650,6 +695,9 @@ Operación de empalmado de listas.
 \begin{DoxyPostcond}{Postcondición}
 la lista de expresiones del parámetro implícito pasa a tener los elementos de \textquotesingle{}l\+Expression\textquotesingle{} antes del elemento apuntado por \textquotesingle{}it\textquotesingle{} 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante para (1) y (2) siguiendo a lineal para (3) o más 
+\end{DoxyParagraph}
 
 
 Definición en la línea 202 del archivo Expression.\+cc.
@@ -677,6 +725,9 @@ Operación de cambio de listas.
 \begin{DoxyPostcond}{Postcondición}
 El parámetro implícito pasa a tener la lista de expresiones de \textquotesingle{}in\+Exp\textquotesingle{}; \textquotesingle{}in\+Exp\textquotesingle{} pasa a tener la lista de expresiones del parámetro implícito 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 207 del archivo Expression.\+cc.
@@ -704,6 +755,9 @@ Modificadora a expresión indefinida.
 \begin{DoxyPostcond}{Postcondición}
 El parámetro implícito pasa a ser indefinido, si aun no lo era 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal respecto al tamaño del parametro implicito 
+\end{DoxyParagraph}
 
 
 Definición en la línea 212 del archivo Expression.\+cc.
@@ -736,6 +790,9 @@ Modificadora de valor por asignación.
 \begin{DoxyPostcond}{Postcondición}
 El parámetro implícito pasa a tener valor \textquotesingle{}value\textquotesingle{} y pasa a ser un valor, si aun no lo era 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal respecto al tamaño del parametro implicito 
+\end{DoxyParagraph}
 
 
 Definición en la línea 222 del archivo Expression.\+cc.
@@ -769,6 +826,9 @@ Modificadora de operador.
 \begin{DoxyPostcond}{Postcondición}
 El parámetro implícito pasa a tener operador \textquotesingle{}op\textquotesingle{} y pasa a ser una operación, si aun no lo era; la lista de expresiones del parámetro implícito es una lista vacía a la espera de ser inicializada 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal respecto al tamaño del parametro implicito 
+\end{DoxyParagraph}
 
 
 Definición en la línea 233 del archivo Expression.\+cc.
@@ -801,6 +861,9 @@ Modificadora de lista.
 \begin{DoxyPostcond}{Postcondición}
 El parámetro implícito pasa a ser una lista de expresiones o una lista vacía de expresionesS, si aun no lo era 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal 
+\end{DoxyParagraph}
 
 
 Definición en la línea 243 del archivo Expression.\+cc.
@@ -831,6 +894,9 @@ Modificadora de lista vacía.
 \begin{DoxyPostcond}{Postcondición}
 El parámetro implícito pasa a ser una lista vacía, si aun no lo era; la lista de expresiones del parámetro implícito pasa a estar vacía 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal 
+\end{DoxyParagraph}
 
 
 Definición en la línea 251 del archivo Expression.\+cc.
@@ -863,6 +929,9 @@ Consultora de tamaño de lista.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve el tamaño de la lista de expresiones del parámetro implícito 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 263 del archivo Expression.\+cc.
@@ -890,6 +959,9 @@ Consultora de estado.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si el parámetro implícito es indefinido; en otro caso, devuelve falso 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 268 del archivo Expression.\+cc.
@@ -917,6 +989,9 @@ Consultora de estado.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si el parámetro implícito es vacío; en otro caso, devuelve falso 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 273 del archivo Expression.\+cc.
@@ -944,6 +1019,9 @@ Consultora de tipo de expresión variable.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si el parámetro implícito es un valor; en otro caso, devuelve falso 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 278 del archivo Expression.\+cc.
@@ -971,6 +1049,9 @@ Consultora de tipo de expresión operación.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si el parámetro implícito es una operación a ser evaluada; en otro caso, devuelve falso 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 283 del archivo Expression.\+cc.
@@ -998,6 +1079,9 @@ Consultora de tipo de expresión lista.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si el parámetro implícito es una lista de expresiones o una lista vacía de expresiones; en otro caso, devuelve falso 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 288 del archivo Expression.\+cc.
@@ -1025,6 +1109,9 @@ Consultora de tipo de expresión lista vacía.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si el parámetro implícito es una lista de expresiones vacía; en otro caso, devuelve falso 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 293 del archivo Expression.\+cc.
@@ -1052,6 +1139,9 @@ Consultora de tipo de expresión booleana.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si el parámetro implícito es una expresión booleana; en otro caso, devuelve falso 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 298 del archivo Expression.\+cc.
@@ -1079,6 +1169,9 @@ El parámetro implícito representa un valor
 \begin{DoxyPostcond}{Postcondición}
 Devuelve el valor del parámetro implícito 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 303 del archivo Expression.\+cc.
@@ -1106,6 +1199,9 @@ El parámetro implícito representa una operación a evaluar
 \begin{DoxyPostcond}{Postcondición}
 Devuelve el operador del parámetro implícito 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 308 del archivo Expression.\+cc.
@@ -1133,6 +1229,9 @@ Iterador de inicio de lista.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve un iterador que apunta al inicio de la lista de expresiones del parámetro implícito 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 315 del archivo Expression.\+cc.
@@ -1160,6 +1259,9 @@ Iterador constante de inicio de lista.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve un const\+\_\+iterator que apunta al inicio de la lista de expresiones del parámetro implícito 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 320 del archivo Expression.\+cc.
@@ -1187,6 +1289,9 @@ La lista de expresiones del parámetro implícito no está vacía
 \begin{DoxyPostcond}{Postcondición}
 Devuelve un iterador que apunta al segundo elemento de la lista de expresiones del parámetro implícito 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 325 del archivo Expression.\+cc.
@@ -1214,6 +1319,9 @@ La lista de expresiones del parámetro implícito no está vacía
 \begin{DoxyPostcond}{Postcondición}
 Devuelve un const\+\_\+iterator que apunta al segundo elemento de la lista de expresiones del parámetro implícito 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 330 del archivo Expression.\+cc.
@@ -1241,6 +1349,9 @@ Iterador de final de lista.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve un iterador que apunta al final de la lista de expresiones del parámetro implícito 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 335 del archivo Expression.\+cc.
@@ -1268,6 +1379,9 @@ Iterador constante de final de lista.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve un const\+\_\+iterator que apunta al final de la lista de expresiones del parámetro implícito 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 340 del archivo Expression.\+cc.
@@ -1295,6 +1409,9 @@ Operación de escritura de expresión.
 \begin{DoxyPostcond}{Postcondición}
 Escribe el valor de la expresión o la lista de valores de la lista de expresiones representada/s por el parámetro implícito por el canal estandar de salida; en caso que el parámetro implícito no represente ninguno de los tipos permitidos, escribe \char`\"{}indefinit\char`\"{} 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal respecto al tamaño del parametro implicito 
+\end{DoxyParagraph}
 
 
 Definición en la línea 347 del archivo Expression.\+cc.

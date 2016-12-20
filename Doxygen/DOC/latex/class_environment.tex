@@ -95,6 +95,9 @@ Se ejecuta automáticamente al declarar un nuevo entorno \begin{DoxyPrecond}{Pre
 \begin{DoxyPostcond}{Postcondición}
 Crea un objeto con espacio de operaciones primitivas inicializado con las operaciones primitivas predefinidas, un espacio de variables vacío y un espacio de operaciones vacío 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
 
 
 Definición en la línea 13 del archivo Environment.\+cc.
@@ -121,6 +124,9 @@ Constructora por copia.
 \begin{DoxyPostcond}{Postcondición}
 Crea un objeto copia de \textquotesingle{}env\textquotesingle{} 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal respecto al tamaño de \textquotesingle{}env\textquotesingle{} 
+\end{DoxyParagraph}
 
 
 Definición en la línea 17 del archivo Environment.\+cc.
@@ -150,6 +156,9 @@ Se ejecuta automáticamente al salir de un ámbito de visibilidad \begin{DoxyPre
 \begin{DoxyPostcond}{Postcondición}
 Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal respecto al tamaño del parámetro implícito 
+\end{DoxyParagraph}
 
 
 Definición en la línea 26 del archivo Environment.\+cc.
@@ -180,6 +189,9 @@ Modificadora por establecimiento de variable.
 \begin{DoxyPostcond}{Postcondición}
 Se añade al espacio de variables del parámetro implícito la variable con nombre \textquotesingle{}key\textquotesingle{} y expresión \textquotesingle{}exp\textquotesingle{}, o se actualiza su expresión a \textquotesingle{}exp\textquotesingle{} si ya existía previamente 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logarítmico respecto al tamaño del espacio de variables 
+\end{DoxyParagraph}
 
 
 Definición en la línea 32 del archivo Environment.\+cc.
@@ -209,6 +221,9 @@ Modificadora por establecimiento de operación.
 \begin{DoxyPostcond}{Postcondición}
 Se añade al espacio de operaciones del parámetro implícito la operación con nombre \textquotesingle{}key\textquotesingle{}, parámetros \textquotesingle{}parameters\textquotesingle{} y expresión \textquotesingle{}exp\textquotesingle{}, o se actualizan sus parámetros a \textquotesingle{}parameters\textquotesingle{} y su expresión a \textquotesingle{}exp\textquotesingle{} si ya existía previamente 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logarítmico respecto al tamaño del espacio de operaciones 
+\end{DoxyParagraph}
 
 
 Definición en la línea 37 del archivo Environment.\+cc.
@@ -236,6 +251,9 @@ Modificadora por eliminación de espacio de variables.
 \begin{DoxyPostcond}{Postcondición}
 El espacio de variables definidas por el usuario del parámetro implícito pasa a estar vacío 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal respecto al tamaño del espacio de variables 
+\end{DoxyParagraph}
 
 
 Definición en la línea 42 del archivo Environment.\+cc.
@@ -263,6 +281,9 @@ Consultora de existencia de operación primitiva.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si la operación de nombre \textquotesingle{}key\textquotesingle{} es una operación primitiva contenida en el espacio de operaciones primitivas; en otro caso, devuelve falso 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logarítmico respecto al tamaño del espacio de operaciones primitivas 
+\end{DoxyParagraph}
 
 
 Definición en la línea 49 del archivo Environment.\+cc.
@@ -290,6 +311,9 @@ Consultora de existencia de operación.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si la operación de nombre \textquotesingle{}key\textquotesingle{} es una operación contenida en el espacio de operaciones primitivas o en el espacio de operaciones definidas por el usuario; en otro caso, devuelve falso 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logarítmico respecto al tamaño del espacio de operaciones primitivas y definidas 
+\end{DoxyParagraph}
 
 
 Definición en la línea 54 del archivo Environment.\+cc.
@@ -317,6 +341,9 @@ Consultora de existencia.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si el string \textquotesingle{}key\textquotesingle{} es el nombre de alguna variable u operación de algún espacio (de operaciones primitivas, variables definidas por el usuario u operaciones definidas por el usuario) del parámetro implícito; en otro caso, devuelve falso 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logarítmico respecto al tamaño de todos los espacios 
+\end{DoxyParagraph}
 
 
 Definición en la línea 59 del archivo Environment.\+cc.
@@ -345,6 +372,9 @@ Consultora de existencia de variable.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si la variable con nombre \textquotesingle{}key\textquotesingle{} existe en el espacio de variables del parámetro implícito; en otro caso, devuelve falso 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logarítmico respecto al tamaño del espacio de variables 
+\end{DoxyParagraph}
 
 
 Definición en la línea 64 del archivo Environment.\+cc.
@@ -372,6 +402,9 @@ Consultora de existencia de operación definida por el usuario.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si la operación con nombre \textquotesingle{}key\textquotesingle{} existe en el espacio de operaciones definidas por el usuario del parámetro implícito; en otro caso, devuelve falso 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logarítmico respecto al tamaño del espacio de operaciones 
+\end{DoxyParagraph}
 
 
 Definición en la línea 69 del archivo Environment.\+cc.
@@ -399,6 +432,9 @@ Consultora de recuperación de operación primitiva.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve la operación primitiva de nombre \textquotesingle{}key\textquotesingle{} 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logarítmico respecto al tamaño del espacio de operaciones primitivas 
+\end{DoxyParagraph}
 
 
 Definición en la línea 74 del archivo Environment.\+cc.
@@ -426,6 +462,9 @@ Consultora de recuperación de variable.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve un alias de la expresión representada por la variable de nombre \textquotesingle{}key\textquotesingle{} 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logarítmico respecto al tamaño del espacio de variables 
+\end{DoxyParagraph}
 
 
 Definición en la línea 79 del archivo Environment.\+cc.
@@ -453,6 +492,9 @@ Consultora de recuperación de operación.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve los parámetros y la expresión, respectivamente en forma de pair, de la operación de nombre \textquotesingle{}key\textquotesingle{} 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logarítmico respecto al tamaño del espacio de operaciones 
+\end{DoxyParagraph}
 
 
 Definición en la línea 84 del archivo Environment.\+cc.
@@ -480,6 +522,9 @@ Consultora de número de parámetros de operación definida por el usuario.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve el número de parámetros de entrada de la operación de nombre \textquotesingle{}key\textquotesingle{} 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logarítmico respecto al tamaño del espacio de operaciones 
+\end{DoxyParagraph}
 
 
 Definición en la línea 89 del archivo Environment.\+cc.
@@ -507,6 +552,9 @@ Operación de escritura del entorno de variables y operaciones definidas por el 
 \begin{DoxyPostcond}{Postcondición}
 Se ha escrito el contenido del espacio de variables y del espacio de operaciones por el canal estándar de salida, si lo tenían 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal respecto al tamaño del espacio de variables y del espacio de operaciones 
+\end{DoxyParagraph}
 
 
 Definición en la línea 96 del archivo Environment.\+cc.
@@ -535,6 +583,9 @@ Operación de escritura de variable definida por el usuario.
 \begin{DoxyPostcond}{Postcondición}
 Se ha escrito el contenido de la variable de nombre \textquotesingle{}key\textquotesingle{} por el canal estándar de salida 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logarítmico respecto al tamaño del espacio de variables 
+\end{DoxyParagraph}
 
 
 Definición en la línea 102 del archivo Environment.\+cc.
@@ -562,6 +613,9 @@ Operación de escritura de operación definida por el usuario.
 \begin{DoxyPostcond}{Postcondición}
 Se ha escrito el contenido de la operación de nombre \textquotesingle{}key\textquotesingle{} por el canal estándar de salida 
 \end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logarítmico respecto al tamaño del espacio de operaciones 
+\end{DoxyParagraph}
 
 
 Definición en la línea 107 del archivo Environment.\+cc.
