@@ -23,11 +23,13 @@ using namespace std;
 /** @brief Programa principal para la calculadora de expresiones aritméticas
 */
 
-int main() {
+int main()
+{
 	Environment env;
 	Expression exp;
 	/* INV
 		'exp' es una expresión vacía al inicio de cada iteración
+		El resultado correspondiente de 'exp' se ha imprimido al final de cada iteración
 	*/
 	while(read(env, exp)) {
 		exp.clear();

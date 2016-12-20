@@ -5,8 +5,7 @@
 Programa principal de la calculadora de expresiones aritméticas.  
 
 
-Dependencia gráfica adjunta para program.\+cc\+:
-\nopagebreak
+Dependencia gráfica adjunta para program.\+cc\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -43,15 +42,16 @@ Definición en la línea 26 del archivo program.\+cc.
 
 
 \begin{DoxyCode}
-26            \{
-27     \hyperlink{class_environment}{Environment} env;
-28     \hyperlink{class_expression}{Expression} exp;
-29     \textcolor{comment}{/* INV}
-30 \textcolor{comment}{        'exp' es una expresión vacía al inicio de cada iteración}
-31 \textcolor{comment}{    */}
-32     \textcolor{keywordflow}{while}(\hyperlink{_functions_i_o_8hh_a10264ecdb3196a71243b69fd4f98c229}{read}(env, exp)) \{
-33         exp.\hyperlink{class_expression_ab2e0ccb0146cccd559c39f8913f9585e}{clear}();
-34     \}
-35     env.\hyperlink{class_environment_ae219751d8017a3ca66b11b74fd45cf9c}{write}();
-36 \}
+27 \{
+28   \hyperlink{class_environment}{Environment} env;
+29   \hyperlink{class_expression}{Expression} exp;
+30   \textcolor{comment}{/* INV}
+31 \textcolor{comment}{    'exp' es una expresión vacía al inicio de cada iteración}
+32 \textcolor{comment}{    El resultado correspondiente de 'exp' se ha imprimido al final de cada iteración}
+33 \textcolor{comment}{  */}
+34   \textcolor{keywordflow}{while}(\hyperlink{_functions_i_o_8cc_a10264ecdb3196a71243b69fd4f98c229}{read}(env, exp)) \{
+35     exp.\hyperlink{class_expression_ab2e0ccb0146cccd559c39f8913f9585e}{clear}();
+36   \}
+37   env.\hyperlink{class_environment_ae219751d8017a3ca66b11b74fd45cf9c}{write}();
+38 \}
 \end{DoxyCode}

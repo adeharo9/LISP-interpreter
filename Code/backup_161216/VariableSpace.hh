@@ -21,7 +21,7 @@ class VariableSpace {
 
 private:
 
-    /* INVARIANTE
+    /* INV
     	Todas las expresiones que intervienen en operaciones de adición o de modificación de una variable se evalúan previamente a la ejecución de dichas operaciones
 
     */

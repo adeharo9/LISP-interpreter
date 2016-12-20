@@ -20,7 +20,7 @@ class Expression {
 
 private:
 
-	/* INVARIANTE
+	/* INV
 
 		Una expresión puede ser indefinida, vacía, un entero, una operación a ser evaluada o una lista de expresiones
 

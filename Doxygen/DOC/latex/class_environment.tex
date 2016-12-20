@@ -32,9 +32,9 @@ bool \hyperlink{class_environment_a323ca63fc26be47fa45d14dd783761e1}{exists\+\_\
 \begin{DoxyCompactList}\small\item\em Consultora de existencia de operación definida por el usuario. \end{DoxyCompactList}\item 
 \hyperlink{class_environment_a3d2dfb3b9d5843e64fd24e5a2008029d}{primitive\+Operation} \hyperlink{class_environment_a15eff205405da84c7466ac8f1ea6a54c}{get\+\_\+prim} (string key)
 \begin{DoxyCompactList}\small\item\em Consultora de recuperación de operación primitiva. \end{DoxyCompactList}\item 
-\hyperlink{class_expression}{Expression} \& \hyperlink{class_environment_a98714eb7df497e1c53fdd0c2c33927f4}{get\+\_\+var} (string key)
+\hyperlink{class_expression}{Expression} \& \hyperlink{class_environment_a3f717bc3f94f76cfb8bc7ff139ffe89b}{get\+\_\+var} (string key)
 \begin{DoxyCompactList}\small\item\em Consultora de recuperación de variable. \end{DoxyCompactList}\item 
-pair$<$ string, string $>$ \hyperlink{class_environment_a4fdfff3f61445ed265c399c2353483fe}{get\+\_\+op} (string key)
+pair$<$ string, string $>$ \hyperlink{class_environment_a4d1630588a2868e2a3ae3868087dedf2}{get\+\_\+op} (string key)
 \begin{DoxyCompactList}\small\item\em Consultora de recuperación de operación. \end{DoxyCompactList}\item 
 int \hyperlink{class_environment_a22ef2de52498e9f0a7491c85e2148f83}{num\+\_\+pars\+\_\+op} (string key)
 \begin{DoxyCompactList}\small\item\em Consultora de número de parámetros de operación definida por el usuario. \end{DoxyCompactList}\item 
@@ -95,6 +95,15 @@ Se ejecuta automáticamente al declarar un nuevo entorno \begin{DoxyPrecond}{Pre
 \begin{DoxyPostcond}{Postcondición}
 Crea un objeto con espacio de operaciones primitivas inicializado con las operaciones primitivas predefinidas, un espacio de variables vacío y un espacio de operaciones vacío 
 \end{DoxyPostcond}
+
+
+Definición en la línea 13 del archivo Environment.\+cc.
+
+
+\begin{DoxyCode}
+14 \{
+15 \}
+\end{DoxyCode}
 \index{Environment@{Environment}!Environment@{Environment}}
 \index{Environment@{Environment}!Environment@{Environment}}
 \subsubsection[{\texorpdfstring{Environment(const Environment \&env)}{Environment(const Environment &env)}}]{\setlength{\rightskip}{0pt plus 5cm}Environment\+::\+Environment (
@@ -112,6 +121,18 @@ Constructora por copia.
 \begin{DoxyPostcond}{Postcondición}
 Crea un objeto copia de \textquotesingle{}env\textquotesingle{} 
 \end{DoxyPostcond}
+
+
+Definición en la línea 17 del archivo Environment.\+cc.
+
+
+\begin{DoxyCode}
+18 \{
+19   \hyperlink{class_environment_a7855273ad2d19ab036495980841e20a4}{primOpSpace} = env.\hyperlink{class_environment_a7855273ad2d19ab036495980841e20a4}{primOpSpace};
+20   \hyperlink{class_environment_aedf0507f98713f9eb6c152d93c346aa4}{varSpace} = env.\hyperlink{class_environment_aedf0507f98713f9eb6c152d93c346aa4}{varSpace};
+21   \hyperlink{class_environment_a7ab0af9a002f7df22966678a0dd0c366}{opSpace} = env.\hyperlink{class_environment_a7ab0af9a002f7df22966678a0dd0c366}{opSpace};
+22 \}
+\end{DoxyCode}
 \index{Environment@{Environment}!````~Environment@{$\sim$\+Environment}}
 \index{````~Environment@{$\sim$\+Environment}!Environment@{Environment}}
 \subsubsection[{\texorpdfstring{$\sim$\+Environment()}{~Environment()}}]{\setlength{\rightskip}{0pt plus 5cm}Environment\+::$\sim$\+Environment (
@@ -129,6 +150,15 @@ Se ejecuta automáticamente al salir de un ámbito de visibilidad \begin{DoxyPre
 \begin{DoxyPostcond}{Postcondición}
 Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad 
 \end{DoxyPostcond}
+
+
+Definición en la línea 26 del archivo Environment.\+cc.
+
+
+\begin{DoxyCode}
+27 \{
+28 \}
+\end{DoxyCode}
 
 
 \subsection{Documentación de las funciones miembro}
@@ -150,6 +180,16 @@ Modificadora por establecimiento de variable.
 \begin{DoxyPostcond}{Postcondición}
 Se añade al espacio de variables del parámetro implícito la variable con nombre \textquotesingle{}key\textquotesingle{} y expresión \textquotesingle{}exp\textquotesingle{}, o se actualiza su expresión a \textquotesingle{}exp\textquotesingle{} si ya existía previamente 
 \end{DoxyPostcond}
+
+
+Definición en la línea 32 del archivo Environment.\+cc.
+
+
+\begin{DoxyCode}
+33 \{
+34   \hyperlink{class_environment_aedf0507f98713f9eb6c152d93c346aa4}{varSpace}.\hyperlink{class_variable_space_a8283cea5dc219241f0e680137aa038ca}{set}(key, exp);
+35 \}
+\end{DoxyCode}
 \index{Environment@{Environment}!set\+\_\+op@{set\+\_\+op}}
 \index{set\+\_\+op@{set\+\_\+op}!Environment@{Environment}}
 \subsubsection[{\texorpdfstring{set\+\_\+op(string key, string parameters, string exp)}{set_op(string key, string parameters, string exp)}}]{\setlength{\rightskip}{0pt plus 5cm}void Environment\+::set\+\_\+op (
@@ -169,6 +209,16 @@ Modificadora por establecimiento de operación.
 \begin{DoxyPostcond}{Postcondición}
 Se añade al espacio de operaciones del parámetro implícito la operación con nombre \textquotesingle{}key\textquotesingle{}, parámetros \textquotesingle{}parameters\textquotesingle{} y expresión \textquotesingle{}exp\textquotesingle{}, o se actualizan sus parámetros a \textquotesingle{}parameters\textquotesingle{} y su expresión a \textquotesingle{}exp\textquotesingle{} si ya existía previamente 
 \end{DoxyPostcond}
+
+
+Definición en la línea 37 del archivo Environment.\+cc.
+
+
+\begin{DoxyCode}
+38 \{
+39   \hyperlink{class_environment_a7ab0af9a002f7df22966678a0dd0c366}{opSpace}.\hyperlink{class_operation_space_af0370646ebfa97001ea7b21fcac4b3b2}{set}(key, parameters, exp);
+40 \}
+\end{DoxyCode}
 \index{Environment@{Environment}!erase\+\_\+varspace@{erase\+\_\+varspace}}
 \index{erase\+\_\+varspace@{erase\+\_\+varspace}!Environment@{Environment}}
 \subsubsection[{\texorpdfstring{erase\+\_\+varspace()}{erase_varspace()}}]{\setlength{\rightskip}{0pt plus 5cm}void Environment\+::erase\+\_\+varspace (
@@ -186,6 +236,16 @@ Modificadora por eliminación de espacio de variables.
 \begin{DoxyPostcond}{Postcondición}
 El espacio de variables definidas por el usuario del parámetro implícito pasa a estar vacío 
 \end{DoxyPostcond}
+
+
+Definición en la línea 42 del archivo Environment.\+cc.
+
+
+\begin{DoxyCode}
+43 \{
+44   \hyperlink{class_environment_aedf0507f98713f9eb6c152d93c346aa4}{varSpace}.\hyperlink{class_variable_space_a8fa500a305d3931fa4bbfb3f53eea771}{clear}();
+45 \}
+\end{DoxyCode}
 \index{Environment@{Environment}!is\+\_\+primitive@{is\+\_\+primitive}}
 \index{is\+\_\+primitive@{is\+\_\+primitive}!Environment@{Environment}}
 \subsubsection[{\texorpdfstring{is\+\_\+primitive(string key) const }{is_primitive(string key) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Environment\+::is\+\_\+primitive (
@@ -203,6 +263,16 @@ Consultora de existencia de operación primitiva.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si la operación de nombre \textquotesingle{}key\textquotesingle{} es una operación primitiva contenida en el espacio de operaciones primitivas; en otro caso, devuelve falso 
 \end{DoxyPostcond}
+
+
+Definición en la línea 49 del archivo Environment.\+cc.
+
+
+\begin{DoxyCode}
+50 \{
+51   \textcolor{keywordflow}{return} \hyperlink{class_environment_a7855273ad2d19ab036495980841e20a4}{primOpSpace}.\hyperlink{class_primitive_operation_space_ada17e99cdecb0f8113dfcdf11f4d9e38}{exists}(key);
+52 \}
+\end{DoxyCode}
 \index{Environment@{Environment}!is\+\_\+op@{is\+\_\+op}}
 \index{is\+\_\+op@{is\+\_\+op}!Environment@{Environment}}
 \subsubsection[{\texorpdfstring{is\+\_\+op(string key) const }{is_op(string key) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Environment\+::is\+\_\+op (
@@ -220,6 +290,16 @@ Consultora de existencia de operación.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si la operación de nombre \textquotesingle{}key\textquotesingle{} es una operación contenida en el espacio de operaciones primitivas o en el espacio de operaciones definidas por el usuario; en otro caso, devuelve falso 
 \end{DoxyPostcond}
+
+
+Definición en la línea 54 del archivo Environment.\+cc.
+
+
+\begin{DoxyCode}
+55 \{
+56   \textcolor{keywordflow}{return} \hyperlink{class_environment_a7855273ad2d19ab036495980841e20a4}{primOpSpace}.\hyperlink{class_primitive_operation_space_ada17e99cdecb0f8113dfcdf11f4d9e38}{exists}(key) or \hyperlink{class_environment_a7ab0af9a002f7df22966678a0dd0c366}{opSpace}.\hyperlink{class_operation_space_a860a20e7ef047fe60690deb1c155e68a}{exists}(key);
+57 \}
+\end{DoxyCode}
 \index{Environment@{Environment}!exists@{exists}}
 \index{exists@{exists}!Environment@{Environment}}
 \subsubsection[{\texorpdfstring{exists(string key) const }{exists(string key) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Environment\+::exists (
@@ -237,6 +317,17 @@ Consultora de existencia.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si el string \textquotesingle{}key\textquotesingle{} es el nombre de alguna variable u operación de algún espacio (de operaciones primitivas, variables definidas por el usuario u operaciones definidas por el usuario) del parámetro implícito; en otro caso, devuelve falso 
 \end{DoxyPostcond}
+
+
+Definición en la línea 59 del archivo Environment.\+cc.
+
+
+\begin{DoxyCode}
+60 \{
+61   \textcolor{keywordflow}{return} \hyperlink{class_environment_a7855273ad2d19ab036495980841e20a4}{primOpSpace}.\hyperlink{class_primitive_operation_space_ada17e99cdecb0f8113dfcdf11f4d9e38}{exists}(key) or \hyperlink{class_environment_aedf0507f98713f9eb6c152d93c346aa4}{varSpace}.\hyperlink{class_variable_space_abb2147dc634abb8256c9c35b7a170b03}{exists}(key) or 
+      \hyperlink{class_environment_a7ab0af9a002f7df22966678a0dd0c366}{opSpace}.\hyperlink{class_operation_space_a860a20e7ef047fe60690deb1c155e68a}{exists}(key);
+62 \}
+\end{DoxyCode}
 \index{Environment@{Environment}!exists\+\_\+var@{exists\+\_\+var}}
 \index{exists\+\_\+var@{exists\+\_\+var}!Environment@{Environment}}
 \subsubsection[{\texorpdfstring{exists\+\_\+var(string key) const }{exists_var(string key) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Environment\+::exists\+\_\+var (
@@ -254,6 +345,16 @@ Consultora de existencia de variable.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si la variable con nombre \textquotesingle{}key\textquotesingle{} existe en el espacio de variables del parámetro implícito; en otro caso, devuelve falso 
 \end{DoxyPostcond}
+
+
+Definición en la línea 64 del archivo Environment.\+cc.
+
+
+\begin{DoxyCode}
+65 \{
+66   \textcolor{keywordflow}{return} \hyperlink{class_environment_aedf0507f98713f9eb6c152d93c346aa4}{varSpace}.\hyperlink{class_variable_space_abb2147dc634abb8256c9c35b7a170b03}{exists}(key);
+67 \}
+\end{DoxyCode}
 \index{Environment@{Environment}!exists\+\_\+op@{exists\+\_\+op}}
 \index{exists\+\_\+op@{exists\+\_\+op}!Environment@{Environment}}
 \subsubsection[{\texorpdfstring{exists\+\_\+op(string key) const }{exists_op(string key) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Environment\+::exists\+\_\+op (
@@ -271,6 +372,16 @@ Consultora de existencia de operación definida por el usuario.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si la operación con nombre \textquotesingle{}key\textquotesingle{} existe en el espacio de operaciones definidas por el usuario del parámetro implícito; en otro caso, devuelve falso 
 \end{DoxyPostcond}
+
+
+Definición en la línea 69 del archivo Environment.\+cc.
+
+
+\begin{DoxyCode}
+70 \{
+71   \textcolor{keywordflow}{return} \hyperlink{class_environment_a7ab0af9a002f7df22966678a0dd0c366}{opSpace}.\hyperlink{class_operation_space_a860a20e7ef047fe60690deb1c155e68a}{exists}(key);
+72 \}
+\end{DoxyCode}
 \index{Environment@{Environment}!get\+\_\+prim@{get\+\_\+prim}}
 \index{get\+\_\+prim@{get\+\_\+prim}!Environment@{Environment}}
 \subsubsection[{\texorpdfstring{get\+\_\+prim(string key)}{get_prim(string key)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf primitive\+Operation} Environment\+::get\+\_\+prim (
@@ -288,13 +399,23 @@ Consultora de recuperación de operación primitiva.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve la operación primitiva de nombre \textquotesingle{}key\textquotesingle{} 
 \end{DoxyPostcond}
+
+
+Definición en la línea 74 del archivo Environment.\+cc.
+
+
+\begin{DoxyCode}
+75 \{
+76   \textcolor{keywordflow}{return} \hyperlink{class_environment_a7855273ad2d19ab036495980841e20a4}{primOpSpace}.\hyperlink{class_primitive_operation_space_abac38eedfb2f0acc93822a88fe2501ef}{get}(key);
+77 \}
+\end{DoxyCode}
 \index{Environment@{Environment}!get\+\_\+var@{get\+\_\+var}}
 \index{get\+\_\+var@{get\+\_\+var}!Environment@{Environment}}
-\subsubsection[{\texorpdfstring{get\+\_\+var(string key)}{get_var(string key)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Expression}\& Environment\+::get\+\_\+var (
+\subsubsection[{\texorpdfstring{get\+\_\+var(string key)}{get_var(string key)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Expression} \& Environment\+::get\+\_\+var (
 \begin{DoxyParamCaption}
 \item[{string}]{key}
 \end{DoxyParamCaption}
-)}\hypertarget{class_environment_a98714eb7df497e1c53fdd0c2c33927f4}{}\label{class_environment_a98714eb7df497e1c53fdd0c2c33927f4}
+)}\hypertarget{class_environment_a3f717bc3f94f76cfb8bc7ff139ffe89b}{}\label{class_environment_a3f717bc3f94f76cfb8bc7ff139ffe89b}
 
 
 Consultora de recuperación de variable. 
@@ -305,13 +426,23 @@ Consultora de recuperación de variable.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve un alias de la expresión representada por la variable de nombre \textquotesingle{}key\textquotesingle{} 
 \end{DoxyPostcond}
+
+
+Definición en la línea 79 del archivo Environment.\+cc.
+
+
+\begin{DoxyCode}
+80 \{
+81   \textcolor{keywordflow}{return} \hyperlink{class_environment_aedf0507f98713f9eb6c152d93c346aa4}{varSpace}.\hyperlink{class_variable_space_a21b85771487ed047f8716a7fa7df7d1f}{get}(key);
+82 \}
+\end{DoxyCode}
 \index{Environment@{Environment}!get\+\_\+op@{get\+\_\+op}}
 \index{get\+\_\+op@{get\+\_\+op}!Environment@{Environment}}
-\subsubsection[{\texorpdfstring{get\+\_\+op(string key)}{get_op(string key)}}]{\setlength{\rightskip}{0pt plus 5cm}pair$<$string, string$>$ Environment\+::get\+\_\+op (
+\subsubsection[{\texorpdfstring{get\+\_\+op(string key)}{get_op(string key)}}]{\setlength{\rightskip}{0pt plus 5cm}pair$<$ string, string $>$ Environment\+::get\+\_\+op (
 \begin{DoxyParamCaption}
 \item[{string}]{key}
 \end{DoxyParamCaption}
-)}\hypertarget{class_environment_a4fdfff3f61445ed265c399c2353483fe}{}\label{class_environment_a4fdfff3f61445ed265c399c2353483fe}
+)}\hypertarget{class_environment_a4d1630588a2868e2a3ae3868087dedf2}{}\label{class_environment_a4d1630588a2868e2a3ae3868087dedf2}
 
 
 Consultora de recuperación de operación. 
@@ -322,6 +453,16 @@ Consultora de recuperación de operación.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve los parámetros y la expresión, respectivamente en forma de pair, de la operación de nombre \textquotesingle{}key\textquotesingle{} 
 \end{DoxyPostcond}
+
+
+Definición en la línea 84 del archivo Environment.\+cc.
+
+
+\begin{DoxyCode}
+85 \{
+86   \textcolor{keywordflow}{return} \hyperlink{class_environment_a7ab0af9a002f7df22966678a0dd0c366}{opSpace}.\hyperlink{class_operation_space_af2bcc0acd07952fa40e2cce5dec8c235}{get}(key);
+87 \}
+\end{DoxyCode}
 \index{Environment@{Environment}!num\+\_\+pars\+\_\+op@{num\+\_\+pars\+\_\+op}}
 \index{num\+\_\+pars\+\_\+op@{num\+\_\+pars\+\_\+op}!Environment@{Environment}}
 \subsubsection[{\texorpdfstring{num\+\_\+pars\+\_\+op(string key)}{num_pars_op(string key)}}]{\setlength{\rightskip}{0pt plus 5cm}int Environment\+::num\+\_\+pars\+\_\+op (
@@ -339,6 +480,16 @@ Consultora de número de parámetros de operación definida por el usuario.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve el número de parámetros de entrada de la operación de nombre \textquotesingle{}key\textquotesingle{} 
 \end{DoxyPostcond}
+
+
+Definición en la línea 89 del archivo Environment.\+cc.
+
+
+\begin{DoxyCode}
+90 \{
+91   \textcolor{keywordflow}{return} \hyperlink{class_environment_a7ab0af9a002f7df22966678a0dd0c366}{opSpace}.\hyperlink{class_operation_space_a21c12c42dc3204e985a5bbe53ef17c4b}{num\_pars}(key);
+92 \}
+\end{DoxyCode}
 \index{Environment@{Environment}!write@{write}}
 \index{write@{write}!Environment@{Environment}}
 \subsubsection[{\texorpdfstring{write() const }{write() const }}]{\setlength{\rightskip}{0pt plus 5cm}void Environment\+::write (
@@ -356,6 +507,17 @@ Operación de escritura del entorno de variables y operaciones definidas por el 
 \begin{DoxyPostcond}{Postcondición}
 Se ha escrito el contenido del espacio de variables y del espacio de operaciones por el canal estándar de salida, si lo tenían 
 \end{DoxyPostcond}
+
+
+Definición en la línea 96 del archivo Environment.\+cc.
+
+
+\begin{DoxyCode}
+97 \{
+98   \hyperlink{class_environment_aedf0507f98713f9eb6c152d93c346aa4}{varSpace}.\hyperlink{class_variable_space_a98f9eac695830e33d68341515bfd0b4f}{write}();
+99   \hyperlink{class_environment_a7ab0af9a002f7df22966678a0dd0c366}{opSpace}.\hyperlink{class_operation_space_a20984ed564af09da9402980310f538c9}{write}();
+100 \}
+\end{DoxyCode}
 \index{Environment@{Environment}!write\+\_\+var@{write\+\_\+var}}
 \index{write\+\_\+var@{write\+\_\+var}!Environment@{Environment}}
 \subsubsection[{\texorpdfstring{write\+\_\+var(string key)}{write_var(string key)}}]{\setlength{\rightskip}{0pt plus 5cm}void Environment\+::write\+\_\+var (
@@ -373,6 +535,16 @@ Operación de escritura de variable definida por el usuario.
 \begin{DoxyPostcond}{Postcondición}
 Se ha escrito el contenido de la variable de nombre \textquotesingle{}key\textquotesingle{} por el canal estándar de salida 
 \end{DoxyPostcond}
+
+
+Definición en la línea 102 del archivo Environment.\+cc.
+
+
+\begin{DoxyCode}
+103 \{
+104   \hyperlink{class_environment_aedf0507f98713f9eb6c152d93c346aa4}{varSpace}.\hyperlink{class_variable_space_a15b32633f6bf18d04323ea9f55f40b24}{write\_var}(key);
+105 \}
+\end{DoxyCode}
 \index{Environment@{Environment}!write\+\_\+op@{write\+\_\+op}}
 \index{write\+\_\+op@{write\+\_\+op}!Environment@{Environment}}
 \subsubsection[{\texorpdfstring{write\+\_\+op(string key)}{write_op(string key)}}]{\setlength{\rightskip}{0pt plus 5cm}void Environment\+::write\+\_\+op (
@@ -390,6 +562,16 @@ Operación de escritura de operación definida por el usuario.
 \begin{DoxyPostcond}{Postcondición}
 Se ha escrito el contenido de la operación de nombre \textquotesingle{}key\textquotesingle{} por el canal estándar de salida 
 \end{DoxyPostcond}
+
+
+Definición en la línea 107 del archivo Environment.\+cc.
+
+
+\begin{DoxyCode}
+108 \{
+109   \hyperlink{class_environment_a7ab0af9a002f7df22966678a0dd0c366}{opSpace}.\hyperlink{class_operation_space_af671c739e788c44d4af703d4e0fd2284}{write\_op}(key);
+110 \}
+\end{DoxyCode}
 
 
 \subsection{Documentación de los datos miembro}
@@ -428,6 +610,7 @@ Definición en la línea 47 del archivo Environment.\+hh.
 
 
 
-La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{_environment_8hh}{Environment.\+hh}\end{DoxyCompactItemize}
+\hyperlink{_environment_8hh}{Environment.\+hh}\item 
+\hyperlink{_environment_8cc}{Environment.\+cc}\end{DoxyCompactItemize}

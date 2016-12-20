@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PRO2 - Práctica QT16-17 - Calculadora de expresiones aritméticas
-   &#160;<span id="projectnumber">Versión 4.0 20-dic-2016</span>
+   &#160;<span id="projectnumber">Versión 1 22-nov-2016</span>
    </div>
   </td>
  </tr>
@@ -132,12 +132,12 @@ Métodos públicos</h2></td></tr>
 <tr class="memitem:a15eff205405da84c7466ac8f1ea6a54c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_environment.html#a3d2dfb3b9d5843e64fd24e5a2008029d">primitiveOperation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_environment.html#a15eff205405da84c7466ac8f1ea6a54c">get_prim</a> (string key)</td></tr>
 <tr class="memdesc:a15eff205405da84c7466ac8f1ea6a54c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consultora de recuperación de operación primitiva.  <a href="#a15eff205405da84c7466ac8f1ea6a54c">Más...</a><br /></td></tr>
 <tr class="separator:a15eff205405da84c7466ac8f1ea6a54c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98714eb7df497e1c53fdd0c2c33927f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_expression.html">Expression</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_environment.html#a98714eb7df497e1c53fdd0c2c33927f4">get_var</a> (string key)</td></tr>
-<tr class="memdesc:a98714eb7df497e1c53fdd0c2c33927f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consultora de recuperación de variable.  <a href="#a98714eb7df497e1c53fdd0c2c33927f4">Más...</a><br /></td></tr>
-<tr class="separator:a98714eb7df497e1c53fdd0c2c33927f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fdfff3f61445ed265c399c2353483fe"><td class="memItemLeft" align="right" valign="top">pair&lt; string, string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_environment.html#a4fdfff3f61445ed265c399c2353483fe">get_op</a> (string key)</td></tr>
-<tr class="memdesc:a4fdfff3f61445ed265c399c2353483fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consultora de recuperación de operación.  <a href="#a4fdfff3f61445ed265c399c2353483fe">Más...</a><br /></td></tr>
-<tr class="separator:a4fdfff3f61445ed265c399c2353483fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f717bc3f94f76cfb8bc7ff139ffe89b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_expression.html">Expression</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_environment.html#a3f717bc3f94f76cfb8bc7ff139ffe89b">get_var</a> (string key)</td></tr>
+<tr class="memdesc:a3f717bc3f94f76cfb8bc7ff139ffe89b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consultora de recuperación de variable.  <a href="#a3f717bc3f94f76cfb8bc7ff139ffe89b">Más...</a><br /></td></tr>
+<tr class="separator:a3f717bc3f94f76cfb8bc7ff139ffe89b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d1630588a2868e2a3ae3868087dedf2"><td class="memItemLeft" align="right" valign="top">pair&lt; string, string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_environment.html#a4d1630588a2868e2a3ae3868087dedf2">get_op</a> (string key)</td></tr>
+<tr class="memdesc:a4d1630588a2868e2a3ae3868087dedf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consultora de recuperación de operación.  <a href="#a4d1630588a2868e2a3ae3868087dedf2">Más...</a><br /></td></tr>
+<tr class="separator:a4d1630588a2868e2a3ae3868087dedf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22ef2de52498e9f0a7491c85e2148f83"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_environment.html#a22ef2de52498e9f0a7491c85e2148f83">num_pars_op</a> (string key)</td></tr>
 <tr class="memdesc:a22ef2de52498e9f0a7491c85e2148f83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consultora de número de parámetros de operación definida por el usuario.  <a href="#a22ef2de52498e9f0a7491c85e2148f83">Más...</a><br /></td></tr>
 <tr class="separator:a22ef2de52498e9f0a7491c85e2148f83"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -213,6 +213,8 @@ Atributos privados</h2></td></tr>
 <p>Se ejecuta automáticamente al declarar un nuevo entorno </p><dl class="section pre"><dt>Precondición</dt><dd><em>Cierto</em> </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Crea un objeto con espacio de operaciones primitivas inicializado con las operaciones primitivas predefinidas, un espacio de variables vacío y un espacio de operaciones vacío </dd></dl>
 
+<p>Definición en la línea <a class="el" href="_environment_8cc_source.html#l00013">13</a> del archivo <a class="el" href="_environment_8cc_source.html">Environment.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a98117750fb7003d9def6a5d546630ce5"></a>
@@ -233,6 +235,11 @@ Atributos privados</h2></td></tr>
 <dl class="section pre"><dt>Precondición</dt><dd><em>Cierto</em> </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Crea un objeto copia de 'env' </dd></dl>
 
+<p>Definición en la línea <a class="el" href="_environment_8cc_source.html#l00017">17</a> del archivo <a class="el" href="_environment_8cc_source.html">Environment.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <a class="code" href="class_environment.html#a7855273ad2d19ab036495980841e20a4">primOpSpace</a> = env.<a class="code" href="class_environment.html#a7855273ad2d19ab036495980841e20a4">primOpSpace</a>;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <a class="code" href="class_environment.html#aedf0507f98713f9eb6c152d93c346aa4">varSpace</a> = env.<a class="code" href="class_environment.html#aedf0507f98713f9eb6c152d93c346aa4">varSpace</a>;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <a class="code" href="class_environment.html#a7ab0af9a002f7df22966678a0dd0c366">opSpace</a> = env.<a class="code" href="class_environment.html#a7ab0af9a002f7df22966678a0dd0c366">opSpace</a>;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div><div class="ttc" id="class_environment_html_a7855273ad2d19ab036495980841e20a4"><div class="ttname"><a href="class_environment.html#a7855273ad2d19ab036495980841e20a4">Environment::primOpSpace</a></div><div class="ttdeci">PrimitiveOperationSpace primOpSpace</div><div class="ttdoc">Espacio de operaciones primitivas Atributo que almacena las operaciones primitivas predefinidas...</div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00037">Environment.hh:37</a></div></div>
+<div class="ttc" id="class_environment_html_a7ab0af9a002f7df22966678a0dd0c366"><div class="ttname"><a href="class_environment.html#a7ab0af9a002f7df22966678a0dd0c366">Environment::opSpace</a></div><div class="ttdeci">OperationSpace opSpace</div><div class="ttdoc">Espacio de operaciones definidas por el usuario Atributo que almacena las operaciones definidas por e...</div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00047">Environment.hh:47</a></div></div>
+<div class="ttc" id="class_environment_html_aedf0507f98713f9eb6c152d93c346aa4"><div class="ttname"><a href="class_environment.html#aedf0507f98713f9eb6c152d93c346aa4">Environment::varSpace</a></div><div class="ttdeci">VariableSpace varSpace</div><div class="ttdoc">Espacio de variables definidas por el usuario Atributo que almacena las variables definidas por el us...</div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00042">Environment.hh:42</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a8e294735187880dd3d59be10c425b29d"></a>
@@ -252,6 +259,8 @@ Atributos privados</h2></td></tr>
 <p>Se ejecuta automáticamente al salir de un ámbito de visibilidad </p><dl class="section pre"><dt>Precondición</dt><dd><em>Cierto</em> </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad </dd></dl>
 
+<p>Definición en la línea <a class="el" href="_environment_8cc_source.html#l00026">26</a> del archivo <a class="el" href="_environment_8cc_source.html">Environment.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Documentación de las funciones miembro</h2>
@@ -283,6 +292,10 @@ Atributos privados</h2></td></tr>
 <dl class="section pre"><dt>Precondición</dt><dd>'key' es un string no vacío; 'key' no corresponde al nombre de ninguna de las operaciones primitivas predefinidas ni al nombre de ninguna de las operaciones definidas por el usuario; 'exp' no es una expresión indefinida </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Se añade al espacio de variables del parámetro implícito la variable con nombre 'key' y expresión 'exp', o se actualiza su expresión a 'exp' si ya existía previamente </dd></dl>
 
+<p>Definición en la línea <a class="el" href="_environment_8cc_source.html#l00032">32</a> del archivo <a class="el" href="_environment_8cc_source.html">Environment.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <a class="code" href="class_environment.html#aedf0507f98713f9eb6c152d93c346aa4">varSpace</a>.<a class="code" href="class_variable_space.html#a8283cea5dc219241f0e680137aa038ca">set</a>(key, exp);</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div><div class="ttc" id="class_variable_space_html_a8283cea5dc219241f0e680137aa038ca"><div class="ttname"><a href="class_variable_space.html#a8283cea5dc219241f0e680137aa038ca">VariableSpace::set</a></div><div class="ttdeci">void set(string key, const Expression &amp;exp)</div><div class="ttdoc">Modificadora por establecimiento de variable. </div><div class="ttdef"><b>Definition:</b> <a href="_variable_space_8cc_source.html#l00032">VariableSpace.cc:32</a></div></div>
+<div class="ttc" id="class_environment_html_aedf0507f98713f9eb6c152d93c346aa4"><div class="ttname"><a href="class_environment.html#aedf0507f98713f9eb6c152d93c346aa4">Environment::varSpace</a></div><div class="ttdeci">VariableSpace varSpace</div><div class="ttdoc">Espacio de variables definidas por el usuario Atributo que almacena las variables definidas por el us...</div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00042">Environment.hh:42</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="abcfe3cc83f17d704cc51efb2e6a4c3b8"></a>
@@ -319,6 +332,10 @@ Atributos privados</h2></td></tr>
 <dl class="section pre"><dt>Precondición</dt><dd>'key' es un string no vacío; 'key' no corresponde al nombre de ninguna de las operaciones primitivas predefinidas ni al nombre de ninguna de las variables definidas por el usuario </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Se añade al espacio de operaciones del parámetro implícito la operación con nombre 'key', parámetros 'parameters' y expresión 'exp', o se actualizan sus parámetros a 'parameters' y su expresión a 'exp' si ya existía previamente </dd></dl>
 
+<p>Definición en la línea <a class="el" href="_environment_8cc_source.html#l00037">37</a> del archivo <a class="el" href="_environment_8cc_source.html">Environment.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <a class="code" href="class_environment.html#a7ab0af9a002f7df22966678a0dd0c366">opSpace</a>.<a class="code" href="class_operation_space.html#af0370646ebfa97001ea7b21fcac4b3b2">set</a>(key, parameters, exp);</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div><div class="ttc" id="class_environment_html_a7ab0af9a002f7df22966678a0dd0c366"><div class="ttname"><a href="class_environment.html#a7ab0af9a002f7df22966678a0dd0c366">Environment::opSpace</a></div><div class="ttdeci">OperationSpace opSpace</div><div class="ttdoc">Espacio de operaciones definidas por el usuario Atributo que almacena las operaciones definidas por e...</div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00047">Environment.hh:47</a></div></div>
+<div class="ttc" id="class_operation_space_html_af0370646ebfa97001ea7b21fcac4b3b2"><div class="ttname"><a href="class_operation_space.html#af0370646ebfa97001ea7b21fcac4b3b2">OperationSpace::set</a></div><div class="ttdeci">void set(string key, string parameters, string exp)</div><div class="ttdoc">Modificadora por establecimiento de operación. </div><div class="ttdef"><b>Definition:</b> <a href="_operation_space_8cc_source.html#l00037">OperationSpace.cc:37</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a82a2e7e7920575b6e09b1dfaaf062f68"></a>
@@ -338,6 +355,10 @@ Atributos privados</h2></td></tr>
 <dl class="section pre"><dt>Precondición</dt><dd><em>Cierto</em> </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>El espacio de variables definidas por el usuario del parámetro implícito pasa a estar vacío </dd></dl>
 
+<p>Definición en la línea <a class="el" href="_environment_8cc_source.html#l00042">42</a> del archivo <a class="el" href="_environment_8cc_source.html">Environment.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <a class="code" href="class_environment.html#aedf0507f98713f9eb6c152d93c346aa4">varSpace</a>.<a class="code" href="class_variable_space.html#a8fa500a305d3931fa4bbfb3f53eea771">clear</a>();</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div><div class="ttc" id="class_variable_space_html_a8fa500a305d3931fa4bbfb3f53eea771"><div class="ttname"><a href="class_variable_space.html#a8fa500a305d3931fa4bbfb3f53eea771">VariableSpace::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Modificadora por eliminación de contenido. </div><div class="ttdef"><b>Definition:</b> <a href="_variable_space_8cc_source.html#l00027">VariableSpace.cc:27</a></div></div>
+<div class="ttc" id="class_environment_html_aedf0507f98713f9eb6c152d93c346aa4"><div class="ttname"><a href="class_environment.html#aedf0507f98713f9eb6c152d93c346aa4">Environment::varSpace</a></div><div class="ttdeci">VariableSpace varSpace</div><div class="ttdoc">Espacio de variables definidas por el usuario Atributo que almacena las variables definidas por el us...</div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00042">Environment.hh:42</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a8949b818539cc0caae637f61f8271640"></a>
@@ -358,6 +379,10 @@ Atributos privados</h2></td></tr>
 <dl class="section pre"><dt>Precondición</dt><dd>'key' es un string no vacío </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Devuelve cierto si la operación de nombre 'key' es una operación primitiva contenida en el espacio de operaciones primitivas; en otro caso, devuelve falso </dd></dl>
 
+<p>Definición en la línea <a class="el" href="_environment_8cc_source.html#l00049">49</a> del archivo <a class="el" href="_environment_8cc_source.html">Environment.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="class_environment.html#a7855273ad2d19ab036495980841e20a4">primOpSpace</a>.<a class="code" href="class_primitive_operation_space.html#ada17e99cdecb0f8113dfcdf11f4d9e38">exists</a>(key);</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div><div class="ttc" id="class_environment_html_a7855273ad2d19ab036495980841e20a4"><div class="ttname"><a href="class_environment.html#a7855273ad2d19ab036495980841e20a4">Environment::primOpSpace</a></div><div class="ttdeci">PrimitiveOperationSpace primOpSpace</div><div class="ttdoc">Espacio de operaciones primitivas Atributo que almacena las operaciones primitivas predefinidas...</div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00037">Environment.hh:37</a></div></div>
+<div class="ttc" id="class_primitive_operation_space_html_ada17e99cdecb0f8113dfcdf11f4d9e38"><div class="ttname"><a href="class_primitive_operation_space.html#ada17e99cdecb0f8113dfcdf11f4d9e38">PrimitiveOperationSpace::exists</a></div><div class="ttdeci">bool exists(string key) const </div><div class="ttdoc">Consultora de existencia de operación primitiva. </div><div class="ttdef"><b>Definition:</b> <a href="_primitive_operation_space_8cc_source.html#l00209">PrimitiveOperationSpace.cc:209</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a18ebd27038386a636917cbb2bc1583df"></a>
@@ -378,6 +403,12 @@ Atributos privados</h2></td></tr>
 <dl class="section pre"><dt>Precondición</dt><dd>'key' es un string no vacío </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Devuelve cierto si la operación de nombre 'key' es una operación contenida en el espacio de operaciones primitivas o en el espacio de operaciones definidas por el usuario; en otro caso, devuelve falso </dd></dl>
 
+<p>Definición en la línea <a class="el" href="_environment_8cc_source.html#l00054">54</a> del archivo <a class="el" href="_environment_8cc_source.html">Environment.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="class_environment.html#a7855273ad2d19ab036495980841e20a4">primOpSpace</a>.<a class="code" href="class_primitive_operation_space.html#ada17e99cdecb0f8113dfcdf11f4d9e38">exists</a>(key) or <a class="code" href="class_environment.html#a7ab0af9a002f7df22966678a0dd0c366">opSpace</a>.<a class="code" href="class_operation_space.html#a860a20e7ef047fe60690deb1c155e68a">exists</a>(key);</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div><div class="ttc" id="class_environment_html_a7855273ad2d19ab036495980841e20a4"><div class="ttname"><a href="class_environment.html#a7855273ad2d19ab036495980841e20a4">Environment::primOpSpace</a></div><div class="ttdeci">PrimitiveOperationSpace primOpSpace</div><div class="ttdoc">Espacio de operaciones primitivas Atributo que almacena las operaciones primitivas predefinidas...</div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00037">Environment.hh:37</a></div></div>
+<div class="ttc" id="class_primitive_operation_space_html_ada17e99cdecb0f8113dfcdf11f4d9e38"><div class="ttname"><a href="class_primitive_operation_space.html#ada17e99cdecb0f8113dfcdf11f4d9e38">PrimitiveOperationSpace::exists</a></div><div class="ttdeci">bool exists(string key) const </div><div class="ttdoc">Consultora de existencia de operación primitiva. </div><div class="ttdef"><b>Definition:</b> <a href="_primitive_operation_space_8cc_source.html#l00209">PrimitiveOperationSpace.cc:209</a></div></div>
+<div class="ttc" id="class_environment_html_a7ab0af9a002f7df22966678a0dd0c366"><div class="ttname"><a href="class_environment.html#a7ab0af9a002f7df22966678a0dd0c366">Environment::opSpace</a></div><div class="ttdeci">OperationSpace opSpace</div><div class="ttdoc">Espacio de operaciones definidas por el usuario Atributo que almacena las operaciones definidas por e...</div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00047">Environment.hh:47</a></div></div>
+<div class="ttc" id="class_operation_space_html_a860a20e7ef047fe60690deb1c155e68a"><div class="ttname"><a href="class_operation_space.html#a860a20e7ef047fe60690deb1c155e68a">OperationSpace::exists</a></div><div class="ttdeci">bool exists(string key) const </div><div class="ttdoc">Consultora de existencia de operación. </div><div class="ttdef"><b>Definition:</b> <a href="_operation_space_8cc_source.html#l00053">OperationSpace.cc:53</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a4b2500663ebbc031bfdb18b3301492c4"></a>
@@ -398,6 +429,14 @@ Atributos privados</h2></td></tr>
 <dl class="section pre"><dt>Precondición</dt><dd>'key' es un string no vacío </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Devuelve cierto si el string 'key' es el nombre de alguna variable u operación de algún espacio (de operaciones primitivas, variables definidas por el usuario u operaciones definidas por el usuario) del parámetro implícito; en otro caso, devuelve falso </dd></dl>
 
+<p>Definición en la línea <a class="el" href="_environment_8cc_source.html#l00059">59</a> del archivo <a class="el" href="_environment_8cc_source.html">Environment.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="class_environment.html#a7855273ad2d19ab036495980841e20a4">primOpSpace</a>.<a class="code" href="class_primitive_operation_space.html#ada17e99cdecb0f8113dfcdf11f4d9e38">exists</a>(key) or <a class="code" href="class_environment.html#aedf0507f98713f9eb6c152d93c346aa4">varSpace</a>.<a class="code" href="class_variable_space.html#abb2147dc634abb8256c9c35b7a170b03">exists</a>(key) or <a class="code" href="class_environment.html#a7ab0af9a002f7df22966678a0dd0c366">opSpace</a>.<a class="code" href="class_operation_space.html#a860a20e7ef047fe60690deb1c155e68a">exists</a>(key);</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div><div class="ttc" id="class_variable_space_html_abb2147dc634abb8256c9c35b7a170b03"><div class="ttname"><a href="class_variable_space.html#abb2147dc634abb8256c9c35b7a170b03">VariableSpace::exists</a></div><div class="ttdeci">bool exists(string key) const </div><div class="ttdoc">Consultora de existencia de variable. </div><div class="ttdef"><b>Definition:</b> <a href="_variable_space_8cc_source.html#l00044">VariableSpace.cc:44</a></div></div>
+<div class="ttc" id="class_environment_html_a7855273ad2d19ab036495980841e20a4"><div class="ttname"><a href="class_environment.html#a7855273ad2d19ab036495980841e20a4">Environment::primOpSpace</a></div><div class="ttdeci">PrimitiveOperationSpace primOpSpace</div><div class="ttdoc">Espacio de operaciones primitivas Atributo que almacena las operaciones primitivas predefinidas...</div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00037">Environment.hh:37</a></div></div>
+<div class="ttc" id="class_primitive_operation_space_html_ada17e99cdecb0f8113dfcdf11f4d9e38"><div class="ttname"><a href="class_primitive_operation_space.html#ada17e99cdecb0f8113dfcdf11f4d9e38">PrimitiveOperationSpace::exists</a></div><div class="ttdeci">bool exists(string key) const </div><div class="ttdoc">Consultora de existencia de operación primitiva. </div><div class="ttdef"><b>Definition:</b> <a href="_primitive_operation_space_8cc_source.html#l00209">PrimitiveOperationSpace.cc:209</a></div></div>
+<div class="ttc" id="class_environment_html_a7ab0af9a002f7df22966678a0dd0c366"><div class="ttname"><a href="class_environment.html#a7ab0af9a002f7df22966678a0dd0c366">Environment::opSpace</a></div><div class="ttdeci">OperationSpace opSpace</div><div class="ttdoc">Espacio de operaciones definidas por el usuario Atributo que almacena las operaciones definidas por e...</div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00047">Environment.hh:47</a></div></div>
+<div class="ttc" id="class_operation_space_html_a860a20e7ef047fe60690deb1c155e68a"><div class="ttname"><a href="class_operation_space.html#a860a20e7ef047fe60690deb1c155e68a">OperationSpace::exists</a></div><div class="ttdeci">bool exists(string key) const </div><div class="ttdoc">Consultora de existencia de operación. </div><div class="ttdef"><b>Definition:</b> <a href="_operation_space_8cc_source.html#l00053">OperationSpace.cc:53</a></div></div>
+<div class="ttc" id="class_environment_html_aedf0507f98713f9eb6c152d93c346aa4"><div class="ttname"><a href="class_environment.html#aedf0507f98713f9eb6c152d93c346aa4">Environment::varSpace</a></div><div class="ttdeci">VariableSpace varSpace</div><div class="ttdoc">Espacio de variables definidas por el usuario Atributo que almacena las variables definidas por el us...</div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00042">Environment.hh:42</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ace3eae39aed1b747a18ab27e45dc96b7"></a>
@@ -418,6 +457,10 @@ Atributos privados</h2></td></tr>
 <dl class="section pre"><dt>Precondición</dt><dd>'key' es un string no vacío </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Devuelve cierto si la variable con nombre 'key' existe en el espacio de variables del parámetro implícito; en otro caso, devuelve falso </dd></dl>
 
+<p>Definición en la línea <a class="el" href="_environment_8cc_source.html#l00064">64</a> del archivo <a class="el" href="_environment_8cc_source.html">Environment.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;{</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="class_environment.html#aedf0507f98713f9eb6c152d93c346aa4">varSpace</a>.<a class="code" href="class_variable_space.html#abb2147dc634abb8256c9c35b7a170b03">exists</a>(key);</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div><div class="ttc" id="class_variable_space_html_abb2147dc634abb8256c9c35b7a170b03"><div class="ttname"><a href="class_variable_space.html#abb2147dc634abb8256c9c35b7a170b03">VariableSpace::exists</a></div><div class="ttdeci">bool exists(string key) const </div><div class="ttdoc">Consultora de existencia de variable. </div><div class="ttdef"><b>Definition:</b> <a href="_variable_space_8cc_source.html#l00044">VariableSpace.cc:44</a></div></div>
+<div class="ttc" id="class_environment_html_aedf0507f98713f9eb6c152d93c346aa4"><div class="ttname"><a href="class_environment.html#aedf0507f98713f9eb6c152d93c346aa4">Environment::varSpace</a></div><div class="ttdeci">VariableSpace varSpace</div><div class="ttdoc">Espacio de variables definidas por el usuario Atributo que almacena las variables definidas por el us...</div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00042">Environment.hh:42</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a323ca63fc26be47fa45d14dd783761e1"></a>
@@ -438,6 +481,10 @@ Atributos privados</h2></td></tr>
 <dl class="section pre"><dt>Precondición</dt><dd>'key' es un string no vacío </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Devuelve cierto si la operación con nombre 'key' existe en el espacio de operaciones definidas por el usuario del parámetro implícito; en otro caso, devuelve falso </dd></dl>
 
+<p>Definición en la línea <a class="el" href="_environment_8cc_source.html#l00069">69</a> del archivo <a class="el" href="_environment_8cc_source.html">Environment.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;{</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="class_environment.html#a7ab0af9a002f7df22966678a0dd0c366">opSpace</a>.<a class="code" href="class_operation_space.html#a860a20e7ef047fe60690deb1c155e68a">exists</a>(key);</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div><div class="ttc" id="class_environment_html_a7ab0af9a002f7df22966678a0dd0c366"><div class="ttname"><a href="class_environment.html#a7ab0af9a002f7df22966678a0dd0c366">Environment::opSpace</a></div><div class="ttdeci">OperationSpace opSpace</div><div class="ttdoc">Espacio de operaciones definidas por el usuario Atributo que almacena las operaciones definidas por e...</div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00047">Environment.hh:47</a></div></div>
+<div class="ttc" id="class_operation_space_html_a860a20e7ef047fe60690deb1c155e68a"><div class="ttname"><a href="class_operation_space.html#a860a20e7ef047fe60690deb1c155e68a">OperationSpace::exists</a></div><div class="ttdeci">bool exists(string key) const </div><div class="ttdoc">Consultora de existencia de operación. </div><div class="ttdef"><b>Definition:</b> <a href="_operation_space_8cc_source.html#l00053">OperationSpace.cc:53</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a15eff205405da84c7466ac8f1ea6a54c"></a>
@@ -458,14 +505,18 @@ Atributos privados</h2></td></tr>
 <dl class="section pre"><dt>Precondición</dt><dd>'key' es un string no vacío; el espacio de operaciones primitivas del parámetro implícito contiene una operación primitiva con nombre 'key' </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Devuelve la operación primitiva de nombre 'key' </dd></dl>
 
+<p>Definición en la línea <a class="el" href="_environment_8cc_source.html#l00074">74</a> del archivo <a class="el" href="_environment_8cc_source.html">Environment.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="class_environment.html#a7855273ad2d19ab036495980841e20a4">primOpSpace</a>.<a class="code" href="class_primitive_operation_space.html#abac38eedfb2f0acc93822a88fe2501ef">get</a>(key);</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div><div class="ttc" id="class_environment_html_a7855273ad2d19ab036495980841e20a4"><div class="ttname"><a href="class_environment.html#a7855273ad2d19ab036495980841e20a4">Environment::primOpSpace</a></div><div class="ttdeci">PrimitiveOperationSpace primOpSpace</div><div class="ttdoc">Espacio de operaciones primitivas Atributo que almacena las operaciones primitivas predefinidas...</div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00037">Environment.hh:37</a></div></div>
+<div class="ttc" id="class_primitive_operation_space_html_abac38eedfb2f0acc93822a88fe2501ef"><div class="ttname"><a href="class_primitive_operation_space.html#abac38eedfb2f0acc93822a88fe2501ef">PrimitiveOperationSpace::get</a></div><div class="ttdeci">primitiveOperation get(string key)</div><div class="ttdoc">Consultora de recuperación de operación primitiva. </div><div class="ttdef"><b>Definition:</b> <a href="_primitive_operation_space_8cc_source.html#l00214">PrimitiveOperationSpace.cc:214</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
-<a class="anchor" id="a98714eb7df497e1c53fdd0c2c33927f4"></a>
+<a class="anchor" id="a3f717bc3f94f76cfb8bc7ff139ffe89b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_expression.html">Expression</a>&amp; Environment::get_var </td>
+          <td class="memname"><a class="el" href="class_expression.html">Expression</a> &amp; Environment::get_var </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>key</em></td><td>)</td>
@@ -478,14 +529,18 @@ Atributos privados</h2></td></tr>
 <dl class="section pre"><dt>Precondición</dt><dd>'key' es un string no vacío; el espacio de variables del parámetro implícito contiene una variable con nombre 'key' </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Devuelve un alias de la expresión representada por la variable de nombre 'key' </dd></dl>
 
+<p>Definición en la línea <a class="el" href="_environment_8cc_source.html#l00079">79</a> del archivo <a class="el" href="_environment_8cc_source.html">Environment.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;{</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="class_environment.html#aedf0507f98713f9eb6c152d93c346aa4">varSpace</a>.<a class="code" href="class_variable_space.html#a21b85771487ed047f8716a7fa7df7d1f">get</a>(key);</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div><div class="ttc" id="class_variable_space_html_a21b85771487ed047f8716a7fa7df7d1f"><div class="ttname"><a href="class_variable_space.html#a21b85771487ed047f8716a7fa7df7d1f">VariableSpace::get</a></div><div class="ttdeci">Expression &amp; get(string key)</div><div class="ttdoc">Consultora de recuperación de variable. </div><div class="ttdef"><b>Definition:</b> <a href="_variable_space_8cc_source.html#l00049">VariableSpace.cc:49</a></div></div>
+<div class="ttc" id="class_environment_html_aedf0507f98713f9eb6c152d93c346aa4"><div class="ttname"><a href="class_environment.html#aedf0507f98713f9eb6c152d93c346aa4">Environment::varSpace</a></div><div class="ttdeci">VariableSpace varSpace</div><div class="ttdoc">Espacio de variables definidas por el usuario Atributo que almacena las variables definidas por el us...</div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00042">Environment.hh:42</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
-<a class="anchor" id="a4fdfff3f61445ed265c399c2353483fe"></a>
+<a class="anchor" id="a4d1630588a2868e2a3ae3868087dedf2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">pair&lt;string, string&gt; Environment::get_op </td>
+          <td class="memname">pair&lt; string, string &gt; Environment::get_op </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>key</em></td><td>)</td>
@@ -498,6 +553,10 @@ Atributos privados</h2></td></tr>
 <dl class="section pre"><dt>Precondición</dt><dd>'key' es un string no vacío; el espacio de operaciones del parámetro implícito contiene una operación con nombre 'key' </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Devuelve los parámetros y la expresión, respectivamente en forma de pair, de la operación de nombre 'key' </dd></dl>
 
+<p>Definición en la línea <a class="el" href="_environment_8cc_source.html#l00084">84</a> del archivo <a class="el" href="_environment_8cc_source.html">Environment.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;{</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="class_environment.html#a7ab0af9a002f7df22966678a0dd0c366">opSpace</a>.<a class="code" href="class_operation_space.html#af2bcc0acd07952fa40e2cce5dec8c235">get</a>(key);</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div><div class="ttc" id="class_environment_html_a7ab0af9a002f7df22966678a0dd0c366"><div class="ttname"><a href="class_environment.html#a7ab0af9a002f7df22966678a0dd0c366">Environment::opSpace</a></div><div class="ttdeci">OperationSpace opSpace</div><div class="ttdoc">Espacio de operaciones definidas por el usuario Atributo que almacena las operaciones definidas por e...</div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00047">Environment.hh:47</a></div></div>
+<div class="ttc" id="class_operation_space_html_af2bcc0acd07952fa40e2cce5dec8c235"><div class="ttname"><a href="class_operation_space.html#af2bcc0acd07952fa40e2cce5dec8c235">OperationSpace::get</a></div><div class="ttdeci">pair&lt; string, string &gt; get(string key)</div><div class="ttdoc">Consultora de recuperación de operación. </div><div class="ttdef"><b>Definition:</b> <a href="_operation_space_8cc_source.html#l00058">OperationSpace.cc:58</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a22ef2de52498e9f0a7491c85e2148f83"></a>
@@ -518,6 +577,10 @@ Atributos privados</h2></td></tr>
 <dl class="section pre"><dt>Precondición</dt><dd>'key' es un string no vacío; el espacio de operaciones definidas por el usuario del parámetro implícito contiene una operación con nombre 'key' </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Devuelve el número de parámetros de entrada de la operación de nombre 'key' </dd></dl>
 
+<p>Definición en la línea <a class="el" href="_environment_8cc_source.html#l00089">89</a> del archivo <a class="el" href="_environment_8cc_source.html">Environment.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;{</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="class_environment.html#a7ab0af9a002f7df22966678a0dd0c366">opSpace</a>.<a class="code" href="class_operation_space.html#a21c12c42dc3204e985a5bbe53ef17c4b">num_pars</a>(key);</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div><div class="ttc" id="class_environment_html_a7ab0af9a002f7df22966678a0dd0c366"><div class="ttname"><a href="class_environment.html#a7ab0af9a002f7df22966678a0dd0c366">Environment::opSpace</a></div><div class="ttdeci">OperationSpace opSpace</div><div class="ttdoc">Espacio de operaciones definidas por el usuario Atributo que almacena las operaciones definidas por e...</div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00047">Environment.hh:47</a></div></div>
+<div class="ttc" id="class_operation_space_html_a21c12c42dc3204e985a5bbe53ef17c4b"><div class="ttname"><a href="class_operation_space.html#a21c12c42dc3204e985a5bbe53ef17c4b">OperationSpace::num_pars</a></div><div class="ttdeci">int num_pars(string key)</div><div class="ttdoc">Consultora de número de parámetros. </div><div class="ttdef"><b>Definition:</b> <a href="_operation_space_8cc_source.html#l00064">OperationSpace.cc:64</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ae219751d8017a3ca66b11b74fd45cf9c"></a>
@@ -537,6 +600,12 @@ Atributos privados</h2></td></tr>
 <dl class="section pre"><dt>Precondición</dt><dd><em>Cierto</em> </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Se ha escrito el contenido del espacio de variables y del espacio de operaciones por el canal estándar de salida, si lo tenían </dd></dl>
 
+<p>Definición en la línea <a class="el" href="_environment_8cc_source.html#l00096">96</a> del archivo <a class="el" href="_environment_8cc_source.html">Environment.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <a class="code" href="class_environment.html#aedf0507f98713f9eb6c152d93c346aa4">varSpace</a>.<a class="code" href="class_variable_space.html#a98f9eac695830e33d68341515bfd0b4f">write</a>();</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <a class="code" href="class_environment.html#a7ab0af9a002f7df22966678a0dd0c366">opSpace</a>.<a class="code" href="class_operation_space.html#a20984ed564af09da9402980310f538c9">write</a>();</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div><div class="ttc" id="class_variable_space_html_a98f9eac695830e33d68341515bfd0b4f"><div class="ttname"><a href="class_variable_space.html#a98f9eac695830e33d68341515bfd0b4f">VariableSpace::write</a></div><div class="ttdeci">void write() const </div><div class="ttdoc">Operación de escritura del espacio de variables definidas por el usuario. </div><div class="ttdef"><b>Definition:</b> <a href="_variable_space_8cc_source.html#l00056">VariableSpace.cc:56</a></div></div>
+<div class="ttc" id="class_environment_html_a7ab0af9a002f7df22966678a0dd0c366"><div class="ttname"><a href="class_environment.html#a7ab0af9a002f7df22966678a0dd0c366">Environment::opSpace</a></div><div class="ttdeci">OperationSpace opSpace</div><div class="ttdoc">Espacio de operaciones definidas por el usuario Atributo que almacena las operaciones definidas por e...</div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00047">Environment.hh:47</a></div></div>
+<div class="ttc" id="class_environment_html_aedf0507f98713f9eb6c152d93c346aa4"><div class="ttname"><a href="class_environment.html#aedf0507f98713f9eb6c152d93c346aa4">Environment::varSpace</a></div><div class="ttdeci">VariableSpace varSpace</div><div class="ttdoc">Espacio de variables definidas por el usuario Atributo que almacena las variables definidas por el us...</div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00042">Environment.hh:42</a></div></div>
+<div class="ttc" id="class_operation_space_html_a20984ed564af09da9402980310f538c9"><div class="ttname"><a href="class_operation_space.html#a20984ed564af09da9402980310f538c9">OperationSpace::write</a></div><div class="ttdeci">void write() const </div><div class="ttdoc">Operación de escritura del espacio de operaciones definidas por el usuario. </div><div class="ttdef"><b>Definition:</b> <a href="_operation_space_8cc_source.html#l00071">OperationSpace.cc:71</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a2fda411113f72e6e86176b8f00fcc9d7"></a>
@@ -557,6 +626,10 @@ Atributos privados</h2></td></tr>
 <dl class="section pre"><dt>Precondición</dt><dd>'key' es un string no vacío; el espacio de variables del parámetro implícito contiene una variable de nombre 'key' </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Se ha escrito el contenido de la variable de nombre 'key' por el canal estándar de salida </dd></dl>
 
+<p>Definición en la línea <a class="el" href="_environment_8cc_source.html#l00102">102</a> del archivo <a class="el" href="_environment_8cc_source.html">Environment.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;{</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <a class="code" href="class_environment.html#aedf0507f98713f9eb6c152d93c346aa4">varSpace</a>.<a class="code" href="class_variable_space.html#a15b32633f6bf18d04323ea9f55f40b24">write_var</a>(key);</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div><div class="ttc" id="class_environment_html_aedf0507f98713f9eb6c152d93c346aa4"><div class="ttname"><a href="class_environment.html#aedf0507f98713f9eb6c152d93c346aa4">Environment::varSpace</a></div><div class="ttdeci">VariableSpace varSpace</div><div class="ttdoc">Espacio de variables definidas por el usuario Atributo que almacena las variables definidas por el us...</div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00042">Environment.hh:42</a></div></div>
+<div class="ttc" id="class_variable_space_html_a15b32633f6bf18d04323ea9f55f40b24"><div class="ttname"><a href="class_variable_space.html#a15b32633f6bf18d04323ea9f55f40b24">VariableSpace::write_var</a></div><div class="ttdeci">void write_var(string key)</div><div class="ttdoc">Operación de escritura de variable definida por el usuario. </div><div class="ttdef"><b>Definition:</b> <a href="_variable_space_8cc_source.html#l00070">VariableSpace.cc:70</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a6f449052df64c7f8bf44428835dc3d7b"></a>
@@ -577,6 +650,10 @@ Atributos privados</h2></td></tr>
 <dl class="section pre"><dt>Precondición</dt><dd>'key' es un string no vacío; el espacio de operaciones del parámetro implícito contiene una operación de nombre 'key' </dd></dl>
 <dl class="section post"><dt>Postcondición</dt><dd>Se ha escrito el contenido de la operación de nombre 'key' por el canal estándar de salida </dd></dl>
 
+<p>Definición en la línea <a class="el" href="_environment_8cc_source.html#l00107">107</a> del archivo <a class="el" href="_environment_8cc_source.html">Environment.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;{</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <a class="code" href="class_environment.html#a7ab0af9a002f7df22966678a0dd0c366">opSpace</a>.<a class="code" href="class_operation_space.html#af671c739e788c44d4af703d4e0fd2284">write_op</a>(key);</div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div><div class="ttc" id="class_operation_space_html_af671c739e788c44d4af703d4e0fd2284"><div class="ttname"><a href="class_operation_space.html#af671c739e788c44d4af703d4e0fd2284">OperationSpace::write_op</a></div><div class="ttdeci">void write_op(string key)</div><div class="ttdoc">Operación de escritura de operación definida por el usuario. </div><div class="ttdef"><b>Definition:</b> <a href="_operation_space_8cc_source.html#l00084">OperationSpace.cc:84</a></div></div>
+<div class="ttc" id="class_environment_html_a7ab0af9a002f7df22966678a0dd0c366"><div class="ttname"><a href="class_environment.html#a7ab0af9a002f7df22966678a0dd0c366">Environment::opSpace</a></div><div class="ttdeci">OperationSpace opSpace</div><div class="ttdoc">Espacio de operaciones definidas por el usuario Atributo que almacena las operaciones definidas por e...</div><div class="ttdef"><b>Definition:</b> <a href="_environment_8hh_source.html#l00047">Environment.hh:47</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Documentación de los datos miembro</h2>
@@ -652,8 +729,9 @@ Atributos privados</h2></td></tr>
 
 </div>
 </div>
-<hr/>La documentación para esta clase fue generada a partir del siguiente fichero:<ul>
+<hr/>La documentación para esta clase fue generada a partir de los siguientes ficheros:<ul>
 <li><a class="el" href="_environment_8hh_source.html">Environment.hh</a></li>
+<li><a class="el" href="_environment_8cc_source.html">Environment.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

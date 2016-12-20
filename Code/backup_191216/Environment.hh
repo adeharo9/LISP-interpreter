@@ -20,7 +20,7 @@ class Environment {
 
 private:
 
-	/* INVARIANTE
+	/* INV
 		El entorno contiene las operaciones primitivas, así como las variables y operaciones definidas por el usuario
 	*/
 

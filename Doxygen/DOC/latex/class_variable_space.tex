@@ -22,7 +22,7 @@ bool \hyperlink{class_variable_space_afe850fa6a1dd65e8dffda97d70b7bd93}{empty} (
 \begin{DoxyCompactList}\small\item\em Consultora de parámetro implícito vacío. \end{DoxyCompactList}\item 
 bool \hyperlink{class_variable_space_abb2147dc634abb8256c9c35b7a170b03}{exists} (string key) const 
 \begin{DoxyCompactList}\small\item\em Consultora de existencia de variable. \end{DoxyCompactList}\item 
-\hyperlink{class_expression}{Expression} \& \hyperlink{class_variable_space_ad849868abb2870711230f7784e30816c}{get} (string key)
+\hyperlink{class_expression}{Expression} \& \hyperlink{class_variable_space_a21b85771487ed047f8716a7fa7df7d1f}{get} (string key)
 \begin{DoxyCompactList}\small\item\em Consultora de recuperación de variable. \end{DoxyCompactList}\item 
 void \hyperlink{class_variable_space_a98f9eac695830e33d68341515bfd0b4f}{write} () const 
 \begin{DoxyCompactList}\small\item\em Operación de escritura del espacio de variables definidas por el usuario. \end{DoxyCompactList}\item 
@@ -60,6 +60,15 @@ Se ejecuta automáticamente al declarar un nuevo espacio de variables \begin{Dox
 \begin{DoxyPostcond}{Postcondición}
 Crea un objeto vacío 
 \end{DoxyPostcond}
+
+
+Definición en la línea 10 del archivo Variable\+Space.\+cc.
+
+
+\begin{DoxyCode}
+11 \{
+12 \}
+\end{DoxyCode}
 \index{Variable\+Space@{Variable\+Space}!Variable\+Space@{Variable\+Space}}
 \index{Variable\+Space@{Variable\+Space}!Variable\+Space@{Variable\+Space}}
 \subsubsection[{\texorpdfstring{Variable\+Space(const Variable\+Space \&var\+Space)}{VariableSpace(const VariableSpace &varSpace)}}]{\setlength{\rightskip}{0pt plus 5cm}Variable\+Space\+::\+Variable\+Space (
@@ -77,6 +86,16 @@ Constructora por copia.
 \begin{DoxyPostcond}{Postcondición}
 Crea un objeto copia de \textquotesingle{}var\+Space\textquotesingle{} 
 \end{DoxyPostcond}
+
+
+Definición en la línea 14 del archivo Variable\+Space.\+cc.
+
+
+\begin{DoxyCode}
+15 \{
+16   \hyperlink{class_variable_space_a5af4ff4cfb476da8de2ffd88e511dd01}{varMap} = varSpace.\hyperlink{class_variable_space_a5af4ff4cfb476da8de2ffd88e511dd01}{varMap};
+17 \}
+\end{DoxyCode}
 \index{Variable\+Space@{Variable\+Space}!````~Variable\+Space@{$\sim$\+Variable\+Space}}
 \index{````~Variable\+Space@{$\sim$\+Variable\+Space}!Variable\+Space@{Variable\+Space}}
 \subsubsection[{\texorpdfstring{$\sim$\+Variable\+Space()}{~VariableSpace()}}]{\setlength{\rightskip}{0pt plus 5cm}Variable\+Space\+::$\sim$\+Variable\+Space (
@@ -94,6 +113,15 @@ Se ejecuta automáticamente al salir de un ámbito de visibilidad \begin{DoxyPre
 \begin{DoxyPostcond}{Postcondición}
 Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad 
 \end{DoxyPostcond}
+
+
+Definición en la línea 21 del archivo Variable\+Space.\+cc.
+
+
+\begin{DoxyCode}
+22 \{
+23 \}
+\end{DoxyCode}
 
 
 \subsection{Documentación de las funciones miembro}
@@ -114,6 +142,16 @@ Modificadora por eliminación de contenido.
 \begin{DoxyPostcond}{Postcondición}
 Elimina el contenido del parámetro implícito, que pasa a estar vacío 
 \end{DoxyPostcond}
+
+
+Definición en la línea 27 del archivo Variable\+Space.\+cc.
+
+
+\begin{DoxyCode}
+28 \{
+29   \hyperlink{class_variable_space_a5af4ff4cfb476da8de2ffd88e511dd01}{varMap}.clear();
+30 \}
+\end{DoxyCode}
 \index{Variable\+Space@{Variable\+Space}!set@{set}}
 \index{set@{set}!Variable\+Space@{Variable\+Space}}
 \subsubsection[{\texorpdfstring{set(string key, const Expression \&exp)}{set(string key, const Expression &exp)}}]{\setlength{\rightskip}{0pt plus 5cm}void Variable\+Space\+::set (
@@ -132,6 +170,16 @@ Modificadora por establecimiento de variable.
 \begin{DoxyPostcond}{Postcondición}
 Se añade al parámetro implícito la variable con nombre \textquotesingle{}key\textquotesingle{} y expresión \textquotesingle{}exp\textquotesingle{}, o se actualiza su expresión a \textquotesingle{}exp\textquotesingle{} si ya existía previamente 
 \end{DoxyPostcond}
+
+
+Definición en la línea 32 del archivo Variable\+Space.\+cc.
+
+
+\begin{DoxyCode}
+33 \{
+34   \hyperlink{class_variable_space_a5af4ff4cfb476da8de2ffd88e511dd01}{varMap}[key] = exp;
+35 \}
+\end{DoxyCode}
 \index{Variable\+Space@{Variable\+Space}!empty@{empty}}
 \index{empty@{empty}!Variable\+Space@{Variable\+Space}}
 \subsubsection[{\texorpdfstring{empty() const }{empty() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Variable\+Space\+::empty (
@@ -149,6 +197,16 @@ Consultora de parámetro implícito vacío.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si el parámetro implícito está vacío 
 \end{DoxyPostcond}
+
+
+Definición en la línea 39 del archivo Variable\+Space.\+cc.
+
+
+\begin{DoxyCode}
+40 \{
+41   \textcolor{keywordflow}{return} \hyperlink{class_variable_space_a5af4ff4cfb476da8de2ffd88e511dd01}{varMap}.empty();
+42 \}
+\end{DoxyCode}
 \index{Variable\+Space@{Variable\+Space}!exists@{exists}}
 \index{exists@{exists}!Variable\+Space@{Variable\+Space}}
 \subsubsection[{\texorpdfstring{exists(string key) const }{exists(string key) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Variable\+Space\+::exists (
@@ -166,13 +224,23 @@ Consultora de existencia de variable.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si la variable con nombre \textquotesingle{}key\textquotesingle{} existe en el parámetro implícito; en otro caso, devuelve falso 
 \end{DoxyPostcond}
+
+
+Definición en la línea 44 del archivo Variable\+Space.\+cc.
+
+
+\begin{DoxyCode}
+45 \{
+46   \textcolor{keywordflow}{return} \hyperlink{class_variable_space_a5af4ff4cfb476da8de2ffd88e511dd01}{varMap}.find(key) != \hyperlink{class_variable_space_a5af4ff4cfb476da8de2ffd88e511dd01}{varMap}.end();
+47 \}
+\end{DoxyCode}
 \index{Variable\+Space@{Variable\+Space}!get@{get}}
 \index{get@{get}!Variable\+Space@{Variable\+Space}}
-\subsubsection[{\texorpdfstring{get(string key)}{get(string key)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Expression}\& Variable\+Space\+::get (
+\subsubsection[{\texorpdfstring{get(string key)}{get(string key)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Expression} \& Variable\+Space\+::get (
 \begin{DoxyParamCaption}
 \item[{string}]{key}
 \end{DoxyParamCaption}
-)}\hypertarget{class_variable_space_ad849868abb2870711230f7784e30816c}{}\label{class_variable_space_ad849868abb2870711230f7784e30816c}
+)}\hypertarget{class_variable_space_a21b85771487ed047f8716a7fa7df7d1f}{}\label{class_variable_space_a21b85771487ed047f8716a7fa7df7d1f}
 
 
 Consultora de recuperación de variable. 
@@ -183,6 +251,16 @@ Consultora de recuperación de variable.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve la expresión representada por la variable de nombre \textquotesingle{}key\textquotesingle{} 
 \end{DoxyPostcond}
+
+
+Definición en la línea 49 del archivo Variable\+Space.\+cc.
+
+
+\begin{DoxyCode}
+50 \{
+51   \textcolor{keywordflow}{return} \hyperlink{class_variable_space_a5af4ff4cfb476da8de2ffd88e511dd01}{varMap}[key];
+52 \}
+\end{DoxyCode}
 \index{Variable\+Space@{Variable\+Space}!write@{write}}
 \index{write@{write}!Variable\+Space@{Variable\+Space}}
 \subsubsection[{\texorpdfstring{write() const }{write() const }}]{\setlength{\rightskip}{0pt plus 5cm}void Variable\+Space\+::write (
@@ -200,6 +278,26 @@ Operación de escritura del espacio de variables definidas por el usuario.
 \begin{DoxyPostcond}{Postcondición}
 Se ha escrito el contenido del parámetro implícito por el canal estándar de salida 
 \end{DoxyPostcond}
+
+
+Definición en la línea 56 del archivo Variable\+Space.\+cc.
+
+
+\begin{DoxyCode}
+57 \{
+58   cout << \textcolor{stringliteral}{"Variables:"} << endl;
+59   map<string, Expression>::const\_iterator c\_it = \hyperlink{class_variable_space_a5af4ff4cfb476da8de2ffd88e511dd01}{varMap}.begin();
+60   \textcolor{comment}{/* INV}
+61 \textcolor{comment}{    c\_it es un iterador a un elemento del mapa de variables definidas por el usuario del parámetro
+       implícito comprendido entre varMap.begin() y varMap.end()}
+62 \textcolor{comment}{  */}
+63   \textcolor{keywordflow}{while}(c\_it != \hyperlink{class_variable_space_a5af4ff4cfb476da8de2ffd88e511dd01}{varMap}.end()) \{
+64     cout << c\_it -> first << \textcolor{stringliteral}{" "};
+65     c\_it -> second.write();
+66     ++c\_it;
+67   \}
+68 \}
+\end{DoxyCode}
 \index{Variable\+Space@{Variable\+Space}!write\+\_\+var@{write\+\_\+var}}
 \index{write\+\_\+var@{write\+\_\+var}!Variable\+Space@{Variable\+Space}}
 \subsubsection[{\texorpdfstring{write\+\_\+var(string key)}{write_var(string key)}}]{\setlength{\rightskip}{0pt plus 5cm}void Variable\+Space\+::write\+\_\+var (
@@ -219,6 +317,17 @@ Se ha escrito el contenido de la variable con nombre \textquotesingle{}key\textq
 \end{DoxyPostcond}
 
 
+Definición en la línea 70 del archivo Variable\+Space.\+cc.
+
+
+\begin{DoxyCode}
+71 \{
+72   cout << key << \textcolor{stringliteral}{" "};
+73   \hyperlink{class_variable_space_a5af4ff4cfb476da8de2ffd88e511dd01}{varMap}[key].write();
+74 \}
+\end{DoxyCode}
+
+
 \subsection{Documentación de los datos miembro}
 \index{Variable\+Space@{Variable\+Space}!var\+Map@{var\+Map}}
 \index{var\+Map@{var\+Map}!Variable\+Space@{Variable\+Space}}
@@ -233,6 +342,7 @@ Definición en la línea 34 del archivo Variable\+Space.\+hh.
 
 
 
-La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{_variable_space_8hh}{Variable\+Space.\+hh}\end{DoxyCompactItemize}
+\hyperlink{_variable_space_8hh}{Variable\+Space.\+hh}\item 
+\hyperlink{_variable_space_8cc}{Variable\+Space.\+cc}\end{DoxyCompactItemize}

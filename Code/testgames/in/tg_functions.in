@@ -27,8 +27,8 @@
 (define min (x y) (if (< x y) x y))
 
 (define NULL ())
-(define length (L) (if (= L ()) 0 (+ 1 (length (tail L)))))
-(define last (L) (if (= () (tail L)) (head L) (last (tail L))))
+(define length (l) (if (= l ()) 0 (+ 1 (length (tail l)))))
+(define last (l) (if (= () (tail l)) (head l) (last (tail l))))
 (define real (e f) (cons e (f)))
 (define ceil (r) (if (= (last r) 0) r (cons (+ (head r) 1) (0))))
 (define floor (r) (cons (head r) (0)))

@@ -19,7 +19,7 @@ class Input {
 
 private:
 
-	/* INVARIANTE
+	/* INV
 		p >= 0
 	*/
 

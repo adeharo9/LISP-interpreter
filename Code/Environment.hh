@@ -20,7 +20,7 @@ class Environment {
 
 private:
 
-	/* INVARIANTE
+	/* INV
 		El entorno contiene las operaciones primitivas, las variables y las operaciones definidas por el usuario
 		El espacio de operaciones primitivas es de tamaño fijo
 		El espacio de operaciones primitivas no puede modificarse

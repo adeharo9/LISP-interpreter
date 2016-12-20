@@ -12,11 +12,12 @@ Expression* rm_excep = NULL;
 
 //_______ METODOS PRIVADOS
 
-list<Expression*> Expression::cp_exp_list(const list<Expression*>& lExp) {
+list<Expression*> Expression::cp_exp_list(const list<Expression*>& lExp)
+{
 	list<Expression*> aux;
 	Expression* pAux;
 	const_iter c_it = lExp.begin();
-	/* INVARIANTE
+	/* INV
 		c_it es un iterador a un elemento de la lista de expresiones del parámetro implícito comprendido entre lExp.begin() y lExp.end()
 	*/
 	while(c_it != lExp.end()){
@@ -34,7 +35,8 @@ list<Expression*> Expression::cp_exp_list(const list<Expression*>& lExp) {
 	return aux;
 }
 
-void Expression::rm_exp_list(list<Expression*>& lExp) {
+void Expression::rm_exp_list(list<Expression*>& lExp)
+{
 	for (iter it = lExp.begin(); it != lExp.end(); ++it) {
 		if(*it != rm_excep){
 			delete *it;
@@ -43,7 +45,8 @@ void Expression::rm_exp_list(list<Expression*>& lExp) {
 	lExp.clear();
 }
 
-void Expression::rm_exp_list_excep(list<Expression*>& lExp, Expression& inExp) {
+void Expression::rm_exp_list_excep(list<Expression*>& lExp, Expression& inExp)
+{
 		rm_excep = &inExp;
 		rm_exp_list(lExp);
 		rm_excep = NULL;
@@ -51,11 +54,13 @@ void Expression::rm_exp_list_excep(list<Expression*>& lExp, Expression& inExp) {
 
 //_______ CONSTRUCTORES
 
-Expression::Expression() {
+Expression::Expression()
+{
 	type = 1;
 }
 
-Expression::Expression(const Expression& inExp) {
+Expression::Expression(const Expression& inExp)
+{
 	type = inExp.type;
 	val = inExp.val;
 	op = inExp.op;
@@ -64,13 +69,15 @@ Expression::Expression(const Expression& inExp) {
 
 //_______ DESTRUCTORES
 
-Expression::~Expression() {
+Expression::~Expression()
+{
 	rm_exp_list(lExp);
 }
 
 //_______ OPERADORES
 
-Expression& Expression::operator = (const Expression& inExp) {
+Expression& Expression::operator = (const Expression& inExp)
+{
 	if(this != &inExp) {
 		type = inExp.type;
 		val = inExp.val;
@@ -82,7 +89,8 @@ Expression& Expression::operator = (const Expression& inExp) {
 	return *this;
 }
 
-Expression& Expression::operator << (Expression& inExp) {
+Expression& Expression::operator << (Expression& inExp)
+{
 	if(this != &inExp){
 		type = inExp.type;
 		val = inExp.val;
@@ -96,20 +104,23 @@ Expression& Expression::operator << (Expression& inExp) {
 	return *this;
 }
 
-Expression& Expression::operator << (list<Expression*>& lExpression) {
+Expression& Expression::operator << (list<Expression*>& lExpression)
+{
 	rm_exp_list(lExp);
 	lExp = lExpression;
 	lExpression.clear();
 	return *this;
 }
 
-void Expression::operator >> (list<Expression*>& lExpression) {
+void Expression::operator >> (list<Expression*>& lExpression)
+{
 	rm_exp_list(lExpression);
 	lExpression = lExp;
 	lExp.clear();
 }
 
-bool Expression::operator == (const Expression& inExp) const {
+bool Expression::operator == (const Expression& inExp) const
+{
 	if(type == 2 and inExp.type == 2) {
 		return val == inExp.val;
 	}
@@ -117,7 +128,7 @@ bool Expression::operator == (const Expression& inExp) const {
 		if(lExp.size() == inExp.lExp.size()) {
 			const_iter c_it1 = lExp.begin();
 			const_iter c_it2 = inExp.lExp.begin();
-			/* INVARIANTE
+			/* INV
 				c_it1 es un iterador a un elemento de la lista de expresiones del parámetro implícito comprendido entre lExp.begin() y lExp.end()
 				c_it2 es un iterador a un elemento de la lista de expresiones de 'inExp' comprendido entre inExp.lExp.begin() y inExp.lExp.end()
 			*/
@@ -139,14 +150,15 @@ bool Expression::operator == (const Expression& inExp) const {
 	}
 }
 
-bool Expression::operator < (const Expression& inExp) const {
+bool Expression::operator < (const Expression& inExp) const
+{
 	if(type == 2 and inExp.type == 2) {
 		return val < inExp.val;
 	}
 	else if(type == 4 and inExp.type == 4) {
 		const_iter c_it1 = lExp.begin();
 		const_iter c_it2 = inExp.lExp.begin();
-		/* INVARIANTE
+		/* INV
 			c_it1 es un iterador a un elemento de la lista de expresiones del parámetro implícito comprendido entre lExp.begin() y lExp.end()
 			c_it2 es un iterador a un elemento de la lista de expresiones de 'inExp' comprendido entre inExp.lExp.begin() y inExp.lExp.end()
 		*/
@@ -166,7 +178,8 @@ bool Expression::operator < (const Expression& inExp) const {
 
 //_______ MODIFICADORES
 
-void Expression::clear() {
+void Expression::clear()
+{
 	if(type != 1) {
 		type = 1;
 		op.clear();
@@ -175,24 +188,29 @@ void Expression::clear() {
 	}
 }
 
-void Expression::insert(iter it, Expression* pExp) {
+void Expression::insert(iter it, Expression* pExp)
+{
 	lExp.insert(it, pExp);
 }
 
-iter Expression::erase(iter it) {
+iter Expression::erase(iter it)
+{
 	delete *it;
 	return lExp.erase(it);
 }
 
-void Expression::splice(iter it, list<Expression*> lExpression) {
+void Expression::splice(iter it, list<Expression*> lExpression)
+{
 	lExp.splice(it, lExpression);
 }
 
-void Expression::swap_list(Expression& inExp) {
+void Expression::swap_list(Expression& inExp)
+{
 	lExp.swap(inExp.lExp);
 }
 
-void Expression::set_undefined() {
+void Expression::set_undefined()
+{
 	if(type != 0) {
 		type = 0;
 		op.clear();
@@ -201,7 +219,8 @@ void Expression::set_undefined() {
 	}
 }
 
-void Expression::set_value(int value) {
+void Expression::set_value(int value)
+{
 	if(type != 2) {
 		type = 2;
 		op.clear();
@@ -211,7 +230,8 @@ void Expression::set_value(int value) {
 	val = value;
 }
 
-void Expression::set_op(string inOperator) {
+void Expression::set_op(string inOperator)
+{
 	if(type != 3) {
 		type = 3;
 	}
@@ -220,14 +240,16 @@ void Expression::set_op(string inOperator) {
 	op = inOperator;
 }
 
-void Expression::set_list() {
+void Expression::set_list()
+{
 	if(type != 4) {
 		type = 4;
 		op.clear();
 	}
 }
 
-void Expression::set_empty_list() {
+void Expression::set_empty_list()
+{
 	if(type != 4 or not lExp.empty()) {
 		type = 4;
 		op.clear();
@@ -238,75 +260,92 @@ void Expression::set_empty_list() {
 
 //_______ CONSULTORES
 
-int Expression::size() const {
+int Expression::size() const
+{
 	return lExp.size();
 }
 
-bool Expression::undefined() const {
+bool Expression::undefined() const
+{
 	return type == 0;
 }
 
-bool Expression::empty() const {
+bool Expression::empty() const
+{
 	return type == 1;
 }
 
-bool Expression::is_value() const {
+bool Expression::is_value() const
+{
 	return type == 2;
 }
 
-bool Expression::is_op() const {
+bool Expression::is_op() const
+{
 	return type == 3;
 }
 
-bool Expression::is_list() const {
+bool Expression::is_list() const
+{
 	return type == 4;
 }
 
-bool Expression::is_empty_list() const {
+bool Expression::is_empty_list() const
+{
 	return type == 4 and lExp.empty();
 }
 
-bool Expression::is_bool() const {
+bool Expression::is_bool() const
+{
 	return type == 2 and (val == 0 or val == 1);
 }
 
-int Expression::get_value() const {
+int Expression::get_value() const
+{
 	return val;
 }
 
-string Expression::get_op() const {
+string Expression::get_op() const
+{
 	return op;
 }
 
 //_______ ITERADORES
 
-iter Expression::begin() {
+iter Expression::begin()
+{
 	return lExp.begin();
 }
 
-const_iter Expression::begin() const {
+const_iter Expression::begin() const
+{
 	return lExp.begin();
 }
 
-iter Expression::second() {
+iter Expression::second()
+{
 	return ++lExp.begin();
 }
 
-const_iter Expression::second() const {
+const_iter Expression::second() const
+{
 	return ++lExp.begin();
 }
 
-iter Expression::end() {
+iter Expression::end()
+{
 	return lExp.end();
 }
 
-const_iter Expression::end() const {
+const_iter Expression::end() const
+{
 	return lExp.end();
 }
 
 //_______ I/O
 
-void Expression::write() const {
+void Expression::write() const
+{
 	if(type == 2) {
 		cout << val << endl;
 	}
@@ -316,7 +355,7 @@ void Expression::write() const {
 			const_iter c_it = lExp.begin();
 			cout << (*c_it) -> val;
 			++c_it;
-			/* INVARIANTE
+			/* INV
 				c_it es un iterador a un elemento de la lista de expresiones del parámetro implícito comprendido entre lExp.begin() y lExp.end()
 			*/
 			while(c_it != lExp.end()) {

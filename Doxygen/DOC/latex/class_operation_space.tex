@@ -23,7 +23,7 @@ bool \hyperlink{class_operation_space_abdb93147a79f23d909c896a339371e00}{empty} 
 \begin{DoxyCompactList}\small\item\em Consultora de parámetro implícito vacío. \end{DoxyCompactList}\item 
 bool \hyperlink{class_operation_space_a860a20e7ef047fe60690deb1c155e68a}{exists} (string key) const 
 \begin{DoxyCompactList}\small\item\em Consultora de existencia de operación. \end{DoxyCompactList}\item 
-pair$<$ string, string $>$ \hyperlink{class_operation_space_a82fcdb18f2f2ff9ddb4c2a68cba35116}{get} (string key)
+pair$<$ string, string $>$ \hyperlink{class_operation_space_af2bcc0acd07952fa40e2cce5dec8c235}{get} (string key)
 \begin{DoxyCompactList}\small\item\em Consultora de recuperación de operación. \end{DoxyCompactList}\item 
 int \hyperlink{class_operation_space_a21c12c42dc3204e985a5bbe53ef17c4b}{num\+\_\+pars} (string key)
 \begin{DoxyCompactList}\small\item\em Consultora de número de parámetros. \end{DoxyCompactList}\item 
@@ -34,7 +34,7 @@ void \hyperlink{class_operation_space_af671c739e788c44d4af703d4e0fd2284}{write\+
 \subsection*{Métodos privados estáticos}
 \begin{DoxyCompactItemize}
 \item 
-static int \hyperlink{class_operation_space_a44bd4c88e099da24bbc66c2bd1fa63aa}{count\+\_\+vars} (string parameters)
+static int \hyperlink{class_operation_space_acec5b48678e494c0be7df4cc3bcc0768}{count\+\_\+vars} (string parameters)
 \begin{DoxyCompactList}\small\item\em Método privado de cálculo de número de parámetros. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Atributos privados}
 \begin{DoxyCompactItemize}
@@ -68,6 +68,15 @@ Se ejecuta automáticamente al declarar un nuevo espacio de operaciones \begin{D
 \begin{DoxyPostcond}{Postcondición}
 Crea un objeto vacío 
 \end{DoxyPostcond}
+
+
+Definición en la línea 25 del archivo Operation\+Space.\+cc.
+
+
+\begin{DoxyCode}
+26 \{
+27 \}
+\end{DoxyCode}
 \index{Operation\+Space@{Operation\+Space}!````~Operation\+Space@{$\sim$\+Operation\+Space}}
 \index{````~Operation\+Space@{$\sim$\+Operation\+Space}!Operation\+Space@{Operation\+Space}}
 \subsubsection[{\texorpdfstring{$\sim$\+Operation\+Space()}{~OperationSpace()}}]{\setlength{\rightskip}{0pt plus 5cm}Operation\+Space\+::$\sim$\+Operation\+Space (
@@ -87,14 +96,23 @@ Libera los recursos locales del parámetro implícito al salir de un ámbito de 
 \end{DoxyPostcond}
 
 
+Definición en la línea 31 del archivo Operation\+Space.\+cc.
+
+
+\begin{DoxyCode}
+32 \{
+33 \}
+\end{DoxyCode}
+
+
 \subsection{Documentación de las funciones miembro}
 \index{Operation\+Space@{Operation\+Space}!count\+\_\+vars@{count\+\_\+vars}}
 \index{count\+\_\+vars@{count\+\_\+vars}!Operation\+Space@{Operation\+Space}}
-\subsubsection[{\texorpdfstring{count\+\_\+vars(string parameters)}{count_vars(string parameters)}}]{\setlength{\rightskip}{0pt plus 5cm}static int Operation\+Space\+::count\+\_\+vars (
+\subsubsection[{\texorpdfstring{count\+\_\+vars(string parameters)}{count_vars(string parameters)}}]{\setlength{\rightskip}{0pt plus 5cm}int Operation\+Space\+::count\+\_\+vars (
 \begin{DoxyParamCaption}
 \item[{string}]{parameters}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{class_operation_space_a44bd4c88e099da24bbc66c2bd1fa63aa}{}\label{class_operation_space_a44bd4c88e099da24bbc66c2bd1fa63aa}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{class_operation_space_acec5b48678e494c0be7df4cc3bcc0768}{}\label{class_operation_space_acec5b48678e494c0be7df4cc3bcc0768}
 
 
 Método privado de cálculo de número de parámetros. 
@@ -105,6 +123,26 @@ Método privado de cálculo de número de parámetros.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve el número de parámetros contenidos en la variable \textquotesingle{}parameters\textquotesingle{} 
 \end{DoxyPostcond}
+
+
+Definición en la línea 9 del archivo Operation\+Space.\+cc.
+
+
+\begin{DoxyCode}
+10 \{
+11   \textcolor{keywordtype}{int} c = not parameters.empty();
+12   \textcolor{comment}{/* INV}
+13 \textcolor{comment}{    c es el número de parámetros que hay contenidos en el string 'parameters' en el rango de posiciones
+       [0...i]}
+14 \textcolor{comment}{  */}
+15   \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 1; i < parameters.size(); ++i) \{
+16     \textcolor{keywordflow}{if}(parameters[i] == \textcolor{charliteral}{' '}) \{
+17       ++c;
+18     \}
+19   \}
+20   \textcolor{keywordflow}{return} c;
+21 \}
+\end{DoxyCode}
 \index{Operation\+Space@{Operation\+Space}!set@{set}}
 \index{set@{set}!Operation\+Space@{Operation\+Space}}
 \subsubsection[{\texorpdfstring{set(string key, string parameters, string exp)}{set(string key, string parameters, string exp)}}]{\setlength{\rightskip}{0pt plus 5cm}void Operation\+Space\+::set (
@@ -124,6 +162,20 @@ Modificadora por establecimiento de operación.
 \begin{DoxyPostcond}{Postcondición}
 Se añade al parámetro implícito la operacion con nombre \textquotesingle{}key\textquotesingle{}, parámetros \textquotesingle{}parameters\textquotesingle{} y expresión \textquotesingle{}exp\textquotesingle{}, o se actualizan sus parámetros a \textquotesingle{}parameters\textquotesingle{} y su expresión a \textquotesingle{}exp\textquotesingle{} si ya existía previamente 
 \end{DoxyPostcond}
+
+
+Definición en la línea 37 del archivo Operation\+Space.\+cc.
+
+
+\begin{DoxyCode}
+38 \{
+39   definition aux;
+40   aux.n\_parameters = \hyperlink{class_operation_space_acec5b48678e494c0be7df4cc3bcc0768}{count\_vars}(parameters);
+41   aux.parameters = parameters;
+42   aux.exp = exp;
+43   \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}[key] = aux;
+44 \}
+\end{DoxyCode}
 \index{Operation\+Space@{Operation\+Space}!empty@{empty}}
 \index{empty@{empty}!Operation\+Space@{Operation\+Space}}
 \subsubsection[{\texorpdfstring{empty() const }{empty() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Operation\+Space\+::empty (
@@ -141,6 +193,16 @@ Consultora de parámetro implícito vacío.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si el parámetro implícito está vacío 
 \end{DoxyPostcond}
+
+
+Definición en la línea 48 del archivo Operation\+Space.\+cc.
+
+
+\begin{DoxyCode}
+49 \{
+50   \textcolor{keywordflow}{return} \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}.empty();
+51 \}
+\end{DoxyCode}
 \index{Operation\+Space@{Operation\+Space}!exists@{exists}}
 \index{exists@{exists}!Operation\+Space@{Operation\+Space}}
 \subsubsection[{\texorpdfstring{exists(string key) const }{exists(string key) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Operation\+Space\+::exists (
@@ -158,13 +220,23 @@ Consultora de existencia de operación.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve cierto si la operación con nombre \textquotesingle{}key\textquotesingle{} existe en el parámetro implícito; en otro caso, devuelve falso 
 \end{DoxyPostcond}
+
+
+Definición en la línea 53 del archivo Operation\+Space.\+cc.
+
+
+\begin{DoxyCode}
+54 \{
+55   \textcolor{keywordflow}{return} \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}.find(key) != \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}.end();
+56 \}
+\end{DoxyCode}
 \index{Operation\+Space@{Operation\+Space}!get@{get}}
 \index{get@{get}!Operation\+Space@{Operation\+Space}}
-\subsubsection[{\texorpdfstring{get(string key)}{get(string key)}}]{\setlength{\rightskip}{0pt plus 5cm}pair$<$string, string$>$ Operation\+Space\+::get (
+\subsubsection[{\texorpdfstring{get(string key)}{get(string key)}}]{\setlength{\rightskip}{0pt plus 5cm}pair$<$ string, string $>$ Operation\+Space\+::get (
 \begin{DoxyParamCaption}
 \item[{string}]{key}
 \end{DoxyParamCaption}
-)}\hypertarget{class_operation_space_a82fcdb18f2f2ff9ddb4c2a68cba35116}{}\label{class_operation_space_a82fcdb18f2f2ff9ddb4c2a68cba35116}
+)}\hypertarget{class_operation_space_af2bcc0acd07952fa40e2cce5dec8c235}{}\label{class_operation_space_af2bcc0acd07952fa40e2cce5dec8c235}
 
 
 Consultora de recuperación de operación. 
@@ -175,6 +247,17 @@ Consultora de recuperación de operación.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve los parámetros y la expresión, respectivamente contenidos en forma de pair, de la operación de nombre \textquotesingle{}key\textquotesingle{} 
 \end{DoxyPostcond}
+
+
+Definición en la línea 58 del archivo Operation\+Space.\+cc.
+
+
+\begin{DoxyCode}
+59 \{
+60   definition aux = \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}[key];
+61   \textcolor{keywordflow}{return} make\_pair(aux.parameters, aux.exp);
+62 \}
+\end{DoxyCode}
 \index{Operation\+Space@{Operation\+Space}!num\+\_\+pars@{num\+\_\+pars}}
 \index{num\+\_\+pars@{num\+\_\+pars}!Operation\+Space@{Operation\+Space}}
 \subsubsection[{\texorpdfstring{num\+\_\+pars(string key)}{num_pars(string key)}}]{\setlength{\rightskip}{0pt plus 5cm}int Operation\+Space\+::num\+\_\+pars (
@@ -192,6 +275,16 @@ Consultora de número de parámetros.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve el número de parámetros de la operación de nombre \textquotesingle{}key\textquotesingle{} 
 \end{DoxyPostcond}
+
+
+Definición en la línea 64 del archivo Operation\+Space.\+cc.
+
+
+\begin{DoxyCode}
+65 \{
+66   \textcolor{keywordflow}{return} \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}[key].n\_parameters;
+67 \}
+\end{DoxyCode}
 \index{Operation\+Space@{Operation\+Space}!write@{write}}
 \index{write@{write}!Operation\+Space@{Operation\+Space}}
 \subsubsection[{\texorpdfstring{write() const }{write() const }}]{\setlength{\rightskip}{0pt plus 5cm}void Operation\+Space\+::write (
@@ -209,6 +302,25 @@ Operación de escritura del espacio de operaciones definidas por el usuario.
 \begin{DoxyPostcond}{Postcondición}
 Se han escrito las operaciones definidas por el usuario por el canal estándar de salida 
 \end{DoxyPostcond}
+
+
+Definición en la línea 71 del archivo Operation\+Space.\+cc.
+
+
+\begin{DoxyCode}
+72 \{
+73   cout << \textcolor{stringliteral}{"Operacions:"} << endl;
+74   map<string, definition>::const\_iterator c\_it = \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}.begin();
+75   \textcolor{comment}{/* INV}
+76 \textcolor{comment}{    c\_it es un iterador a un elemento del mapa de operaciones definidas por el usuario del parámetro
+       implícito comprendido entre opMap.begin() y opMap.end()}
+77 \textcolor{comment}{  */}
+78   \textcolor{keywordflow}{while}(c\_it != \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}.end()) \{
+79     cout << c\_it -> first << \textcolor{stringliteral}{" #"} << c\_it -> second.n\_parameters << endl;
+80     ++c\_it;
+81   \}
+82 \}
+\end{DoxyCode}
 \index{Operation\+Space@{Operation\+Space}!write\+\_\+op@{write\+\_\+op}}
 \index{write\+\_\+op@{write\+\_\+op}!Operation\+Space@{Operation\+Space}}
 \subsubsection[{\texorpdfstring{write\+\_\+op(string key)}{write_op(string key)}}]{\setlength{\rightskip}{0pt plus 5cm}void Operation\+Space\+::write\+\_\+op (
@@ -228,6 +340,15 @@ Se ha escrito el contenido de la operación de nombre \textquotesingle{}key\text
 \end{DoxyPostcond}
 
 
+Definición en la línea 84 del archivo Operation\+Space.\+cc.
+
+
+\begin{DoxyCode}
+85 \{
+86   cout << key << \textcolor{stringliteral}{" #"} << \hyperlink{class_operation_space_aae64cd370655d6b2fb3f2305c5a520a7}{opMap}[key].n\_parameters << endl;
+87 \}\end{DoxyCode}
+
+
 \subsection{Documentación de los datos miembro}
 \index{Operation\+Space@{Operation\+Space}!op\+Map@{op\+Map}}
 \index{op\+Map@{op\+Map}!Operation\+Space@{Operation\+Space}}
@@ -242,6 +363,7 @@ Definición en la línea 42 del archivo Operation\+Space.\+hh.
 
 
 
-La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{_operation_space_8hh}{Operation\+Space.\+hh}\end{DoxyCompactItemize}
+\hyperlink{_operation_space_8hh}{Operation\+Space.\+hh}\item 
+\hyperlink{_operation_space_8cc}{Operation\+Space.\+cc}\end{DoxyCompactItemize}

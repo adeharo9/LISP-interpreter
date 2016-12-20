@@ -6,37 +6,44 @@ using namespace std;
 
 //_______ CONSTRUCTORES
 
-Input::Input() {
+Input::Input()
+{
 	p = 0;
 }
 
 //_______ DESTRUCTORES
 
-Input::~Input() {
+Input::~Input()
+{
 }
 
 //_______ OPERADORES
 
-string& Input::operator ++ () {
+string& Input::operator ++ ()
+{
 	return next();
 }
 
-void Input::operator --() {
+void Input::operator --()
+{
 	previous();
 }
 
-string& Input::operator >> (string& str) {
+string& Input::operator >> (string& str)
+{
 	str = next();
 	return str;
 }
 
-void Input::operator << (string buff) {
+void Input::operator << (string buff)
+{
 	this -> buff = buff;
 }
 
 //_______ MODIFICADORES
 
-string& Input::next() {
+string& Input::next()
+{
 	if(buff.empty()) {
 		cin >> buff;
 		/* HI
@@ -49,7 +56,7 @@ string& Input::next() {
 		buff.erase(0,1);
 		++p;
 	}
-	else if(buff[0] == ')'){
+	else if(buff[0] == ')') {
 		str = buff[0];
 		buff.erase(0,1);
 		--p;
@@ -63,7 +70,7 @@ string& Input::next() {
 	}
 	else {
 		str.clear();
-		/* INVARIANTE
+		/* INV
 			'str' contiene una cadena de caracteres que va aumentando por su final
 			'buff' contiene una cadena de caracteres que se va reduciendo por su inicio
 		*/
@@ -75,7 +82,8 @@ string& Input::next() {
 	return str;
 }
 
-void Input::previous() {
+void Input::previous()
+{
 	if(str == "(") {
 		--p;
 	}
@@ -86,10 +94,11 @@ void Input::previous() {
 	str.clear();
 }
 
-string Input::nextExpression() {
+string Input::nextExpression()
+{
 	int aux = p;
 	string auxStr = next();
-	/* INVARIANTE
+	/* INV
 		'auxStr' es la porción de entrada leída desde la condición inicial p = aux hasta el estado actual de 'p'
 	*/
 	while(p > aux) {
@@ -98,8 +107,9 @@ string Input::nextExpression() {
 	return auxStr;
 }
 
-void Input::endOfExpression() {
-	/* INVARIANTE
+void Input::endOfExpression()
+{
+	/* INV
 		'p' es el número de paréntesis abiertos que quedan por cerrar en el momento de la lectura de entrada mediante el método next()
 	*/
 	while(p > 0) {
@@ -107,11 +117,12 @@ void Input::endOfExpression() {
 	}
 }
 
-int Input::countExpressions() {
+int Input::countExpressions()
+{
 	int c = 0;
 	int aux = p;
 	next();
-	/* INVARIANTE
+	/* INV
 		'c' es la cantidad de expresiones que hay contenidas en la entrada desde p = aux hasta la iteración actual
 	*/
 	while(str != ")") {
@@ -119,7 +130,7 @@ int Input::countExpressions() {
 			++c;
 		}
 		else {
-			/* INVARIANTE
+			/* INV
 				'p' es el número de paréntesis abiertos que quedan por cerrar en el momento de la lectura de entrada mediante el método next()
 			*/
 			do {
@@ -134,14 +145,17 @@ int Input::countExpressions() {
 
 //_______ CONSULTORES
 
-int Input::get_p() const {
+int Input::get_p() const
+{
 	return p;
 }
 
-string Input::get_buff() const {
+string Input::get_buff() const
+{
 	return buff;
 }
 
-string Input::get_str() const {
+string Input::get_str() const
+{
 	return str;
 }

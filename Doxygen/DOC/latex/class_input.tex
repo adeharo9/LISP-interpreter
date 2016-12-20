@@ -12,15 +12,15 @@ Contiene las operaciones de tratamiento de entrada necesarias para gestionar la 
 \begin{DoxyCompactList}\small\item\em Constructora por defecto. \end{DoxyCompactList}\item 
 \hyperlink{class_input_af2db35ba67c8a8ccd23bef6a482fc291}{$\sim$\+Input} ()
 \begin{DoxyCompactList}\small\item\em Destructora por defecto. \end{DoxyCompactList}\item 
-string \& \hyperlink{class_input_ac07568c79da3730b3bbee03fc71a191f}{operator++} ()
+string \& \hyperlink{class_input_aacf724a2e4c283f93f5f6d8b38197fca}{operator++} ()
 \begin{DoxyCompactList}\small\item\em Operación de siguiente elemento a tratar. \end{DoxyCompactList}\item 
 void \hyperlink{class_input_a90b48f4efc407d4434422fa46f279eef}{operator-\/-\/} ()
 \begin{DoxyCompactList}\small\item\em Operación de anterior elemento a tratar. \end{DoxyCompactList}\item 
-string \& \hyperlink{class_input_a7a84e2987975c9ea5c89d680f5f1d68e}{operator$>$$>$} (string \&\hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str})
+string \& \hyperlink{class_input_a69d637b96f094fa58ad0797b1ef3fec0}{operator$>$$>$} (string \&\hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str})
 \begin{DoxyCompactList}\small\item\em Operación de siguiente elemento a tratar con asignación. \end{DoxyCompactList}\item 
 void \hyperlink{class_input_a79630dc9ce45e346ae4b20a457c1b1b3}{operator$<$$<$} (string \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff})
 \begin{DoxyCompactList}\small\item\em Operación de introducción de buffer. \end{DoxyCompactList}\item 
-string \& \hyperlink{class_input_abe921301d0f6038e566b81780ca67a78}{next} ()
+string \& \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next} ()
 \begin{DoxyCompactList}\small\item\em Siguiente elemento a tratar. \end{DoxyCompactList}\item 
 void \hyperlink{class_input_a8bf471815e7a4ef6f6083598bc1fe236}{previous} ()
 \begin{DoxyCompactList}\small\item\em Anterior elemento a tratar. \end{DoxyCompactList}\item 
@@ -72,6 +72,16 @@ Se ejecuta automáticamente al declarar un nuevo espacio de variables \begin{Dox
 \begin{DoxyPostcond}{Postcondición}
 Crea un objeto vacío 
 \end{DoxyPostcond}
+
+
+Definición en la línea 9 del archivo Input.\+cc.
+
+
+\begin{DoxyCode}
+10 \{
+11   \hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p} = 0;
+12 \}
+\end{DoxyCode}
 \index{Input@{Input}!````~Input@{$\sim$\+Input}}
 \index{````~Input@{$\sim$\+Input}!Input@{Input}}
 \subsubsection[{\texorpdfstring{$\sim$\+Input()}{~Input()}}]{\setlength{\rightskip}{0pt plus 5cm}Input\+::$\sim$\+Input (
@@ -91,14 +101,23 @@ Libera los recursos locales del parámetro implícito al salir de un ámbito de 
 \end{DoxyPostcond}
 
 
+Definición en la línea 16 del archivo Input.\+cc.
+
+
+\begin{DoxyCode}
+17 \{
+18 \}
+\end{DoxyCode}
+
+
 \subsection{Documentación de las funciones miembro}
 \index{Input@{Input}!operator++@{operator++}}
 \index{operator++@{operator++}!Input@{Input}}
-\subsubsection[{\texorpdfstring{operator++()}{operator++()}}]{\setlength{\rightskip}{0pt plus 5cm}string\& Input\+::operator++ (
+\subsubsection[{\texorpdfstring{operator++()}{operator++()}}]{\setlength{\rightskip}{0pt plus 5cm}string \& Input\+::operator++ (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\hypertarget{class_input_ac07568c79da3730b3bbee03fc71a191f}{}\label{class_input_ac07568c79da3730b3bbee03fc71a191f}
+)}\hypertarget{class_input_aacf724a2e4c283f93f5f6d8b38197fca}{}\label{class_input_aacf724a2e4c283f93f5f6d8b38197fca}
 
 
 Operación de siguiente elemento a tratar. 
@@ -109,6 +128,16 @@ Operación de siguiente elemento a tratar.
 \begin{DoxyPostcond}{Postcondición}
 Se ha actualizado el texto de tratamiento inmediato, así como el buffer de entrada y el contador de paréntesis 
 \end{DoxyPostcond}
+
+
+Definición en la línea 22 del archivo Input.\+cc.
+
+
+\begin{DoxyCode}
+23 \{
+24   \textcolor{keywordflow}{return} \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
+25 \}
+\end{DoxyCode}
 \index{Input@{Input}!operator-\/-\/@{operator-\/-\/}}
 \index{operator-\/-\/@{operator-\/-\/}!Input@{Input}}
 \subsubsection[{\texorpdfstring{operator-\/-\/()}{operator--()}}]{\setlength{\rightskip}{0pt plus 5cm}void Input\+::operator-\/-\/ (
@@ -126,13 +155,23 @@ Operación de anterior elemento a tratar.
 \begin{DoxyPostcond}{Postcondición}
 El buffer de entrada pasa a contener el texto de tratamiento inmediato a su inicio, y el contador de paréntesis se ha actualizado convenientemente; el texto de tratamiento inmediato pasa a estar vacío 
 \end{DoxyPostcond}
+
+
+Definición en la línea 27 del archivo Input.\+cc.
+
+
+\begin{DoxyCode}
+28 \{
+29   \hyperlink{class_input_a8bf471815e7a4ef6f6083598bc1fe236}{previous}();
+30 \}
+\end{DoxyCode}
 \index{Input@{Input}!operator$>$$>$@{operator$>$$>$}}
 \index{operator$>$$>$@{operator$>$$>$}!Input@{Input}}
-\subsubsection[{\texorpdfstring{operator$>$$>$(string \&str)}{operator>>(string &str)}}]{\setlength{\rightskip}{0pt plus 5cm}string\& Input\+::operator$>$$>$ (
+\subsubsection[{\texorpdfstring{operator$>$$>$(string \&str)}{operator>>(string &str)}}]{\setlength{\rightskip}{0pt plus 5cm}string \& Input\+::operator$>$$>$ (
 \begin{DoxyParamCaption}
 \item[{string \&}]{str}
 \end{DoxyParamCaption}
-)}\hypertarget{class_input_a7a84e2987975c9ea5c89d680f5f1d68e}{}\label{class_input_a7a84e2987975c9ea5c89d680f5f1d68e}
+)}\hypertarget{class_input_a69d637b96f094fa58ad0797b1ef3fec0}{}\label{class_input_a69d637b96f094fa58ad0797b1ef3fec0}
 
 
 Operación de siguiente elemento a tratar con asignación. 
@@ -143,6 +182,17 @@ Operación de siguiente elemento a tratar con asignación.
 \begin{DoxyPostcond}{Postcondición}
 Se ha actualizado el texto de tratamiento inmediato, así como el buffer de entrada y el contador de paréntesis; \textquotesingle{}str\textquotesingle{} es igual al texto de tratamiento inmediato 
 \end{DoxyPostcond}
+
+
+Definición en la línea 32 del archivo Input.\+cc.
+
+
+\begin{DoxyCode}
+33 \{
+34   \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str} = \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
+35   \textcolor{keywordflow}{return} \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str};
+36 \}
+\end{DoxyCode}
 \index{Input@{Input}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!Input@{Input}}
 \subsubsection[{\texorpdfstring{operator$<$$<$(string buff)}{operator<<(string buff)}}]{\setlength{\rightskip}{0pt plus 5cm}void Input\+::operator$<$$<$ (
@@ -160,13 +210,23 @@ Operación de introducción de buffer.
 \begin{DoxyPostcond}{Postcondición}
 El buffer del parámetro implícito pasa a ser \textquotesingle{}buff\textquotesingle{} 
 \end{DoxyPostcond}
+
+
+Definición en la línea 38 del archivo Input.\+cc.
+
+
+\begin{DoxyCode}
+39 \{
+40   \textcolor{keyword}{this} -> \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff} = \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff};
+41 \}
+\end{DoxyCode}
 \index{Input@{Input}!next@{next}}
 \index{next@{next}!Input@{Input}}
-\subsubsection[{\texorpdfstring{next()}{next()}}]{\setlength{\rightskip}{0pt plus 5cm}string\& Input\+::next (
+\subsubsection[{\texorpdfstring{next()}{next()}}]{\setlength{\rightskip}{0pt plus 5cm}string \& Input\+::next (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\hypertarget{class_input_abe921301d0f6038e566b81780ca67a78}{}\label{class_input_abe921301d0f6038e566b81780ca67a78}
+)}\hypertarget{class_input_a46fcdbe27e719eac8de9ba6413042798}{}\label{class_input_a46fcdbe27e719eac8de9ba6413042798}
 
 
 Siguiente elemento a tratar. 
@@ -177,6 +237,54 @@ Siguiente elemento a tratar.
 \begin{DoxyPostcond}{Postcondición}
 Se ha actualizado el texto de tratamiento inmediato, así como el buffer de entrada y el contador de paréntesis 
 \end{DoxyPostcond}
+
+
+Definición en la línea 45 del archivo Input.\+cc.
+
+
+\begin{DoxyCode}
+46 \{
+47   \textcolor{keywordflow}{if}(\hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}.empty()) \{
+48     cin >> \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff};
+49     \textcolor{comment}{/* HI}
+50 \textcolor{comment}{      next() procesa el siguiente elemento de entrada, colocando la parte que debe ser tratada
+       inmediatamente en 'str' y dejando el resto para su tratamiento posterior en 'buff', manteniendo el contador de
+       paréntesis correctamente actualizado}
+51 \textcolor{comment}{    */}
+52     \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
+53   \}
+54   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0] == \textcolor{charliteral}{'('}) \{
+55     \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str} = \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0];
+56     \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}.erase(0,1);
+57     ++\hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p};
+58   \}
+59   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0] == \textcolor{charliteral}{')'}) \{
+60     \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str} = \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0];
+61     \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}.erase(0,1);
+62     --\hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p};
+63   \}
+64   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0] == \textcolor{charliteral}{' '}) \{
+65     \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}.erase(0,1);
+66     \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
+67   \}
+68   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff} == \textcolor{stringliteral}{"****"}) \{
+69     \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}.swap(\hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str});
+70   \}
+71   \textcolor{keywordflow}{else} \{
+72     \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str}.clear();
+73     \textcolor{comment}{/* INV}
+74 \textcolor{comment}{      'str' contiene una cadena de caracteres que va aumentando por su final}
+75 \textcolor{comment}{      'buff' contiene una cadena de caracteres que se va reduciendo por su inicio}
+76 \textcolor{comment}{    */}
+77     \textcolor{keywordflow}{while}(not \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}.empty() and \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0] != \textcolor{charliteral}{'('} and \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0] != \textcolor{charliteral}{')'} and 
+      \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0] != \textcolor{charliteral}{' '}) \{
+78       \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str}+=\hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}[0];
+79       \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff}.erase(0,1);
+80     \}
+81   \}
+82   \textcolor{keywordflow}{return} \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str};
+83 \}
+\end{DoxyCode}
 \index{Input@{Input}!previous@{previous}}
 \index{previous@{previous}!Input@{Input}}
 \subsubsection[{\texorpdfstring{previous()}{previous()}}]{\setlength{\rightskip}{0pt plus 5cm}void Input\+::previous (
@@ -194,6 +302,23 @@ Anterior elemento a tratar.
 \begin{DoxyPostcond}{Postcondición}
 El buffer de entrada pasa a contener el texto de tratamiento inmediato a su inicio, y el contador de paréntesis se ha actualizado convenientemente; el texto de tratamiento inmediato pasa a estar vacío 
 \end{DoxyPostcond}
+
+
+Definición en la línea 85 del archivo Input.\+cc.
+
+
+\begin{DoxyCode}
+86 \{
+87   \textcolor{keywordflow}{if}(\hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str} == \textcolor{stringliteral}{"("}) \{
+88     --\hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p};
+89   \}
+90   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str} == \textcolor{stringliteral}{")"}) \{
+91     ++\hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p};
+92   \}
+93   \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff} = \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str} + \textcolor{charliteral}{' '} + \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff};
+94   \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str}.clear();
+95 \}
+\end{DoxyCode}
 \index{Input@{Input}!next\+Expression@{next\+Expression}}
 \index{next\+Expression@{next\+Expression}!Input@{Input}}
 \subsubsection[{\texorpdfstring{next\+Expression()}{nextExpression()}}]{\setlength{\rightskip}{0pt plus 5cm}string Input\+::next\+Expression (
@@ -211,6 +336,25 @@ Siguiente expresión.
 \begin{DoxyPostcond}{Postcondición}
 Procesa toda la entrada correspondiente a una expresión y prepara la entrada para leer lo que hay después de la misma; devuelve la expresión que acaba de procesar como un string 
 \end{DoxyPostcond}
+
+
+Definición en la línea 97 del archivo Input.\+cc.
+
+
+\begin{DoxyCode}
+98 \{
+99   \textcolor{keywordtype}{int} aux = \hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p};
+100   \textcolor{keywordtype}{string} auxStr = \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
+101   \textcolor{comment}{/* INV}
+102 \textcolor{comment}{    'auxStr' es la porción de entrada leída desde la condición inicial p = aux hasta el estado actual de
+       'p'}
+103 \textcolor{comment}{  */}
+104   \textcolor{keywordflow}{while}(\hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p} > aux) \{
+105     auxStr += \textcolor{charliteral}{' '} + \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
+106   \}
+107   \textcolor{keywordflow}{return} auxStr;
+108 \}
+\end{DoxyCode}
 \index{Input@{Input}!end\+Of\+Expression@{end\+Of\+Expression}}
 \index{end\+Of\+Expression@{end\+Of\+Expression}!Input@{Input}}
 \subsubsection[{\texorpdfstring{end\+Of\+Expression()}{endOfExpression()}}]{\setlength{\rightskip}{0pt plus 5cm}void Input\+::end\+Of\+Expression (
@@ -228,6 +372,22 @@ Fin de expresión.
 \begin{DoxyPostcond}{Postcondición}
 Ignora toda entrada situada antes del final de la expresión y prepara la entrada para leer lo que hay después de la misma 
 \end{DoxyPostcond}
+
+
+Definición en la línea 110 del archivo Input.\+cc.
+
+
+\begin{DoxyCode}
+111 \{
+112   \textcolor{comment}{/* INV}
+113 \textcolor{comment}{    'p' es el número de paréntesis abiertos que quedan por cerrar en el momento de la lectura de entrada
+       mediante el método next()}
+114 \textcolor{comment}{  */}
+115   \textcolor{keywordflow}{while}(\hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p} > 0) \{
+116     \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
+117   \}
+118 \}
+\end{DoxyCode}
 \index{Input@{Input}!count\+Expressions@{count\+Expressions}}
 \index{count\+Expressions@{count\+Expressions}!Input@{Input}}
 \subsubsection[{\texorpdfstring{count\+Expressions()}{countExpressions()}}]{\setlength{\rightskip}{0pt plus 5cm}int Input\+::count\+Expressions (
@@ -245,6 +405,39 @@ Contador de expresiones.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve el número de expresiones que hay contenidas en el buffer de entrada 
 \end{DoxyPostcond}
+
+
+Definición en la línea 120 del archivo Input.\+cc.
+
+
+\begin{DoxyCode}
+121 \{
+122   \textcolor{keywordtype}{int} c = 0;
+123   \textcolor{keywordtype}{int} aux = \hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p};
+124   \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
+125   \textcolor{comment}{/* INV}
+126 \textcolor{comment}{    'c' es la cantidad de expresiones que hay contenidas en la entrada desde p = aux hasta la iteración
+       actual}
+127 \textcolor{comment}{  */}
+128   \textcolor{keywordflow}{while}(\hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str} != \textcolor{stringliteral}{")"}) \{
+129     \textcolor{keywordflow}{if}(\hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str} != \textcolor{stringliteral}{"("}) \{
+130       ++c;
+131     \}
+132     \textcolor{keywordflow}{else} \{
+133       \textcolor{comment}{/* INV}
+134 \textcolor{comment}{        'p' es el número de paréntesis abiertos que quedan por cerrar en el momento de la lectura de
+       entrada mediante el método next()}
+135 \textcolor{comment}{      */}
+136       \textcolor{keywordflow}{do} \{
+137         \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
+138       \} \textcolor{keywordflow}{while}(\hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p} > aux);
+139       ++c;
+140     \}
+141     \hyperlink{class_input_a46fcdbe27e719eac8de9ba6413042798}{next}();
+142   \}
+143   \textcolor{keywordflow}{return} c;
+144 \}
+\end{DoxyCode}
 \index{Input@{Input}!get\+\_\+p@{get\+\_\+p}}
 \index{get\+\_\+p@{get\+\_\+p}!Input@{Input}}
 \subsubsection[{\texorpdfstring{get\+\_\+p() const }{get_p() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Input\+::get\+\_\+p (
@@ -262,6 +455,16 @@ Consultora de cantidad de paréntesis abiertos.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve la cantidad de paréntesis que se encuentran abiertos en un momento determinado de la lectura de entrada 
 \end{DoxyPostcond}
+
+
+Definición en la línea 148 del archivo Input.\+cc.
+
+
+\begin{DoxyCode}
+149 \{
+150   \textcolor{keywordflow}{return} \hyperlink{class_input_abd6df3e98127cbfeccea2d15b8d1114b}{p};
+151 \}
+\end{DoxyCode}
 \index{Input@{Input}!get\+\_\+buff@{get\+\_\+buff}}
 \index{get\+\_\+buff@{get\+\_\+buff}!Input@{Input}}
 \subsubsection[{\texorpdfstring{get\+\_\+buff() const }{get_buff() const }}]{\setlength{\rightskip}{0pt plus 5cm}string Input\+::get\+\_\+buff (
@@ -279,6 +482,16 @@ Consultora de buffer de entrada.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve el contenido del buffer de entrada 
 \end{DoxyPostcond}
+
+
+Definición en la línea 153 del archivo Input.\+cc.
+
+
+\begin{DoxyCode}
+154 \{
+155   \textcolor{keywordflow}{return} \hyperlink{class_input_a680019c05e47ad35677d5cb692978d98}{buff};
+156 \}
+\end{DoxyCode}
 \index{Input@{Input}!get\+\_\+str@{get\+\_\+str}}
 \index{get\+\_\+str@{get\+\_\+str}!Input@{Input}}
 \subsubsection[{\texorpdfstring{get\+\_\+str() const }{get_str() const }}]{\setlength{\rightskip}{0pt plus 5cm}string Input\+::get\+\_\+str (
@@ -296,6 +509,16 @@ Cosultora de texto de tratamiento inmediato.
 \begin{DoxyPostcond}{Postcondición}
 Devuelve el contenido del texto de tratamiento inmediato 
 \end{DoxyPostcond}
+
+
+Definición en la línea 158 del archivo Input.\+cc.
+
+
+\begin{DoxyCode}
+159 \{
+160   \textcolor{keywordflow}{return} \hyperlink{class_input_a0c2550eda9a6250028748d8870f4e83f}{str};
+161 \}
+\end{DoxyCode}
 
 
 \subsection{Documentación de los datos miembro}
@@ -334,6 +557,7 @@ Definición en la línea 39 del archivo Input.\+hh.
 
 
 
-La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{_input_8hh}{Input.\+hh}\end{DoxyCompactItemize}
+\hyperlink{_input_8hh}{Input.\+hh}\item 
+\hyperlink{_input_8cc}{Input.\+cc}\end{DoxyCompactItemize}

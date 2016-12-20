@@ -5,8 +5,7 @@
 Especificación de las operaciones de lectura/escritura de expresiones.  
 
 
-Dependencia gráfica adjunta para Functions\+I\+O.\+hh\+:
-\nopagebreak
+Dependencia gráfica adjunta para Functions\+I\+O.\+hh\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -17,29 +16,25 @@ Dependencia gráfica adjunta para Functions\+I\+O.\+hh\+:
 \begin{DoxyCompactItemize}
 \item 
 bool \hyperlink{_functions_i_o_8hh_ae6062008fb1c70242c967349d6ee0f9b}{is\+\_\+num} (string str)
-\begin{DoxyCompactList}\small\item\em Operación para identicar un número en una cadena de strings. \end{DoxyCompactList}\item 
-bool \hyperlink{_functions_i_o_8hh_a9ef0154c2cb7ee5236239fcee8333acb}{is\+\_\+valid} (\hyperlink{class_environment}{Environment} \&env, string str)
-\begin{DoxyCompactList}\small\item\em Operación para identificar si los datos introducidos por el canal estandar de entrada son validos. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operación para identificar un número en una cadena de strings. \end{DoxyCompactList}\item 
 void \hyperlink{_functions_i_o_8hh_a77ed86fa2fad279d440800e10d0f4a9a}{create\+Local\+Var\+Space} (\hyperlink{class_environment}{Environment} \&env, \hyperlink{class_expression}{Expression} \&exp, string parameters)
 \begin{DoxyCompactList}\small\item\em Crea un espacio de variables local. \end{DoxyCompactList}\item 
 void \hyperlink{_functions_i_o_8hh_ad4d84fbc6c7e89fb6c14869a204e0913}{evaluate} (\hyperlink{class_environment}{Environment} \&env, \hyperlink{class_expression}{Expression} \&exp)
-\begin{DoxyCompactList}\small\item\em Operación de separación de strings. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operación de evaluación de expresión. \end{DoxyCompactList}\item 
 void \hyperlink{_functions_i_o_8hh_aa35945b371ae9ece372fe0a7c8e97aee}{read\+List} (\hyperlink{class_environment}{Environment} \&env, \hyperlink{class_expression}{Expression} \&exp, \hyperlink{class_input}{Input} \&in)
-\begin{DoxyCompactList}\small\item\em Lee una lista de expresiones y las añade a una lista de expresiones de exp. \end{DoxyCompactList}\item 
-bool \hyperlink{_functions_i_o_8hh_a52044451543aacd73dad0b1bdfb9c0bd}{check} (\hyperlink{class_environment}{Environment} \&env, \hyperlink{class_input}{Input} \&in)
-\begin{DoxyCompactList}\small\item\em Comprueba que una cadena de caracteres sea valida. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operación de lectura de lista de expresiones. \end{DoxyCompactList}\item 
 void \hyperlink{_functions_i_o_8hh_ae5d92549027ba3619eca48a15b567682}{read\+If} (\hyperlink{class_environment}{Environment} \&env, \hyperlink{class_expression}{Expression} \&exp, \hyperlink{class_input}{Input} \&in)
-\begin{DoxyCompactList}\small\item\em Lee la operación if con sus expresiones. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operación de lectura de operación \textquotesingle{}if\textquotesingle{}. \end{DoxyCompactList}\item 
 void \hyperlink{_functions_i_o_8hh_acb31c57a06915fe17eee64989f500f0d}{read\+Op} (\hyperlink{class_environment}{Environment} \&env, \hyperlink{class_expression}{Expression} \&exp, \hyperlink{class_input}{Input} \&in)
-\begin{DoxyCompactList}\small\item\em Lee una operación primitiva o previamente definida por el usuario. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operación de lectura de operación. \end{DoxyCompactList}\item 
 void \hyperlink{_functions_i_o_8hh_a2b0504402167c389ef8c7de12d41149b}{define\+Var} (\hyperlink{class_environment}{Environment} \&env, string key, \hyperlink{class_input}{Input} \&in)
-\begin{DoxyCompactList}\small\item\em Define una variable introducida por el canal estandar de entrada. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operación de definición de variable. \end{DoxyCompactList}\item 
 void \hyperlink{_functions_i_o_8hh_a39e6424c2643bf6ddf2e5ff8a8c342e9}{define\+Op} (\hyperlink{class_environment}{Environment} \&env, string key, string parameters, \hyperlink{class_input}{Input} \&in)
-\begin{DoxyCompactList}\small\item\em Define una operación introducida por el canal estandar de entrada. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operación de definición de operación. \end{DoxyCompactList}\item 
 void \hyperlink{_functions_i_o_8hh_a65f523a256e113ca2711c3972157df26}{define} (\hyperlink{class_environment}{Environment} \&env, \hyperlink{class_input}{Input} \&in)
-\begin{DoxyCompactList}\small\item\em Interpreta si se definirá una variable u operación. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operación de definición. \end{DoxyCompactList}\item 
 bool \hyperlink{_functions_i_o_8hh_a0c2a0ba0f4fe2dfe26ec14053ce4d408}{read\+Expression} (\hyperlink{class_environment}{Environment} \&env, \hyperlink{class_expression}{Expression} \&exp, \hyperlink{class_input}{Input} \&in)
-\begin{DoxyCompactList}\small\item\em Operación de lectura de expresiones. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Inmersión de operación de lectura de expresiones. \end{DoxyCompactList}\item 
 bool \hyperlink{_functions_i_o_8hh_a10264ecdb3196a71243b69fd4f98c229}{read} (\hyperlink{class_environment}{Environment} \&env, \hyperlink{class_expression}{Expression} \&exp)
 \begin{DoxyCompactList}\small\item\em Operación de lectura de expresiones. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -59,32 +54,34 @@ Especificación de las operaciones de lectura/escritura de expresiones.
 )}\hypertarget{_functions_i_o_8hh_ae6062008fb1c70242c967349d6ee0f9b}{}\label{_functions_i_o_8hh_ae6062008fb1c70242c967349d6ee0f9b}
 
 
-Operación para identicar un número en una cadena de strings. 
+Operación para identificar un número en una cadena de strings. 
 
 \begin{DoxyPrecond}{Precondición}
 {\itshape Cierto} 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
-Devuelve cierto si la variable \textquotesingle{}str\textquotesingle{} es un número, falso en caso contrario. 
+Devuelve cierto si la variable \textquotesingle{}str\textquotesingle{} es un número, falso en caso contrario 
 \end{DoxyPostcond}
-\index{Functions\+I\+O.\+hh@{Functions\+I\+O.\+hh}!is\+\_\+valid@{is\+\_\+valid}}
-\index{is\+\_\+valid@{is\+\_\+valid}!Functions\+I\+O.\+hh@{Functions\+I\+O.\+hh}}
-\subsubsection[{\texorpdfstring{is\+\_\+valid(\+Environment \&env, string str)}{is_valid(Environment &env, string str)}}]{\setlength{\rightskip}{0pt plus 5cm}bool is\+\_\+valid (
-\begin{DoxyParamCaption}
-\item[{{\bf Environment} \&}]{env, }
-\item[{string}]{str}
-\end{DoxyParamCaption}
-)}\hypertarget{_functions_i_o_8hh_a9ef0154c2cb7ee5236239fcee8333acb}{}\label{_functions_i_o_8hh_a9ef0154c2cb7ee5236239fcee8333acb}
 
 
-Operación para identificar si los datos introducidos por el canal estandar de entrada son validos. 
+Definición en la línea 13 del archivo Functions\+I\+O.\+cc.
 
-\begin{DoxyPrecond}{Precondición}
-\textquotesingle{}env\textquotesingle{} es un entorno con variable primitivas previamente inicializadas, str es un string no vacio 
-\end{DoxyPrecond}
-\begin{DoxyPostcond}{Postcondición}
-Devuelve true si str es un parentesis, número, operación definida, variable definida o una primitva. Falso en cualquier otro caso. 
-\end{DoxyPostcond}
+
+\begin{DoxyCode}
+14 \{
+15   \textcolor{keywordtype}{int} i = 0;
+16   \textcolor{keywordflow}{if}(not str.empty() and (str[0] == \textcolor{charliteral}{'-'} or (str[0] >= \textcolor{charliteral}{'0'} and str[i] <= \textcolor{charliteral}{'9'}))) \{
+17       ++i;
+18     \textcolor{comment}{/* INV}
+19 \textcolor{comment}{      0 <= i < str.size()}
+20 \textcolor{comment}{    */}
+21     \textcolor{keywordflow}{while}(i < str.size() and str[i] >= \textcolor{charliteral}{'0'} and str[i] <= \textcolor{charliteral}{'9'}) \{
+22       ++i;
+23     \}
+24   \}
+25   \textcolor{keywordflow}{return} not str.empty() and i == str.size() and str[i-1] != \textcolor{charliteral}{'-'};
+26 \}
+\end{DoxyCode}
 \index{Functions\+I\+O.\+hh@{Functions\+I\+O.\+hh}!create\+Local\+Var\+Space@{create\+Local\+Var\+Space}}
 \index{create\+Local\+Var\+Space@{create\+Local\+Var\+Space}!Functions\+I\+O.\+hh@{Functions\+I\+O.\+hh}}
 \subsubsection[{\texorpdfstring{create\+Local\+Var\+Space(\+Environment \&env, Expression \&exp, string parameters)}{createLocalVarSpace(Environment &env, Expression &exp, string parameters)}}]{\setlength{\rightskip}{0pt plus 5cm}void create\+Local\+Var\+Space (
@@ -99,11 +96,29 @@ Devuelve true si str es un parentesis, número, operación definida, variable de
 Crea un espacio de variables local. 
 
 \begin{DoxyPrecond}{Precondición}
-\textquotesingle{}env\textquotesingle{} es un entorno con variable primitivas previamente inicializadas, exp una expresion no vacia y parameters los paremtros a definir 
+\textquotesingle{}env\textquotesingle{} es un entorno con operaciones primitivas previamente inicializadas, \textquotesingle{}exp\textquotesingle{} una expresion no vacía y \textquotesingle{}parameters\textquotesingle{} los paremtros a definir 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
-
+Crea un espacio de variables inicializado con \textquotesingle{}parameters\textquotesingle{} como nombres de variables y los valores leídos en \textquotesingle{}exp\textquotesingle{} como los valores de dichas variables 
 \end{DoxyPostcond}
+
+
+Definición en la línea 28 del archivo Functions\+I\+O.\+cc.
+
+
+\begin{DoxyCode}
+29 \{
+30   \hyperlink{class_input}{Input} in;
+31   in << parameters;
+32   \textcolor{comment}{/* INV}
+33 \textcolor{comment}{    c\_it es un iterador a un elemento de la lista de expresiones de 'exp' comprendido entre exp.begin() y
+       exp.end()}
+34 \textcolor{comment}{  */}
+35   \textcolor{keywordflow}{for}(\hyperlink{_expression_8cc_a6ff59711533978050143f1bfb54c33b1}{const\_iter} c\_it = exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}(); c\_it != exp.\hyperlink{class_expression_af5229aaf6bbb7200db55f220f315192e}{end}(); ++c\_it) \{
+36     env.\hyperlink{class_environment_a6555e2858047d34b19261518e2ec47ce}{set\_var}(++in, *(*c\_it));
+37   \}
+38 \}
+\end{DoxyCode}
 \index{Functions\+I\+O.\+hh@{Functions\+I\+O.\+hh}!evaluate@{evaluate}}
 \index{evaluate@{evaluate}!Functions\+I\+O.\+hh@{Functions\+I\+O.\+hh}}
 \subsubsection[{\texorpdfstring{evaluate(\+Environment \&env, Expression \&exp)}{evaluate(Environment &env, Expression &exp)}}]{\setlength{\rightskip}{0pt plus 5cm}void evaluate (
@@ -114,20 +129,58 @@ Crea un espacio de variables local.
 )}\hypertarget{_functions_i_o_8hh_ad4d84fbc6c7e89fb6c14869a204e0913}{}\label{_functions_i_o_8hh_ad4d84fbc6c7e89fb6c14869a204e0913}
 
 
-Operación de separación de strings. 
+Operación de evaluación de expresión. 
 
 \begin{DoxyPrecond}{Precondición}
-{\itshape Cierto} 
+\textquotesingle{}env\textquotesingle{} es un entorno con operaciones primitivas previamente inicializadas; \textquotesingle{}exp\textquotesingle{} es una expresión a evaluar 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
-\textquotesingle{}str\textquotesingle{} es un string contenido entre espacios o paréntesis en la entrada que se ha leído\+Evalua la expresion exp y retorna su valor en exp
+Se evalua la expresion \textquotesingle{}exp\textquotesingle{} y se retorna en la misma variable el valor resultante, el cual puede ser un valor, una lista de expresiones o indefinido. 
 \end{DoxyPostcond}
-\begin{DoxyPrecond}{Precondición}
-\textquotesingle{}env\textquotesingle{} es un entorno con variable primitivas previamente inicializadas; \textquotesingle{}exp\textquotesingle{} es una expresión a evaluar. 
-\end{DoxyPrecond}
-\begin{DoxyPostcond}{Postcondición}
-Se evalua la expresion \textquotesingle{}exp\textquotesingle{} y se retorna en la misma variable el valor resultante, el cual puede ser\+: una lista de expresiones, un valor o indefinido. 
-\end{DoxyPostcond}
+
+
+Definición en la línea 40 del archivo Functions\+I\+O.\+cc.
+
+
+\begin{DoxyCode}
+41 \{
+42   \textcolor{keywordflow}{if}(exp.\hyperlink{class_expression_a422fb496720b177eaed37a9694613384}{is\_op}())\{
+43     \textcolor{keywordflow}{if}(env.\hyperlink{class_environment_a8949b818539cc0caae637f61f8271640}{is\_primitive}(exp.\hyperlink{class_expression_a9216cba5bbd3ffa8c3a625a66b91b36f}{get\_op}())) \{
+44       env.\hyperlink{class_environment_a15eff205405da84c7466ac8f1ea6a54c}{get\_prim}(exp.\hyperlink{class_expression_a9216cba5bbd3ffa8c3a625a66b91b36f}{get\_op}())(exp);
+45     \}
+46     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(env.\hyperlink{class_environment_a323ca63fc26be47fa45d14dd783761e1}{exists\_op}(exp.\hyperlink{class_expression_a9216cba5bbd3ffa8c3a625a66b91b36f}{get\_op}())) \{
+47       \textcolor{keywordtype}{string} parameters = env.\hyperlink{class_environment_a4d1630588a2868e2a3ae3868087dedf2}{get\_op}(exp.\hyperlink{class_expression_a9216cba5bbd3ffa8c3a625a66b91b36f}{get\_op}()).first;
+48       \textcolor{keywordtype}{string} express = env.\hyperlink{class_environment_a4d1630588a2868e2a3ae3868087dedf2}{get\_op}(exp.\hyperlink{class_expression_a9216cba5bbd3ffa8c3a625a66b91b36f}{get\_op}()).second;
+49       \hyperlink{class_environment}{Environment} lEnv(env);
+50       lEnv.erase\_varspace();
+51       \textcolor{keywordflow}{if}(exp.\hyperlink{class_expression_a0e8980139631cf7bc9fd3bca9d8caddc}{size}() == env.\hyperlink{class_environment_a22ef2de52498e9f0a7491c85e2148f83}{num\_pars\_op}(exp.\hyperlink{class_expression_a9216cba5bbd3ffa8c3a625a66b91b36f}{get\_op}()))\{
+52         \hyperlink{_functions_i_o_8cc_a77ed86fa2fad279d440800e10d0f4a9a}{createLocalVarSpace}(lEnv, exp, parameters);
+53         \hyperlink{class_input}{Input} in;
+54         in << express;
+55         ++in;
+56         exp.\hyperlink{class_expression_ab2e0ccb0146cccd559c39f8913f9585e}{clear}();
+57         \hyperlink{_functions_i_o_8cc_a0c2a0ba0f4fe2dfe26ec14053ce4d408}{readExpression}(lEnv, exp, in);
+58       \}
+59       \textcolor{keywordflow}{else} \{
+60         exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+61       \}
+62     \}
+63   \}
+64   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(exp.\hyperlink{class_expression_ae835c069faf7d6821fe6037e384f02c0}{is\_list}()) \{
+65     \hyperlink{_expression_8cc_a6ff59711533978050143f1bfb54c33b1}{const\_iter} c\_it = exp.\hyperlink{class_expression_a0ed7767d72f93c9121bb73afead5782a}{begin}();
+66     \textcolor{comment}{/* INV}
+67 \textcolor{comment}{      c\_it es un iterador a un elemento de la lista de expresiones de 'exp' comprendido entre exp.begin() y
+       exp.end()}
+68 \textcolor{comment}{    */}
+69     \textcolor{keywordflow}{while}(c\_it != exp.\hyperlink{class_expression_af5229aaf6bbb7200db55f220f315192e}{end}() and (*c\_it) -> is\_value()) \{
+70       ++c\_it;
+71     \}
+72     \textcolor{keywordflow}{if}(c\_it != exp.\hyperlink{class_expression_af5229aaf6bbb7200db55f220f315192e}{end}()) \{
+73       exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+74     \}
+75   \}
+76 \}
+\end{DoxyCode}
 \index{Functions\+I\+O.\+hh@{Functions\+I\+O.\+hh}!read\+List@{read\+List}}
 \index{read\+List@{read\+List}!Functions\+I\+O.\+hh@{Functions\+I\+O.\+hh}}
 \subsubsection[{\texorpdfstring{read\+List(\+Environment \&env, Expression \&exp, Input \&in)}{readList(Environment &env, Expression &exp, Input &in)}}]{\setlength{\rightskip}{0pt plus 5cm}void read\+List (
@@ -139,32 +192,43 @@ Se evalua la expresion \textquotesingle{}exp\textquotesingle{} y se retorna en l
 )}\hypertarget{_functions_i_o_8hh_aa35945b371ae9ece372fe0a7c8e97aee}{}\label{_functions_i_o_8hh_aa35945b371ae9ece372fe0a7c8e97aee}
 
 
-Lee una lista de expresiones y las añade a una lista de expresiones de exp. 
+Operación de lectura de lista de expresiones. 
 
 \begin{DoxyPrecond}{Precondición}
-\textquotesingle{}env\textquotesingle{} es un entorno con variable primitivas previamente inicializadas; \textquotesingle{}exp\textquotesingle{} es una expresión no vacia e input contiene los caracteres a añadir en la lista. 
+\textquotesingle{}env\textquotesingle{} es un entorno con operaciones primitivas previamente inicializadas; \textquotesingle{}exp\textquotesingle{} es una expresión no vacía e \textquotesingle{}in\textquotesingle{} contiene los caracteres a añadir en la lista 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
-Se crea una lista de expresiones en exp, si los valores a añadir son indefinidos, se modifica el valor de la expresion a indefinido. 
+Se crea una lista de expresiones en \textquotesingle{}exp\textquotesingle{}; si alguno de los valores a añadir es indefinidos, se modifica el valor de la expresión a indefinido 
 \end{DoxyPostcond}
-\index{Functions\+I\+O.\+hh@{Functions\+I\+O.\+hh}!check@{check}}
-\index{check@{check}!Functions\+I\+O.\+hh@{Functions\+I\+O.\+hh}}
-\subsubsection[{\texorpdfstring{check(\+Environment \&env, Input \&in)}{check(Environment &env, Input &in)}}]{\setlength{\rightskip}{0pt plus 5cm}bool check (
-\begin{DoxyParamCaption}
-\item[{{\bf Environment} \&}]{env, }
-\item[{{\bf Input} \&}]{in}
-\end{DoxyParamCaption}
-)}\hypertarget{_functions_i_o_8hh_a52044451543aacd73dad0b1bdfb9c0bd}{}\label{_functions_i_o_8hh_a52044451543aacd73dad0b1bdfb9c0bd}
 
 
-Comprueba que una cadena de caracteres sea valida. 
+Definición en la línea 78 del archivo Functions\+I\+O.\+cc.
 
-\begin{DoxyPrecond}{Precondición}
-\textquotesingle{}env\textquotesingle{} es un entorno con variable primitivas previamente inicializadas; \textquotesingle{}in\textquotesingle{} contiene una cadena de caracteres introducidas por el usuario por el canal estandar de entrada 
-\end{DoxyPrecond}
-\begin{DoxyPostcond}{Postcondición}
-Devuelve cierto si in es una cadena de caracteres valida con parentesis, números, operaciones definidas, variables definidas y/o primitvas, falso en caso contrario. 
-\end{DoxyPostcond}
+
+\begin{DoxyCode}
+79 \{
+80   \textcolor{keywordflow}{if}(in.\hyperlink{class_input_a1e3e0c2189a88504d8c5e440de162e77}{get\_str}() != \textcolor{stringliteral}{")"}) \{
+81     \hyperlink{class_expression}{Expression}* pExp;
+82     \textcolor{comment}{/* INV}
+83 \textcolor{comment}{      'pExp' es un puntero a una expresión a ser insertada al final de la lista de expresiones de 'exp'}
+84 \textcolor{comment}{    */}
+85     \textcolor{keywordflow}{do} \{
+86       pExp = \textcolor{keyword}{new} \hyperlink{class_expression}{Expression};
+87       \hyperlink{_functions_i_o_8cc_a0c2a0ba0f4fe2dfe26ec14053ce4d408}{readExpression}(env, *pExp, in);
+88       exp.\hyperlink{class_expression_a2f087974bb5cee7d0ea06838f5d68ba8}{insert}(exp.\hyperlink{class_expression_af5229aaf6bbb7200db55f220f315192e}{end}(), pExp);
+89     \} \textcolor{keywordflow}{while}(++in != \textcolor{stringliteral}{")"} and not pExp -> undefined());
+90     \textcolor{keywordflow}{if}(pExp -> undefined()) \{
+91       exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+92     \}
+93     \textcolor{keywordflow}{else} \{
+94       exp.\hyperlink{class_expression_a66db516be4fa87d58df4806938676508}{set\_list}();
+95     \}
+96   \}
+97   \textcolor{keywordflow}{else} \{
+98     exp.\hyperlink{class_expression_a1e0ff9e6ef7b9b96466300509decab24}{set\_empty\_list}();
+99   \}
+100 \}
+\end{DoxyCode}
 \index{Functions\+I\+O.\+hh@{Functions\+I\+O.\+hh}!read\+If@{read\+If}}
 \index{read\+If@{read\+If}!Functions\+I\+O.\+hh@{Functions\+I\+O.\+hh}}
 \subsubsection[{\texorpdfstring{read\+If(\+Environment \&env, Expression \&exp, Input \&in)}{readIf(Environment &env, Expression &exp, Input &in)}}]{\setlength{\rightskip}{0pt plus 5cm}void read\+If (
@@ -176,14 +240,48 @@ Devuelve cierto si in es una cadena de caracteres valida con parentesis, número
 )}\hypertarget{_functions_i_o_8hh_ae5d92549027ba3619eca48a15b567682}{}\label{_functions_i_o_8hh_ae5d92549027ba3619eca48a15b567682}
 
 
-Lee la operación if con sus expresiones. 
+Operación de lectura de operación \textquotesingle{}if\textquotesingle{}. 
 
 \begin{DoxyPrecond}{Precondición}
-\textquotesingle{}env\textquotesingle{} es un entorno con variable primitivas previamente inicializadas; exp es una expresion inicializada con el operador if, \textquotesingle{}in\textquotesingle{} contiene una cadena de caracteres introducidas por el usuario por el canal estandar de entrada 
+\textquotesingle{}env\textquotesingle{} es un entorno con operaciones primitivas previamente inicializadas; \textquotesingle{}exp\textquotesingle{} es una expresion inicializada con el operador \textquotesingle{}if\textquotesingle{}; \textquotesingle{}in\textquotesingle{} contiene una cadena de caracteres introducidas por el usuario por el canal estandar de entrada a ser introducidos como parámetros de la operación 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
-Se evalua la expresion exp y se retorna su resultado en la misma variable, su valor puede ser un valor una lista o indefinido. 
+\textquotesingle{}exp\textquotesingle{} pasa a contener el operador \textquotesingle{}if\textquotesingle{} y los parámetros que esta operación necesita (un booleano y otro elemento que varía en función del estado de booleano). En caso que alguno de los parámetros sea indefinido, \textquotesingle{}exp\textquotesingle{} pasa a ser indefinido 
 \end{DoxyPostcond}
+
+
+Definición en la línea 102 del archivo Functions\+I\+O.\+cc.
+
+
+\begin{DoxyCode}
+103 \{
+104   \textcolor{keywordtype}{string} str;
+105   \hyperlink{class_expression}{Expression}* pExp = \textcolor{keyword}{new} \hyperlink{class_expression}{Expression};
+106   \hyperlink{_functions_i_o_8cc_a0c2a0ba0f4fe2dfe26ec14053ce4d408}{readExpression}(env, *pExp, in);
+107   exp.\hyperlink{class_expression_a2f087974bb5cee7d0ea06838f5d68ba8}{insert}(exp.\hyperlink{class_expression_af5229aaf6bbb7200db55f220f315192e}{end}(), pExp);
+108   \textcolor{keywordflow}{if}(pExp -> is\_bool())\{
+109     \textcolor{keywordtype}{int} b = pExp -> get\_value();
+110     \textcolor{keywordflow}{if}(b == 0) \{
+111       in.\hyperlink{class_input_a1c8a389a2bccdcc8c6206c2fbdd6a9f8}{nextExpression}();
+112     \}
+113     \textcolor{keywordflow}{if}(in.\hyperlink{class_input_a61a5b6e5b3e5d7b3022cf93ee5320a1e}{get\_p}() > 0) \{
+114       ++in;
+115       pExp = \textcolor{keyword}{new} \hyperlink{class_expression}{Expression};
+116       \hyperlink{_functions_i_o_8cc_a0c2a0ba0f4fe2dfe26ec14053ce4d408}{readExpression}(env, *pExp, in);
+117       exp.\hyperlink{class_expression_a2f087974bb5cee7d0ea06838f5d68ba8}{insert}(exp.\hyperlink{class_expression_af5229aaf6bbb7200db55f220f315192e}{end}(), pExp);
+118       \textcolor{keywordflow}{if}(pExp -> undefined() or  (2 - b + in.\hyperlink{class_input_ac9f1e2e25646ce602cf9ff83dcc563fe}{countExpressions}() != 2)) \{
+119         exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+120       \}
+121     \}
+122     \textcolor{keywordflow}{else} \{
+123       exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+124     \}
+125   \}
+126   \textcolor{keywordflow}{else} \{
+127     exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+128   \}
+129 \}
+\end{DoxyCode}
 \index{Functions\+I\+O.\+hh@{Functions\+I\+O.\+hh}!read\+Op@{read\+Op}}
 \index{read\+Op@{read\+Op}!Functions\+I\+O.\+hh@{Functions\+I\+O.\+hh}}
 \subsubsection[{\texorpdfstring{read\+Op(\+Environment \&env, Expression \&exp, Input \&in)}{readOp(Environment &env, Expression &exp, Input &in)}}]{\setlength{\rightskip}{0pt plus 5cm}void read\+Op (
@@ -195,14 +293,38 @@ Se evalua la expresion exp y se retorna su resultado en la misma variable, su va
 )}\hypertarget{_functions_i_o_8hh_acb31c57a06915fe17eee64989f500f0d}{}\label{_functions_i_o_8hh_acb31c57a06915fe17eee64989f500f0d}
 
 
-Lee una operación primitiva o previamente definida por el usuario. 
+Operación de lectura de operación. 
 
 \begin{DoxyPrecond}{Precondición}
-\textquotesingle{}env\textquotesingle{} es un entorno con variable primitivas previamente inicializadas; exp es una expresion inicializada, \textquotesingle{}in\textquotesingle{} contiene una cadena de caracteres introducidas por el usuario por el canal estandar de entrada 
+\textquotesingle{}env\textquotesingle{} es un entorno con operaciones primitivas previamente inicializadas; \textquotesingle{}exp\textquotesingle{} es una expresion inicializada; \textquotesingle{}in\textquotesingle{} contiene una cadena de caracteres introducidos por el usuario por el canal estandar de entrada a ser introducidos como parámetros 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
-Se le asigna un operador op el cual esta en la variable in, a la expresion exp. 
+La expresión \textquotesingle{}exp\textquotesingle{} pasa a ser una expresión a ser evaluada en forma de operación, primitiva o no 
 \end{DoxyPostcond}
+
+
+Definición en la línea 131 del archivo Functions\+I\+O.\+cc.
+
+
+\begin{DoxyCode}
+132 \{
+133   exp.\hyperlink{class_expression_adffd3a10200510c64055e550e9eebb1f}{set\_op}(in.\hyperlink{class_input_a1e3e0c2189a88504d8c5e440de162e77}{get\_str}());
+134   ++in;
+135   \textcolor{keywordflow}{if}(exp.\hyperlink{class_expression_a9216cba5bbd3ffa8c3a625a66b91b36f}{get\_op}() == \textcolor{stringliteral}{"if"}) \{
+136     \hyperlink{_functions_i_o_8cc_ae5d92549027ba3619eca48a15b567682}{readIf}(env, exp, in);
+137   \}
+138   \textcolor{keywordflow}{else} \{
+139     \hyperlink{class_expression}{Expression} aux;
+140     \hyperlink{_functions_i_o_8cc_aa35945b371ae9ece372fe0a7c8e97aee}{readList}(env, aux, in);
+141     \textcolor{keywordflow}{if}(aux.\hyperlink{class_expression_a97f9b6fc78a7ef17dd9595e53a9b6239}{undefined}()) \{
+142       exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+143     \}
+144     \textcolor{keywordflow}{else} \{
+145       exp.\hyperlink{class_expression_a1668a7770489da5f57801254c35557ee}{swap\_list}(aux);
+146     \}
+147   \}
+148 \}
+\end{DoxyCode}
 \index{Functions\+I\+O.\+hh@{Functions\+I\+O.\+hh}!define\+Var@{define\+Var}}
 \index{define\+Var@{define\+Var}!Functions\+I\+O.\+hh@{Functions\+I\+O.\+hh}}
 \subsubsection[{\texorpdfstring{define\+Var(\+Environment \&env, string key, Input \&in)}{defineVar(Environment &env, string key, Input &in)}}]{\setlength{\rightskip}{0pt plus 5cm}void define\+Var (
@@ -214,14 +336,32 @@ Se le asigna un operador op el cual esta en la variable in, a la expresion exp.
 )}\hypertarget{_functions_i_o_8hh_a2b0504402167c389ef8c7de12d41149b}{}\label{_functions_i_o_8hh_a2b0504402167c389ef8c7de12d41149b}
 
 
-Define una variable introducida por el canal estandar de entrada. 
+Operación de definición de variable. 
 
 \begin{DoxyPrecond}{Precondición}
-env es un entorno con variable primitivas previamente inicializadas; key es el nombre de la variable a definir, \textquotesingle{}in\textquotesingle{} contiene una cadena de caracteres introducidas por el usuario por el canal estandar de entrada 
+\textquotesingle{}env\textquotesingle{} es un entorno con operaciones primitivas previamente inicializadas; \textquotesingle{}key\textquotesingle{} es el nombre de la variable a definir; \textquotesingle{}in\textquotesingle{} contiene una cadena de caracteres introducidos por el usuario por el canal estandar de entrada a ser introducidos como parámetros 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
-Se define una nueva variable con nombre \textquotesingle{}key\textquotesingle{} y el valor esta en la expresion introducida en \textquotesingle{}in\textquotesingle{} por el canal estandar de entrada, esta nueva variable se añade al entorno de environment. Si la evaluacion de la expresion para definir la nueva variable da indefinida, la variable quedara como indefinida. 
+Se define una nueva variable con nombre \textquotesingle{}key\textquotesingle{} y valor extraído de la entrada mediante \textquotesingle{}in\textquotesingle{}, o se modifica una variable ya existente; dicha variable se añade al espacio de variables definidas por el usuario si su evaluación no es indefinido y no existía previamente; en caso que existiera, si su evaluación no es indefinido, se actualiza su valor; en otro caso, su valor en el espacio de variables (si existía) no se ve modificado y se imprime indefinido por el canal estándar de salida 
 \end{DoxyPostcond}
+
+
+Definición en la línea 150 del archivo Functions\+I\+O.\+cc.
+
+
+\begin{DoxyCode}
+151 \{
+152   \hyperlink{class_expression}{Expression} exp;
+153   \hyperlink{_functions_i_o_8cc_a0c2a0ba0f4fe2dfe26ec14053ce4d408}{readExpression}(env, exp, in);
+154   \textcolor{keywordflow}{if}(not exp.\hyperlink{class_expression_a97f9b6fc78a7ef17dd9595e53a9b6239}{undefined}()) \{
+155     env.\hyperlink{class_environment_a6555e2858047d34b19261518e2ec47ce}{set\_var}(key, exp);
+156     env.\hyperlink{class_environment_a2fda411113f72e6e86176b8f00fcc9d7}{write\_var}(key);
+157   \}
+158   \textcolor{keywordflow}{else} \{
+159     cout << key << \textcolor{stringliteral}{" "} << \textcolor{stringliteral}{"indefinit"} << endl;
+160   \}
+161 \}
+\end{DoxyCode}
 \index{Functions\+I\+O.\+hh@{Functions\+I\+O.\+hh}!define\+Op@{define\+Op}}
 \index{define\+Op@{define\+Op}!Functions\+I\+O.\+hh@{Functions\+I\+O.\+hh}}
 \subsubsection[{\texorpdfstring{define\+Op(\+Environment \&env, string key, string parameters, Input \&in)}{defineOp(Environment &env, string key, string parameters, Input &in)}}]{\setlength{\rightskip}{0pt plus 5cm}void define\+Op (
@@ -234,14 +374,26 @@ Se define una nueva variable con nombre \textquotesingle{}key\textquotesingle{} 
 )}\hypertarget{_functions_i_o_8hh_a39e6424c2643bf6ddf2e5ff8a8c342e9}{}\label{_functions_i_o_8hh_a39e6424c2643bf6ddf2e5ff8a8c342e9}
 
 
-Define una operación introducida por el canal estandar de entrada. 
+Operación de definición de operación. 
 
 \begin{DoxyPrecond}{Precondición}
-env es un entorno con variable primitivas previamente inicializadas; key es el nombre de la operacion a definir, \textquotesingle{}in\textquotesingle{} contiene una cadena de caracteres introducidas por el usuario por el canal estandar de entrada, esta cadena contiene la expresión a evaluar. 
+\textquotesingle{}env\textquotesingle{} es un entorno con operaciones primitivas previamente inicializadas; \textquotesingle{}key\textquotesingle{} es el nombre de la operacion a definir; \textquotesingle{}parameters\textquotesingle{} es la lista de parámetros de la operación; \textquotesingle{}in\textquotesingle{} contiene una cadena de caracteres introducidas por el usuario por el canal estandar de entrada con la información relevante a la expresión de la operación 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
-Se define una nueva operación con nombre \textquotesingle{}key\textquotesingle{}, parametros \textquotesingle{}parameters\textquotesingle{} y como valor la cadena introducida por el canal estandar de entrada \textquotesingle{}in\textquotesingle{}, esta nueva operación se añadirá al entorno de environment. No se evalua la expresión al definir la operación, solo se evaluara al utilizar la operación. 
+Se define una nueva operación con nombre \textquotesingle{}key\textquotesingle{}, parametros \textquotesingle{}parameters\textquotesingle{} y como valor la cadena introducida por el canal estandar de entrada mediante \textquotesingle{}in\textquotesingle{}; esta nueva operación se añade al espacio de operaciones definidas por el usuario sin que su expresión sea evaluada previamente 
 \end{DoxyPostcond}
+
+
+Definición en la línea 163 del archivo Functions\+I\+O.\+cc.
+
+
+\begin{DoxyCode}
+164 \{
+165   --in;
+166   env.\hyperlink{class_environment_abcfe3cc83f17d704cc51efb2e6a4c3b8}{set\_op}(key, parameters, in.\hyperlink{class_input_a1c8a389a2bccdcc8c6206c2fbdd6a9f8}{nextExpression}());
+167   env.\hyperlink{class_environment_a6f449052df64c7f8bf44428835dc3d7b}{write\_op}(key);
+168 \}
+\end{DoxyCode}
 \index{Functions\+I\+O.\+hh@{Functions\+I\+O.\+hh}!define@{define}}
 \index{define@{define}!Functions\+I\+O.\+hh@{Functions\+I\+O.\+hh}}
 \subsubsection[{\texorpdfstring{define(\+Environment \&env, Input \&in)}{define(Environment &env, Input &in)}}]{\setlength{\rightskip}{0pt plus 5cm}void define (
@@ -252,14 +404,41 @@ Se define una nueva operación con nombre \textquotesingle{}key\textquotesingle{
 )}\hypertarget{_functions_i_o_8hh_a65f523a256e113ca2711c3972157df26}{}\label{_functions_i_o_8hh_a65f523a256e113ca2711c3972157df26}
 
 
-Interpreta si se definirá una variable u operación. 
+Operación de definición. 
 
 \begin{DoxyPrecond}{Precondición}
-\textquotesingle{}env\textquotesingle{} es un entorno con variable primitivas previamente inicializadas; \textquotesingle{}in\textquotesingle{} es una cadena con los valores a definir, puede ser la definicion de una variable o de una operación. 
+\textquotesingle{}env\textquotesingle{} es un entorno con operaciones primitivas previamente inicializadas; \textquotesingle{}in\textquotesingle{} contiene una cadena con la declaración de la definición 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
-Se ha creado una varible u operación. Si la expresion es correcta, si es indefinida se creara una exp con el valor indefinido. 
+Se ha creado una varible u operación definidas por el usuario en el espacio dentro del entorno del programa correspondiente, o se ha mostrado \textquotesingle{}indefinido\textquotesingle{} en el caso de una variable cuya evaluación sea \textquotesingle{}indefinido\textquotesingle{} 
 \end{DoxyPostcond}
+
+
+Definición en la línea 170 del archivo Functions\+I\+O.\+cc.
+
+
+\begin{DoxyCode}
+171 \{
+172   \textcolor{keywordtype}{string} key = ++in;
+173   \textcolor{keywordtype}{string} aux = in.\hyperlink{class_input_a1c8a389a2bccdcc8c6206c2fbdd6a9f8}{nextExpression}();
+174   ++in;
+175   \textcolor{keywordflow}{if}(in.\hyperlink{class_input_a61a5b6e5b3e5d7b3022cf93ee5320a1e}{get\_p}() == 0) \{
+176     in << aux;
+177     ++in;
+178     \hyperlink{_functions_i_o_8cc_a2b0504402167c389ef8c7de12d41149b}{defineVar}(env, key, in);
+179   \}
+180   \textcolor{keywordflow}{else}\{
+181     \textcolor{keywordflow}{if}(aux.size() < 4) \{
+182       aux.clear();
+183     \}
+184     \textcolor{keywordflow}{else} \{
+185       aux.erase(0, 2);
+186       aux.erase(aux.size()-2, 2);
+187     \}
+188     \hyperlink{_functions_i_o_8cc_a39e6424c2643bf6ddf2e5ff8a8c342e9}{defineOp}(env, key, aux, in);
+189   \}
+190 \}
+\end{DoxyCode}
 \index{Functions\+I\+O.\+hh@{Functions\+I\+O.\+hh}!read\+Expression@{read\+Expression}}
 \index{read\+Expression@{read\+Expression}!Functions\+I\+O.\+hh@{Functions\+I\+O.\+hh}}
 \subsubsection[{\texorpdfstring{read\+Expression(\+Environment \&env, Expression \&exp, Input \&in)}{readExpression(Environment &env, Expression &exp, Input &in)}}]{\setlength{\rightskip}{0pt plus 5cm}bool read\+Expression (
@@ -271,14 +450,47 @@ Se ha creado una varible u operación. Si la expresion es correcta, si es indefi
 )}\hypertarget{_functions_i_o_8hh_a0c2a0ba0f4fe2dfe26ec14053ce4d408}{}\label{_functions_i_o_8hh_a0c2a0ba0f4fe2dfe26ec14053ce4d408}
 
 
-Operación de lectura de expresiones. 
+Inmersión de operación de lectura de expresiones. 
 
 \begin{DoxyPrecond}{Precondición}
-\textquotesingle{}env\textquotesingle{} es un entorno con un espacio de operaciones primitivas inicializado con las operaciones primitivas predefinidas; \textquotesingle{}exp\textquotesingle{} es una expresión vacía. 
+\textquotesingle{}env\textquotesingle{} es un entorno con un espacio de operaciones primitivas inicializado con las operaciones primitivas predefinidas; \textquotesingle{}exp\textquotesingle{} es una expresión vacía 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
-Se han leído los datos del canal estándar de entrada y se han asignado a \textquotesingle{}env\textquotesingle{} si eran una definición de una variable u operación o a \textquotesingle{}exp\textquotesingle{} si representaban una expresión evaluable 
+Se han leído los datos del canal estándar de entrada correspondientes a una expresión simple (que forma o puede formar parte de otra expresión mayor) y se han asignado a \textquotesingle{}env\textquotesingle{} si eran una definición de una variable u operación o a \textquotesingle{}exp\textquotesingle{} si representaban una expresión evaluable 
 \end{DoxyPostcond}
+
+
+Definición en la línea 192 del archivo Functions\+I\+O.\+cc.
+
+
+\begin{DoxyCode}
+193 \{
+194   \textcolor{keywordtype}{string} str = in.\hyperlink{class_input_a1e3e0c2189a88504d8c5e440de162e77}{get\_str}();
+195   \textcolor{keywordflow}{if}(str == \textcolor{stringliteral}{"("}) \{
+196     in >> str;
+197     \textcolor{keywordflow}{if}(env.\hyperlink{class_environment_a18ebd27038386a636917cbb2bc1583df}{is\_op}(str)) \{
+198       \hyperlink{_functions_i_o_8cc_acb31c57a06915fe17eee64989f500f0d}{readOp}(env, exp, in);
+199     \}
+200     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(str == \textcolor{stringliteral}{"define"}) \{
+201       \hyperlink{_functions_i_o_8cc_a65f523a256e113ca2711c3972157df26}{define}(env, in);
+202     \}
+203     \textcolor{keywordflow}{else} \{
+204       \hyperlink{_functions_i_o_8cc_aa35945b371ae9ece372fe0a7c8e97aee}{readList}(env, exp, in);
+205     \}
+206   \}
+207   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{_functions_i_o_8cc_ae6062008fb1c70242c967349d6ee0f9b}{is\_num}(str))\{
+208     exp.\hyperlink{class_expression_a307683cc3735bf81d823931aab2d64e0}{set\_value}(stoi(str));
+209   \}
+210   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(env.\hyperlink{class_environment_ace3eae39aed1b747a18ab27e45dc96b7}{exists\_var}(str)) \{
+211     exp = env.\hyperlink{class_environment_a3f717bc3f94f76cfb8bc7ff139ffe89b}{get\_var}(str);
+212   \}
+213   \textcolor{keywordflow}{else} \{
+214     exp.\hyperlink{class_expression_a1d3ddfe83d20f47930792807e8b22248}{set\_undefined}();
+215   \}
+216   \hyperlink{_functions_i_o_8cc_ad4d84fbc6c7e89fb6c14869a204e0913}{evaluate}(env, exp);
+217   \textcolor{keywordflow}{return} str != \textcolor{stringliteral}{"define"};
+218 \}
+\end{DoxyCode}
 \index{Functions\+I\+O.\+hh@{Functions\+I\+O.\+hh}!read@{read}}
 \index{read@{read}!Functions\+I\+O.\+hh@{Functions\+I\+O.\+hh}}
 \subsubsection[{\texorpdfstring{read(\+Environment \&env, Expression \&exp)}{read(Environment &env, Expression &exp)}}]{\setlength{\rightskip}{0pt plus 5cm}bool read (
@@ -295,5 +507,21 @@ Operación de lectura de expresiones.
 \textquotesingle{}env\textquotesingle{} es un entorno con un espacio de operaciones primitivas inicializado con las operaciones primitivas predefinidas; \textquotesingle{}exp\textquotesingle{} es una expresión vacía 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondición}
-Se han leído los datos del canal estándar de entrada y se han asignado a \textquotesingle{}env\textquotesingle{} si eran una definición de una variable o operación o a \textquotesingle{}exp\textquotesingle{} si representaban una expresión evaluable 
+Los datos del canal estándar de entrada correspondientes una expresión completa han sido leídos y se han asignado a \textquotesingle{}env\textquotesingle{} si eran una definición de una variable o operación o a \textquotesingle{}exp\textquotesingle{} si representaban una expresión evaluable 
 \end{DoxyPostcond}
+
+
+Definición en la línea 220 del archivo Functions\+I\+O.\+cc.
+
+
+\begin{DoxyCode}
+221 \{
+222   \hyperlink{class_input}{Input} in;
+223   \textcolor{keywordtype}{string} str = ++in;
+224   \textcolor{keywordflow}{if}(str != \textcolor{stringliteral}{"****"} and \hyperlink{_functions_i_o_8cc_a0c2a0ba0f4fe2dfe26ec14053ce4d408}{readExpression}(env, exp, in))\{
+225     exp.\hyperlink{class_expression_a6d5d0fa496e3713c332c9f1edc269de5}{write}();
+226   \}
+227   in.\hyperlink{class_input_a326f5a9c81353747b9f525bb32dbc8df}{endOfExpression}();
+228   \textcolor{keywordflow}{return} str != \textcolor{stringliteral}{"****"};
+229 \}
+\end{DoxyCode}

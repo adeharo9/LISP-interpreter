@@ -1,0 +1,46 @@
+(define x 10)
+(define y 20)
+
+(define diff (x y) (+ x (- y)))
+(define * (x y) (if (= x 0) 0 (+ y (* (diff x 1) y))))
+
+(diff 943953745 8283748)
+(* 1000 1000)
+(% 543532233234 7)
+
+(define % (x y) (diff x (* y (/ x y))))
+
+(% 242441 85)
+
+(define / (x y) (if (< y x) (+ 1 (/ (diff x y) y)) (if (= x y) 1 0)))
+
+(% 24241 85)
+
+(define ^ (x y) (if (= y 0) 1 (* x (^ x (diff y 1)))))
+(define ! (x) (if (= x 1) 1 (* x (! (diff x 1)))))
+
+(^ 2 45)
+(! 8)
+(! 12)
+
+(define abs (x) (if (< x 0) (- x) x))
+
+(abs -0)
+(abs -345)
+(abs (- -4))
+
+(define count (x) (if (= x 0) 0 (+ 1 (count (/ x 10)))))
+
+(count 3742)
+
+(define l (123 453 65 7 7 112 21 34 4 1 23 3213 23 4 54 56 7 67 453441 23 233 45 6 5 43 2  45 67 8  876 543 2  3 45 67 89   87 654 32 ))
+
+(define length (l) (if (= l ()) 0 (+ 1 (length (tail l)))))
+(length (head l))
+(length l)
+(length (tail l))
+
+(define last (l) (if (= () (tail l)) (head l) (last (tail l))))
+
+(last l)
+****

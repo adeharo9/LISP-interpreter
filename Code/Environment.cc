@@ -10,10 +10,12 @@ typedef void (*primitiveOperation)(Expression&);
 
 //_______ CONSTRUCTORES
 
-Environment::Environment() {
+Environment::Environment()
+{
 }
 
-Environment::Environment(const Environment& env) {
+Environment::Environment(const Environment& env)
+{
 	primOpSpace = env.primOpSpace;
 	varSpace = env.varSpace;
 	opSpace = env.opSpace;
@@ -21,72 +23,88 @@ Environment::Environment(const Environment& env) {
 
 //_______ DESTRUCTORES
 
-Environment::~Environment() {
+Environment::~Environment()
+{
 }
 
 //_______ MODIFICADORES
 
-void Environment::set_var(string key, const Expression& exp) {
+void Environment::set_var(string key, const Expression& exp)
+{
 	varSpace.set(key, exp);
 }
 
-void Environment::set_op(string key, string parameters, string exp) {
+void Environment::set_op(string key, string parameters, string exp)
+{
 	opSpace.set(key, parameters, exp);
 }
 
-void Environment::erase_varspace() {
+void Environment::erase_varspace()
+{
 	varSpace.clear();
 }
 
 //_______ CONSULTORES
 
-bool Environment::is_primitive(string key) const {
+bool Environment::is_primitive(string key) const
+{
 	return primOpSpace.exists(key);
 }
 
-bool Environment::is_op(string key) const {
+bool Environment::is_op(string key) const
+{
 	return primOpSpace.exists(key) or opSpace.exists(key);
 }
 
-bool Environment::exists(string key) const {
+bool Environment::exists(string key) const
+{
 	return primOpSpace.exists(key) or varSpace.exists(key) or opSpace.exists(key);
 }
 
-bool Environment::exists_var(string key) const {
+bool Environment::exists_var(string key) const
+{
 	return varSpace.exists(key);
 }
 
-bool Environment::exists_op(string key) const {
+bool Environment::exists_op(string key) const
+{
 	return opSpace.exists(key);
 }
 
-primitiveOperation Environment::get_prim(string key) {
+primitiveOperation Environment::get_prim(string key)
+{
 	return primOpSpace.get(key);
 }
 
-Expression& Environment::get_var(string key) {
+Expression& Environment::get_var(string key)
+{
 	return varSpace.get(key);
 }
 
-pair<string, string> Environment::get_op(string key) {
+pair<string, string> Environment::get_op(string key)
+{
 	return opSpace.get(key);
 }
 
-int Environment::num_pars_op(string key) {
+int Environment::num_pars_op(string key)
+{
 	return opSpace.num_pars(key);
 }
 
 //_______ I/O
 
-void Environment::write() const {
+void Environment::write() const
+{
 	varSpace.write();
 	opSpace.write();
 }
 
-void Environment::write_var(string key) {
+void Environment::write_var(string key)
+{
 	varSpace.write_var(key);
 }
 
-void Environment::write_op(string key) {
+void Environment::write_op(string key)
+{
 	opSpace.write_op(key);
 }
