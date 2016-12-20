@@ -55,6 +55,7 @@ public:
 		Se ejecuta automáticamente al declarar un nuevo entorno
 		\pre <em>Cierto</em>
 		\post Crea un objeto con espacio de operaciones primitivas inicializado con las operaciones primitivas predefinidas, un espacio de variables vacío y un espacio de operaciones vacío
+		\coste Constante
 	*/
 	Environment();
 
@@ -62,6 +63,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post Crea un objeto copia de 'env'
+		\coste Logaritmica
 	*/
 	Environment(const Environment& env);
 
@@ -72,6 +74,7 @@ public:
 		Se ejecuta automáticamente al salir de un ámbito de visibilidad
 		\pre <em>Cierto</em>
 		\post Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad
+		\coste Constante
 	*/
 	~Environment();
 
@@ -81,6 +84,7 @@ public:
 
 		\pre 'key' es un string no vacío; 'key' no corresponde al nombre de ninguna de las operaciones primitivas predefinidas ni al nombre de ninguna de las operaciones definidas por el usuario; 'exp' no es una expresión indefinida
 		\post Se añade al espacio de variables del parámetro implícito la variable con nombre 'key' y expresión 'exp', o se actualiza su expresión a 'exp' si ya existía previamente
+		\coste Logaritmico
 	*/
 	void set_var(string key, const Expression& exp);
 
@@ -88,6 +92,7 @@ public:
 
 		\pre 'key' es un string no vacío; 'key' no corresponde al nombre de ninguna de las operaciones primitivas predefinidas ni al nombre de ninguna de las variables definidas por el usuario
 		\post Se añade al espacio de operaciones del parámetro implícito la operación con nombre 'key', parámetros 'parameters' y expresión 'exp', o se actualizan sus parámetros a 'parameters' y su expresión a 'exp' si ya existía previamente
+		\coste Logaritmico
 	*/
 	void set_op(string key, string parameters, string exp);
 
@@ -95,6 +100,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post El espacio de variables definidas por el usuario del parámetro implícito pasa a estar vacío
+		\coste Constante
 	*/
 	void erase_varspace();
 
@@ -104,6 +110,7 @@ public:
 
 		\pre 'key' es un string no vacío
 		\post Devuelve cierto si la operación de nombre 'key' es una operación primitiva contenida en el espacio de operaciones primitivas; en otro caso, devuelve falso
+		\coste Logaritmico
 	*/
 	bool is_primitive(string key) const;
 
@@ -111,6 +118,7 @@ public:
 
 		\pre 'key' es un string no vacío
 		\post Devuelve cierto si la operación de nombre 'key' es una operación contenida en el espacio de operaciones primitivas o en el espacio de operaciones definidas por el usuario; en otro caso, devuelve falso
+		\coste Logaritmico
 	*/
 	bool is_op(string key) const;
 
@@ -118,6 +126,7 @@ public:
 
     	\pre 'key' es un string no vacío
     	\post Devuelve cierto si el string 'key' es el nombre de alguna variable u operación de algún espacio (de operaciones primitivas, variables definidas por el usuario u operaciones definidas por el usuario) del parámetro implícito; en otro caso, devuelve falso
+    	\coste Logaritmico
     */
 	bool exists(string key) const;
 
@@ -125,6 +134,7 @@ public:
 
     	\pre 'key' es un string no vacío
     	\post Devuelve cierto si la variable con nombre 'key' existe en el espacio de variables del parámetro implícito; en otro caso, devuelve falso
+    	\coste Logaritmico
     */
 	bool exists_var(string key) const;
 
@@ -132,6 +142,7 @@ public:
 
     	\pre 'key' es un string no vacío
     	\post Devuelve cierto si la operación con nombre 'key' existe en el espacio de operaciones definidas por el usuario del parámetro implícito; en otro caso, devuelve falso
+    	\coste Logaritmico
     */
 	bool exists_op(string key) const;
 
@@ -139,6 +150,7 @@ public:
 
     	\pre 'key' es un string no vacío; el espacio de operaciones primitivas del parámetro implícito contiene una operación primitiva con nombre 'key'
     	\post Devuelve la operación primitiva de nombre 'key'
+    	\coste Logaritmico
     */
 	primitiveOperation get_prim(string key);
 
@@ -146,6 +158,7 @@ public:
 
     	\pre 'key' es un string no vacío; el espacio de variables del parámetro implícito contiene una variable con nombre 'key'
     	\post Devuelve un alias de la expresión representada por la variable de nombre 'key'
+    	\coste Logaritmico
     */
 	Expression& get_var(string key);
 
@@ -153,6 +166,7 @@ public:
 
     	\pre 'key' es un string no vacío; el espacio de operaciones del parámetro implícito contiene una operación con nombre 'key'
     	\post Devuelve los parámetros y la expresión, respectivamente en forma de pair, de la operación de nombre 'key'
+    	\coste Logaritmico
     */
 	pair<string, string> get_op(string key);
 
@@ -160,6 +174,7 @@ public:
 
     	\pre 'key' es un string no vacío; el espacio de operaciones definidas por el usuario del parámetro implícito contiene una operación con nombre 'key'
     	\post Devuelve el número de parámetros de entrada de la operación de nombre 'key'
+    	\coste Logaritmico
     */
 	int num_pars_op(string key);
 
@@ -169,6 +184,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post Se ha escrito el contenido del espacio de variables y del espacio de operaciones por el canal estándar de salida, si lo tenían
+		\coste Lineal respecto al número de parametros en el parametro implicito
 	*/
 	void write() const;
 
@@ -176,6 +192,7 @@ public:
 
 		\pre 'key' es un string no vacío; el espacio de variables del parámetro implícito contiene una variable de nombre 'key'
 		\post Se ha escrito el contenido de la variable de nombre 'key' por el canal estándar de salida
+		\coste Logaritmico
 	*/
 	void write_var(string key);
 
@@ -183,6 +200,7 @@ public:
 
 		\pre 'key' es un string no vacío; el espacio de operaciones del parámetro implícito contiene una operación de nombre 'key'
 		\post Se ha escrito el contenido de la operación de nombre 'key' por el canal estándar de salida
+		\coste Logaritmico
 	*/
 	void write_op(string key);
 

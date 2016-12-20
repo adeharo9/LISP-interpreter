@@ -47,6 +47,7 @@ public:
 		Se ejecuta automáticamente al declarar un nuevo espacio de variables
 		\pre <em>Cierto</em>
 		\post Crea un objeto vacío
+		\coste Constante
 	*/
 	Input();
 
@@ -57,6 +58,7 @@ public:
 		Se ejecuta automáticamente al salir de un ámbito de visibilidad
 		\pre <em>Cierto</em>
 		\post Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad
+		\coste Constante
 	*/
 	~Input();
 
@@ -66,6 +68,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post Se ha actualizado el texto de tratamiento inmediato, así como el buffer de entrada y el contador de paréntesis
+		\coste Constante
 	*/
 	string& operator ++ ();
 
@@ -73,6 +76,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post El buffer de entrada pasa a contener el texto de tratamiento inmediato a su inicio, y el contador de paréntesis se ha actualizado convenientemente; el texto de tratamiento inmediato pasa a estar vacío
+		\coste Constante
 	*/
 	void operator -- ();
 
@@ -80,6 +84,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post Se ha actualizado el texto de tratamiento inmediato, así como el buffer de entrada y el contador de paréntesis; 'str' es igual al texto de tratamiento inmediato
+		\coste Constante
 	*/
 	string& operator >> (string& str);
 
@@ -87,6 +92,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post El buffer del parámetro implícito pasa a ser 'buff'
+		\coste Constante
 	*/
 	void operator << (string buff);
 
@@ -96,6 +102,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post Se ha actualizado el texto de tratamiento inmediato, así como el buffer de entrada y el contador de paréntesis
+		\coste Puede ser ineal o constante dependiendo del caso
 	*/
 	string& next();
 
@@ -103,6 +110,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post El buffer de entrada pasa a contener el texto de tratamiento inmediato a su inicio, y el contador de paréntesis se ha actualizado convenientemente; el texto de tratamiento inmediato pasa a estar vacío
+		\coste Constante
 	*/
 	void previous();
 
@@ -110,6 +118,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post Procesa toda la entrada correspondiente a una expresión y prepara la entrada para leer lo que hay después de la misma; devuelve la expresión que acaba de procesar como un string
+		\coste Lineal
 	*/
 	string nextExpression();
 
@@ -117,6 +126,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post Ignora toda entrada situada antes del final de la expresión y prepara la entrada para leer lo que hay después de la misma
+		\coste Cuadratica
 	*/
 	void endOfExpression();
 
@@ -124,6 +134,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post Devuelve el número de expresiones que hay contenidas en el buffer de entrada
+		\coste Exponencial de orden 3
 	*/
 	int countExpressions();
 
@@ -133,6 +144,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post Devuelve la cantidad de paréntesis que se encuentran abiertos en un momento determinado de la lectura de entrada 
+		\coste Constante
 	*/
 	int get_p() const;
 
@@ -140,6 +152,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post Devuelve el contenido del buffer de entrada
+		\coste Constante
 	*/
 	string get_buff() const;
 
@@ -147,6 +160,7 @@ public:
 
 		\pre <em>Cierto</em>
 		\post Devuelve el contenido del texto de tratamiento inmediato
+		\coste Constante
 	*/
 	string get_str() const;
 
