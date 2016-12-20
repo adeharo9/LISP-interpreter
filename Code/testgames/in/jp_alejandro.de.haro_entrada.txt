@@ -19,10 +19,12 @@ z
 (define z () 15)
 z
 (z)
+(define ax (z))
 
 (+ 1 z)
 (+ 1 (z))
-(+ head (z))
+(head (z))
+(head ((z)))
 ((z))
 
 (diff 943953745 8283748)

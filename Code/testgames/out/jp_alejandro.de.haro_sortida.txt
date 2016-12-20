@@ -14,11 +14,12 @@ indefinit
 z #0
 indefinit
 15
+ax 15
 indefinit
 16
 indefinit
+15
 (15)
-indefinit
 935669997
 1000000
 indefinit
@@ -53,6 +54,7 @@ fibonacci #1
 17711
 indefinit
 Variables:
+ax 15
 l (123 453 65 7 7 112 21 34 4 1 23 3213 23 4 54 56 7 67 453441 23 233 45 6 5 43 2 45 67 8 876 543 2 3 45 67 89 87 654 32)
 x 10
 y 20
