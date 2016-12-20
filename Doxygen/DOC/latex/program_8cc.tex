@@ -46,9 +46,12 @@ Definición en la línea 26 del archivo program.\+cc.
 26            \{
 27     \hyperlink{class_environment}{Environment} env;
 28     \hyperlink{class_expression}{Expression} exp;
-29     \textcolor{keywordflow}{while}(\hyperlink{_functions_i_o_8hh_a10264ecdb3196a71243b69fd4f98c229}{read}(env, exp)) \{
-30         exp.\hyperlink{class_expression_ab2e0ccb0146cccd559c39f8913f9585e}{clear}();
-31     \}
-32     env.\hyperlink{class_environment_ae219751d8017a3ca66b11b74fd45cf9c}{write}();
-33 \}
+29     \textcolor{comment}{/* INV}
+30 \textcolor{comment}{        'exp' es una expresión vacía al inicio de cada iteración}
+31 \textcolor{comment}{    */}
+32     \textcolor{keywordflow}{while}(\hyperlink{_functions_i_o_8hh_a10264ecdb3196a71243b69fd4f98c229}{read}(env, exp)) \{
+33         exp.\hyperlink{class_expression_ab2e0ccb0146cccd559c39f8913f9585e}{clear}();
+34     \}
+35     env.\hyperlink{class_environment_ae219751d8017a3ca66b11b74fd45cf9c}{write}();
+36 \}
 \end{DoxyCode}

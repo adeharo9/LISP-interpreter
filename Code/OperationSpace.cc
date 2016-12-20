@@ -9,7 +9,7 @@ using namespace std;
 int OperationSpace::count_vars(string parameters) {
 	int c = not parameters.empty();
 	/* INVARIANTE
-		c es el número de parámetros que hay contenidos en el string 'parameters' en el rango [0...i]
+		c es el número de parámetros que hay contenidos en el string 'parameters' en el rango de posiciones [0...i]
 	*/
 	for(int i = 1; i < parameters.size(); ++i) {
 		if(parameters[i] == ' ') {
@@ -64,7 +64,7 @@ void OperationSpace::write() const {
 	cout << "Operacions:" << endl;
 	map<string, definition>::const_iterator c_it = opMap.begin();
 	/* INVARIANTE
-		opMap.begin() <= c_it < opMap.end()
+		c_it es un iterador a un elemento del mapa de operaciones definidas por el usuario del parámetro implícito comprendido entre opMap.begin() y opMap.end()
 	*/
 	while(c_it != opMap.end()) {
 		cout << c_it -> first << " #" << c_it -> second.n_parameters << endl;

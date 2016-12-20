@@ -39,6 +39,9 @@ void Input::operator << (string buff) {
 string& Input::next() {
 	if(buff.empty()) {
 		cin >> buff;
+		/* HI
+			next() procesa el siguiente elemento de entrada, colocando la parte que debe ser tratada inmediatamente en 'str' y dejando el resto para su tratamiento posterior en 'buff', manteniendo el contador de paréntesis correctamente actualizado
+		*/
 		next();
 	}
 	else if(buff[0] == '(') {
@@ -87,7 +90,7 @@ string Input::nextExpression() {
 	int aux = p;
 	string auxStr = next();
 	/* INVARIANTE
-		'auxStr' es la porción de entrada leída desde la condición inicial p = aux hasta el estado actual de p
+		'auxStr' es la porción de entrada leída desde la condición inicial p = aux hasta el estado actual de 'p'
 	*/
 	while(p > aux) {
 		auxStr += ' ' + next();
@@ -109,7 +112,7 @@ int Input::countExpressions() {
 	int aux = p;
 	next();
 	/* INVARIANTE
-		c es la cantidad de expresiones que hay contenidas en la entrada desde p = aux hasta la iteración actual
+		'c' es la cantidad de expresiones que hay contenidas en la entrada desde p = aux hasta la iteración actual
 	*/
 	while(str != ")") {
 		if(str != "(") {
@@ -117,7 +120,7 @@ int Input::countExpressions() {
 		}
 		else {
 			/* INVARIANTE
-				p >= aux
+				'p' es el número de paréntesis abiertos que quedan por cerrar en el momento de la lectura de entrada mediante el método next()
 			*/
 			do {
 				next();

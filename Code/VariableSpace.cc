@@ -49,7 +49,7 @@ void VariableSpace::write() const {
 	cout << "Variables:" << endl;
 	map<string, Expression>::const_iterator c_it = varMap.begin();
 	/* INVARIANTE
-		varMap.begin() <= c_it < varMap.end()
+		c_it es un iterador a un elemento del mapa de variables definidas por el usuario del parámetro implícito comprendido entre varMap.begin() y varMap.end()
 	*/
 	while(c_it != varMap.end()) {
 		cout << c_it -> first << " ";
