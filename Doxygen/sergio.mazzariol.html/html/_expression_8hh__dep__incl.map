@@ -1,7 +1,0 @@
-<map id="Expression.hh" name="Expression.hh">
-<area shape="rect" id="node2" href="$_environment_8hh.html" title="Especificación de la clase Environment. " alt="" coords="71,155,185,181"/>
-<area shape="rect" id="node3" href="$_functions_i_o_8hh.html" title="Especificación de las operaciones de lectura/escritura de expresiones. " alt="" coords="26,229,137,256"/>
-<area shape="rect" id="node4" href="$main_8cc.html" title="Programa principal para la calculadora de expresiones aritméticas. " alt="" coords="141,304,209,331"/>
-<area shape="rect" id="node5" href="$_primitive_operation_space_8hh.html" title="Especificación de la clase PrimitiveOperationSpace. " alt="" coords="36,80,220,107"/>
-<area shape="rect" id="node6" href="$_variable_space_8hh.html" title="Especificación de la clase VariableSpace. " alt="" coords="245,80,369,107"/>
-</map>
