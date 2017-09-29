@@ -1,0 +1,263 @@
+\hypertarget{class_operation_space}{}\section{Referencia de la Clase Operation\+Space}
+\label{class_operation_space}\index{Operation\+Space@{Operation\+Space}}
+
+
+Representa un espacio de operaciones definidas por el usuario en forma de mapa de variables.  
+
+
+
+
+{\ttfamily \#include $<$Operation\+Space.\+hh$>$}
+
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_operation_space_a7e3b8f0bede707cc77038ace8152d00f}{Operation\+Space} ()
+\begin{DoxyCompactList}\small\item\em Constructora por defecto. \end{DoxyCompactList}\item 
+\hyperlink{class_operation_space_ad19304f11edf1937b8f9a75957cd3340}{Operation\+Space} (string key, string parameters, string exp)
+\begin{DoxyCompactList}\small\item\em Constructora con valor de inicialización. \end{DoxyCompactList}\item 
+\hyperlink{class_operation_space_ab9bfa4eb9ba0e11fd6d8237464d03ebc}{Operation\+Space} (const \hyperlink{class_operation_space}{Operation\+Space} \&op\+Space)
+\begin{DoxyCompactList}\small\item\em Constructora por copia. \end{DoxyCompactList}\item 
+\hyperlink{class_operation_space_a5312b628b76702ca0fb82eb925b9999d}{$\sim$\+Operation\+Space} ()
+\begin{DoxyCompactList}\small\item\em Destructora por defecto. \end{DoxyCompactList}\item 
+void \hyperlink{class_operation_space_a9892f828928c1541a61f7d04b2d0187a}{add} (string key, string parameters, string exp)
+\begin{DoxyCompactList}\small\item\em Modificadora por adición de operación. \end{DoxyCompactList}\item 
+void \hyperlink{class_operation_space_a667ee210b029e32ce7e4ab1139a54087}{update} (string key, string parameters, string exp)
+\begin{DoxyCompactList}\small\item\em Modificadora por actualización de operación. \end{DoxyCompactList}\item 
+bool \hyperlink{class_operation_space_abdb93147a79f23d909c896a339371e00}{empty} () const 
+\begin{DoxyCompactList}\small\item\em Consultora de mapa vacío. \end{DoxyCompactList}\item 
+bool \hyperlink{class_operation_space_a860a20e7ef047fe60690deb1c155e68a}{exists} (string key) const 
+\begin{DoxyCompactList}\small\item\em Consultora de existencia de operación. \end{DoxyCompactList}\item 
+pair$<$ string, string $>$ \hyperlink{class_operation_space_af2bcc0acd07952fa40e2cce5dec8c235}{get} (string key)
+\begin{DoxyCompactList}\small\item\em Consultora de recuperación de operación. \end{DoxyCompactList}\item 
+int \hyperlink{class_operation_space_a21c12c42dc3204e985a5bbe53ef17c4b}{num\+\_\+pars} (string key)
+\begin{DoxyCompactList}\small\item\em Consultora de número de parámetros. \end{DoxyCompactList}\item 
+void \hyperlink{class_operation_space_a20984ed564af09da9402980310f538c9}{write} () const 
+\begin{DoxyCompactList}\small\item\em Operación de escritura de todo el espacio de operaciones. \end{DoxyCompactList}\item 
+void \hyperlink{class_operation_space_af671c739e788c44d4af703d4e0fd2284}{write\+\_\+op} (string key)
+\begin{DoxyCompactList}\small\item\em Operación de escritura de una operación concreta. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Representa un espacio de operaciones definidas por el usuario en forma de mapa de variables. 
+
+\subsection{Documentación del constructor y destructor}
+\index{Operation\+Space@{Operation\+Space}!Operation\+Space@{Operation\+Space}}
+\index{Operation\+Space@{Operation\+Space}!Operation\+Space@{Operation\+Space}}
+\subsubsection[{\texorpdfstring{Operation\+Space()}{OperationSpace()}}]{\setlength{\rightskip}{0pt plus 5cm}Operation\+Space\+::\+Operation\+Space (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_operation_space_a7e3b8f0bede707cc77038ace8152d00f}{}\label{class_operation_space_a7e3b8f0bede707cc77038ace8152d00f}
+
+
+Constructora por defecto. 
+
+Se ejecuta automáticamente al declarar un nuevo espacio de operaciones \begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Crea un objeto con mapa de operaciones \textquotesingle{}op\+Map\textquotesingle{} vacío 
+\end{DoxyPostcond}
+\index{Operation\+Space@{Operation\+Space}!Operation\+Space@{Operation\+Space}}
+\index{Operation\+Space@{Operation\+Space}!Operation\+Space@{Operation\+Space}}
+\subsubsection[{\texorpdfstring{Operation\+Space(string key, string parameters, string exp)}{OperationSpace(string key, string parameters, string exp)}}]{\setlength{\rightskip}{0pt plus 5cm}Operation\+Space\+::\+Operation\+Space (
+\begin{DoxyParamCaption}
+\item[{string}]{key, }
+\item[{string}]{parameters, }
+\item[{string}]{exp}
+\end{DoxyParamCaption}
+)}\hypertarget{class_operation_space_ad19304f11edf1937b8f9a75957cd3340}{}\label{class_operation_space_ad19304f11edf1937b8f9a75957cd3340}
+
+
+Constructora con valor de inicialización. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}key\textquotesingle{} es un string no vacío; \textquotesingle{}exp\textquotesingle{} es un string no vacío; \textquotesingle{}key\textquotesingle{} no corresponde al nombre de ninguna de las operaciones primitivas 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Crea un objeto con mapa de operaciones \textquotesingle{}op\+Map\textquotesingle{} inicializado con la operación de clave \textquotesingle{}key\textquotesingle{}, parámetros \textquotesingle{}parameters\textquotesingle{} y expresión \textquotesingle{}exp\textquotesingle{} 
+\end{DoxyPostcond}
+\index{Operation\+Space@{Operation\+Space}!Operation\+Space@{Operation\+Space}}
+\index{Operation\+Space@{Operation\+Space}!Operation\+Space@{Operation\+Space}}
+\subsubsection[{\texorpdfstring{Operation\+Space(const Operation\+Space \&op\+Space)}{OperationSpace(const OperationSpace &opSpace)}}]{\setlength{\rightskip}{0pt plus 5cm}Operation\+Space\+::\+Operation\+Space (
+\begin{DoxyParamCaption}
+\item[{const {\bf Operation\+Space} \&}]{op\+Space}
+\end{DoxyParamCaption}
+)}\hypertarget{class_operation_space_ab9bfa4eb9ba0e11fd6d8237464d03ebc}{}\label{class_operation_space_ab9bfa4eb9ba0e11fd6d8237464d03ebc}
+
+
+Constructora por copia. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Crea un objeto copia de \textquotesingle{}op\+Space\textquotesingle{} 
+\end{DoxyPostcond}
+\index{Operation\+Space@{Operation\+Space}!````~Operation\+Space@{$\sim$\+Operation\+Space}}
+\index{````~Operation\+Space@{$\sim$\+Operation\+Space}!Operation\+Space@{Operation\+Space}}
+\subsubsection[{\texorpdfstring{$\sim$\+Operation\+Space()}{~OperationSpace()}}]{\setlength{\rightskip}{0pt plus 5cm}Operation\+Space\+::$\sim$\+Operation\+Space (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_operation_space_a5312b628b76702ca0fb82eb925b9999d}{}\label{class_operation_space_a5312b628b76702ca0fb82eb925b9999d}
+
+
+Destructora por defecto. 
+
+Se ejecuta automáticamente al salir de un ámbito de visibilidad \begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Libera los recursos locales del parámetro implícito al salir de un ámbito de visibilidad 
+\end{DoxyPostcond}
+
+
+\subsection{Documentación de las funciones miembro}
+\index{Operation\+Space@{Operation\+Space}!add@{add}}
+\index{add@{add}!Operation\+Space@{Operation\+Space}}
+\subsubsection[{\texorpdfstring{add(string key, string parameters, string exp)}{add(string key, string parameters, string exp)}}]{\setlength{\rightskip}{0pt plus 5cm}void Operation\+Space\+::add (
+\begin{DoxyParamCaption}
+\item[{string}]{key, }
+\item[{string}]{parameters, }
+\item[{string}]{exp}
+\end{DoxyParamCaption}
+)}\hypertarget{class_operation_space_a9892f828928c1541a61f7d04b2d0187a}{}\label{class_operation_space_a9892f828928c1541a61f7d04b2d0187a}
+
+
+Modificadora por adición de operación. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}key\textquotesingle{} es un string no vacío; \textquotesingle{}key\textquotesingle{} no corresponde al nombre de ninguna de las operaciones primitivas; el mapa de operaciones \textquotesingle{}op\+Map\textquotesingle{} del parámetro implícito no contiene ninguna operación con clave \textquotesingle{}key\textquotesingle{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se añade al mapa de operaciones \textquotesingle{}op\+Map\textquotesingle{} del parámetro implícito la operacion con clave \textquotesingle{}key\textquotesingle{}, parámetros \textquotesingle{}parameters\textquotesingle{} y expresión \textquotesingle{}exp\textquotesingle{} 
+\end{DoxyPostcond}
+\index{Operation\+Space@{Operation\+Space}!empty@{empty}}
+\index{empty@{empty}!Operation\+Space@{Operation\+Space}}
+\subsubsection[{\texorpdfstring{empty() const }{empty() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Operation\+Space\+::empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_operation_space_abdb93147a79f23d909c896a339371e00}{}\label{class_operation_space_abdb93147a79f23d909c896a339371e00}
+
+
+Consultora de mapa vacío. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve cierto si el mapa de operaciones \textquotesingle{}op\+Map\textquotesingle{} está vacío 
+\end{DoxyPostcond}
+\index{Operation\+Space@{Operation\+Space}!exists@{exists}}
+\index{exists@{exists}!Operation\+Space@{Operation\+Space}}
+\subsubsection[{\texorpdfstring{exists(string key) const }{exists(string key) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Operation\+Space\+::exists (
+\begin{DoxyParamCaption}
+\item[{string}]{key}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_operation_space_a860a20e7ef047fe60690deb1c155e68a}{}\label{class_operation_space_a860a20e7ef047fe60690deb1c155e68a}
+
+
+Consultora de existencia de operación. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}key\textquotesingle{} es un string no vacío 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve cierto si la operación con clave \textquotesingle{}key\textquotesingle{} existe en el mapa de operaciones \textquotesingle{}op\+Map\textquotesingle{} del parámetro implícito; en otro caso, devuelve falso 
+\end{DoxyPostcond}
+\index{Operation\+Space@{Operation\+Space}!get@{get}}
+\index{get@{get}!Operation\+Space@{Operation\+Space}}
+\subsubsection[{\texorpdfstring{get(string key)}{get(string key)}}]{\setlength{\rightskip}{0pt plus 5cm}pair$<$ string, string $>$ Operation\+Space\+::get (
+\begin{DoxyParamCaption}
+\item[{string}]{key}
+\end{DoxyParamCaption}
+)}\hypertarget{class_operation_space_af2bcc0acd07952fa40e2cce5dec8c235}{}\label{class_operation_space_af2bcc0acd07952fa40e2cce5dec8c235}
+
+
+Consultora de recuperación de operación. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}key\textquotesingle{} es un string no vacío; el mapa de operaciones \textquotesingle{}op\+Map\textquotesingle{} del parámetro implícito contiene una operación con clave \textquotesingle{}key\textquotesingle{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve los parámetros y la expresión, respectivamente, en forma de pair, de la operación representada por la clave \textquotesingle{}key\textquotesingle{} 
+\end{DoxyPostcond}
+\index{Operation\+Space@{Operation\+Space}!num\+\_\+pars@{num\+\_\+pars}}
+\index{num\+\_\+pars@{num\+\_\+pars}!Operation\+Space@{Operation\+Space}}
+\subsubsection[{\texorpdfstring{num\+\_\+pars(string key)}{num_pars(string key)}}]{\setlength{\rightskip}{0pt plus 5cm}int Operation\+Space\+::num\+\_\+pars (
+\begin{DoxyParamCaption}
+\item[{string}]{key}
+\end{DoxyParamCaption}
+)}\hypertarget{class_operation_space_a21c12c42dc3204e985a5bbe53ef17c4b}{}\label{class_operation_space_a21c12c42dc3204e985a5bbe53ef17c4b}
+
+
+Consultora de número de parámetros. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}key\textquotesingle{} es un string no vacío; el mapa de operaciones \textquotesingle{}op\+Map\textquotesingle{} del parámetro implícito contiene una operación con clave \textquotesingle{}key\textquotesingle{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve el número de parámetros de la operación representada por la clave \textquotesingle{}key\textquotesingle{} 
+\end{DoxyPostcond}
+\index{Operation\+Space@{Operation\+Space}!update@{update}}
+\index{update@{update}!Operation\+Space@{Operation\+Space}}
+\subsubsection[{\texorpdfstring{update(string key, string parameters, string exp)}{update(string key, string parameters, string exp)}}]{\setlength{\rightskip}{0pt plus 5cm}void Operation\+Space\+::update (
+\begin{DoxyParamCaption}
+\item[{string}]{key, }
+\item[{string}]{parameters, }
+\item[{string}]{exp}
+\end{DoxyParamCaption}
+)}\hypertarget{class_operation_space_a667ee210b029e32ce7e4ab1139a54087}{}\label{class_operation_space_a667ee210b029e32ce7e4ab1139a54087}
+
+
+Modificadora por actualización de operación. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}key\textquotesingle{} es un string no vacío; \textquotesingle{}key\textquotesingle{} no corresponde al nombre de ninguna de las operaciones primitivas; el mapa de operaciones \textquotesingle{}op\+Map\textquotesingle{} del parámetro implícito contiene una operación con clave \textquotesingle{}key\textquotesingle{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Los parámetros y la expresión de la operación con clave \textquotesingle{}key\textquotesingle{} en el mapa de operaciones \textquotesingle{}op\+Map\textquotesingle{} del parámetro implícito pasan a ser \textquotesingle{}parameters\textquotesingle{} y \textquotesingle{}exp\textquotesingle{}, respectivamente 
+\end{DoxyPostcond}
+\index{Operation\+Space@{Operation\+Space}!write@{write}}
+\index{write@{write}!Operation\+Space@{Operation\+Space}}
+\subsubsection[{\texorpdfstring{write() const }{write() const }}]{\setlength{\rightskip}{0pt plus 5cm}void Operation\+Space\+::write (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_operation_space_a20984ed564af09da9402980310f538c9}{}\label{class_operation_space_a20984ed564af09da9402980310f538c9}
+
+
+Operación de escritura de todo el espacio de operaciones. 
+
+\begin{DoxyPrecond}{Precondición}
+El mapa de operaciones \textquotesingle{}op\+Map\textquotesingle{} del parámetro implícito no está vacío 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se ha escrito el contenido del mapa de operaciones \textquotesingle{}op\+Map\textquotesingle{} del parámetro implícito por el canal estándar de salida 
+\end{DoxyPostcond}
+\index{Operation\+Space@{Operation\+Space}!write\+\_\+op@{write\+\_\+op}}
+\index{write\+\_\+op@{write\+\_\+op}!Operation\+Space@{Operation\+Space}}
+\subsubsection[{\texorpdfstring{write\+\_\+op(string key)}{write_op(string key)}}]{\setlength{\rightskip}{0pt plus 5cm}void Operation\+Space\+::write\+\_\+op (
+\begin{DoxyParamCaption}
+\item[{string}]{key}
+\end{DoxyParamCaption}
+)}\hypertarget{class_operation_space_af671c739e788c44d4af703d4e0fd2284}{}\label{class_operation_space_af671c739e788c44d4af703d4e0fd2284}
+
+
+Operación de escritura de una operación concreta. 
+
+\begin{DoxyPrecond}{Precondición}
+\textquotesingle{}key\textquotesingle{} es un string no vacío; el mapa de operaciones \textquotesingle{}op\+Map\textquotesingle{} del parámetro implícito contiene una operación con clave \textquotesingle{}key\textquotesingle{} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se ha escrito el contenido de la operación con clave \textquotesingle{}key\textquotesingle{} por el canal estándar de salida 
+\end{DoxyPostcond}
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_operation_space_8hh}{Operation\+Space.\+hh}\item 
+Operation\+Space.\+cc\end{DoxyCompactItemize}
